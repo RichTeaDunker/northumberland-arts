@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hadrian's Wall — From Wallsend to the Edge of Empire | NorthumberlandArts</title>
+  <meta name="description" content="The extraordinary story of Hadrian's Wall — from the Spanish-born emperor who ordered it, to the African soldiers who garrisoned it, to Wallsend where it all began." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root { --navy:#1a1a2e; --green:#2d6a4f; --gold:#c9a84c; --gold-dark:#a8893d; --parchment:#f8f6f0; --white:#ffffff; --text:#333333; --text-light:#666666; --border:rgba(0,0,0,0.06); }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Source Sans 3',sans-serif;background:var(--parchment);color:var(--text);line-height:1.7;}
+    nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(26,26,46,0.95);padding:0.8rem 2rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(201,168,76,0.15);}
+    .nav-brand{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--parchment);text-decoration:none;letter-spacing:1px;}
+    .nav-brand span{color:var(--gold);}
+    .back-link{color:rgba(248,246,240,0.6);text-decoration:none;font-size:0.85rem;transition:color 0.3s;}
+    .back-link:hover{color:var(--gold);}
+    .hero{position:relative;height:70vh;min-height:450px;display:flex;align-items:flex-end;overflow:hidden;}
+    .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%;}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,26,46,0.95) 0%,rgba(26,26,46,0.4) 50%,rgba(26,26,46,0.2) 100%);}
+    .hero-content{position:relative;z-index:2;padding:3rem 2rem;max-width:800px;}
+    .hero-badge{display:inline-block;background:var(--gold);color:var(--navy);font-size:0.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:0.3rem 0.8rem;border-radius:2px;margin-bottom:1rem;}
+    .hero h1{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:600;color:var(--parchment);line-height:1.15;margin-bottom:0.8rem;}
+    .hero h1 span{color:var(--gold);}
+    .hero-sub{font-size:1.1rem;color:rgba(248,246,240,0.7);font-weight:300;max-width:600px;}
+    .article{max-width:780px;margin:0 auto;padding:4rem 2rem;}
+    .article p{font-size:1.05rem;line-height:1.85;margin-bottom:1.5rem;color:var(--text);}
+    .article h2{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:500;color:var(--navy);margin:3rem 0 1rem;padding-bottom:0.5rem;border-bottom:2px solid var(--gold);}
+    .article h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:500;color:var(--green);margin:2rem 0 0.8rem;}
+    .lead{font-size:1.2rem !important;font-weight:300;color:var(--text-light) !important;border-left:3px solid var(--gold);padding-left:1.2rem;}
+    blockquote{margin:2rem 0;padding:1.5rem 1.5rem 1.5rem 2rem;background:var(--white);border-left:4px solid var(--gold);font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic;color:var(--green);line-height:1.6;}
+    blockquote cite{display:block;margin-top:0.8rem;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;font-style:normal;color:var(--text-light);}
+    .timeline{margin:1.5rem 0 2rem;position:relative;padding-left:2rem;}
+    .timeline::before{content:'';position:absolute;left:5px;top:0;bottom:0;width:2px;background:var(--gold);}
+    .timeline-item{position:relative;margin-bottom:1.2rem;}
+    .timeline-item::before{content:'';position:absolute;left:-2rem;top:6px;width:10px;height:10px;background:var(--gold);border-radius:50%;border:2px solid var(--parchment);}
+    .timeline-year{font-size:0.8rem;font-weight:700;color:var(--gold-dark);}
+    .timeline-text{font-size:0.9rem;color:var(--text);line-height:1.5;}
+    .info-box{background:var(--navy);color:var(--parchment);padding:2rem;margin:2.5rem 0;border-radius:2px;}
+    .info-box h3{font-family:'Playfair Display',serif;color:var(--gold);font-size:1.2rem;margin:0 0 1rem;}
+    .info-box p{color:rgba(248,246,240,0.8) !important;font-size:0.95rem !important;margin-bottom:0.8rem !important;}
+    .info-box a{color:var(--gold);text-decoration:none;}
+    .info-box a:hover{text-decoration:underline;}
+    .links-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin:1.5rem 0;}
+    .link-card{background:var(--white);border:1px solid var(--border);padding:1rem 1.2rem;text-decoration:none;transition:all 0.3s ease;display:block;}
+    .link-card:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(0,0,0,0.06);border-color:var(--gold);}
+    .link-card-title{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;color:var(--navy);margin-bottom:0.3rem;}
+    .link-card-desc{font-size:0.82rem;color:var(--text-light);margin-bottom:0.4rem;line-height:1.4;}
+    .link-card-url{font-size:0.72rem;color:var(--gold-dark);}
+    footer{background:var(--navy);color:rgba(248,246,240,0.4);text-align:center;padding:2rem;}
+    .footer-back{display:inline-block;color:var(--gold);text-decoration:none;font-size:0.9rem;margin-bottom:1rem;transition:opacity 0.3s;}
+    .footer-back:hover{opacity:0.7;}
+    .footer-copy{font-size:0.75rem;}
+    @media(max-width:768px){
+      .hero{height:50vh;min-height:350px;}
+      .hero h1{font-size:2rem;}
+      .article{padding:2.5rem 1.2rem;}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-brand">Northumberland<span>Arts</span></a>
+    <a href="index.html#history" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;vertical-align:middle;margin-right:4px;"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to History</a>
+  </nav>
+
+  <section class="hero">
+    <div style="position:absolute;inset:0;background:linear-gradient(135deg,#1a1a2e 0%,#2d6a4f 50%,#1a1a2e 100%);"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Northumberland History</div>
+      <h1>Hadrian's Wall <span>&mdash; From Wallsend to the Edge of Empire</span></h1>
+      <p class="hero-sub">A Spanish emperor, African soldiers, birthday invitations, and 73 miles of stone that changed the world.</p>
+    </div>
+  </section>
+
+  <article class="article">
+    <p class="lead">In AD 122, a man born in Seville who grew a beard, wrote poetry, and wept openly for his dead lover ordered the construction of the most heavily fortified border in the Roman Empire. It stretched 73 miles across the narrowest point of northern England, from Wallsend on the River Tyne to Bowness-on-Solway. Nearly two thousand years later, it is still here.</p>
+
+    <h2>The Emperor</h2>
+    <p>Publius Aelius Hadrianus was not what Rome expected. Born on 24 January AD 76 in Italica, near modern Seville, he was a provincial &mdash; a Spaniard, not a native Roman. His contemporaries called him "Graeculus" &mdash; Little Greek &mdash; for his consuming passion for Hellenic culture. He grew the first imperial beard, designed the Pantheon, and spent more than half his twenty-one-year reign travelling to every corner of the Empire.</p>
+
+    <p>Where his predecessor Trajan had been a conqueror who pushed Rome's borders to their greatest extent, Hadrian was a consolidator. He came to Britain in AD 122, spent three months inspecting the northern frontier, and made a decision that would define Northumberland forever: build a wall.</p>
+
+    <h3>Hadrian and Athens</h3>
+    <p>Hadrian's love affair with Greece ran deep. He completed the Temple of Olympian Zeus in Athens &mdash; a project that had been abandoned for 638 years. The fifteen surviving columns, visible today from the Acropolis, are his work. He built Hadrian's Arch nearby, inscribed on one side "This is Athens, the ancient city of Theseus" and on the other "This is the city of Hadrian and not of Theseus." He also built a library, an aqueduct, and revised the Athenian constitution. The grateful Athenians gave him the title "Olympios."</p>
+
+    <h3>Antinous</h3>
+    <p>In October AD 130, Hadrian's beloved companion Antinous drowned in the River Nile. The circumstances remain mysterious. Hadrian's grief was overwhelming &mdash; contemporaries recorded that he "wept like a woman." In an extraordinary act, he declared Antinous a god, founded a city in his name, and established a formal cult. More statues survive of Antinous than of almost any other figure from the ancient world. A constellation was named for him &mdash; one of the few named for a real person.</p>
+
+    <h3>The Deathbed Poem</h3>
+    <blockquote>
+      Little soul, you charming little wanderer, my body's guest and partner, where are you off to now? Somewhere without colour, savage and bare; never again to share a joke.
+      <cite>&mdash; Emperor Hadrian, AD 138 (translated from "Animula vagula blandula")</cite>
+    </blockquote>
+    <p>This poem, dictated as Hadrian lay dying at Baiae on the Bay of Naples, has been translated over a hundred times across four centuries. It remains one of the most famous poems from antiquity &mdash; a rare, human glimpse into the mind of an emperor facing death.</p>
+
+    <h2>The Wall</h2>
+    <p>Three Roman legions &mdash; approximately 15,000 soldiers &mdash; built the Wall over six years. The eastern section was constructed from squared stone, three metres wide and five to six metres high. The western section was originally built from turf before being rebuilt in stone. A milecastle stood every Roman mile, with two turrets between each, providing regular observation points. Eventually sixteen major forts were added directly onto the Wall line.</p>
+
+    <p>But the Wall was far more than a wall. It was a complete military zone: a northern ditch, the Wall itself, a military road behind it, and the Vallum &mdash; a massive flat-bottomed ditch flanked by two mounds, creating a controlled corridor. When fully garrisoned, approximately 10,000 soldiers were stationed along its length.</p>
+
+    <h3>A World on the Frontier</h3>
+    <p>The soldiers came from everywhere. Roman policy was not to post men in their home province, which meant the Wall was garrisoned by Tungrians and Batavians from Belgium, Spanish cavalry at Chesters Fort, Syrian archers, and &mdash; remarkably &mdash; North African Berber soldiers from present-day Algeria and Morocco, recorded at Burgh-by-Sands near Carlisle. A fourth-century garrison at Wallsend was the Fourth Cohort of the Lingones, a part-mounted Gallic unit of 600 men.</p>
+
+    <p>They ate beef, drank Celtic beer, worshipped Mithras in underground temples, played dice, carved graffiti into the stonework &mdash; including 57 phallic symbols believed to ward off evil &mdash; and used communal latrines where privacy was not a concept. At Housesteads, the best-preserved latrines in Roman Britain show wooden seats over a flushing sewer, with a central channel for washing the sponge-on-a-stick that served in place of toilet paper.</p>
+
+    <h3>Claudia Severa's Birthday Invitation</h3>
+    <p>Around AD 100, at the fort of Vindolanda just south of the Wall, a woman named Claudia Severa wrote to her friend Sulpicia Lepidina inviting her to a birthday celebration. The letter, written on a thin wooden tablet, is the earliest known example of handwriting by a woman from anywhere in the Roman Empire. It closes warmly: "I shall expect you, sister. Farewell, sister, my dearest soul."</p>
+
+    <p>Over 1,700 such tablets have now been found at Vindolanda &mdash; shopping lists, complaints about the weather, requests for warm socks, military supply inventories. They are postcards from the edge of the known world.</p>
+
+    <h2>Wallsend &mdash; Where It All Begins</h2>
+    <p>The town's name is literal: it is where the Wall ends &mdash; or begins, depending on your perspective &mdash; on the east coast, at the River Tyne. The fort of Segedunum (Celtic for "strong fort") was built around AD 127 when the Wall was extended four miles further east to protect the river crossing. It was garrisoned for approximately 300 years.</p>
+
+    <p>Today, Segedunum is the most thoroughly excavated fort on the entire Wall. A 35-metre viewing tower provides the best overview of any Roman fort in Britain. A full-scale reconstructed bathhouse stands on site, and the remains of the original bathhouse, rediscovered in 2014, are also visible. The museum is open daily from 23 March 2026, adults &pound;7.75, under-22s free.</p>
+
+    <h3>After the Romans</h3>
+    <p>Wallsend reinvented itself through the centuries. Coal mining arrived &mdash; the 1835 colliery explosion killed 102 miners, the youngest aged eight. The town gave its name to a grade of coal: "Wallsend coal" was a recognised quality standard across Britain.</p>
+
+    <h3>Swan Hunter &mdash; Ships of the Tyne</h3>
+    <p>The Swan Hunter shipyard, based in Wallsend, became one of the great shipbuilding firms of the Tyne. In 1903, Swan &amp; Hunter merged with Wigham Richardson specifically to bid for the contract to build RMS Mauretania for Cunard. Launched on 20 September 1906 by the Duchess of Roxburghe, the Mauretania held the Blue Riband for the fastest Atlantic crossing for over twenty years. At its peak, the yard employed 11,000 workers. HMS Ark Royal was launched here in 1981 by the Queen Mother. RMS Carpathia &mdash; the ship that rescued Titanic survivors &mdash; was also built at Swan Hunter.</p>
+
+    <p>The yard closed in 2006. The site is now Swans Energy Park, serving the offshore renewables sector.</p>
+
+    <h3>Wallsend's Other Exports</h3>
+    <p>Gordon Sumner &mdash; better known as Sting &mdash; was born in Wallsend on 2 October 1951. He practised music at the Buddle Arts Centre, and in 1991, the man who could fill 200,000-seat stadiums played to an invited audience of just 140 at the Buddle &mdash; including his grandmother.</p>
+
+    <p>Wallsend Boys Club, founded in 1904 by Swan Hunter employees, has produced over 85 professional footballers including Alan Shearer, Peter Beardsley, Michael Carrick, and Steve Bruce.</p>
+
+    <div class="info-box">
+      <h3>Visit</h3>
+      <p><strong>Segedunum Roman Fort, Baths &amp; Museum</strong><br />Buddle Street, Wallsend, NE28 6HR</p>
+      <p>Open daily from 23 March 2026, 10am&ndash;5pm<br />Adults &pound;7.75 | Under-22s FREE | NE28 residents FREE</p>
+      <p><a href="https://www.northeastmuseums.org.uk/segedunum" target="_blank">northeastmuseums.org.uk/segedunum</a></p>
+      <p><strong>Hadrian's Wall Path National Trail</strong><br />84 miles coast to coast. 6&ndash;10 days walking. May&ndash;October recommended.</p>
+      <p><a href="https://www.nationaltrail.co.uk/en_GB/trails/hadrians-wall-path/" target="_blank">nationaltrail.co.uk &mdash; Hadrian's Wall Path</a></p>
+    </div>
+
+    <h2>Further Reading</h2>
+    <div class="links-grid">
+      <a href="https://www.english-heritage.org.uk/visit/places/hadrians-wall/" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">English Heritage &mdash; Hadrian's Wall</div>
+        <p class="link-card-desc">Official guide to all English Heritage sites along the Wall.</p>
+        <span class="link-card-url">english-heritage.org.uk</span>
+      </a>
+      <a href="https://www.vindolanda.com/" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">Vindolanda</div>
+        <p class="link-card-desc">Live excavations, museum, and the famous writing tablets.</p>
+        <span class="link-card-url">vindolanda.com</span>
+      </a>
+      <a href="https://www.northeastmuseums.org.uk/segedunum" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">Segedunum Roman Fort</div>
+        <p class="link-card-desc">Wallsend's fort, bathhouse and 35-metre viewing tower.</p>
+        <span class="link-card-url">northeastmuseums.org.uk</span>
+      </a>
+      <a href="https://hadrianswallcountry.co.uk/" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">Hadrian's Wall Country</div>
+        <p class="link-card-desc">Visitor guide covering the entire Wall corridor.</p>
+        <span class="link-card-url">hadrianswallcountry.co.uk</span>
+      </a>
+    </div>
+  </article>
+
+  <footer>
+    <a href="index.html" class="footer-back">&larr; Back to NorthumberlandArts.com</a>
+    <div class="footer-copy">&copy; 2026 NorthumberlandArts.com. All rights reserved.</div>
+  </footer>
+</body>
+</html>

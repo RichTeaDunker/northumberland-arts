@@ -1,0 +1,2347 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Northumberland Arts | Celebrating Art, Artists & Galleries Across Northumberland</title>
+  <meta name="description" content="Discover Northumberland's vibrant art scene. Browse our directory of local artists across six zones, from Berwick to Morpeth. Paintings, photography, printmaking, ceramics and more." />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="canonical" href="https://northumberlandarts.com/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --gold: #c9a84c;
+      --gold-dark: #a8893a;
+      --green: #2d6a4f;
+      --green-light: #40916c;
+      --navy: #1a1a2e;
+      --navy-light: #2a2a4e;
+      --parchment: #f8f6f0;
+      --white: #ffffff;
+      --text: #2c2c2c;
+      --text-light: #6b6b6b;
+      --border: rgba(201, 168, 76, 0.2);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Sans 3', 'Segoe UI', sans-serif;
+      color: var(--text);
+      background: var(--parchment);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 600; }
+
+    /* ===== NAV ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(26, 26, 46, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 68px;
+      border-bottom: 1px solid rgba(201, 168, 76, 0.25);
+      transition: background 0.3s ease;
+    }
+
+    .nav-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      color: var(--parchment);
+      text-decoration: none;
+      letter-spacing: 0.5px;
+    }
+    .nav-brand span { color: var(--gold); }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: rgba(248, 246, 240, 0.75);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 400;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-search-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      margin-left: 0.5rem;
+      color: rgba(248, 246, 240, 0.75);
+      transition: color 0.3s;
+    }
+    .nav-search-btn:hover { color: var(--gold); }
+    .nav-search-btn svg { width: 18px; height: 18px; vertical-align: middle; }
+
+    .search-overlay {
+      display: none;
+      position: fixed;
+      top: 68px;
+      left: 0;
+      right: 0;
+      z-index: 999;
+      background: rgba(26, 26, 46, 0.97);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.25);
+      padding: 1.5rem 2rem;
+      animation: searchSlideDown 0.25s ease;
+    }
+    .search-overlay.active { display: block; }
+    @keyframes searchSlideDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .search-input-wrap {
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .search-input-wrap input {
+      width: 100%;
+      padding: 0.8rem 1.2rem 0.8rem 2.8rem;
+      font-size: 1rem;
+      font-family: 'Source Sans 3', sans-serif;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(201, 168, 76, 0.3);
+      border-radius: 8px;
+      color: var(--parchment);
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .search-input-wrap input:focus { border-color: var(--gold); }
+    .search-input-wrap input::placeholder { color: rgba(248,246,240,0.4); }
+    .search-input-wrap svg {
+      position: absolute;
+      left: 0.9rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 16px;
+      height: 16px;
+      color: rgba(248,246,240,0.4);
+    }
+    .search-results {
+      max-width: 600px;
+      margin: 0.8rem auto 0;
+      max-height: 320px;
+      overflow-y: auto;
+    }
+    .search-results::-webkit-scrollbar { width: 4px; }
+    .search-results::-webkit-scrollbar-thumb { background: rgba(201,168,76,0.3); border-radius: 2px; }
+    .search-result-item {
+      display: block;
+      padding: 0.6rem 0.8rem;
+      color: var(--parchment);
+      text-decoration: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .search-result-item:hover { background: rgba(201,168,76,0.15); }
+    .search-result-type {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--gold);
+      margin-right: 0.5rem;
+    }
+    .search-result-name { font-size: 0.9rem; }
+    .search-result-detail { font-size: 0.75rem; color: rgba(248,246,240,0.5); margin-left: 0.3rem; }
+    .search-no-results {
+      text-align: center;
+      color: rgba(248,246,240,0.4);
+      padding: 1.5rem 0;
+      font-size: 0.9rem;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+    .mobile-menu-btn span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--parchment);
+      margin: 5px 0;
+      transition: all 0.3s;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    /* Rotating background images via CSS */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-bg-layer {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      animation: heroFade 36s infinite;
+    }
+
+    .hero-bg-layer:nth-child(1) {
+      background-image: url('https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1920,q_auto,f_auto/v1774103917/_DSC1202-Pano_006-2_kotxpp.jpg');
+      animation-delay: 0s;
+    }
+    .hero-bg-layer:nth-child(2) {
+      background-image: url('https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1920,q_auto,f_auto/v1774103909/_DSC1190_006-2_cvp5ic.jpg');
+      animation-delay: 9s;
+    }
+    .hero-bg-layer:nth-child(3) {
+      background-image: url('https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1920,q_auto,f_auto/v1774104431/_DSC9567_002_vaw7nn.jpg');
+      animation-delay: 18s;
+    }
+    .hero-bg-layer:nth-child(4) {
+      background-image: url('https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1920,q_auto,f_auto/v1774107414/HeroMain_Crop_DSC1146_009_aokhwz.jpg');
+      background-position: center;
+      animation-delay: 27s;
+    }
+
+    @keyframes heroFade {
+      0%   { opacity: 0; }
+      6%   { opacity: 1; }
+      25%  { opacity: 1; }
+      31%  { opacity: 0; }
+      100% { opacity: 0; }
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(to bottom, #1a1a2e 0%, transparent 25%),
+        linear-gradient(to top, #1a1a2e 0%, transparent 22%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 0 2rem;
+    }
+
+    .hero-label {
+      display: inline-block;
+      font-size: 0.72rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(201, 168, 76, 0.4);
+      padding: 0.5rem 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      color: var(--parchment);
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: rgba(248, 246, 240, 0.7);
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 2.2rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+      font-family: 'Source Sans 3', sans-serif;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy);
+    }
+    .btn-primary:hover {
+      background: var(--gold-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(201, 168, 76, 0.3);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--parchment);
+      border: 1px solid rgba(248, 246, 240, 0.35);
+    }
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      animation: bounce 2.5s infinite;
+    }
+    .scroll-indicator span {
+      display: block;
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, transparent, var(--gold));
+      margin: 0 auto 0.4rem;
+    }
+    .scroll-indicator small {
+      color: rgba(248, 246, 240, 0.35);
+      font-size: 0.6rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ===== SECTION COMMON ===== */
+    section { padding: 6rem 2rem; }
+
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.68rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+      display: block;
+      font-weight: 500;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      margin-bottom: 1.2rem;
+      line-height: 1.2;
+      color: var(--navy);
+    }
+
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-light);
+      max-width: 620px;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    /* ===== ABOUT ===== */
+    .about {
+      background: var(--parchment);
+      text-align: center;
+    }
+    .about .section-subtitle { margin: 0 auto 3rem; }
+
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    .pillar {
+      padding: 2.5rem 2rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+    .pillar:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+      border-color: var(--gold);
+    }
+
+    .pillar-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.2rem;
+      background: rgba(201, 168, 76, 0.1);
+      border-radius: 50%;
+      color: var(--gold);
+      font-size: 1.2rem;
+    }
+
+    .pillar h3 {
+      font-size: 1.15rem;
+      margin-bottom: 0.7rem;
+      color: var(--navy);
+    }
+    .pillar p {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    /* ===== DIRECTORY ===== */
+    .directory {
+      background: var(--white);
+    }
+
+    .directory-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .directory-header .section-subtitle {
+      margin: 0 auto;
+    }
+
+    .filters {
+      margin-bottom: 2rem;
+    }
+
+    .filter-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .filter-group-label {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.6rem;
+      display: block;
+      text-align: center;
+    }
+
+    .filter-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+
+    .filter-btn {
+      padding: 0.5rem 1.1rem;
+      font-size: 0.8rem;
+      font-family: 'Source Sans 3', sans-serif;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      background: var(--parchment);
+      color: var(--text-light);
+      border: 1px solid rgba(201, 168, 76, 0.15);
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .filter-btn:hover {
+      border-color: var(--gold);
+      color: var(--navy);
+    }
+    .filter-btn.active {
+      background: var(--navy);
+      color: var(--gold);
+      border-color: var(--navy);
+    }
+
+    .artist-prompt {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      min-height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .artist-prompt-bg {
+      position: absolute; inset: 0;
+      background-size: cover;
+      background-position: center;
+      transition: opacity 1.5s ease-in-out;
+    }
+    .artist-prompt-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(26,26,46,0.75) 0%, rgba(45,106,79,0.6) 100%);
+    }
+    .artist-prompt-content {
+      position: relative; z-index: 2;
+      text-align: center;
+      padding: 3rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 480px;
+    }
+    .artist-prompt-content h3 {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      color: white;
+      margin-bottom: 0.6rem;
+    }
+    .artist-prompt-content p {
+      color: rgba(255,255,255,0.8);
+      max-width: 440px;
+      margin: 0 auto 1.2rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .artist-prompt-count {
+      display: inline-block;
+      background: rgba(201,168,76,0.2);
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 0.4rem 1.2rem;
+      border-radius: 20px;
+      font-size: 0.88rem;
+      letter-spacing: 0.03em;
+    }
+
+    .results-count {
+      text-align: center;
+      font-size: 0.88rem;
+      color: var(--text-light);
+      margin-bottom: 2rem;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+    }
+    .results-count strong {
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .artist-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .artist-card {
+      background: var(--white);
+      border: 1px solid rgba(201, 168, 76, 0.12);
+      padding: 1.8rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .artist-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.06);
+      border-color: var(--gold);
+    }
+
+    .artist-card-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.7rem;
+      line-height: 1.3;
+    }
+
+    .artist-card-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.22rem 0.65rem;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+    .badge-zone {
+      background: rgba(45, 106, 79, 0.1);
+      color: var(--green);
+      border: 1px solid rgba(45, 106, 79, 0.2);
+    }
+
+    .badge-medium {
+      background: rgba(201, 168, 76, 0.1);
+      color: var(--gold-dark);
+      border: 1px solid rgba(201, 168, 76, 0.25);
+    }
+
+    .artist-card-town {
+      font-size: 0.78rem;
+      color: var(--text-light);
+      margin-bottom: 0.6rem;
+      font-weight: 400;
+    }
+
+    .artist-card-notes {
+      font-size: 0.88rem;
+      color: var(--text);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      font-weight: 300;
+    }
+
+    .artist-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      color: var(--green);
+      text-decoration: none;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .artist-card-link:hover { color: var(--gold); }
+    .artist-card-link svg {
+      width: 12px;
+      height: 12px;
+      transition: transform 0.2s;
+    }
+    .artist-card-link:hover svg { transform: translate(2px, -2px); }
+
+    .no-results {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--text-light);
+      font-size: 1rem;
+      display: none;
+    }
+    .no-results h3 {
+      font-size: 1.3rem;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+
+    /* ===== COUNTY MAP ===== */
+    .county-map {
+      background: var(--navy);
+      color: var(--parchment);
+      overflow: hidden;
+    }
+
+    .county-map .section-title { color: var(--parchment); }
+    .county-map .section-subtitle { color: rgba(248, 246, 240, 0.55); }
+
+    .map-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .zone-map-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    /* CSS Map */
+    .map-visual {
+      position: relative;
+      width: 100%;
+      max-width: 360px;
+      margin: 0 auto;
+      aspect-ratio: 3/4;
+    }
+
+    .map-shape {
+      position: absolute;
+      border-radius: 30% 40% 35% 45% / 35% 30% 45% 40%;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      cursor: pointer;
+      padding: 0.8rem;
+    }
+    .map-shape:hover {
+      transform: scale(1.08);
+      z-index: 2;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    .map-shape span {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--parchment);
+      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      line-height: 1.3;
+    }
+
+    .zone-1 {
+      top: 0; left: 15%; width: 60%; height: 22%;
+      background: rgba(45, 106, 79, 0.6);
+      border: 1px solid rgba(45, 106, 79, 0.8);
+      border-radius: 40% 50% 35% 30% / 40% 35% 45% 35%;
+    }
+    .zone-2 {
+      top: 17%; left: 40%; width: 55%; height: 18%;
+      background: rgba(201, 168, 76, 0.5);
+      border: 1px solid rgba(201, 168, 76, 0.7);
+      border-radius: 30% 45% 40% 35% / 35% 40% 30% 45%;
+    }
+    .zone-3 {
+      top: 32%; left: 20%; width: 50%; height: 20%;
+      background: rgba(100, 140, 120, 0.5);
+      border: 1px solid rgba(100, 140, 120, 0.7);
+      border-radius: 35% 30% 45% 40% / 40% 45% 30% 35%;
+    }
+    .zone-4 {
+      top: 46%; left: 5%; width: 45%; height: 18%;
+      background: rgba(90, 70, 130, 0.45);
+      border: 1px solid rgba(90, 70, 130, 0.65);
+      border-radius: 45% 35% 30% 40% / 30% 40% 45% 35%;
+    }
+    .zone-5 {
+      top: 62%; left: 8%; width: 55%; height: 22%;
+      background: rgba(160, 120, 80, 0.45);
+      border: 1px solid rgba(160, 120, 80, 0.65);
+      border-radius: 30% 40% 45% 35% / 45% 30% 35% 40%;
+    }
+    .zone-6 {
+      top: 78%; left: 30%; width: 55%; height: 20%;
+      background: rgba(80, 120, 160, 0.45);
+      border: 1px solid rgba(80, 120, 160, 0.65);
+      border-radius: 40% 35% 30% 45% / 35% 45% 40% 30%;
+    }
+
+    .zone-list {
+      list-style: none;
+    }
+    .zone-list li {
+      padding: 1.2rem 0;
+      border-bottom: 1px solid rgba(248, 246, 240, 0.08);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .zone-list li:hover {
+      padding-left: 0.5rem;
+    }
+    .zone-list li:hover .zone-number {
+      background: rgba(201, 168, 76, 0.35);
+    }
+    .zone-list li:hover .zone-info h4 {
+      color: var(--gold);
+    }
+    .zone-list li:last-child { border-bottom: none; }
+
+    .zone-number {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(201, 168, 76, 0.15);
+      color: var(--gold);
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: 50%;
+      flex-shrink: 0;
+      transition: background 0.2s ease;
+    }
+
+    .zone-info h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--parchment);
+      margin-bottom: 0.15rem;
+      transition: color 0.2s ease;
+    }
+    .zone-info p {
+      font-size: 0.8rem;
+      color: rgba(248, 246, 240, 0.45);
+      font-weight: 300;
+    }
+
+    /* ===== GALLERIES ===== */
+    .galleries { background: var(--parchment); }
+    .galleries-header { text-align: center; margin-bottom: 3rem; }
+    .galleries-header .section-subtitle { margin: 0 auto; }
+
+    .gallery-zone-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--green);
+      margin: 2.5rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--border);
+    }
+    .gallery-zone-title:first-of-type { margin-top: 0; }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+
+    .gallery-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 1.3rem 1.2rem;
+      transition: all 0.3s ease;
+    }
+    .gallery-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+      border-color: var(--gold);
+    }
+
+    .gallery-card h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      color: var(--navy);
+      margin-bottom: 0.3rem;
+    }
+    .gallery-card .gallery-location {
+      font-size: 0.78rem;
+      color: var(--gold-dark);
+      margin-bottom: 0.4rem;
+      font-weight: 500;
+    }
+    .gallery-card .gallery-type {
+      display: inline-block;
+      font-size: 0.65rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    .gallery-type-commercial { background: rgba(201,168,76,0.15); color: var(--gold-dark); }
+    .gallery-type-public { background: rgba(45,106,79,0.12); color: var(--green); }
+    .gallery-type-mixed { background: rgba(26,26,46,0.08); color: var(--navy); }
+    .gallery-type-heritage { background: rgba(139,69,19,0.1); color: #8b4513; }
+
+    .gallery-card .gallery-desc {
+      font-size: 0.82rem;
+      color: var(--text-light);
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
+    }
+    .gallery-card .gallery-link {
+      font-size: 0.78rem;
+      color: var(--green);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .gallery-card .gallery-link:hover { color: var(--gold); text-decoration: underline; }
+
+    /* ===== EVENTS ===== */
+    .events { background: var(--white); }
+    .events-header { text-align: center; margin-bottom: 3rem; }
+    .events-header .section-subtitle { margin: 0 auto; }
+
+    .season-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .season-tab {
+      padding: 0.6rem 1.5rem;
+      font-size: 0.8rem;
+      font-family: 'Source Sans 3', sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: var(--parchment);
+      color: var(--text-light);
+      transition: all 0.3s;
+    }
+    .season-tab:hover { border-color: var(--gold); color: var(--gold-dark); }
+    .season-tab.active {
+      background: var(--green);
+      color: var(--white);
+      border-color: var(--green);
+    }
+
+    .season-panel { display: none; }
+    .season-panel.active { display: block; }
+
+    .event-list { list-style: none; }
+    .event-item {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 1.5rem;
+      padding: 1.3rem 0;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+    .event-date {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--green);
+      line-height: 1.4;
+    }
+    .event-details h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--navy);
+      margin-bottom: 0.2rem;
+    }
+    .event-details h4 a {
+      color: var(--navy);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .event-details h4 a:hover {
+      color: var(--gold-dark);
+      border-bottom-color: var(--gold);
+    }
+    .event-location {
+      font-size: 0.8rem;
+      color: var(--gold-dark);
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+    }
+    .event-desc {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    .events-note {
+      text-align: center;
+      margin-top: 2.5rem;
+      font-size: 0.82rem;
+      color: var(--text-light);
+      font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+      .event-item { grid-template-columns: 1fr; gap: 0.3rem; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .history-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ===== HISTORY ===== */
+    .history { background: var(--parchment); }
+    .history-header { text-align: center; margin-bottom: 3rem; }
+    .history-header .section-subtitle { margin: 0 auto; }
+
+    .history-intro {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+      font-size: 0.95rem;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+    .history-intro .highlight-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--gold), #d4af37);
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.8rem;
+    }
+
+    .history-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .history-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .history-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+
+    .history-card-image {
+      width: 100%;
+      height: 200px;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .history-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .history-card-image .placeholder-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.85rem;
+      color: rgba(248, 246, 240, 0.4);
+      font-style: italic;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .history-card-month {
+      display: inline-block;
+      background: var(--green);
+      color: var(--parchment);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 0.25rem 0.7rem;
+      position: absolute;
+      top: 0.8rem;
+      left: 0.8rem;
+      border-radius: 2px;
+    }
+
+    .history-card-body {
+      padding: 1.3rem 1.2rem;
+    }
+    .history-card-year {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.8rem;
+      color: var(--gold-dark);
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+    .history-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: var(--navy);
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+    .history-card-text {
+      font-size: 0.82rem;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    /* ===== COLLAPSIBLE SECTIONS ===== */
+    .section-collapsible {
+      max-height: 600px;
+      overflow: hidden;
+      position: relative;
+      transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .section-collapsible.expanded {
+      max-height: none;
+    }
+    .section-fade-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 120px;
+      background: linear-gradient(transparent, var(--parchment));
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 1rem;
+      z-index: 10;
+      transition: opacity 0.4s;
+    }
+    .section-collapsible.expanded .section-fade-overlay {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .expand-btn {
+      background: var(--navy);
+      color: var(--parchment);
+      border: none;
+      padding: 0.7rem 2rem;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    }
+    .expand-btn:hover {
+      background: var(--green);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+    .collapse-btn {
+      display: none;
+      margin: 1.5rem auto 0;
+      background: transparent;
+      color: var(--text-light);
+      border: 1px solid var(--border);
+      padding: 0.5rem 1.5rem;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.85rem;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .collapse-btn:hover { color: var(--green); border-color: var(--green); }
+    .section-collapsible.expanded + .collapse-btn { display: block; }
+
+    /* Galleries section dark bg override */
+    .galleries .section-fade-overlay {
+      background: linear-gradient(transparent, var(--navy));
+    }
+    .galleries .expand-btn {
+      background: var(--gold);
+      color: var(--navy);
+    }
+    .galleries .expand-btn:hover {
+      background: var(--parchment);
+    }
+
+    /* Events section */
+    .events .section-fade-overlay {
+      background: linear-gradient(transparent, var(--parchment));
+    }
+
+    /* ===== BACK TO TOP ===== */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 44px;
+      height: 44px;
+      background: var(--navy);
+      color: var(--gold);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s;
+      z-index: 999;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    .back-to-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .back-to-top:hover {
+      background: var(--green);
+      transform: translateY(-3px);
+    }
+
+    /* ===== PILLAR LINKS ===== */
+    a.pillar {
+      text-decoration: none;
+      color: inherit;
+    }
+    a.pillar:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    }
+    a.pillar:hover h3 {
+      color: var(--gold);
+    }
+    a.pillar::after {
+      content: 'Explore →';
+      display: block;
+      margin-top: 0.6rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--gold);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    a.pillar:hover::after {
+      opacity: 1;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--navy);
+      border-top: 1px solid rgba(201, 168, 76, 0.15);
+      padding: 3rem 2rem 1.5rem;
+      text-align: center;
+    }
+
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--parchment);
+      margin-bottom: 1rem;
+    }
+    .footer-brand span { color: var(--gold); }
+
+    .footer-contact {
+      margin-bottom: 1.5rem;
+    }
+    .footer-contact a {
+      color: rgba(248, 246, 240, 0.6);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+    .footer-contact a:hover { color: var(--gold); }
+
+    .footer-bottom {
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(248, 246, 240, 0.06);
+      font-size: 0.75rem;
+      color: rgba(248, 246, 240, 0.35);
+      letter-spacing: 0.5px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .zone-map-grid {
+        grid-template-columns: 1fr;
+      }
+      .map-visual {
+        max-width: 280px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        background: rgba(26, 26, 46, 0.97);
+        padding: 1.5rem 2rem;
+        gap: 1rem;
+        border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+      }
+      .mobile-menu-btn { display: block; }
+
+      .artist-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pillars { grid-template-columns: 1fr; }
+
+      section { padding: 4rem 1.5rem; }
+
+      .zone-map-grid { gap: 2rem; }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 1rem; }
+      .filter-btn { font-size: 0.72rem; padding: 0.4rem 0.8rem; }
+    }
+
+    /* ===== ANIMATIONS ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-brand">Northumberland<span>Arts</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#directory">Artists</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#galleries">Galleries</a></li>
+      <li><a href="#history">History</a></li>
+      <li><a href="explore.html">Explore</a></li>
+      <li><a href="#map">Zones</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-search-btn" onclick="toggleSearch()" aria-label="Search">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    </button>
+    <button class="mobile-menu-btn" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- SEARCH OVERLAY -->
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-input-wrap">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" id="searchInput" placeholder="Search artists, events, galleries, zones..." autocomplete="off" />
+    </div>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="hero-bg-layer"></div>
+      <div class="hero-bg-layer"></div>
+      <div class="hero-bg-layer"></div>
+      <div class="hero-bg-layer"></div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-label">Est. 2026 &middot; Northumberland, England</div>
+      <h1>Where Art Meets <em>Landscape</em></h1>
+      <p>Celebrating the artists, galleries, and creative spirit of Northumberland. From Hadrian's Wall to the wild coast &mdash; discover art rooted in place.</p>
+      <div class="hero-buttons">
+        <a href="#directory" class="btn btn-primary">Browse Artists</a>
+        <a href="#about" class="btn btn-outline">Our Mission</a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span></span>
+      <small>Scroll</small>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="container fade-in">
+      <span class="section-label">Our Mission</span>
+      <h2 class="section-title">Celebrating Northumberland's Art Community</h2>
+      <p class="section-subtitle">
+        NorthumberlandArts.com exists to connect, celebrate, and champion the artists, makers, and creative spaces of England's most northerly county. From established painters to emerging printmakers, from coastal galleries to valley studios &mdash; we bring Northumberland's art scene together in one place.
+      </p>
+      <div class="pillars">
+        <a href="#directory" class="pillar" onclick="expandSection('artists')">
+          <div class="pillar-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3>Artist Directory</h3>
+          <p>A comprehensive, searchable directory of Northumberland's painters, photographers, printmakers, ceramicists, and mixed media artists across all six zones.</p>
+        </a>
+        <a href="#events" class="pillar" onclick="expandSection('events')">
+          <div class="pillar-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h3>Events &amp; Community</h3>
+          <p>Built by and for Northumberland. Discover exhibitions, open studios, art trails, and events across the county throughout the year.</p>
+        </a>
+        <a href="#galleries" class="pillar" onclick="expandSection('galleries')">
+          <div class="pillar-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+          </div>
+          <h3>Galleries &amp; Studios</h3>
+          <p>From The Chatton Gallery to Fika Gallery, from Gallery 45 to The Hearth &mdash; discover the spaces where Northumberland's art lives and breathes.</p>
+        </a>
+        <a href="#map" class="pillar">
+          <div class="pillar-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          </div>
+          <h3>Six Distinct Zones</h3>
+          <p>From Berwick and the Borders to Morpeth and the South East, each zone has its own artistic character shaped by the landscape and communities within it.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTIST DIRECTORY -->
+  <section class="directory" id="directory">
+    <div class="container">
+      <div class="directory-header fade-in">
+        <span class="section-label">Artist Directory</span>
+        <h2 class="section-title">Discover Local Artists</h2>
+        <p class="section-subtitle">Browse Northumberland's artists by zone and medium. Every artist listed is based in or closely tied to the county.</p>
+      </div>
+
+      <div class="filters fade-in">
+        <div class="filter-group">
+          <span class="filter-group-label">Filter by Zone</span>
+          <div class="filter-buttons" id="zoneFilters">
+            <button class="filter-btn active" data-zone="all">All Zones</button>
+            <button class="filter-btn" data-zone="Berwick & Borders">Berwick &amp; Borders</button>
+            <button class="filter-btn" data-zone="Alnwick & Coast">Alnwick &amp; Coast</button>
+            <button class="filter-btn" data-zone="Rothbury & Coquetdale">Rothbury &amp; Coquetdale</button>
+            <button class="filter-btn" data-zone="Bellingham & North Tyne">Bellingham &amp; North Tyne</button>
+            <button class="filter-btn" data-zone="Hexham & Tynedale">Hexham &amp; Tynedale</button>
+            <button class="filter-btn" data-zone="Morpeth & South East">Morpeth &amp; South East</button>
+          </div>
+        </div>
+        <div class="filter-group">
+          <span class="filter-group-label">Filter by Medium</span>
+          <div class="filter-buttons" id="mediumFilters">
+            <button class="filter-btn active" data-medium="all">All Media</button>
+            <button class="filter-btn" data-medium="Painting">Painting</button>
+            <button class="filter-btn" data-medium="Drawing">Drawing</button>
+            <button class="filter-btn" data-medium="Photography">Photography</button>
+            <button class="filter-btn" data-medium="Printmaking">Printmaking</button>
+            <button class="filter-btn" data-medium="Ceramics">Ceramics</button>
+            <button class="filter-btn" data-medium="Mixed Media">Mixed Media</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="results-count fade-in" id="resultsCount"></div>
+
+      <div class="artist-prompt fade-in" id="artistPrompt">
+        <div class="artist-prompt-bg" id="artistPromptBg"></div>
+        <div class="artist-prompt-overlay"></div>
+        <div class="artist-prompt-content">
+          <h3>Select a zone or medium to browse</h3>
+          <p>Choose a zone above to explore artists in that area, or filter by medium to find painters, photographers, printmakers and more.</p>
+          <div class="artist-prompt-count"><strong id="artistTotalCount">152</strong> artists across 6 zones</div>
+        </div>
+      </div>
+
+      <div class="artist-grid" id="artistGrid" style="display:none;"></div>
+
+      <div class="no-results" id="noResults">
+        <h3>No artists found</h3>
+        <p>Try adjusting your filters to discover more artists.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section class="events" id="events">
+    <div class="container">
+      <div class="events-header fade-in">
+        <span class="section-label">What's On</span>
+        <h2 class="section-title">Art Events Calendar 2026</h2>
+        <p class="section-subtitle">Exhibitions, festivals, open studios and art fairs across Northumberland throughout the year.</p>
+      </div>
+
+      <div class="season-tabs fade-in">
+        <button class="season-tab active" onclick="showSeason('spring')">Spring</button>
+        <button class="season-tab" onclick="showSeason('summer')">Summer</button>
+        <button class="season-tab" onclick="showSeason('autumn')">Autumn</button>
+        <button class="season-tab" onclick="showSeason('winter')">Winter</button>
+        <button class="season-tab" onclick="showSeason('yearround')">Year-Round</button>
+      </div>
+
+      <div class="season-panel active" id="season-spring">
+        <ul class="event-list">
+          <li class="event-item"><div class="event-date">14 Feb &ndash; 10 May</div><div class="event-details"><h4><a href="https://www.northeastmuseums.org.uk/woodhorn/whats-on/the-northumberland-open-exhibition-2026" target="_blank" rel="noopener noreferrer">Northumberland Open Exhibition 2026</a></h4><div class="event-location">Woodhorn Museum, Ashington</div><p class="event-desc">Record 687 submissions, 568 artworks by 280+ artists. Overall winner: Andy Martin. People's Choice vote ongoing.</p></div></li>
+          <li class="event-item"><div class="event-date">Opens 27 Mar</div><div class="event-details"><h4><a href="https://www.northumberlandnationalpark.org.uk/discover-explore/northumberland-national-park-photography-award-2026/" target="_blank" rel="noopener noreferrer">NNP Photography Award Exhibition</a></h4><div class="event-location">The Sill, Bardon Mill</div><p class="event-desc">26 shortlisted images celebrating the National Park's 70th anniversary.</p></div></li>
+          <li class="event-item"><div class="event-date">20&ndash;22 Mar</div><div class="event-details"><h4><a href="https://bfmaf.org/" target="_blank" rel="noopener noreferrer">Berwick Film &amp; Media Arts Festival</a></h4><div class="event-location">Berwick Barracks</div><p class="event-desc">21st edition. UK festival for new cinema and artists' moving image.</p></div></li>
+          <li class="event-item"><div class="event-date">27 Mar</div><div class="event-details"><h4><a href="https://www.alnwickcastle.com/plan-your-visit/visitor-information/opening-times-ticket-prices" target="_blank" rel="noopener noreferrer">Alnwick Castle Reopens</a></h4><div class="event-location">Alnwick</div><p class="event-desc">New exhibition: 'The Shot Heard Round the World' — 250th anniversary of the American Revolution.</p></div></li>
+          <li class="event-item"><div class="event-date">6 Mar &ndash; 30 May</div><div class="event-details"><h4><a href="https://www.queenshall.co.uk/whats-on/exhibitions" target="_blank" rel="noopener noreferrer">Queen's Hall Gallery Exhibitions</a></h4><div class="event-location">Queen's Hall, Hexham</div><p class="event-desc">Two concurrent gallery exhibitions. Free entry, Mon-Sat 10am-4pm.</p></div></li>
+          <li class="event-item"><div class="event-date">24 Apr &ndash; 3 May</div><div class="event-details"><h4><a href="https://www.hexhambookfestival.co.uk/" target="_blank" rel="noopener noreferrer">Hexham Book Festival (20th Anniversary)</a></h4><div class="event-location">Queen's Hall, Hexham</div><p class="event-desc">Twentieth year. Books &amp; Art workshops, storytelling, crafts.</p></div></li>
+          <li class="event-item"><div class="event-date">Spring (TBC)</div><div class="event-details"><h4><a href="https://www.thehearth.co.uk/spring-art-fair-2026" target="_blank" rel="noopener noreferrer">The Hearth Spring Art Fair</a></h4><div class="event-location">Horsley</div><p class="event-desc">22 guest artists, open studios, outdoor exhibits, live music. Free entry.</p></div></li>
+          <li class="event-item"><div class="event-date">Spring (TBC)</div><div class="event-details"><h4><a href="https://www.queenshall.co.uk/whats-on" target="_blank" rel="noopener noreferrer">Hexham Art Club Exhibition</a></h4><div class="event-location">Hexham Old Gaol</div><p class="event-desc">100+ artworks by local artists across three floors. Free admission.</p></div></li>
+        </ul>
+      </div>
+
+      <div class="season-panel" id="season-summer">
+        <ul class="event-list">
+          <li class="event-item"><div class="event-date">20&ndash;21 Jun</div><div class="event-details"><h4><a href="https://alnmouthartsfestival.org.uk/" target="_blank" rel="noopener noreferrer">Alnmouth Arts Festival</a></h4><div class="event-location">Alnmouth village</div><p class="event-desc">Village opens its doors. Art displayed and sold in private homes, businesses, public buildings. Street food, workshops.</p></div></li>
+          <li class="event-item"><div class="event-date">19&ndash;21 Jun</div><div class="event-details"><h4><a href="https://www.mightydubfest.com/" target="_blank" rel="noopener noreferrer">Mighty Dub Fest</a></h4><div class="event-location">Alnwick Castle Pastures</div><p class="event-desc">Music festival with arts and creative elements in the castle grounds.</p></div></li>
+          <li class="event-item"><div class="event-date">Jun (TBC)</div><div class="event-details"><h4><a href="https://www.northeastmuseums.org.uk/woodhorn" target="_blank" rel="noopener noreferrer">Northumberland Miners' Picnic</a></h4><div class="event-location">Woodhorn Museum, Ashington</div><p class="event-desc">Celebration of mining tradition with live music, street theatre, food. Free museum entry.</p></div></li>
+          <li class="event-item"><div class="event-date">Summer weekends</div><div class="event-details"><h4><a href="http://cheeseburn.com/" target="_blank" rel="noopener noreferrer">Cheeseburn Sculpture Park Opens</a></h4><div class="event-location">Nr Ponteland</div><p class="event-desc">Curated Stables Gallery exhibition plus 60+ garden sculptures. Book in advance.</p></div></li>
+          <li class="event-item"><div class="event-date">Summer (TBC)</div><div class="event-details"><h4><a href="https://www.visitkielder.com/art-and-architecture/" target="_blank" rel="noopener noreferrer">Kielder Art Trail Walking Tours</a></h4><div class="event-location">Kielder Water &amp; Forest Park</div><p class="event-desc">Guided tours of the permanent outdoor sculpture and architecture collection.</p></div></li>
+          <li class="event-item"><div class="event-date">29&ndash;30 Aug</div><div class="event-details"><h4><a href="https://www.thetinshed.co.uk/" target="_blank" rel="noopener noreferrer">Art at Paxton Pop-Up</a></h4><div class="event-location">Paxton House, nr Berwick</div><p class="event-desc">Tin Shed artists &amp; makers. Monthly Tuesday artisan pop-ups run all summer.</p></div></li>
+        </ul>
+      </div>
+
+      <div class="season-panel" id="season-autumn">
+        <ul class="event-list">
+          <li class="event-item"><div class="event-date">3&ndash;5 Sep</div><div class="event-details"><h4><a href="https://www.lindisfarnefestival.com/" target="_blank" rel="noopener noreferrer">Lindisfarne Festival</a></h4><div class="event-location">Beal Farm, nr Holy Island</div><p class="event-desc">11th edition. Faithless, Razorlight, The Proclaimers. 8 stages, comedy, spoken word, wellness.</p></div></li>
+          <li class="event-item"><div class="event-date">5&ndash;11 Oct</div><div class="event-details"><h4><a href="https://berwickliteraryfestival.com/" target="_blank" rel="noopener noreferrer">Berwick Literary Festival</a></h4><div class="event-location">Berwick-upon-Tweed</div><p class="event-desc">Writers, thinkers and audiences exploring the power of words.</p></div></li>
+          <li class="event-item"><div class="event-date">Autumn/Winter</div><div class="event-details"><h4><a href="https://www.vindolanda.com/" target="_blank" rel="noopener noreferrer">Susie MacMurray: Artist-in-Residence</a></h4><div class="event-location">Vindolanda</div><p class="event-desc">New artwork developed from Vindolanda's Roman textile collection.</p></div></li>
+          <li class="event-item"><div class="event-date">Oct&ndash;Nov</div><div class="event-details"><h4><a href="https://stephentomlin.co.uk/borderreaders/" target="_blank" rel="noopener noreferrer">Border Readers: Land Lines</a></h4><div class="event-location">Libraries across Northumberland</div><p class="event-desc">Professional actors performing short fiction at Bellingham, Wooler, Allendale &amp; Morpeth libraries.</p></div></li>
+          <li class="event-item"><div class="event-date">17&ndash;18 Nov</div><div class="event-details"><h4><a href="https://www.facebook.com/NorthumberlandChristmasFair/" target="_blank" rel="noopener noreferrer">Northumberland Christmas Fair</a></h4><div class="event-location">Healey Barn, Riding Mill</div><p class="event-desc">Vintage, ceramics, antiques, Barbour pop-up. Free parking.</p></div></li>
+          <li class="event-item"><div class="event-date">Autumn (TBC)</div><div class="event-details"><h4><a href="https://www.thehearth.co.uk/whatson" target="_blank" rel="noopener noreferrer">The Hearth Autumn Art Fair</a></h4><div class="event-location">Horsley</div><p class="event-desc">Biannual art fair. Open studios. Details to be announced.</p></div></li>
+        </ul>
+      </div>
+
+      <div class="season-panel" id="season-winter">
+        <ul class="event-list">
+          <li class="event-item"><div class="event-date">Dec (TBC)</div><div class="event-details"><h4><a href="https://christmas.alnwickcastle.com/" target="_blank" rel="noopener noreferrer">Alnwick Castle Christmas Fair</a></h4><div class="event-location">Alnwick Castle</div><p class="event-desc">Artisan stalls — fragrances, art, spirits, crafts in the castle.</p></div></li>
+          <li class="event-item"><div class="event-date">12&ndash;13 Dec</div><div class="event-details"><h4><a href="https://www.hospicecare-nn.org.uk/fundraisingforhospicecare" target="_blank" rel="noopener noreferrer">Joy of Christmas Fair</a></h4><div class="event-location">Linden Hall, Longhorsley</div><p class="event-desc">70+ stands selling arts, crafts, food and unique gifts.</p></div></li>
+          <li class="event-item"><div class="event-date">Nov/Dec (TBC)</div><div class="event-details"><h4><a href="https://www.thesill.org.uk/" target="_blank" rel="noopener noreferrer">The Sill Christmas Fair</a></h4><div class="event-location">The Sill, Bardon Mill</div><p class="event-desc">Handcrafted &amp; locally produced gifts, artisan food, children's activities.</p></div></li>
+          <li class="event-item"><div class="event-date">Dec (TBC)</div><div class="event-details"><h4><a href="https://www.hexhamabbey.org.uk/" target="_blank" rel="noopener noreferrer">Hexham Abbey Christmas Fair</a></h4><div class="event-location">Hexham Abbey</div><p class="event-desc">Stalls lining Beaumont Street up into the Abbey.</p></div></li>
+          <li class="event-item"><div class="event-date">Dec (TBC)</div><div class="event-details"><h4>Allendale Christmas Craft Fair</h4><div class="event-location">Allendale Community Centre</div><p class="event-desc">Quality craft items &amp; gift ideas. Free customer entry.</p></div></li>
+          <li class="event-item"><div class="event-date">Dec (TBC)</div><div class="event-details"><h4><a href="https://www.blanchland.org/" target="_blank" rel="noopener noreferrer">Blanchland Artisan Christmas Market</a></h4><div class="event-location">Blanchland</div><p class="event-desc">Artisan market in one of Northumberland's most picturesque villages.</p></div></li>
+          <li class="event-item"><div class="event-date">Feb 2027</div><div class="event-details"><h4><a href="https://www.northeastmuseums.org.uk/woodhorn/" target="_blank" rel="noopener noreferrer">Northumberland Open 2027</a></h4><div class="event-location">Woodhorn Museum, Ashington</div><p class="event-desc">Next edition of the county's largest open exhibition.</p></div></li>
+        </ul>
+      </div>
+
+      <div class="season-panel" id="season-yearround">
+        <ul class="event-list">
+          <li class="event-item"><div class="event-date">All year</div><div class="event-details"><h4><a href="https://www.visitkielder.com/art-and-architecture/" target="_blank" rel="noopener noreferrer">Kielder Art &amp; Architecture Trail</a></h4><div class="event-location">Kielder Water &amp; Forest Park</div><p class="event-desc">20+ permanent artworks across 16 square miles. Free access year-round.</p></div></li>
+          <li class="event-item"><div class="event-date">All year</div><div class="event-details"><h4><a href="https://www.visitnorthumberland.com/explore/things-to-do/activities/walking-hiking/short-walks/newbiggin-art-trail" target="_blank" rel="noopener noreferrer">Newbiggin Art Trail</a></h4><div class="event-location">Newbiggin-by-the-Sea</div><p class="event-desc">Permanent outdoor trail including Sean Henry's offshore 'Couple' sculpture — UK's first.</p></div></li>
+          <li class="event-item"><div class="event-date">All year</div><div class="event-details"><h4><a href="https://www.northumberlandia.com/" target="_blank" rel="noopener noreferrer">Northumberlandia</a></h4><div class="event-location">Nr Cramlington</div><p class="event-desc">World's largest human-form land sculpture. 44 acres. Free access.</p></div></li>
+          <li class="event-item"><div class="event-date">All year</div><div class="event-details"><h4><a href="https://www.northeastmuseums.org.uk/woodhorn/about/the-ashington-group-gallery" target="_blank" rel="noopener noreferrer">Ashington Group (Pitmen Painters)</a></h4><div class="event-location">Woodhorn Museum, Ashington</div><p class="event-desc">Permanent collection of the famous Pitmen Painters.</p></div></li>
+          <li class="event-item"><div class="event-date">Monthly</div><div class="event-details"><h4><a href="https://www.thetinshed.co.uk/" target="_blank" rel="noopener noreferrer">Tin Shed Artisan Pop-Ups</a></h4><div class="event-location">Paxton House, nr Berwick</div><p class="event-desc">Monthly Tuesday artisan pop-ups in refurbished Ballroom with demos and workshops.</p></div></li>
+        </ul>
+      </div>
+
+      <p class="events-note fade-in">Many summer and autumn events are announced closer to the date. Check venue websites for latest information.<br />Know of an event we've missed? <a href="mailto:richard@northumberlandarts.com" style="color:var(--green);">Let us know</a></p>
+    </div>
+  </section>
+
+  <!-- GALLERIES -->
+  <section class="galleries" id="galleries">
+    <div class="container">
+      <div class="galleries-header fade-in">
+        <span class="section-label">Galleries &amp; Venues</span>
+        <h2 class="section-title">Where to See Art in Northumberland</h2>
+        <p class="section-subtitle">56 galleries, museums, studios and exhibition spaces across the county. All information is publicly available and links direct to each venue.</p>
+      </div>
+
+      <div class="section-collapsible" id="galleriesCollapsible">
+      <h3 class="gallery-zone-title fade-in">Zone 1 — Berwick &amp; Borders</h3>
+      <div class="gallery-grid fade-in">
+        <div class="gallery-card"><h4>Berwick Museum &amp; Art Gallery</h4><div class="gallery-location">Ravensdowne Barracks, Berwick</div><span class="gallery-type gallery-type-public">Public</span><p class="gallery-desc">Fine art collections including the Burrell Collection. Housed within English Heritage Barracks.</p><a class="gallery-link" href="https://www.english-heritage.org.uk/visit/places/berwick-upon-tweed-barracks-and-main-guard/" target="_blank">english-heritage.org.uk</a></div>
+        <div class="gallery-card"><h4>The Granary Gallery</h4><div class="gallery-location">Dewar's Lane, Berwick</div><span class="gallery-type gallery-type-public">Public</span><p class="gallery-desc">1769 granary. Year-round contemporary exhibitions. Current: John Timberlake's Berwick Sequence.</p><a class="gallery-link" href="https://www.maltingsberwick.co.uk/" target="_blank">maltingsberwick.co.uk</a></div>
+        <div class="gallery-card"><h4>Dockside Gallery</h4><div class="gallery-location">27 Castlegate, Tweedmouth</div><span class="gallery-type gallery-type-commercial">Commercial</span><p class="gallery-desc">Contemporary art, ceramics, prints. Tue-Sat 10-5:30. On Berwick's Lowry Trail.</p><a class="gallery-link" href="https://www.docksidegallery.co.uk" target="_blank">docksidegallery.co.uk</a></div>
+        <div class="gallery-card"><h4>The Chatton Gallery</h4><div class="gallery-location">Church House, Chatton</div><span class="gallery-type gallery-type-commercial">Commercial</span><p class="gallery-desc">Landscape &amp; wildlife painting in converted 1850s church. Thu-Sun 10:30-5.</p><a class="gallery-link" href="https://www.thechattongallery.com/" target="_blank">thechattongallery.com</a></div>
+        <div class="gallery-card"><h4>Ad Gefrin Museum</h4><div class="gallery-location">Wooler</div><span class="gallery-type gallery-type-public">Public</span><p class="gallery-desc">Anglo-Saxon heritage. NE Building of the Year 2025. Free entry to museum &amp; Great Hall.</p><a class="gallery-link" href="https://adgefrin.co.uk/" target="_blank">adgefrin.co.uk</a></div>
+      </div>
+
+      <h3 class="gallery-zone-title fade-in">Zone 2 — Alnwick &amp; Coastal North</h3>
+      <div class="gallery-grid fade-in">
+        <div class="gallery-card"><h4>Bailiffgate Museum &amp; Gallery</h4><div class="gallery-location">14 Bailiffgate, Alnwick</div><span class="gallery-type gallery-type-mixed">Mixed</span><p class="gallery-desc">Award-winning museum in converted church. Rolling art exhibitions. Tue-Sat 10-4, Sun 11-4.</p><a class="gallery-link" href="https://bailiffgatemuseum.co.uk/" target="_blank">bailiffgatemuseum.co.uk</a></div>
+        <div class="gallery-card"><h4>Alnwick Castle</h4><div class="gallery-location">Alnwick</div><span class="gallery-type gallery-type-heritage">Heritage</span><p class="gallery-desc">Old Masters — Canaletto, Titian, Turner, Van Dyck. 2026: American Revolution exhibition.</p><a class="gallery-link" href="https://www.alnwickcastle.com/" target="_blank">alnwickcastle.com</a></div>
+        <div class="gallery-card"><h4>Fenwick Gallery</h4><div class="gallery-location">21 Castle Street, Warkworth</div><span class="gallery-type gallery-type-commercial">Commercial</span><p class="gallery-desc">Fine art, sculpture, ceramics. Multi-room. 5-star rated, 110+ reviews. Founded 1990.</p><a class="gallery-link" href="https://www.fenwickgallery.co.uk/" target="_blank">fenwickgallery.co.uk</a></div>
+        <div class="gallery-card"><h4>Mick Oxley Gallery</h4><div class="gallery-location">Near harbour, Craster</div><span class="gallery-type gallery-type-commercial">Commercial</span><p class="gallery-desc">Seaside-inspired watercolours, acrylics and inks by one of Northumberland's best-known artists.</p><a class="gallery-link" href="https://www.mickoxley.com/" target="_blank">mickoxley.com</a></div>
+        <div class="gallery-card"><h4>The Old School Gallery</h4><div class="gallery-location">Alnmouth</div><span class="gallery-type gallery-type-commercial">Commercial</span><p class="gallery-desc">Affordable art, prints, ceramics in beautiful converted school. Gallery coffee shop.</p><a class="gallery-link" href="https://theoldschoolgallery.co.uk/" target="_blank">theoldschoolgallery.co.uk</a></div>
+        <div class="gallery-card"><h4>Brightwater Gallery</h4><div class="gallery-location">10 Narrowgate, Alnwick</div><span class="gallery-type gallery-type-commercial">Commercial</span><p class="gallery-desc">Original paintings, prints, hand-crafted gifts, ceramics, artisanal foods.</p><a class="gallery-link" href="https://www.brightwatergallery.co.uk/" target="_blank">brightwatergallery.co.uk</a></div>
+      </div>
+
+      <h3 class="gallery-zone-title fade-in">Zone 3 — Rothbury &amp; Coquetdale</h3>
+      <div class="gallery-grid fade-in">
+        <div class="gallery-card"><h4>Coquetdale Art Gallery</h4><div class="gallery-location">Front Street, Rothbury</div><span class="gallery-type gallery-type-mixed">Mixed</span><p class="gallery-desc">Volunteer-run. ~200 local artists across three rooms. Open 7 days Mar-Dec. Saturday art classes.</p><a class="gallery-link" href="https://www.coquetdalearts.co.uk/" target="_blank">coquetdalearts.co.uk</a></div>
+        <div class="gallery-card"><h4>Gallery 45</h4><div class="gallery-location">45 Main Street, Felton</div><span class="gallery-type gallery-type-mixed">Mixed</span><p class="gallery-desc">2 gallery spaces, 6 artist studios, workshops. Nick Potter, Sarah Farooqi and more.</p><a class="gallery-link" href="https://feltongallery45.co.uk/" target="_blank">feltongallery45.co.uk</a></div>
+        <div class="gallery-card"><h4>Cragside (National Trust)</h4><div class="gallery-location">Near Rothbury</div><span class="gallery-type gallery-type-heritage">Heritage</span><p class="gallery-desc">First house lit by hydroelectric power. Victorian fine art: Turner, Millais, Leighton.</p><a class="gallery-link" href="https://www.nationaltrust.org.uk/visit/north-east/cragside" target="_blank">nationaltrust.org.uk</a></div>
+      </div>
+
+      <h3 class="gallery-zone-title fade-in">Zone 4 — Bellingham &amp; North Tyne</h3>
+      <div class="gallery-grid fade-in">
+        <div class="gallery-card"><h4>The Bellwether Gallery</h4><div class="gallery-location">Charlton, nr Bellingham</div><span class="gallery-type gallery-type-commercial">Commercial</span><p class="gallery-desc">NE art, ceramics, glass, textiles. Gallery, shop &amp; tearoom in National Park.</p><a class="gallery-link" href="https://bellwethergallery.co.uk/" target="_blank">bellwethergallery.co.uk</a></div>
+        <div class="gallery-card"><h4>Kielder Art &amp; Architecture</h4><div class="gallery-location">Kielder Water &amp; Forest Park</div><span class="gallery-type gallery-type-public">Public</span><p class="gallery-desc">UK's largest outdoor art space. 20+ permanent artworks across 16 sq miles. FREE. Year-round.</p><a class="gallery-link" href="https://www.visitkielder.com/art-and-architecture/" target="_blank">visitkielder.com</a></div>
+        <div class="gallery-card"><h4>The Hearth Arts Centre</h4><div class="gallery-location">Horsley</div><span class="gallery-type gallery-type-mixed">Mixed</span><p class="gallery-desc">8 artist studios, cafe, biannual open studios &amp; art fairs. Film, music, workshops.</p><a class="gallery-link" href="https://www.thehearth.co.uk/" target="_blank">thehearth.co.uk</a></div>
+      </div>
+
+      <h3 class="gallery-zone-title fade-in">Zone 5 — Hexham &amp; Tynedale</h3>
+      <div class="gallery-grid fade-in">
+        <div class="gallery-card"><h4>Queen's Hall Arts Centre</h4><div class="gallery-location">Beaumont St, Hexham</div><span class="gallery-type gallery-type-public">Public</span><p class="gallery-desc">Two free gallery spaces. 350-seat theatre. Mon-Sat 10-4. Arts Council NPO.</p><a class="gallery-link" href="https://www.queenshall.co.uk/" target="_blank">queenshall.co.uk</a></div>
+        <div class="gallery-card"><h4>The Wallington Gallery</h4><div class="gallery-location">Bishops Yard, Corbridge</div><span class="gallery-type gallery-type-commercial">Commercial</span><p class="gallery-desc">Victorian to contemporary fine art. Wildlife art, landscapes, Scottish scenes.</p><a class="gallery-link" href="https://www.thewallingtongallery.co.uk/" target="_blank">thewallingtongallery.co.uk</a></div>
+        <div class="gallery-card"><h4>Allendale Forge Studios</h4><div class="gallery-location">Market Place, Allendale</div><span class="gallery-type gallery-type-mixed">Mixed</span><p class="gallery-desc">CIC. 10 studios, workshops, cafe. Textiles, glass, stone, photography. Free entry.</p><a class="gallery-link" href="https://www.allendaleforgestudios.co.uk/" target="_blank">allendaleforgestudios.co.uk</a></div>
+        <div class="gallery-card"><h4>The Sill</h4><div class="gallery-location">Once Brewed, Bardon Mill</div><span class="gallery-type gallery-type-public">Public</span><p class="gallery-desc">National Landscape Discovery Centre. Free entry. Home to Sycamore Gap tree section.</p><a class="gallery-link" href="https://www.thesill.org.uk/" target="_blank">thesill.org.uk</a></div>
+        <div class="gallery-card"><h4>Haslam's of Hallgate</h4><div class="gallery-location">22-24 Hallgate, Hexham</div><span class="gallery-type gallery-type-commercial">Commercial</span><p class="gallery-desc">Landscape art, regional crafts &amp; makers. 30+ artists represented. Also art supplies.</p><a class="gallery-link" href="https://www.tynedalefineartproducts.co.uk/" target="_blank">tynedalefineartproducts.co.uk</a></div>
+        <div class="gallery-card"><h4>Errington Reay Pottery</h4><div class="gallery-location">Bardon Mill</div><span class="gallery-type gallery-type-commercial">Commercial</span><p class="gallery-desc">Last salt-glazed pottery in Britain (since 1878). Free tours, classes, shop.</p><a class="gallery-link" href="https://www.erringtonreay.co.uk/" target="_blank">erringtonreay.co.uk</a></div>
+        <div class="gallery-card"><h4>Mary Ann Rogers Gallery</h4><div class="gallery-location">West Woodburn</div><span class="gallery-type gallery-type-commercial">Commercial</span><p class="gallery-desc">Vibrant watercolour wildlife &amp; landscapes. Country house gallery. #1 rated locally.</p><a class="gallery-link" href="https://www.marogers.com/" target="_blank">marogers.com</a></div>
+        <div class="gallery-card"><h4>Vindolanda</h4><div class="gallery-location">Bardon Mill</div><span class="gallery-type gallery-type-public">Public</span><p class="gallery-desc">UNESCO site. 2026: Susie MacMurray artist residency. VOTUM installation.</p><a class="gallery-link" href="https://www.vindolanda.com/" target="_blank">vindolanda.com</a></div>
+      </div>
+
+      <h3 class="gallery-zone-title fade-in">Zone 6 — Morpeth &amp; South East</h3>
+      <div class="gallery-grid fade-in">
+        <div class="gallery-card"><h4>Woodhorn Museum</h4><div class="gallery-location">Ashington</div><span class="gallery-type gallery-type-public">Public</span><p class="gallery-desc">Pitmen Painters permanent collection. Annual Northumberland Open. Wed-Sun 10-4.</p><a class="gallery-link" href="https://www.northeastmuseums.org.uk/woodhorn" target="_blank">northeastmuseums.org.uk</a></div>
+        <div class="gallery-card"><h4>Fika Gallery</h4><div class="gallery-location">Morpeth town centre</div><span class="gallery-type gallery-type-mixed">Mixed</span><p class="gallery-desc">Contemporary NE art, cafe, workshops. 7 days. Owner: artist Jonathan Antony.</p><a class="gallery-link" href="https://fikagallery.co.uk/" target="_blank">fikagallery.co.uk</a></div>
+        <div class="gallery-card"><h4>Cheeseburn Sculpture Park</h4><div class="gallery-location">Nr Stamfordham</div><span class="gallery-type gallery-type-mixed">Mixed</span><p class="gallery-desc">60+ contemporary sculptures across 10 acres. Stables Gallery. Summer weekends only. Book ahead.</p><a class="gallery-link" href="http://cheeseburn.com/" target="_blank">cheeseburn.com</a></div>
+        <div class="gallery-card"><h4>Blagdon Gallery</h4><div class="gallery-location">Milkhope Centre, Seaton Burn</div><span class="gallery-type gallery-type-commercial">Commercial</span><p class="gallery-desc">10+ years championing NE &amp; Northumberland artists. Diverse range.</p><a class="gallery-link" href="https://blagdongallery.co.uk/" target="_blank">blagdongallery.co.uk</a></div>
+        <div class="gallery-card"><h4>RePUBlic Gallery</h4><div class="gallery-location">Blyth</div><span class="gallery-type gallery-type-mixed">Mixed</span><p class="gallery-desc">Contemporary art in former pub. Monthly rotating PUBlic Window gallery.</p><a class="gallery-link" href="https://republicgallery.co.uk/" target="_blank">republicgallery.co.uk</a></div>
+        <div class="gallery-card"><h4>Wallington Hall (NT)</h4><div class="gallery-location">Nr Cambo, Morpeth</div><span class="gallery-type gallery-type-heritage">Heritage</span><p class="gallery-desc">Pre-Raphaelite murals, William Morris, Turner. Grade I listed. Reopens 30 Mar.</p><a class="gallery-link" href="https://www.nationaltrust.org.uk/visit/north-east/wallington" target="_blank">nationaltrust.org.uk</a></div>
+      </div>
+      <div class="section-fade-overlay">
+        <button class="expand-btn" onclick="expandSection('galleries')">Show All 56 Galleries ↓</button>
+      </div>
+      </div>
+      <button class="collapse-btn" onclick="collapseSection('galleries')" style="display:none;">↑ Show fewer</button>
+    </div>
+  </section>
+
+  <!-- HISTORY -->
+  <section class="history" id="history">
+    <div class="container">
+      <div class="history-header fade-in">
+        <h2 class="section-title">On This Day in Northumberland</h2>
+        <p class="section-subtitle">Celebrating the people, places and moments that shaped our county's remarkable story</p>
+      </div>
+
+      <div class="history-intro fade-in">
+        <span class="highlight-badge">2026 &mdash; 70th Anniversary</span>
+        <p>Northumberland National Park was designated on 6 April 1956 &mdash; making 2026 its 70th birthday. Join us as we explore the county's rich artistic, cultural and historical heritage, one story at a time.</p>
+      </div>
+
+      <div class="history-grid fade-in">
+
+        <a href="pitmen-painters.html" class="history-card" style="text-decoration:none; color:inherit; display:block;">
+          <div class="history-card-image">
+            <span class="history-card-month">January</span>
+            <img src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_700,q_auto,f_auto/v1774018819/richie-pppeee_A_group_of_1930s_coal_miners_in_flat_caps_and_wor_af54f415-9f0c-4271-9809-589403966c69_pbk9p1.png" alt="The Pitmen Painters of Ashington" />
+          </div>
+          <div class="history-card-body">
+            <div class="history-card-year">1934 &mdash; Ashington, Northumberland</div>
+            <div class="history-card-title">The Pitmen Painters of Ashington</div>
+            <p class="history-card-text">The mining community that became world-famous artists. Coal miners who picked up brushes and made art history &mdash; from a village hall to Broadway. Read their story &rarr;</p>
+          </div>
+        </a>
+
+        <div class="history-card">
+          <div class="history-card-image">
+            <span class="history-card-month">April</span>
+            <div class="placeholder-text">AI art coming soon</div>
+          </div>
+          <div class="history-card-body">
+            <div class="history-card-year">6 April 1956</div>
+            <div class="history-card-title">Northumberland National Park Turns 70</div>
+            <p class="history-card-text">Designated as England's most northerly National Park, covering 405 square miles of wild Cheviot hills, Hadrian's Wall country and Europe's largest dark sky park. 2026 marks seven decades of protecting this extraordinary landscape.</p>
+          </div>
+        </div>
+
+        <a href="grace-darling.html" class="history-card" style="text-decoration:none; color:inherit; display:block;">
+          <div class="history-card-image">
+            <span class="history-card-month">June</span>
+            <img src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_600,q_auto,f_auto/grace_history_card_ofdzqr.png" alt="Grace Darling" />
+          </div>
+          <div class="history-card-body">
+            <div class="history-card-year">7 September 1838</div>
+            <div class="history-card-title">Grace Darling &mdash; Northumberland's Bravest</div>
+            <p class="history-card-text">Born in Bamburgh, Grace Darling became Britain's most celebrated heroine when she and her lighthouse keeper father rowed through a savage storm to rescue survivors of the SS Forfarshire. She was just 22 years old. Read her story &rarr;</p>
+          </div>
+        </a>
+
+        <a href="capability-brown.html" class="history-card" style="text-decoration:none; color:inherit; display:block;">
+          <div class="history-card-image">
+            <span class="history-card-month">August</span>
+            <img src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_700,q_auto,f_auto/v1774025238/richie-pppeee_An_elegant_18th_century_gentleman_in_a_tricorn_ha_b31c4b64-6457-4313-b8a4-1618abf529a5_ufaxl4.png" alt="Capability Brown surveying an English landscape" />
+          </div>
+          <div class="history-card-body">
+            <div class="history-card-year">30 August 1716</div>
+            <div class="history-card-title">Capability Brown &mdash; Born in Kirkharle</div>
+            <p class="history-card-text">Lancelot 'Capability' Brown, the greatest landscape gardener in English history, was born and raised in Kirkharle, Northumberland. He transformed over 170 estates including Blenheim Palace and Alnwick Castle's grounds. Read his story &rarr;</p>
+          </div>
+        </a>
+
+        <a href="norham-castle.html" class="history-card" style="text-decoration:none; color:inherit; display:block;">
+          <div class="history-card-image">
+            <span class="history-card-month">October</span>
+            <img src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_700,q_auto,f_auto/Norham_castle_CARD_Image__eq174j.png" alt="Norham Castle on the River Tweed" />
+          </div>
+          <div class="history-card-body">
+            <div class="history-card-year">1121 &mdash; River Tweed, Scottish Border</div>
+            <div class="history-card-title">Norham Castle &mdash; The Most Dangerous Place in England</div>
+            <p class="history-card-text">Besieged at least 13 times over 400 years. Edward I decided the Scottish succession here in 1292. Turner painted it more than any other subject across his entire career. Today it stands in quiet solitude above the Tweed &mdash; Read their story &rarr;</p>
+          </div>
+        </a>
+
+        <a href="hadrians-wall.html" class="history-card" style="text-decoration:none; color:inherit; display:block;">
+          <div class="history-card-image">
+            <span class="history-card-month">December</span>
+            <div class="placeholder-text">Hero image coming soon</div>
+          </div>
+          <div class="history-card-body">
+            <div class="history-card-year">AD 122 &mdash; Wallsend to Bowness-on-Solway</div>
+            <div class="history-card-title">Hadrian's Wall &mdash; From Wallsend to the Edge of Empire</div>
+            <p class="history-card-text">A Spanish emperor, African soldiers, birthday invitations, and 73 miles of stone. The story of the most heavily fortified border in the Roman Empire &mdash; and the extraordinary town where it all begins. Read their story &rarr;</p>
+          </div>
+        </a>
+
+      </div>
+
+      <p class="events-note fade-in" style="margin-top:2rem;">New stories added throughout the year.<br />Have a Northumberland history story to share? <a href="mailto:richard@northumberlandarts.com" style="color:var(--green);">Get in touch</a></p>
+    </div>
+  </section>
+
+  <!-- COUNTY MAP / ZONES -->
+  <section class="county-map" id="map">
+    <div class="container">
+      <div class="map-header fade-in">
+        <span class="section-label">Explore The County</span>
+        <h2 class="section-title">Six Artistic Zones</h2>
+        <p class="section-subtitle" style="margin: 0 auto;">Click a zone to discover its artists, galleries, and creative community.</p>
+      </div>
+
+      <div class="zone-map-grid fade-in">
+        <div class="map-visual">
+          <div class="map-shape zone-1" data-zonename="Berwick &amp; Borders" onclick="goToZone('Berwick & Borders')"><span>Berwick &amp; Borders</span></div>
+          <div class="map-shape zone-2" data-zonename="Alnwick &amp; Coast" onclick="goToZone('Alnwick & Coast')"><span>Alnwick &amp; Coast</span></div>
+          <div class="map-shape zone-3" data-zonename="Rothbury &amp; Coquetdale" onclick="goToZone('Rothbury & Coquetdale')"><span>Rothbury &amp; Coquetdale</span></div>
+          <div class="map-shape zone-4" data-zonename="Bellingham &amp; North Tyne" onclick="goToZone('Bellingham & North Tyne')"><span>Bellingham &amp; North Tyne</span></div>
+          <div class="map-shape zone-5" data-zonename="Hexham &amp; Tynedale" onclick="goToZone('Hexham & Tynedale')"><span>Hexham &amp; Tynedale</span></div>
+          <div class="map-shape zone-6" data-zonename="Morpeth &amp; South East" onclick="goToZone('Morpeth & South East')"><span>Morpeth &amp; South East</span></div>
+        </div>
+
+        <ul class="zone-list">
+          <li onclick="goToZone('Berwick & Borders')">
+            <div class="zone-number">1</div>
+            <div class="zone-info">
+              <h4>Berwick &amp; Borders</h4>
+              <p>The Chatton Gallery, Fieldhouse Gallery, Tin Shed artists, Holy Island studios</p>
+            </div>
+          </li>
+          <li onclick="goToZone('Alnwick & Coast')">
+            <div class="zone-number">2</div>
+            <div class="zone-info">
+              <h4>Alnwick &amp; Coast</h4>
+              <p>Fenwick Gallery, Penn Gallery, Gallery 45, the Craster and Embleton coastline</p>
+            </div>
+          </li>
+          <li onclick="goToZone('Rothbury & Coquetdale')">
+            <div class="zone-number">3</div>
+            <div class="zone-info">
+              <h4>Rothbury &amp; Coquetdale</h4>
+              <p>Crown Studio Gallery, Coquetdale Art Gallery, Gallery 45 Felton</p>
+            </div>
+          </li>
+          <li onclick="goToZone('Bellingham & North Tyne')">
+            <div class="zone-number">4</div>
+            <div class="zone-info">
+              <h4>Bellingham &amp; North Tyne</h4>
+              <p>The Hearth at Horsley, VARC Tarset, Kielder, Warksburn Old Church</p>
+            </div>
+          </li>
+          <li onclick="goToZone('Hexham & Tynedale')">
+            <div class="zone-number">5</div>
+            <div class="zone-info">
+              <h4>Hexham &amp; Tynedale</h4>
+              <p>Haslam's of Hallgate, The Wynd Gallery, Bureau of Dreams, Allendale Forge Studios</p>
+            </div>
+          </li>
+          <li onclick="goToZone('Morpeth & South East')">
+            <div class="zone-number">6</div>
+            <div class="zone-info">
+              <h4>Morpeth &amp; South East</h4>
+              <p>Fika Gallery, Biscuit Factory artists, Newbiggin Art Trail, Ponteland galleries</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- BACK TO TOP -->
+  <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="footer-brand">Northumberland<span>Arts</span></div>
+    <div class="footer-contact">
+      <a href="mailto:richard@northumberlandarts.com">richard@northumberlandarts.com</a>
+    </div>
+    <div class="footer-bottom">
+      <img src="/flag-small.png" alt="Northumberland Flag" style="width:40px;height:25px;vertical-align:middle;margin-right:8px;border-radius:2px;opacity:0.8;" />&copy; 2026 NorthumberlandArts.com. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    // ===== INSTANT JUMP ON HASH (no smooth scroll on page load) =====
+    if (window.location.hash) {
+      document.documentElement.style.scrollBehavior = 'auto';
+      setTimeout(function() {
+        var el = document.querySelector(window.location.hash);
+        if (el) el.scrollIntoView();
+        setTimeout(function() {
+          document.documentElement.style.scrollBehavior = 'smooth';
+        }, 100);
+      }, 0);
+    }
+
+    // ===== ARTIST DATA =====
+    const artists = [
+      // ZONE 1: Berwick & Borders
+      {name:"Robert Turnbull (Bob)",zone:"Berwick & Borders",category:"PAINT",medium:"Oil/acrylic/ink wash",town:"Chatton",website:"https://www.thechattongallery.com/robert-turnbull",notes:"Landscape artist. Owns The Chatton Gallery. Commissions for Queen Mother, Princess Margaret, RSC."},
+      {name:"Scott Brennan",zone:"Berwick & Borders",category:"PAINT",medium:"Oil",town:"Holy Island",website:"https://www.scottbrennanart.com/",notes:"Oil painter on Holy Island. Big skies, seas, Celtic-inspired themes. Studio overlooks Lindisfarne Castle."},
+      {name:"John Tierney",zone:"Berwick & Borders",category:"PAINT",medium:"Oil",town:"Holy Island",website:"https://www.holyislandart.com/",notes:"Holy Island scenes. Gallery opposite Ship Inn. Famous painting 'Heavenly Light'. Worldwide prints."},
+      {name:"Samantha Cary",zone:"Berwick & Borders",category:"PAINT/PRINT/MIXED",medium:"Painting, monoprint, etching, woodcut",town:"Berwick-upon-Tweed",website:"https://www.saatchiart.com/samanthacary",notes:"BA Fine Art, MFA Newcastle. John Moores Prize, RA Summer Exhibition. Curator at The Maltings."},
+      {name:"Amy Izat",zone:"Berwick & Borders",category:"DRAW/PAINT",medium:"Pencil drawing, watercolour",town:"Berwick-upon-Tweed",website:"https://amyizat.com/",notes:"Survived brain haemorrhage. Trained Florence. Wildlife specialist. Runs 27 Art House gallery."},
+      {name:"Phoebe Stewart Carter",zone:"Berwick & Borders",category:"PAINT",medium:"Oil",town:"Berwick-upon-Tweed",website:"https://phoebestewartcarter.com/",notes:"Florence Academy trained. De Laszlo Prize 2023. Figurative, portraiture, plein-air landscapes."},
+      {name:"John Fieldhouse",zone:"Berwick & Borders",category:"PAINT",medium:"Oil/watercolour",town:"Berwick-upon-Tweed",website:"https://www.fieldhousegallery.com",notes:"Runs Fieldhouse Gallery with wife Kerry. Luminous abstract landscapes. Regular sell-out shows."},
+      {name:"Kerry Fieldhouse",zone:"Berwick & Borders",category:"MIXED/TEXTILE",medium:"Mixed media, fabrics, fibres",town:"Berwick-upon-Tweed",website:"https://www.fieldhousegallery.com/about-kerry-fieldhouse",notes:"Mixed media art using fragments of paintings, fibres, fabrics, found objects. 'Kerry Makes' studio."},
+      {name:"Michael Fraser",zone:"Berwick & Borders",category:"PAINT/PHOTO",medium:"Oil painting, photography",town:"Berwick-upon-Tweed",website:"",notes:"Oil paintings and photographs of Berwick and River Tweed area."},
+      {name:"Gordon Porteous",zone:"Berwick & Borders",category:"PHOTO",medium:"Wildlife, landscape photography",town:"Berwick-upon-Tweed",website:"https://gordonporteousphotography.co.uk/",notes:"Wildlife and landscape photographer. Duddo, Druridge Bay, Cheviots. Sells prints."},
+      {name:"Emma Rothera",zone:"Berwick & Borders",category:"PHOTO",medium:"Landscape, nature photography",town:"Holy Island",website:"https://www.emmarotheraphotography.com/",notes:"Award-winning. On Holy Island since 2009. Puffin photography workshops. Art College trained."},
+      {name:"Eddie Middleton",zone:"Berwick & Borders",category:"PHOTO",medium:"Landscape photography",town:"Berwick-upon-Tweed",website:"https://www.eddie-middleton.com/",notes:"Berwick Camera Club member. Landscapes of Berwick town, coast, bridges."},
+      {name:"David Green (Waymark Studio)",zone:"Berwick & Borders",category:"PHOTO",medium:"Landscape photography",town:"Berwick-upon-Tweed",website:"https://waymarkstudio.co.uk",notes:"Landscape photographer. Runs Waymark Studio with Ann Bushell."},
+      {name:"Linda Scott-Robinson",zone:"Berwick & Borders",category:"PAINT/MIXED",medium:"Watercolour, acrylic, oil, mixed media",town:"Mindrum",website:"https://www.thetinshed.co.uk/artist-studios/linda-scott-robinson",notes:"Award-winning landscape painter. Mindrum Artists group. Network Northumberland member."},
+      {name:"Anthea Wood (Amwood Art)",zone:"Berwick & Borders",category:"PAINT/PRINT",medium:"Watercolour, oil, lino print",town:"Near Wooler",website:"https://www.amwoodart.co.uk/",notes:"Equestrian and rural scenes. Chair of Society of Equestrian Artists. Lino-print workshops."},
+      {name:"Olivia Lomenech Gill",zone:"Berwick & Borders",category:"PRINT/DRAW/MIXED",medium:"Printmaking, drawing, collage",town:"Belford",website:"https://www.oliviagill.com/",notes:"MA Printmaking (Camberwell). Illustrated Fantastic Beasts & War Horse. Carnegie Medal 2025."},
+      {name:"Gordon Williams",zone:"Berwick & Borders",category:"PRINT",medium:"Etching, photo etching, lino, screenprint",town:"Born Berwick (now Edinburgh)",website:"https://edinburghprintmakers.co.uk/artists/83-gordon-williams/",notes:"Former art teacher. Edinburgh Printmakers member. Multiple printmaking techniques."},
+      {name:"Mo Healy",zone:"Berwick & Borders",category:"PRINT/MIXED",medium:"Etching, relief, monoprint, stained glass",town:"Ford/Lindisfarne area",website:"",notes:"Irish artist-printmaker. Lady Waterford Art Prize finalist 2021. Artist-in-Residence Lindisfarne 2023."},
+      {name:"Sam Folcarelli",zone:"Berwick & Borders",category:"PAINT",medium:"Watercolour, oil",town:"Wooler/Ingram area",website:"https://www.artbysamfolcarelli.co.uk/",notes:"Self-taught. Animals, landscapes, flowers. Resident Artist at Ingram Valley Farm."},
+      {name:"Helen McKnockiter",zone:"Berwick & Borders",category:"PAINT",medium:"Acrylic",town:"Near Berwick",website:"https://www.helenmcknockiter.com/",notes:"Freelance artist/illustrator. Loose brushstrokes, impressionistic. Tin Shed Etal Art Fairs."},
+      {name:"Rachel Meehan",zone:"Berwick & Borders",category:"PRINT/DRAW",medium:"Screen print, lino, drypoint, scraperboard",town:"Near Coldstream",website:"https://www.rachelmeehan.co.uk/",notes:"Glasgow School of Art postgrad. Floral and bird designs. Also young adult novelist."},
+      {name:"Mark Ward",zone:"Berwick & Borders",category:"PAINT/DRAW",medium:"Oil, acrylic, graphite, digital",town:"Kelso",website:"https://www.markwardart.co.uk",notes:"Portrait artist. Classical realism. Landscapes, wildlife, abstracts. Old masters influence."},
+      {name:"Jean Haste",zone:"Berwick & Borders",category:"TEXTILE/MIXED",medium:"Hand-painted silk, machine embroidery",town:"Exhibits via Tin Shed",website:"",notes:"Guild of Silk Painters. Framed silk wall art. Northumberland countryside themes."},
+      {name:"Alison Diamond-Rogers",zone:"Berwick & Borders",category:"PRINT",medium:"Etching, aquatint, screen print, lino, wood engraving",town:"NE England",website:"https://www.thetinshed.co.uk/artist-studios/alison-diamond-rogers",notes:"Manchester Academy of Fine Arts. Sunderland Uni tutor. Baltic exhibitor. Haighs Award 2022."},
+      {name:"John Grey",zone:"Berwick & Borders",category:"PRINT",medium:"Etching",town:"Formerly NE (now Midlothian)",website:"https://johngrey.uk/",notes:"Edinburgh Printmakers member. Spit-bite etching. Landscape subjects."},
+      {name:"Jane Braithwaite",zone:"Berwick & Borders",category:"DRAW",medium:"Coloured pencil",town:"Exhibits at Etal/Northumberland",website:"https://www.janebraithwaitefineart.com/",notes:"Wildlife artist. British birds, mammals, amphibians. UK Coloured Pencil Society."},
+      {name:"Berwick Art Group",zone:"Berwick & Borders",category:"PAINT",medium:"Various",town:"Berwick-upon-Tweed",website:"https://www.berwickartgroup.com/",notes:"Active group including Sue Handoll, Anne Newbury, Peter Ross, Dorothy Slater. Annual exhibitions."},
+
+      // ZONE 2: Alnwick & Coast
+      {name:"Paul Armstrong",zone:"Alnwick & Coast",category:"PAINT",medium:"Oil",town:"Northumberland Coast",website:"https://www.paularmstrongartist.co.uk/",notes:"Full-time seascape and landscape painter. Originals, prints and greeting cards."},
+      {name:"Mick Oxley",zone:"Alnwick & Coast",category:"PAINT",medium:"Watercolour, acrylic, inks",town:"Craster",website:"https://www.mickoxley.com/",notes:"Self-taught. Own gallery since 2008. Seascapes inspired by Turner. Leading galleries across England & Scotland."},
+      {name:"Nick Potter",zone:"Alnwick & Coast",category:"PAINT/MIXED",medium:"Acrylic, acrylic inks, mixed media, monoprint",town:"Embleton",website:"https://thenickpottergallery.com/",notes:"Lives yards from sea. Palette knives, textures. Buckingham Fine Art Publishers."},
+      {name:"Katherine Renton",zone:"Alnwick & Coast",category:"PAINT/MIXED",medium:"Oil, mixed media, handmade paints",town:"Amble",website:"",notes:"Makes own paints from local materials. Harbour walls, coastal defences, castles. Featured Living North."},
+      {name:"Luke McTaggart",zone:"Alnwick & Coast",category:"PAINT",medium:"Oil/acrylic",town:"Amble",website:"https://lukemctaggart.wordpress.com/",notes:"First-Class Fine Art (Northumbria). RA Scottish Academy, BALTIC. Co-directs Dovecote Street Arts."},
+      {name:"Jim Donnelly",zone:"Alnwick & Coast",category:"PHOTO",medium:"Fine art, live music photography",town:"Amble",website:"https://www.jimdonnelly.co.uk/",notes:"International photographer. Woodhorn Museum Overall Winner. Co-directs Dovecote Street Arts."},
+      {name:"Alan Leightley",zone:"Alnwick & Coast",category:"PHOTO",medium:"Landscape photography, fine art prints",town:"Seahouses",website:"https://www.alanleightley.com/",notes:"Seahouses born. Fotospeed Photographer of Year 2017. Sunrise/sunset tours."},
+      {name:"Hannah Forsyth",zone:"Alnwick & Coast",category:"PRINT",medium:"Monotype printmaking",town:"Rock Village",website:"https://www.forsyth-studio4.com/",notes:"25 years in Northumberland. Sculpture background. Alnmouth Arts Festival, Gallery 45."},
+      {name:"Geoffrey Bradford",zone:"Alnwick & Coast",category:"MIXED/PHOTO",medium:"Mixed media boxes, photography",town:"Alnwick",website:"https://anne.art/artist/geoff-bradford/",notes:"Former art teacher. Photography MA (Sunderland). Found materials from beaches. Woodhorn 2018 winner."},
+      {name:"Sarah Bradford",zone:"Alnwick & Coast",category:"PAINT",medium:"Abstract painting",town:"Alnwick",website:"https://anne.art/event/sarah-bradford-in-my-minds-eye/",notes:"Born 1943. Dover Art Prize 2010. Abstract inspired by music and landscape. Bakehouse Gallery."},
+      {name:"Anthony Marshall",zone:"Alnwick & Coast",category:"PAINT",medium:"Acrylic",town:"Alnwick area",website:"https://thealnwickgallery.co.uk/",notes:"Born Newcastle 1952. President's Award 2000. Duchess of Northumberland collection. Dance figurative."},
+      {name:"Gavin Penn",zone:"Alnwick & Coast",category:"PAINT/MIXED",medium:"Figurative painting, digital art",town:"Alnwick",website:"https://www.penngallery.co.uk/",notes:"Edinburgh College of Art. Own gallery on Narrowgate. Strong light, clear colours."},
+      {name:"David Wilson",zone:"Alnwick & Coast",category:"PAINT",medium:"Oil/acrylic, stained glass",town:"Alnwick",website:"https://www.davidwilsonstudio.co.uk/",notes:"Studios in Alnwick & Fort William. Bailiffgate 2025 exhibition. Landscapes & stained glass."},
+      {name:"Dorien Fenwick",zone:"Alnwick & Coast",category:"PAINT",medium:"Landscape, seascape, floral",town:"Warkworth",website:"https://www.fenwickgallery.co.uk/",notes:"Founded Fenwick Gallery 1990. Weather, light, Northumbrian coastline. One of UK's finest contemporary galleries."},
+      {name:"Nicole Fenwick",zone:"Alnwick & Coast",category:"PAINT",medium:"Wildlife, animal painting",town:"Warkworth",website:"https://www.fenwickgallery.co.uk/",notes:"Daughter of Dorien. Classics & Ancient Art History degree. Wildlife/animal paintings."},
+      {name:"Kate Philp",zone:"Alnwick & Coast",category:"PAINT",medium:"Acrylic, watercolour",town:"North Northumberland",website:"https://www.katephilp.co.uk/",notes:"Edinburgh Uni grad. Full-time since 1997. 25+ years solo exhibitions. Mall Galleries."},
+      {name:"Amanda Jayne Bird",zone:"Alnwick & Coast",category:"PHOTO/MIXED",medium:"Landscape photography, water marbling",town:"Alnwick",website:"https://www.amandajaynebirdart.co.uk/",notes:"Alnwick Castle, Bamburgh, coast. Water marbling art. Prints for homes, offices, holiday lets."},
+      {name:"Tony Meikle (AngelPeak)",zone:"Alnwick & Coast",category:"PHOTO",medium:"Landscape, portrait, fine art, digital art",town:"Glanton",website:"http://www.angelpeak.net/",notes:"Glanton based. Portrait, landscape, fine art. Nikon D800. Panoramics."},
+      {name:"Peter Phillips",zone:"Alnwick & Coast",category:"PAINT/DRAW",medium:"Painting, sketching, illustration",town:"Northumberland",website:"https://peterphillipsart.co.uk/",notes:"30+ years commissions. Book: 'Northumberland: An Artist's View'. Gallery at Bamburgh Castle."},
+      {name:"Marjorie Firth",zone:"Alnwick & Coast",category:"PAINT",medium:"Oil (preferred), various",town:"Howick area",website:"https://howickartgroupnorthumberland.com/marjorie-firth/",notes:"Self-taught. Still life, portraits, seascapes. Patchings Open 5 years. Northumberland Open 2025."},
+      {name:"Martine A. Delbauve",zone:"Alnwick & Coast",category:"DRAW/PRINT/MIXED",medium:"Water-soluble pencil, ink, watercolour, linocut, woodcut",town:"Howick area",website:"https://howickartgroupnorthumberland.com/martine-a-delbauve/",notes:"Self-taught. Natural objects, 'microscapes', rock pools. Relief printing."},
+      {name:"Clifford William Blakey",zone:"Alnwick & Coast",category:"PAINT",medium:"Watercolour, acrylic",town:"Broomhill",website:"https://www.cliffordblakeyart.com/",notes:"Born Newcastle 1957. BA & MFA Newcastle. 35+ years professional. RA Summer Show. Saunders Waterford Prize."},
+
+      // ZONE 3: Rothbury & Coquetdale
+      {name:"Lynda Taylor",zone:"Rothbury & Coquetdale",category:"PAINT",medium:"Acrylic",town:"Rothbury",website:"https://www.crownstudio.co.uk/lynda%20taylor.html",notes:"Acclaimed landscape painter. Coquetdale, Simonside. Brushes, palette knives, credit cards, fingers."},
+      {name:"Elidh Gardiner",zone:"Rothbury & Coquetdale",category:"PAINT",medium:"Watercolour, acrylic",town:"Whittingham",website:"https://www.elidhgardiner.co.uk/",notes:"Multiple Simonside paintings (Hokusai-inspired). Former graphic designer."},
+      {name:"Ken Spencer",zone:"Rothbury & Coquetdale",category:"PAINT",medium:"Oil",town:"Northumberland",website:"https://www.kenspencer.co.uk/",notes:"Born Liverpool. Dramatic landscapes. Collections in Europe, America. One man shows."},
+      {name:"Carmen Gordon",zone:"Rothbury & Coquetdale",category:"PAINT/DRAW",medium:"Drawing, painting",town:"Coquetdale",website:"https://carmengordon.weebly.com/",notes:"Wilds of Coquetdale. Outdoor sketches combined with memories in studio."},
+      {name:"Julia Chandler",zone:"Rothbury & Coquetdale",category:"PAINT/MIXED",medium:"Oil, mixed media",town:"Exhibits Coquetdale",website:"",notes:"Edinburgh College of Art. Martin Kinnear student. Landscapes, flowers."},
+      {name:"Susan Barwood",zone:"Rothbury & Coquetdale",category:"PHOTO",medium:"Landscape, wedding, event",town:"Rothbury",website:"https://susanbarwoodphotography.com/",notes:"Rothbury based. Fine art prints, canvasses. Northumberland calendar. SWPP member."},
+      {name:"Sarah Farooqi",zone:"Rothbury & Coquetdale",category:"PAINT/DRAW",medium:"Ink, watercolour",town:"Felton",website:"https://www.sarahfarooqi.co.uk/",notes:"Illustrated maps, landscapes. Alnwick Castle/Gardens visitor maps. National Trust."},
+      {name:"Diana FitzPatrick",zone:"Rothbury & Coquetdale",category:"PRINT",medium:"Monoprint, linoprint, drypoint",town:"Felton",website:"",notes:"Hawthorn Press. Botanical themes. Stained glass. Printmaking workshops."},
+      {name:"Renira Barnes",zone:"Rothbury & Coquetdale",category:"MIXED/PAINT/PRINT",medium:"Mixed media, watercolour, ink, printmaking",town:"Felton",website:"https://www.renirabarnesart.co.uk/",notes:"Wild/quiet landscapes. Large expressive paintings. Fine Art degree. Drop-In and Draw sessions."},
+      {name:"Helen Poremba",zone:"Rothbury & Coquetdale",category:"MIXED",medium:"Free-motion embroidery, recycled fabrics",town:"Felton",website:"http://www.helenporemba.uk/",notes:"Textile wall art. Recycled fabrics. Hedgerows, woodlands. Bailiffgate Museum exhibition."},
+      {name:"Jane Murray",zone:"Rothbury & Coquetdale",category:"PAINT",medium:"Fine art painting",town:"Felton area",website:"",notes:"Fine Art degree. Co-founder Gallery 45. Botanical studies to larger subjects."},
+      {name:"David Marsh",zone:"Rothbury & Coquetdale",category:"PAINT",medium:"Watercolour",town:"Coquetdale",website:"",notes:"30+ years painting. Heritage transport subjects. Sells via online shops."},
+      {name:"Ann Bryce",zone:"Rothbury & Coquetdale",category:"PAINT/DRAW",medium:"Pastel, oil, acrylic",town:"Coquetdale",website:"",notes:"Portrait painting using pastels. Experiments in oils/acrylics. Colour, form, feeling."},
+      {name:"Natasha Armstrong",zone:"Rothbury & Coquetdale",category:"PAINT",medium:"Acrylic",town:"Exhibits Rothbury",website:"",notes:"MA Fine Art Sunderland. Royal Academy exhibited. Climate change themes."},
+      {name:"Martin JA Ellis",zone:"Rothbury & Coquetdale",category:"PHOTO",medium:"B&W film (35mm, medium, large format)",town:"Covers Coquetdale",website:"https://martinjaellis.com",notes:"Cheviots & Upper Coquetdale. Northumberland shows photographer. Published 'Showtime' booklet 2022."},
+
+      // ZONE 4: Bellingham & North Tyne
+      {name:"Mary Ann Rogers",zone:"Bellingham & North Tyne",category:"PAINT",medium:"Watercolour",town:"West Woodburn",website:"https://www.marogers.com/",notes:"Vibrant animal/bird/landscape paintings. Own gallery. Best Selling Published Artist 2009."},
+      {name:"Gillian Swaile",zone:"Bellingham & North Tyne",category:"PRINT",medium:"Linocut, cyanotype, monoprint, screenprint",town:"Lanehead, Tarset",website:"https://www.gillianswaileart.co.uk/",notes:"Hare-themed prints. Illustrated 'Rain Hare'. Stocked at Bellwether Gallery."},
+      {name:"Anne James",zone:"Bellingham & North Tyne",category:"CERAMIC",medium:"Porcelain/stoneware wall pieces",town:"Wark",website:"https://annejamesceramics.com/",notes:"Handbuilt porcelain/stoneware. Decorative wall pieces, tiles. Curates gallery at Warksburn Old Church."},
+      {name:"Kim Lewis",zone:"Bellingham & North Tyne",category:"MIXED",medium:"Lithography, photography, collage",town:"Near Bellingham",website:"https://www.kimlewisart.co.uk/",notes:"Canadian-born. Stone lithography, 20+ children's books (Walker Books). Farm-based studio."},
+      {name:"Dan Monk",zone:"Bellingham & North Tyne",category:"PHOTO",medium:"Astrophotography",town:"Kielder",website:"",notes:"Director of Astrophotography, Kielder Observatory. Featured in '28 Years Later'. Tourism Superstar finalist."},
+      {name:"Sam Douglas",zone:"Bellingham & North Tyne",category:"PAINT",medium:"Oil, experimental processes",town:"Near Tarset",website:"",notes:"VARC resident. Classical landscape with experimental processes. 40+ paintings of Kielder/Redesdale."},
+      {name:"Lucy May Schofield",zone:"Bellingham & North Tyne",category:"PRINT/MIXED",medium:"Cyanotype, letterpress, Japanese woodblock",town:"Near Tarset",website:"http://www.lucymayschofield.com/",notes:"VARC resident. 'Blue Print of Northumberland' at Bellingham Heritage Centre."},
+      {name:"Jim Kearney",zone:"Bellingham & North Tyne",category:"PHOTO",medium:"Panoramic landscape",town:"Northumberland",website:"https://www.the-image-gallery.com/",notes:"Panoramic specialist. Work at Warksburn Old Church, Alnwick Gallery. Full-time since early 2000s."},
+      {name:"Charlotte Thompson",zone:"Bellingham & North Tyne",category:"PAINT",medium:"Watercolour, acrylic",town:"Tyne Valley",website:"https://www.charlottethompsonart.co.uk/",notes:"Landscapes, flora, wildlife. Work at Warksburn Old Church. 25+ years teaching."},
+      {name:"Rebecca Vincent",zone:"Bellingham & North Tyne",category:"PRINT",medium:"Etching, monotype",town:"Horsley",website:"https://www.rebecca-vincent.co.uk/",notes:"Founder Horsley Printmakers. 20+ years professional. Exhibited at Biscuit Factory."},
+      {name:"Adele Burdon",zone:"Bellingham & North Tyne",category:"PRINT",medium:"Monotype",town:"Horsley",website:"https://www.adeleburdon.co.uk/",notes:"Printfest Founders Award 2018. Northumberland landscapes. Exhibited The Sill, Woodhorn."},
+      {name:"Cathy Duncan",zone:"Bellingham & North Tyne",category:"PRINT",medium:"Linocut",town:"Horsley",website:"",notes:"Northumberland people and countryside. Hadrian's Wall project. Site-specific artworks, book covers."},
+      {name:"Jina Gelder",zone:"Bellingham & North Tyne",category:"PAINT/DRAW",medium:"Ink, watercolour",town:"Horsley",website:"https://www.geegeedesigns.co.uk/",notes:"Wildlife artist. BBC Wildlife Artist of Year finalist 2012 & 2013. Hares, badgers, birds."},
+      {name:"David Holliday",zone:"Bellingham & North Tyne",category:"PAINT",medium:"Watercolour",town:"Horsley",website:"https://www.davidhollidayartist.com/",notes:"Bold, jewel-like style. Cityscapes, landscapes, wildlife. 20+ years. Exhibited at The Sill."},
+      {name:"Mandy Pattullo",zone:"Bellingham & North Tyne",category:"MIXED",medium:"Textile collage, vintage quilts",town:"Horsley",website:"https://www.mandypattullo.co.uk/",notes:"Author 'Textile Collage' and 'Textiles Transformed'. Exhibits nationally/internationally."},
+      {name:"Melanie Hopwood",zone:"Bellingham & North Tyne",category:"CERAMIC",medium:"Wall panels, tiles",town:"Horsley",website:"https://www.melaniehopwood.co.uk/",notes:"Landscape-inspired ceramics. Stocked at The Sill, Brightwater Gallery Alnwick."},
+
+      // ZONE 5: Hexham & Tynedale
+      {name:"Enrique Azocar",zone:"Hexham & Tynedale",category:"PAINT",medium:"Oil, acrylic, pastel",town:"Hexham",website:"https://theartstudio.space/",notes:"British-Chilean. Central St Martins & Santiago trained. Founded Wall North Contemporary Gallery."},
+      {name:"Ben Haslam",zone:"Hexham & Tynedale",category:"PAINT",medium:"Watercolour, oil, acrylic",town:"Hexham",website:"https://tynedalefineartproducts.co.uk/",notes:"Runs Haslam's of Hallgate gallery. Sponsored by Winsor & Newton."},
+      {name:"James Spencer",zone:"Hexham & Tynedale",category:"PAINT",medium:"Oil",town:"Hexham",website:"https://jamesspencerartist.co.uk/",notes:"Still life & landscape. Royal Society Portrait Painters & Royal Institute Oil Painters."},
+      {name:"Rachel Hope",zone:"Hexham & Tynedale",category:"PAINT",medium:"Oil",town:"Hexham",website:"https://rachelhope.co.uk/",notes:"Surrealist painter. Runs Bureau of Dreams gallery, 17 St Mary's Chare."},
+      {name:"Adrian Morley",zone:"Hexham & Tynedale",category:"PAINT",medium:"Acrylic, pastel",town:"Hexham",website:"https://adriart.uk/",notes:"Palette knife & brush. Landscapes, seascapes. Student of Enrique Azocar."},
+      {name:"Hazel Millington",zone:"Hexham & Tynedale",category:"PAINT",medium:"Acrylic, oil",town:"Hexham area",website:"https://hazelmillington.com/",notes:"Hills, mountains, dramatic skies. 30+ year career. Exhibits at Haslam's."},
+      {name:"Claudia Sacher",zone:"Hexham & Tynedale",category:"DRAW/MIXED",medium:"Charcoal, pastel, installation",town:"Hexham",website:"",notes:"German-born. Large-scale outdoor drawing. Collaborates with Karen Melvin & Kate Wilkinson."},
+      {name:"Yvette Ja",zone:"Hexham & Tynedale",category:"MIXED",medium:"Paper art, installation",town:"Hexham",website:"https://yvetteja.com/",notes:"British-South Korean. Glasgow School of Art & Newcastle Uni. Installation from books/maps."},
+      {name:"Amy Moffatt",zone:"Hexham & Tynedale",category:"PRINT/MIXED",medium:"Graphic art prints",town:"Hexham",website:"https://travelsofamym.com/",notes:"Travel-inspired art prints. Designs & handmakes everything."},
+      {name:"Pete Wilkinson",zone:"Hexham & Tynedale",category:"PHOTO",medium:"Landscape",town:"Hexham",website:"https://thisisthewynd.com/",notes:"UK Landscape Photographer of Year shortlisted. British Photographer of Year shortlisted."},
+      {name:"Karen Melvin",zone:"Hexham & Tynedale",category:"PHOTO/MIXED",medium:"Photography, drawing, painting",town:"Hexham area",website:"https://karenmelvin.co.uk/",notes:"Former photography lecturer. Arts Council grants. Exhibited Queens Hall, Wall North."},
+      {name:"David Taylor",zone:"Hexham & Tynedale",category:"PHOTO",medium:"Landscape",town:"Hexham",website:"https://davidtaylorphotography.co.uk/",notes:"40+ books published. Environment Photographer of Year 2008. Lives overlooking Hexham."},
+      {name:"M J Forster (Matthew)",zone:"Hexham & Tynedale",category:"PAINT",medium:"Watercolour, acrylic",town:"Corbridge",website:"https://mjforster.com/",notes:"Bold, vibrant landscapes. Self-taught. Sycamore Gap paintings."},
+      {name:"Kevin Day",zone:"Hexham & Tynedale",category:"PAINT",medium:"Oil, charcoal",town:"Corbridge area",website:"",notes:"Figurative narrative, landscapes. Collectors in Australia, Italy, USA."},
+      {name:"Philip Oliver",zone:"Hexham & Tynedale",category:"PAINT",medium:"Watercolour, airbrush, oil, acrylic",town:"Corbridge/Hexham",website:"https://philipoliverprints.co.uk/",notes:"Aviation, landscapes, wildlife, vintage tractors. Gallery in Hexham 15 years."},
+      {name:"Nadine Sutterby",zone:"Hexham & Tynedale",category:"DRAW",medium:"Coloured pencil, pastel, watercolour",town:"Haydon Bridge",website:"https://nadinesutterbyart.com/",notes:"Pet portraits & wildlife. Art college Carlisle. International sales."},
+      {name:"Will Nicholls",zone:"Hexham & Tynedale",category:"PHOTO",medium:"Wildlife",town:"Haydon Bridge",website:"https://www.willnicholls.co.uk/",notes:"BAFTA nominated. Founded Nature TTL. Director BWPA. Published author at 18."},
+      {name:"Alison A. Raimes",zone:"Hexham & Tynedale",category:"PAINT/MIXED",medium:"Contemporary painting",town:"Haltwhistle",website:"https://raimes.com/",notes:"BA Fine Art Manchester Met. Founded Whistle Art Stop. Works with refugees."},
+      {name:"Peter Flanagan",zone:"Hexham & Tynedale",category:"PAINT",medium:"Oil",town:"Hexham",website:"https://peterflanagan.co.uk/",notes:"Figurative, landscape, portrait. Self-employed since 1986. Royal Family collection."},
+      {name:"Lindsey Cooper",zone:"Hexham & Tynedale",category:"PAINT/PRINT",medium:"Acrylic, lino print",town:"Near Hexham",website:"https://lindseycooper.co.uk/",notes:"Coast & countryside. Exhibits at Hexham Abbey & Allendale Forge Studios."},
+      {name:"Claire Myers",zone:"Hexham & Tynedale",category:"PAINT",medium:"Acrylic",town:"Near Hexham",website:"https://clairemyersart.com/",notes:"Specialises in horses. Newcastle Uni graduate. Exhibits at Hexham Abbey."},
+      {name:"Julie Smith",zone:"Hexham & Tynedale",category:"CERAMIC",medium:"Stoneware",town:"Carrshield",website:"https://pottersmith.co.uk/",notes:"Landscape-inspired. Co-founder High Pennine Artists. Teaching since 1997."},
+      {name:"Steph Jamieson",zone:"Hexham & Tynedale",category:"CERAMIC",medium:"Sculptural ceramic",town:"Near Allendale",website:"https://broadwoodstudios.co.uk/",notes:"Smoke & fire techniques. Inspired by ancient pottery, geology. Exhibited at The Sill."},
+      {name:"Paul Stangroom",zone:"Hexham & Tynedale",category:"PAINT",medium:"Watercolour",town:"Allendale",website:"https://paulstangroom.co.uk/",notes:"North Pennines through abandoned windows. Royal Watercolour Society award 2009."},
+      {name:"Robert Newton",zone:"Hexham & Tynedale",category:"PAINT",medium:"Watercolour",town:"Tyne Valley",website:"https://www.robertnewtonartist.co.uk/",notes:"Bold, fluid landscapes. Sunderland Uni fine art. Exhibited The Sill. International collections."},
+      {name:"Fiona Carvell",zone:"Hexham & Tynedale",category:"DRAW/PAINT",medium:"Pastel",town:"Workshops Hexham",website:"https://www.fionacarvell.com/",notes:"Royal Talens Award 2020. Pastel Society UK & USA. RA Summer Exhibition 2025."},
+      {name:"Kit Saddington",zone:"Hexham & Tynedale",category:"PHOTO",medium:"Landscape",town:"Hexham area",website:"",notes:"Schoolteacher. Exhibited at The Sill. Minimal post-processing. Focus on light."},
+
+      // ZONE 6: Morpeth & South East
+      {name:"Sarah Farooqi",zone:"Morpeth & South East",category:"PAINT/DRAW",medium:"Ink, watercolour",town:"Morpeth/Felton",website:"https://www.sarahfarooqi.co.uk/",notes:"Illustrated maps, landscapes. Alnwick Garden & National Trust maps."},
+      {name:"Alan Reed",zone:"Morpeth & South East",category:"PAINT/DRAW",medium:"Watercolour, oil, charcoal",town:"Ponteland",website:"https://alanreed.com/",notes:"40+ years. RWS Artist's Prize 2013. BBC2 'Show me the Monet'. Gallery since 1996."},
+      {name:"Walter Holmes",zone:"Morpeth & South East",category:"PAINT",medium:"Oil, watercolour, pastel",town:"Ponteland",website:"https://walterholmes.co.uk/",notes:"Born 1936. Full-time since 1980. Landscapes, seascapes, cityscapes. Collections worldwide."},
+      {name:"Kate Kono",zone:"Morpeth & South East",category:"PAINT",medium:"Botanical watercolour",town:"Ponteland",website:"https://katekonoart.com/",notes:"Floral subjects. Exhibited Ponteland Art Festival 2024."},
+      {name:"Jonathan Antony (Jabsta)",zone:"Morpeth & South East",category:"MIXED",medium:"Mixed media, large format",town:"Morpeth",website:"https://fikagallery.co.uk/",notes:"Born 1967. Bold, contemporary. Collected in 40+ countries. Owns Fika Gallery."},
+      {name:"Amanda Mavin",zone:"Morpeth & South East",category:"PAINT/MIXED",medium:"Cold wax, oil",town:"Bedlington",website:"",notes:"Abstract. Inspired by Cheviots, European travels. Hobbyist turned professional."},
+      {name:"Wendy Reed",zone:"Morpeth & South East",category:"MIXED",medium:"Mixed media, upcycled materials",town:"Bedlington",website:"https://thecreativechicken.co.uk/",notes:"Runs art/craft studio & workshop. Returned to Bedlington 2022."},
+      {name:"Michael Knox",zone:"Morpeth & South East",category:"PAINT/DRAW",medium:"Acrylic, ink, drawing",town:"Ashington",website:"https://michaelknoxpainter.blogspot.com/",notes:"Contemporary abstract + traditional drawings. Exhibited Newbiggin Maritime Centre."},
+      {name:"Iain Bolton",zone:"Morpeth & South East",category:"PAINT",medium:"Ink, acrylic, oil",town:"Ashington",website:"",notes:"Linear vs non-linear exploration. Solo show 'The Disappearing Quiet'."},
+      {name:"Peter Seddon",zone:"Morpeth & South East",category:"CERAMIC",medium:"Ceramic wall pieces",town:"Newbiggin-by-the-Sea",website:"https://peterseddon.co.uk/",notes:"Founder KEAP Creative. Newbiggin Art Trail (60+ public artworks). Exhibited Woodhorn."},
+      {name:"Rachael Sligo",zone:"Morpeth & South East",category:"PAINT/DRAW",medium:"Watercolour",town:"Morpeth",website:"https://littleflowersbysligo.co.uk/",notes:"Whimsical animals, florals, portraits. LUXlife Best Watercolour Illustration Artist UK 2022."},
+      {name:"John Williamson",zone:"Morpeth & South East",category:"PHOTO",medium:"Landscape, travel, fine art",town:"Morpeth",website:"https://www.johnwilliamson.co.uk/",notes:"15+ years. 'Northumberland Lights' series. Great North Run, Tall Ships commissions."},
+      {name:"Jim Scott",zone:"Morpeth & South East",category:"PHOTO",medium:"Landscape, heritage",town:"Morpeth",website:"https://jimscottphotography.com/",notes:"'The Northumberlander Project' - all 70+ castles. Northern Photography Prize winner."},
+      {name:"Jim Donnelly",zone:"Morpeth & South East",category:"PHOTO",medium:"Fine art, live music",town:"Amble",website:"https://www.jimdonnelly.co.uk/",notes:"Winner Northumberland Open 2024. Co-director Dovecote Street Arts."},
+      {name:"John Eric Rothwell",zone:"Morpeth & South East",category:"PAINT/MIXED",medium:"Oil, mixed media",town:"Northumberland",website:"https://johnericrothwellart.wordpress.com/",notes:"Sky Landscape Artist of Year 2018. Nature, folklore. NHS arts facilitator since 2000."},
+      {name:"Christine Cave",zone:"Morpeth & South East",category:"PAINT/DRAW",medium:"Pastel, paint",town:"Morpeth area",website:"https://christinecaveart.com/",notes:"Landscapes transformed by colour & light. Whalton Art Fair, Ponteland Art Festival."},
+      {name:"Ray Stephenson",zone:"Morpeth & South East",category:"PAINT",medium:"Watercolour, acrylic",town:"Northumberland",website:"https://raystephensonpaintings.co.uk/",notes:"Northumberland coastline. Belford Arts Festival, Ponteland Art Festival 2024."},
+      {name:"Joanne Wishart",zone:"Morpeth & South East",category:"PAINT",medium:"Acrylic",town:"Cullercoats/Whitley Bay",website:"https://www.joannewishart.co.uk/",notes:"Grew up Berwick. Colourful seascapes. NE Female Entrepreneur Award 2009."},
+      {name:"Lynda Nelson",zone:"Morpeth & South East",category:"DRAW/PAINT",medium:"Illustration, murals",town:"Seaton Delaval",website:"",notes:"Bright, colourful murals for schools & businesses."},
+      {name:"Rachel McClumpha",zone:"Morpeth & South East",category:"PHOTO",medium:"Brand, fine art",town:"Bedlington",website:"https://rjm-photography.co.uk/",notes:"Also paints watercolours & acrylics. 5-star rated."}
+    ];
+
+    // ===== MEDIUM CLASSIFICATION =====
+    function classifyMedium(category, medium) {
+      const cat = (category || '').toUpperCase();
+      const med = (medium || '').toLowerCase();
+      const tags = [];
+
+      if (cat.includes('PAINT') || med.includes('paint') || med.includes('oil') || med.includes('acrylic') || med.includes('watercolour') || med.includes('watercolor') || med.includes('gouache') || med.includes('abstract painting') || med.includes('botanical') || med.includes('cold wax'))
+        tags.push('Painting');
+      if (cat.includes('DRAW') || med.includes('drawing') || med.includes('pencil') || med.includes('charcoal') || med.includes('pastel') || med.includes('graphite') || med.includes('ink') || med.includes('illustration') || med.includes('sketching') || med.includes('scraperboard'))
+        tags.push('Drawing');
+      if (cat.includes('PHOTO') || med.includes('photo') || med.includes('astrophoto') || med.includes('landscape photography') || med.includes('wildlife') && !med.includes('paint'))
+        tags.push('Photography');
+      if (cat.includes('PRINT') || med.includes('print') || med.includes('etching') || med.includes('lino') || med.includes('screenprint') || med.includes('screen print') || med.includes('woodcut') || med.includes('woodblock') || med.includes('cyanotype') || med.includes('letterpress') || med.includes('aquatint') || med.includes('monotype') || med.includes('monoprint') || med.includes('drypoint') || med.includes('lithography'))
+        tags.push('Printmaking');
+      if (cat.includes('CERAMIC') || med.includes('ceramic') || med.includes('porcelain') || med.includes('stoneware') || med.includes('pottery') || med.includes('tiles'))
+        tags.push('Ceramics');
+      if (cat.includes('MIXED') || cat.includes('TEXTILE') || med.includes('mixed media') || med.includes('collage') || med.includes('textile') || med.includes('fabric') || med.includes('embroidery') || med.includes('silk') || med.includes('installation') || med.includes('upcycled') || med.includes('paper art') || med.includes('stained glass') || med.includes('recycled') || med.includes('digital art') || med.includes('water marbling'))
+        tags.push('Mixed Media');
+
+      // fallback: check specific photo keywords in medium
+      if (tags.length === 0 && (med.includes('landscape') || med.includes('wildlife')))
+        tags.push('Photography');
+
+      return tags.length > 0 ? tags : ['Mixed Media'];
+    }
+
+    // Process artists with medium tags
+    artists.forEach(a => {
+      a.mediumTags = classifyMedium(a.category, a.medium);
+    });
+
+    // ===== FILTERS =====
+    let activeZone = 'all';
+    let activeMedium = 'all';
+
+    function filterArtists() {
+      return artists.filter(a => {
+        const zoneMatch = activeZone === 'all' || a.zone === activeZone;
+        const mediumMatch = activeMedium === 'all' || a.mediumTags.includes(activeMedium);
+        return zoneMatch && mediumMatch;
+      });
+    }
+
+    function renderArtists() {
+      const filtered = filterArtists();
+      const grid = document.getElementById('artistGrid');
+      const count = document.getElementById('resultsCount');
+      const noResults = document.getElementById('noResults');
+      const prompt = document.getElementById('artistPrompt');
+
+      // If no filter is active (both set to "all"), show the prompt, hide the grid
+      if (activeZone === 'all' && activeMedium === 'all') {
+        prompt.style.display = 'block';
+        grid.style.display = 'none';
+        noResults.style.display = 'none';
+        count.innerHTML = '<strong>' + artists.length + '</strong> artists across 6 zones &mdash; select a zone or medium to explore';
+        return;
+      }
+
+      // A filter is active — hide prompt, show grid
+      prompt.style.display = 'none';
+      grid.style.display = '';
+
+      count.innerHTML = 'Showing <strong>' + filtered.length + '</strong> of <strong>' + artists.length + '</strong> artists';
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        noResults.style.display = 'block';
+        return;
+      }
+
+      noResults.style.display = 'none';
+
+      grid.innerHTML = filtered.map(a => {
+        const websiteLink = a.website
+          ? '<a href="' + a.website + '" target="_blank" rel="noopener noreferrer" class="artist-card-link">Visit Website <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>'
+          : '';
+
+        const mediumBadges = a.mediumTags.map(t => '<span class="badge badge-medium">' + t + '</span>').join('');
+
+        // Get first sentence from notes
+        let note = a.notes || '';
+        const firstSentence = note.split('. ')[0];
+        const displayNote = firstSentence + (firstSentence.endsWith('.') ? '' : '.');
+
+        return '<div class="artist-card">' +
+          '<div class="artist-card-name">' + a.name + '</div>' +
+          '<div class="artist-card-badges">' +
+            '<span class="badge badge-zone">' + a.zone + '</span>' +
+            mediumBadges +
+          '</div>' +
+          (a.town ? '<div class="artist-card-town">' + a.town + '</div>' : '') +
+          '<div class="artist-card-notes">' + displayNote + '</div>' +
+          websiteLink +
+        '</div>';
+      }).join('');
+    }
+
+    // Zone filter buttons
+    document.getElementById('zoneFilters').addEventListener('click', function(e) {
+      if (!e.target.classList.contains('filter-btn')) return;
+      this.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      e.target.classList.add('active');
+      activeZone = e.target.dataset.zone;
+      renderArtists();
+    });
+
+    // Medium filter buttons
+    document.getElementById('mediumFilters').addEventListener('click', function(e) {
+      if (!e.target.classList.contains('filter-btn')) return;
+      this.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      e.target.classList.add('active');
+      activeMedium = e.target.dataset.medium;
+      renderArtists();
+    });
+
+    // Initial render
+    renderArtists();
+
+    // ===== SITE SEARCH =====
+    function toggleSearch() {
+      var overlay = document.getElementById('searchOverlay');
+      var input = document.getElementById('searchInput');
+      overlay.classList.toggle('active');
+      if (overlay.classList.contains('active')) {
+        input.value = '';
+        document.getElementById('searchResults').innerHTML = '';
+        setTimeout(function() { input.focus(); }, 100);
+      }
+    }
+    // Close search on Escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        document.getElementById('searchOverlay').classList.remove('active');
+      }
+    });
+    // Close search when clicking outside
+    document.getElementById('searchOverlay').addEventListener('click', function(e) {
+      if (e.target === this) this.classList.remove('active');
+    });
+
+    document.getElementById('searchInput').addEventListener('input', function() {
+      var q = this.value.toLowerCase().trim();
+      var results = document.getElementById('searchResults');
+      if (q.length < 2) { results.innerHTML = ''; return; }
+      var matches = [];
+
+      // Search artists
+      artists.forEach(function(a) {
+        var haystack = (a.name + ' ' + a.zone + ' ' + a.medium + ' ' + a.town + ' ' + (a.category||'')).toLowerCase();
+        if (haystack.indexOf(q) !== -1) {
+          matches.push({type:'Artist', name:a.name, detail:a.medium + ' — ' + a.town, section:'directory', artistName:a.name, artistZone:a.zone});
+        }
+      });
+
+      // Search events (grab from DOM)
+      document.querySelectorAll('.event-item h4').forEach(function(el) {
+        if (el.textContent.toLowerCase().indexOf(q) !== -1) {
+          var loc = el.closest('.event-item').querySelector('.event-location');
+          matches.push({type:'Event', name:el.textContent, detail:loc ? loc.textContent : '', section:'events'});
+        }
+      });
+
+      // Search galleries
+      document.querySelectorAll('.gallery-card h4').forEach(function(el) {
+        if (el.textContent.toLowerCase().indexOf(q) !== -1) {
+          var loc = el.closest('.gallery-card').querySelector('.gallery-location');
+          matches.push({type:'Gallery', name:el.textContent, detail:loc ? loc.textContent : '', section:'galleries'});
+        }
+      });
+
+      // Search history cards
+      document.querySelectorAll('.history-card h4, .history-card h3').forEach(function(el) {
+        if (el.textContent.toLowerCase().indexOf(q) !== -1) {
+          matches.push({type:'History', name:el.textContent, detail:'', section:'history'});
+        }
+      });
+
+      // Search zone names
+      document.querySelectorAll('.zone-title, .gallery-zone-title').forEach(function(el) {
+        if (el.textContent.toLowerCase().indexOf(q) !== -1) {
+          matches.push({type:'Zone', name:el.textContent, detail:'', section:'map'});
+        }
+      });
+
+      // Render results
+      if (matches.length === 0) {
+        results.innerHTML = '<div class="search-no-results">No results for "' + q + '"</div>';
+        return;
+      }
+      var html = '';
+      matches.slice(0, 15).forEach(function(m) {
+        var onclick = m.artistName ? 'goToArtist(\'' + m.artistName.replace(/'/g,"\\'") + '\',\'' + (m.artistZone||'').replace(/'/g,"\\'") + '\')' : 'goToResult(\'' + m.section + '\')';
+        html += '<div class="search-result-item" onclick="' + onclick + '">';
+        html += '<span class="search-result-type">' + m.type + '</span>';
+        html += '<span class="search-result-name">' + m.name + '</span>';
+        if (m.detail) html += '<span class="search-result-detail">' + m.detail + '</span>';
+        html += '</div>';
+      });
+      if (matches.length > 15) html += '<div class="search-no-results">' + (matches.length - 15) + ' more results...</div>';
+      results.innerHTML = html;
+    });
+
+    function goToArtist(name, zone) {
+      document.getElementById('searchOverlay').classList.remove('active');
+      // Activate the artist's zone filter
+      activeZone = zone;
+      activeMedium = 'all';
+      // Update filter buttons
+      document.querySelectorAll('#zoneFilters .filter-btn').forEach(function(btn) {
+        btn.classList.remove('active');
+        if (btn.getAttribute('data-zone') === zone) btn.classList.add('active');
+      });
+      document.querySelectorAll('#mediumFilters .filter-btn').forEach(function(btn) {
+        btn.classList.remove('active');
+        if (btn.getAttribute('data-medium') === 'all') btn.classList.add('active');
+      });
+      renderArtists();
+      // Scroll to directory first
+      document.getElementById('directory').scrollIntoView({behavior:'smooth', block:'start'});
+      // Then find and highlight the specific artist card
+      setTimeout(function() {
+        var cards = document.querySelectorAll('.artist-card');
+        for (var i = 0; i < cards.length; i++) {
+          if (cards[i].querySelector('h4') && cards[i].querySelector('h4').textContent === name) {
+            cards[i].scrollIntoView({behavior:'smooth', block:'center'});
+            cards[i].style.outline = '2px solid #c9a84c';
+            cards[i].style.outlineOffset = '4px';
+            setTimeout(function() {
+              cards[i].style.outline = 'none';
+            }, 3000);
+            break;
+          }
+        }
+      }, 600);
+    }
+
+    function goToResult(section) {
+      document.getElementById('searchOverlay').classList.remove('active');
+      var el = document.getElementById(section);
+      if (el) {
+        el.scrollIntoView({behavior:'smooth', block:'start'});
+        // If it's the artist directory and cards are hidden, activate the matching filter
+        if (section === 'directory') {
+          var q = document.getElementById('searchInput').value.toLowerCase().trim();
+          // Try to find matching medium
+          var mediums = ['Paint','Ceramic','Print','Photo','Textile','Glass','Sculpture','Mixed','Jewellery','Wood','Digital'];
+          mediums.forEach(function(med) {
+            if (q.indexOf(med.toLowerCase()) !== -1) {
+              activeMedium = med.toUpperCase();
+              renderArtists();
+            }
+          });
+        }
+      }
+    }
+
+    // ===== ARTIST PROMPT ROTATING IMAGES =====
+    // ARTIST PROMPT IMAGES — R Patterson local Northumberland photography
+    var artistPromptImages = [
+      'https://res.cloudinary.com/dkk0iwk3t/image/upload/q_auto,f_auto/v1774099813/_DSC9567_002_k3grwc.jpg',
+      'https://res.cloudinary.com/dkk0iwk3t/image/upload/q_auto,f_auto/v1774099812/_DSC9567_005_qu2cmb.jpg',
+      'https://res.cloudinary.com/dkk0iwk3t/image/upload/q_auto,f_auto/v1774099810/_DSC9521_001AA_bee01i.jpg',
+      'https://res.cloudinary.com/dkk0iwk3t/image/upload/q_auto,f_auto/v1774099808/_DSC9521_005_ltjazp.jpg',
+      'https://res.cloudinary.com/dkk0iwk3t/image/upload/q_auto,f_auto/v1774099806/_DSC9521_007_p9ef9r.jpg',
+      'https://res.cloudinary.com/dkk0iwk3t/image/upload/q_auto,f_auto/v1774099804/_DSC1190_002_bnqb4i.jpg',
+      'https://res.cloudinary.com/dkk0iwk3t/image/upload/q_auto,f_auto/v1774099802/_DSC0358_005_aleovl.jpg',
+      'https://res.cloudinary.com/dkk0iwk3t/image/upload/q_auto,f_auto/v1774099800/_DSC1124-Edit_sf3chi.jpg',
+      'https://res.cloudinary.com/dkk0iwk3t/image/upload/q_auto,f_auto/v1774099798/_DSC1146_010_knlbck.jpg',
+      'https://res.cloudinary.com/dkk0iwk3t/image/upload/q_auto,f_auto/v1774099796/_DSC1202-Pano_006_caenxu.jpg',
+      'https://res.cloudinary.com/dkk0iwk3t/image/upload/q_auto,f_auto/v1774099795/_DSC1190_007_ucr2ii.jpg',
+      'https://res.cloudinary.com/dkk0iwk3t/image/upload/q_auto,f_auto/v1774099793/_DSC1190_006_inegds.jpg',
+      'https://res.cloudinary.com/dkk0iwk3t/image/upload/q_auto,f_auto/v1774099791/_DSC1202-Pano_002A_qslxrl.jpg',
+      'https://res.cloudinary.com/dkk0iwk3t/image/upload/q_auto,f_auto/v1774099790/_DSC1146_009_g9lkxr.jpg'
+    ];
+    var apIdx = Math.floor(Math.random() * artistPromptImages.length);
+    var apBg = document.getElementById('artistPromptBg');
+    if (apBg) {
+      apBg.style.backgroundImage = 'url(' + artistPromptImages[apIdx] + ')';
+      setInterval(function() {
+        apIdx = (apIdx + 1) % artistPromptImages.length;
+        apBg.style.opacity = '0';
+        setTimeout(function() {
+          apBg.style.backgroundImage = 'url(' + artistPromptImages[apIdx] + ')';
+          apBg.style.opacity = '1';
+        }, 1500);
+      }, 6000);
+    }
+
+    // ===== EXPAND / COLLAPSE SECTIONS =====
+    function expandSection(section) {
+      var id = section === 'artists' ? 'artistsCollapsible' : section === 'galleries' ? 'galleriesCollapsible' : null;
+      if (id) {
+        var el = document.getElementById(id);
+        el.classList.add('expanded');
+        // Show the collapse button (next sibling)
+        var collapseBtn = el.nextElementSibling;
+        if (collapseBtn && collapseBtn.classList.contains('collapse-btn')) {
+          collapseBtn.style.display = 'block';
+        }
+      }
+    }
+
+    function collapseSection(section) {
+      var id = section === 'artists' ? 'artistsCollapsible' : section === 'galleries' ? 'galleriesCollapsible' : null;
+      if (id) {
+        var el = document.getElementById(id);
+        el.classList.remove('expanded');
+        // Hide the collapse button
+        var collapseBtn = el.nextElementSibling;
+        if (collapseBtn && collapseBtn.classList.contains('collapse-btn')) {
+          collapseBtn.style.display = 'none';
+        }
+        // Scroll back to section top
+        var sectionEl = el.closest('section');
+        if (sectionEl) sectionEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    // Auto-expand section when nav link is clicked
+    document.querySelectorAll('a[href="#directory"]').forEach(function(link) {
+      link.addEventListener('click', function() { setTimeout(function(){ expandSection('artists'); }, 300); });
+    });
+    document.querySelectorAll('a[href="#galleries"]').forEach(function(link) {
+      link.addEventListener('click', function() { setTimeout(function(){ expandSection('galleries'); }, 300); });
+    });
+
+    // ===== NAV SCROLL + BACK TO TOP =====
+    var backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', function() {
+      var nav = document.querySelector('nav');
+      nav.style.background = window.scrollY > 50
+        ? 'rgba(26, 26, 46, 0.97)'
+        : 'rgba(26, 26, 46, 0.92)';
+      // Show/hide back to top
+      if (window.scrollY > 600) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+
+    // Close mobile menu on link click
+    document.querySelectorAll('.nav-links a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        document.getElementById('navLinks').classList.remove('open');
+      });
+    });
+
+    // ===== SCROLL ANIMATIONS =====
+    var fadeEls = document.querySelectorAll('.fade-in');
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    fadeEls.forEach(function(el) { observer.observe(el); });
+
+    // ===== ZONE MAP CLICK → ARTIST FILTER =====
+    function goToZone(zoneName) {
+      // Set active zone
+      activeZone = zoneName;
+
+      // Update zone filter buttons to show the active one
+      document.getElementById('zoneFilters').querySelectorAll('.filter-btn').forEach(function(btn) {
+        btn.classList.remove('active');
+        if (btn.dataset.zone === zoneName) {
+          btn.classList.add('active');
+        }
+      });
+
+      // Re-render artists
+      renderArtists();
+
+      // Scroll to the directory section
+      document.getElementById('directory').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // ===== SEASON TAB SWITCHING =====
+    function showSeason(season) {
+      // Hide all panels
+      document.querySelectorAll('.season-panel').forEach(function(panel) {
+        panel.classList.remove('active');
+      });
+      // Deactivate all tabs
+      document.querySelectorAll('.season-tab').forEach(function(tab) {
+        tab.classList.remove('active');
+      });
+      // Show selected panel
+      document.getElementById('season-' + season).classList.add('active');
+      // Activate clicked tab
+      event.target.classList.add('active');
+    }
+  </script>
+
+<script>document.addEventListener("contextmenu",function(e){if(e.target.tagName==="IMG"){e.preventDefault()}});document.addEventListener("dragstart",function(e){if(e.target.tagName==="IMG"){e.preventDefault()}});</script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grace Darling — Northumberland's Reluctant Heroine | NorthumberlandArts</title>
+  <meta name="description" content="The extraordinary true story of Grace Darling — the lighthouse keeper's daughter who rowed into a North Sea storm aged 22, saved nine lives, and died four years later." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root { --navy:#1a1a2e; --green:#2d6a4f; --gold:#c9a84c; --gold-dark:#a8893d; --parchment:#f8f6f0; --white:#ffffff; --text:#333333; --text-light:#666666; --border:rgba(0,0,0,0.06); }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Source Sans 3',sans-serif;background:var(--parchment);color:var(--text);line-height:1.7;}
+    nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(26,26,46,0.95);padding:0.8rem 2rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(201,168,76,0.15);}
+    .nav-brand{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--parchment);text-decoration:none;letter-spacing:1px;}
+    .nav-brand span{color:var(--gold);}
+    .back-link{color:rgba(248,246,240,0.6);text-decoration:none;font-size:0.85rem;transition:color 0.3s;}
+    .back-link:hover{color:var(--gold);}
+    .hero{position:relative;height:70vh;min-height:450px;display:flex;align-items:flex-end;overflow:hidden;}
+    .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,26,46,0.95) 0%,rgba(26,26,46,0.4) 50%,rgba(26,26,46,0.2) 100%);}
+    .hero-content{position:relative;z-index:2;padding:3rem 2rem;max-width:800px;}
+    .hero-badge{display:inline-block;background:var(--gold);color:var(--navy);font-size:0.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:0.3rem 0.8rem;border-radius:2px;margin-bottom:1rem;}
+    .hero h1{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:600;color:var(--parchment);line-height:1.15;margin-bottom:0.8rem;}
+    .hero h1 span{color:var(--gold);}
+    .hero-sub{font-size:1.1rem;color:rgba(248,246,240,0.7);font-weight:300;max-width:600px;}
+    .article{max-width:780px;margin:0 auto;padding:4rem 2rem;}
+    .article p{font-size:1.05rem;line-height:1.85;margin-bottom:1.5rem;color:var(--text);}
+    .article h2{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:500;color:var(--navy);margin:3rem 0 1rem;padding-bottom:0.5rem;border-bottom:2px solid var(--gold);}
+    .article h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:500;color:var(--green);margin:2rem 0 0.8rem;}
+    .lead{font-size:1.2rem !important;font-weight:300;color:var(--text-light) !important;border-left:3px solid var(--gold);padding-left:1.2rem;}
+    blockquote{margin:2rem 0;padding:1.5rem 1.5rem 1.5rem 2rem;background:var(--white);border-left:4px solid var(--gold);font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic;color:var(--green);line-height:1.6;}
+    blockquote cite{display:block;margin-top:0.8rem;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;font-style:normal;color:var(--text-light);}
+    .article-image{margin:2.5rem 0;border-radius:2px;overflow:hidden;}
+    .article-image img{width:100%;height:auto;display:block;}
+    .article-image figcaption{font-size:0.8rem;color:var(--text-light);padding:0.8rem 0;font-style:italic;}
+    .image-rotate{position:relative;min-height:400px;border-radius:2px;overflow:hidden;margin:2.5rem 0;}
+    .image-rotate img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.5s ease-in-out;}
+    .image-rotate img.fade-out{opacity:0;}
+    .info-box{background:var(--navy);color:var(--parchment);padding:2rem;margin:2.5rem 0;border-radius:2px;}
+    .info-box h3{font-family:'Playfair Display',serif;color:var(--gold);font-size:1.2rem;margin:0 0 1rem;}
+    .info-box p{color:rgba(248,246,240,0.8) !important;font-size:0.95rem !important;margin-bottom:0.8rem !important;}
+    .info-box a{color:var(--gold);text-decoration:none;}
+    .info-box a:hover{text-decoration:underline;}
+    .credit-box{background:var(--white);border:1px solid var(--border);padding:1.5rem;margin:2.5rem 0;border-radius:2px;font-size:0.9rem;color:var(--text-light);line-height:1.7;}
+    .credit-box strong{color:var(--navy);}
+    .credit-box a{color:var(--green);}
+    .links-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin:1.5rem 0;}
+    .link-card{background:var(--white);border:1px solid var(--border);padding:1rem 1.2rem;text-decoration:none;transition:all 0.3s ease;display:block;}
+    .link-card:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(0,0,0,0.06);border-color:var(--gold);}
+    .link-card-title{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;color:var(--navy);margin-bottom:0.3rem;}
+    .link-card-desc{font-size:0.82rem;color:var(--text-light);line-height:1.5;margin-bottom:0.4rem;}
+    .link-card-url{font-size:0.72rem;color:var(--gold-dark);}
+    footer{background:var(--navy);color:rgba(248,246,240,0.4);text-align:center;padding:2rem;}
+    footer a{color:var(--gold);text-decoration:none;}
+    .footer-back{display:inline-block;margin-bottom:0.5rem;font-size:0.9rem;}
+    .footer-copy{font-size:0.75rem;}
+    @media(max-width:768px){
+      .hero{height:50vh;min-height:350px;}
+      .hero h1{font-size:2rem;}
+      .article{padding:2.5rem 1.2rem;}
+      .image-rotate{min-height:250px;}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-brand">Northumberland<span>Arts</span></a>
+    <a href="index.html#history" class="back-link">← Back to History</a>
+  </nav>
+
+  <section class="hero">
+    <img class="hero-img" src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1920,q_auto,f_auto/HERO_-_V1__Grace_darling_reluctantly_sitting_for_a_portrait__831673ce-36ae-4c49-80b5-963b78e53f9f_snjaoa.png" alt="Grace Darling sitting for a portrait in the Longstone lighthouse" />
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Northumberland History</div>
+      <h1>Grace <span>Darling</span></h1>
+      <p class="hero-sub">Born in the shadow of Bamburgh Castle, raised on a rock in the North Sea, famous at twenty-two, dead at twenty-six. The lighthouse keeper's daughter who became Victorian Britain's greatest heroine.</p>
+    </div>
+  </section>
+
+  <article class="article">
+    <p class="lead">On the morning of 7 September 1838, a twenty-two-year-old woman and her father rowed a small open boat into one of the worst storms the Northumberland coast had ever seen. They saved nine lives. Within weeks, Grace Darling was the most famous woman in England. Within four years, she was dead.</p>
+
+    <h2>A Lighthouse Childhood</h2>
+    <p>Grace Horsley Darling was born on 24 November 1815 in a small cottage opposite St Aidan's Church in Bamburgh &mdash; the cottage still stands. She was the seventh of nine children born to William Darling, lighthouse keeper on the Farne Islands, and his wife Thomasin. The year of her birth was the year of the Battle of Waterloo, a fact she was often reminded of.</p>
+    <p>Her grandfather Robert had been appointed keeper of Brownsman Island lighthouse in 1795, and the Farne Islands were the Darling family's world. Grace grew up surrounded by seabirds &mdash; puffins wandered into the house looking for scraps, and at five years old she had a pet eider duck that nested close to the lighthouse and would let her stroke it. The children collected eggs and shells, and learned to row boats from an early age. By twelve, Grace was rowing alone in the open sea between the islands.</p>
+
+    <figure class="article-image">
+      <img src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1200,q_auto,f_auto/1920x800_004__Grace_darling_as_a_girl_on_the_Farne_Islands_A_yo_9c48621f-c6a9-4e20-91d4-f5246fd21f6a_im1kx2.png" alt="Grace Darling as a girl on the Farne Islands" />
+      <figcaption>Grace as a girl on the Farne Islands &mdash; wild, fearless, at home among the seabirds and seals.</figcaption>
+    </figure>
+
+    <p>Her mother Thomasin, twelve years older than William, was the quiet centre of the family. She spent her days spinning, mending, and keeping the lighthouse running while William was out on the water. It is said she hardly ever left the islands. When the menfolk were out at sea on rescues, Grace, her sisters, and their mother became relief lighthouse keepers &mdash; cleaning the lantern, keeping watch, ensuring the light never failed.</p>
+
+    <h2>The Rock at the Edge of the World</h2>
+    <p>In 1826, when Grace was ten, Trinity House built a new lighthouse on Longstone Rock &mdash; the most easterly and exposed of all the Farne Islands. The family moved there from Brownsman. The lighthouse was 83 feet high, with five levels and three floors of bedrooms. Grace slept on the third floor, at first sharing with her sister Betsy.</p>
+    <p>Longstone was a different world from Brownsman. Nothing grew on the bare rock. No birds nested there. It was, as one visitor described it, a desolate outcrop surrounded by dangerous tides and unpredictable currents. This bleak, wind-scoured rock would be Grace's home for the rest of her short life.</p>
+
+    <figure class="article-image">
+      <img src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1200,q_auto,f_auto/1920x800_001__Grace_at_the_Longstone_Lighthouse_A_young_woman_i_acbb227d-d13f-43d3-83bf-c36c4c20dbce_icwdby.png" alt="Grace Darling at the Longstone Lighthouse watching the sea" />
+      <figcaption>Grace at the Longstone Lighthouse &mdash; watching, always watching, from the lantern room above the North Sea.</figcaption>
+    </figure>
+
+    <p>Grace never went to school. Her father taught her to read and write in the lantern room high above the sea. He taught her history, arithmetic, geography, and scripture. He was not keen on storybooks &mdash; he preferred the Bible, the poems of Burns, and old Border ballads. Music played an important part in their life: William sang, played the fiddle and tin whistle, and wrote his own tunes. Grace had a fine singing voice.</p>
+    <p>From the lantern, William taught his children to identify every type of vessel that passed &mdash; where they were going, what they carried. Grace became an exceptional observer, studying the sea for hours through a telescope, reading the tides, the weather, the behaviour of seals and birds. William could rely on her completely. The two became inseparable.</p>
+
+    <h2>The Night of the Storm</h2>
+    <p>On the evening of 6 September 1838, the SS Forfarshire &mdash; a 300-ton paddle steamer carrying sixty-three passengers and crew &mdash; was heading north from Hull to Dundee when her boilers failed in a violent storm off the Northumberland coast. Unable to make headway, she was driven onto the rocks of Big Harcar, barely a mile from Longstone. The ship broke apart. Forty-three people drowned.</p>
+
+    <blockquote>Grace, unable to sleep, was watching the storm through her bedroom window. She saw a large black shape on Harcar Rock. It was a ship.<cite>&mdash; From accounts of the rescue</cite></blockquote>
+
+    <p>Grace woke her father. Through the telescope, in the grey light before dawn, they studied the wreck for signs of life. At first they saw nothing. Grace watched and watched. Around 7am, as daylight crept in, she saw movement on the rock. There were survivors.</p>
+    <p>William knew the sea was too rough for the lifeboat from Seahouses to launch. He also knew he could not row out alone in such conditions. Grace insisted they go together. Her mother Thomasin, terrified she would lose them both, watched from the lantern as they pushed their twenty-foot coble into the storm.</p>
+
+    <div class="image-rotate" id="rescueRotate">
+      <img src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1200,q_auto,f_auto/richie-pppeee_A_young_woman_in_a_white_bonnet_rowing_a_small_wo_9ebfcd0f-6373-4263-8857-2362a4a9c97e_wubyjs.png" alt="Grace Darling rowing through the storm" />
+      <img class="fade-out" src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1200,q_auto,f_auto/richie-pppeee_Grace_Darlings_Rescue_1838_Grace_and_father_rowin_30a6d2c7-23bb-4840-9793-507f3e7afe94_bl4bvs.png" alt="Grace and William Darling rowing to the wreck" />
+    </div>
+
+    <p>William chose a southerly course to Big Harcar, using what little shelter the rocks offered. It meant going the long way round &mdash; nearly a mile through Craford's Gut and down past Blue Caps. Defying the wind, the swell, the spray, and the sheer physical effort, they reached the wreck and found more survivors than expected &mdash; nine or ten people clinging to the rock. Two trips would be needed.</p>
+    <p>William leapt across to the rock. Grace now had to hold the coble steady on her own in the storm while her father gathered the survivors. He had to make brutal decisions about who to take first. Mrs Dawson was clutching two small children to her breast. They were dead. At William's insistence, she had to leave their bodies on the rock and climb down into the boat. The extent of her anguish can only be imagined.</p>
+    <p>William took Mrs Dawson, an injured man, and two crew members on the first trip. Grace comforted the grieving mother while the crew helped row. They reached Longstone safely, and William returned with the crewmen for the remaining survivors. The whole rescue took two hours &mdash; from 7am to 9am.</p>
+
+    <h2>The Circus Begins</h2>
+    <p>Within days, the story of the rescue had spread across Britain. Newspapers competed for details. Grace &mdash; young, female, modest, living on a rock &mdash; was the perfect Victorian heroine. The public went wild.</p>
+    <p>Portrait painters arrived at Longstone demanding she sit for them. Grace, who had barely seen a stranger in months, was suddenly expected to pose for hours while men she didn't know painted her likeness. Her sister Betsy occasionally sat in her place as a prank &mdash; the sisters thought this was great fun, and some of the portraits in circulation may actually be of Betsy.</p>
+
+    <figure class="article-image">
+      <img src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1200,q_auto,f_auto/1920x800_002_Grace_darling_reluctantly_sitting_for_a_portrait__de35a212-ab45-4087-9c90-e1c48f433e6f_ko71j4.png" alt="Grace Darling reluctantly sitting for a portrait painter" />
+      <figcaption>Grace reluctantly sitting for yet another portrait painter in the cramped lighthouse parlour.</figcaption>
+    </figure>
+
+    <p>Hundreds of letters arrived from strangers. Locks of her hair were requested. Marriage proposals came from men she had never met. A circus invited her to appear. Queen Victoria sent her &pound;50. Over &pound;700 was raised by public subscription &mdash; equivalent to decades of her father's salary. Souvenir manufacturers produced Grace Darling pottery, prints, and commemorative items without her permission.</p>
+    <p>Grace wanted none of it. She was a lighthouse keeper's daughter who had done what her father trained her to do. The fame was bewildering and unwelcome. She never left the islands to capitalise on her celebrity. She turned down every invitation, every offer, every opportunity to profit from the rescue.</p>
+
+    <h2>The Artists and the Legend</h2>
+    <p>The rescue inspired dozens of paintings, prints, and illustrations. Among the artists who painted Grace or the rescue scene were Henry Perlee Parker, John Wilson Carmichael, William Joy, and David Dunbar. William Bell Scott included the rescue in his magnificent cycle of Northumbrian history murals at Wallington Hall. The RNLI Grace Darling Museum in Bamburgh today holds eighteen artworks depicting the rescue.</p>
+    <p>But the most revealing images are the portraits painted from life. Grace appears uncomfortable in almost all of them &mdash; looking away from the painter, toward the sea, toward the window, anywhere but at the easel. These awkward, reluctant portraits tell you more about her character than any dramatic rescue scene ever could.</p>
+
+    <h2>A Light Extinguished</h2>
+    <p>In the spring of 1842, Grace fell ill with tuberculosis. She was moved to the mainland for treatment, staying with her sister Thomasin in Bamburgh. The Duchess of Northumberland, who had taken a personal interest in Grace, came to visit and reportedly knelt at her bedside. It was clear Grace was dying.</p>
+
+    <figure class="article-image">
+      <img src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1200,q_auto,f_auto/600x375__Grace_reading_letters_by_lamplight_A_young_Victor_7fb3b242-0a41-4480-9690-26d0c76edee8_crzlg2.png" alt="Grace Darling reading letters by lamplight" />
+      <figcaption>Grace reading the endless letters from strangers &mdash; overwhelmed by a fame she never sought.</figcaption>
+    </figure>
+
+    <p>Grace Horsley Darling died on 20 October 1842, aged twenty-six. She was buried at St Aidan's Church in Bamburgh, within sight of the castle where her grandfather had tended the gardens, and within sound of the sea that had defined her entire life. Her ornate memorial tomb was designed to be visible from the water &mdash; so that passing ships would know where she lay.</p>
+    <p>Her father William continued as lighthouse keeper at Longstone for another eighteen years. Her mother Thomasin died there in 1848, never having left the islands. Her sister Thomasin, in old age, wrote the definitive family account: <em>Grace Darling, Her True Story</em> &mdash; frustrated that decades of exaggeration had obscured the simple truth of what happened that September morning.</p>
+
+    <figure class="article-image">
+      <img src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1400,q_auto,f_auto/v1774347086/Grace_at_Rest_001_The_memorial_tomb_at_Bamburgh_A_weathered_Victori_322577f8-c676-4b9a-9d82-dad9cc2f95ed_tqts5m.png" alt="Grace Darling at rest — memorial at Bamburgh" />
+      <figcaption>Grace at rest &mdash; her memorial at St Aidan's, Bamburgh, designed to be visible from the sea.</figcaption>
+    </figure>
+
+    <div class="info-box">
+      <h3>Visit Grace Darling's Northumberland</h3>
+      <p><strong>RNLI Grace Darling Museum</strong> &mdash; Radcliffe Road, Bamburgh, NE69 7AE. Eighteen artworks, the original coble, personal belongings, and the full story of the rescue. Free entry.</p>
+      <p><strong>St Aidan's Church, Bamburgh</strong> &mdash; Grace's memorial tomb in the churchyard, visible from the sea. The Darling family grave is nearby.</p>
+      <p><strong>Grace's Birthplace</strong> &mdash; The cottage opposite St Aidan's Church still stands.</p>
+      <p><strong>Longstone Lighthouse</strong> &mdash; Visible from Seahouses and Bamburgh beach. Boat trips to the Farne Islands pass close by.</p>
+      <p><strong>Farne Islands</strong> &mdash; Boat trips from Seahouses harbour. See the puffins, seals, and seabirds Grace grew up among.</p>
+    </div>
+
+    <div class="credit-box">
+      <strong>Acknowledgement:</strong> Much of the biographical detail on this page draws on the dedicated research of <a href="http://www.gracedarling.co.uk/" target="_blank" rel="noopener noreferrer">gracedarling.co.uk</a>, whose passion for preserving Grace's story is invaluable. Their book <em>Grace Darling, Her True Story</em> by Daniel H Atkinson provides the definitive family account and is highly recommended. We are grateful for their work and encourage visitors to explore their site for the full story.
+    </div>
+
+    <h2>Further Reading</h2>
+    <div class="links-grid">
+      <a href="http://www.gracedarling.co.uk/" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">GraceDarling.co.uk</div>
+        <p class="link-card-desc">The most detailed biographical account of Grace and the Darling family. Source of the book.</p>
+        <span class="link-card-url">gracedarling.co.uk</span>
+      </a>
+      <a href="https://rnli.org/find-my-nearest/museums/grace-darling-museum" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">RNLI Grace Darling Museum</div>
+        <p class="link-card-desc">Free museum in Bamburgh with the original rescue coble, paintings, and personal items.</p>
+        <span class="link-card-url">rnli.org</span>
+      </a>
+      <a href="https://en.wikipedia.org/wiki/Grace_Darling" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">Grace Darling &mdash; Wikipedia</div>
+        <p class="link-card-desc">Overview of her life, the rescue, and the cultural impact.</p>
+        <span class="link-card-url">wikipedia.org</span>
+      </a>
+    </div>
+  </article>
+
+  <footer>
+    <a href="index.html" class="footer-back">&larr; Back to NorthumberlandArts.com</a>
+    <div class="footer-copy">&copy; 2026 NorthumberlandArts.com. All rights reserved.</div>
+  </footer>
+
+  <script>
+    // Image rotation for rescue scene
+    (function(){
+      var container = document.getElementById('rescueRotate');
+      if(!container) return;
+      var imgs = container.querySelectorAll('img');
+      if(imgs.length < 2) return;
+      var current = 0;
+      setInterval(function(){
+        imgs[current].classList.add('fade-out');
+        current = (current + 1) % imgs.length;
+        imgs[current].classList.remove('fade-out');
+      }, 6000);
+    })();
+  </script>
+<script>document.addEventListener("contextmenu",function(e){if(e.target.tagName==="IMG"){e.preventDefault()}});document.addEventListener("dragstart",function(e){if(e.target.tagName==="IMG"){e.preventDefault()}});</script>
+</body>
+</html>

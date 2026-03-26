@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Pitmen Painters of Ashington | NorthumberlandArts</title>
+  <meta name="description" content="The extraordinary true story of the Ashington Group — coal miners who became celebrated artists. Discover their paintings, their story, and where to see the collection today." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #1a1a2e;
+      --green: #2d6a4f;
+      --gold: #c9a84c;
+      --gold-dark: #a8893d;
+      --parchment: #f8f6f0;
+      --white: #ffffff;
+      --text: #333333;
+      --text-light: #666666;
+      --border: rgba(0,0,0,0.06);
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background: var(--parchment);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(26, 26, 46, 0.95);
+      padding: 0.8rem 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+    }
+    .nav-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem; color: var(--parchment);
+      text-decoration: none; letter-spacing: 1px;
+    }
+    .nav-brand span { color: var(--gold); }
+    .back-link {
+      color: rgba(248,246,240,0.6); text-decoration: none;
+      font-size: 0.85rem; transition: color 0.3s;
+    }
+    .back-link:hover { color: var(--gold); }
+    .back-link svg { width: 14px; height: 14px; vertical-align: middle; margin-right: 4px; }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      height: 70vh; min-height: 450px;
+      display: flex; align-items: flex-end;
+      overflow: hidden;
+    }
+    .hero-img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(26,26,46,0.95) 0%, rgba(26,26,46,0.4) 50%, rgba(26,26,46,0.2) 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: 3rem 2rem; max-width: 800px;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 0.3rem 0.8rem; border-radius: 2px;
+      margin-bottom: 1rem;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem; font-weight: 600;
+      color: var(--parchment); line-height: 1.15;
+      margin-bottom: 0.8rem;
+    }
+    .hero h1 span { color: var(--gold); }
+    .hero-sub {
+      font-size: 1.1rem; color: rgba(248,246,240,0.7);
+      font-weight: 300; max-width: 600px;
+    }
+
+    /* ARTICLE */
+    .article {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+    .article p {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      margin-bottom: 1.5rem;
+      color: var(--text);
+    }
+    .article h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem; font-weight: 500;
+      color: var(--navy);
+      margin: 3rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--gold);
+    }
+    .article h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem; font-weight: 500;
+      color: var(--green);
+      margin: 2rem 0 0.8rem;
+    }
+    .lead {
+      font-size: 1.2rem !important;
+      font-weight: 300;
+      color: var(--text-light) !important;
+      border-left: 3px solid var(--gold);
+      padding-left: 1.2rem;
+    }
+    blockquote {
+      margin: 2rem 0;
+      padding: 1.5rem 1.5rem 1.5rem 2rem;
+      background: var(--white);
+      border-left: 4px solid var(--gold);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--green);
+      line-height: 1.6;
+    }
+    blockquote cite {
+      display: block;
+      margin-top: 0.8rem;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.85rem;
+      font-style: normal;
+      color: var(--text-light);
+    }
+
+    /* SECOND IMAGE */
+    .article-image {
+      margin: 2.5rem 0;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .article-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .article-image figcaption {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      font-style: italic;
+      padding: 0.6rem 0;
+    }
+
+    /* PAINTERS LIST */
+    .painters-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0 2rem;
+    }
+    .painter-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 1rem;
+      transition: all 0.3s ease;
+    }
+    .painter-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    }
+    .painter-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.3rem;
+    }
+    .painter-dates {
+      font-size: 0.75rem;
+      color: var(--gold-dark);
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+    .painter-desc {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+    .painter-link {
+      display: inline-block;
+      margin-top: 0.4rem;
+      font-size: 0.75rem;
+      color: var(--green);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .painter-link:hover { color: var(--gold-dark); }
+
+    /* PAINTINGS LIST */
+    .paintings-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0 2rem;
+      font-size: 0.88rem;
+    }
+    .paintings-table th {
+      background: var(--navy);
+      color: var(--parchment);
+      padding: 0.6rem 0.8rem;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.5px;
+    }
+    .paintings-table td {
+      padding: 0.5rem 0.8rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .paintings-table tr:nth-child(even) { background: var(--white); }
+    .paintings-table tr:hover { background: rgba(201,168,76,0.08); }
+
+    /* INFO BOX */
+    .info-box {
+      background: var(--navy);
+      color: var(--parchment);
+      padding: 2rem;
+      margin: 2.5rem 0;
+      border-radius: 2px;
+    }
+    .info-box h3 {
+      font-family: 'Playfair Display', serif;
+      color: var(--gold);
+      font-size: 1.2rem;
+      margin: 0 0 1rem;
+    }
+    .info-box p {
+      color: rgba(248,246,240,0.8) !important;
+      font-size: 0.95rem !important;
+      margin-bottom: 0.8rem !important;
+    }
+    .info-box a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+    .info-box a:hover { text-decoration: underline; }
+    .info-box .detail {
+      font-size: 0.85rem !important;
+      color: rgba(248,246,240,0.6) !important;
+    }
+
+    /* LINKS SECTION */
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .link-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 1rem 1.2rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: block;
+    }
+    .link-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+      border-color: var(--gold);
+    }
+    .link-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      color: var(--navy);
+      margin-bottom: 0.3rem;
+    }
+    .link-card-desc {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      line-height: 1.4;
+    }
+    .link-card-url {
+      font-size: 0.7rem;
+      color: var(--green);
+      margin-top: 0.4rem;
+      display: block;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--navy);
+      border-top: 1px solid rgba(201,168,76,0.15);
+      padding: 2rem;
+      text-align: center;
+    }
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; color: var(--parchment);
+      margin-bottom: 0.5rem;
+    }
+    .footer-brand span { color: var(--gold); }
+    .footer-back {
+      color: rgba(248,246,240,0.5);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.3s;
+    }
+    .footer-back:hover { color: var(--gold); }
+    .footer-copy {
+      margin-top: 1rem;
+      font-size: 0.7rem;
+      color: rgba(248,246,240,0.3);
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .hero { height: 50vh; min-height: 350px; }
+      .article { padding: 3rem 1.5rem; }
+      .painters-grid { grid-template-columns: 1fr; }
+      .links-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-brand">Northumberland<span>Arts</span></a>
+    <a href="index.html#history" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M5 12l7 7M5 12l7-7"/></svg>
+      Back to History
+    </a>
+  </nav>
+
+  <div class="hero">
+    <img class="hero-img" src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1400,q_auto,f_auto/v1774050456/hero_A_group_of_1930s_coal_miners_in_a_dimly_lit_villa_15e39ef8-8f42-4081-b9bb-d1c1c40058a1_dgjro1.jpg" alt="The Pitmen Painters of Ashington — miners painting in a village hall" />
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-badge">On This Day in Northumberland</span>
+      <h1>The <span>Pitmen Painters</span> of Ashington</h1>
+      <p class="hero-sub">How a group of coal miners in the world's biggest pit village picked up paintbrushes — and made art history.</p>
+    </div>
+  </div>
+
+  <div class="article">
+
+    <p class="lead">In 1934, in the coal-black heart of Northumberland, a group of miners signed up for an evening class on art appreciation. They didn't want to look at slides of the Renaissance. They wanted to paint. What followed was one of the most remarkable stories in British art.</p>
+
+    <h2>Paint What You Know</h2>
+
+    <p>Ashington in the 1930s was the biggest pit village in the world. Thirty collieries within a five-mile radius. A population of 40,000, almost every man employed by the Woodhorn and Ellington mines. Life was coal — the getting of it, the dust of it, the danger of it.</p>
+
+    <p>The Workers' Educational Association had been running evening classes in the town since 1927 — evolution, economics, the usual fare. But when the men requested a class on art, the WEA turned to <strong>Robert Lyon</strong>, a painter and lecturer at Durham University (later King's College Newcastle, now Newcastle University), to teach them.</p>
+
+    <p>Lyon arrived with slides of Italian Renaissance masterpieces — religious scenes, mythological subjects, classical nudes. The miners stared blankly. These images meant nothing to men who spent their days a thousand feet underground. Lyon quickly abandoned the slides and gave them the advice that would change everything:</p>
+
+    <blockquote>
+      "Paint what you know."
+      <cite>— Robert Lyon to the Ashington Group, 1934</cite>
+    </blockquote>
+
+    <p>And so they did. On scraps of plywood, slabs of cardboard, and whatever canvas they could afford, the miners began to paint the world they lived in — the coal face, the pithead baths, the pigeon crees, the chip shop, the allotments, the whippet track. They painted with the honesty of men who had nothing to prove and no one to impress.</p>
+
+    <figure class="article-image">
+      <img src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1000,q_auto,f_auto/v1774018819/richie-pppeee_A_group_of_1930s_coal_miners_in_flat_caps_and_wor_af54f415-9f0c-4271-9809-589403966c69_pbk9p1.png" alt="A miner painting at an easel while fellow miners watch" />
+    </figure>
+
+    <h2>The Artists</h2>
+
+    <p>The group formally named itself <strong>The Ashington Group</strong> in 1936, the same year they held their first exhibition at the Hatton Gallery in Newcastle. The core members were:</p>
+
+    <div class="painters-grid">
+      <div class="painter-card">
+        <div class="painter-name">Oliver Kilbourn</div>
+        <div class="painter-dates">1904–1993</div>
+        <p class="painter-desc">The most celebrated member. Worked at Ellington Colliery. Created the legendary "My Life as a Pitman" series of 39 paintings. Arranged for the collection to be put in trust.</p>
+        <a href="https://artuk.org/discover/artists/kilbourn-oliver-19041993" target="_blank" rel="noopener noreferrer" class="painter-link">View on Art UK →</a>
+      </div>
+      <div class="painter-card">
+        <div class="painter-name">Jimmy Floyd</div>
+        <div class="painter-dates">1898–1974</div>
+        <p class="painter-desc">Worked underground. Known for "Coal Face" (1947) and "Pigeon Crees" — painted in enamel, capturing allotment life off Woodhorn Road.</p>
+      </div>
+      <div class="painter-card">
+        <div class="painter-name">Jack F. Harrison</div>
+        <div class="painter-dates">1904–2004</div>
+        <p class="painter-desc">The last surviving member, died just short of his 100th birthday. Known for "The Pony Putter" (c.1950).</p>
+      </div>
+      <div class="painter-card">
+        <div class="painter-name">Harry Wilson</div>
+        <div class="painter-dates">1898–1972</div>
+        <p class="painter-desc">Known for "Ashington Colliery, Northumberland, 1936." Also produced woodblock prints.</p>
+      </div>
+      <div class="painter-card">
+        <div class="painter-name">Fred Laidler</div>
+        <div class="painter-dates">1918–1988</div>
+        <p class="painter-desc">One of the younger members. Known for "Fish and Chips" (1938-39) — a warm slice of village life.</p>
+      </div>
+      <div class="painter-card">
+        <div class="painter-name">Leslie Brownrigg</div>
+        <div class="painter-dates">1905–1974</div>
+        <p class="painter-desc">Known for "The Miner" (c.1935) — one of the earliest and most powerful works in the collection.</p>
+      </div>
+      <div class="painter-card">
+        <div class="painter-name">George Brownrigg</div>
+        <div class="painter-dates">1903–1969</div>
+        <p class="painter-desc">Possibly related to Leslie. Appeared as a character in Lee Hall's play as the rule-book-quoting class representative.</p>
+      </div>
+      <div class="painter-card">
+        <div class="painter-name">George Jude McLean</div>
+        <div class="painter-dates">1920–1993</div>
+        <p class="painter-desc">Known for "Morning, Holy Island, Northumberland" (1959) — showing the group's range beyond mining scenes.</p>
+      </div>
+    </div>
+
+    <p>Other members included Arthur Whinnom, George Blessed, William Crichton, Andrew Crozier Foreman (who painted "The Bar, Playing Dominoes"), Tom McSloy, Len Robinson, and Andrew Rankin. At its peak, the group had around twenty active members.</p>
+
+    <h2>What They Painted</h2>
+
+    <p>The paintings are a complete visual record of a mining community that no longer exists. They painted what they saw every day:</p>
+
+    <table class="paintings-table">
+      <thead>
+        <tr><th>Painting</th><th>Artist</th><th>Date</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>The Miner</td><td>Leslie Brownrigg</td><td>c.1935</td></tr>
+        <tr><td>In the Canteen</td><td>Andrew Rankin</td><td>c.1935</td></tr>
+        <tr><td>The Bar, Playing Dominoes</td><td>Andrew Crozier Foreman</td><td>c.1936</td></tr>
+        <tr><td>Ashington Colliery, Northumberland</td><td>Harry Wilson</td><td>1936</td></tr>
+        <tr><td>Fish and Chips</td><td>Fred Laidler</td><td>1938–39</td></tr>
+        <tr><td>Re-Setting Arch Girders, Surface</td><td>Tom McSloy</td><td>1946</td></tr>
+        <tr><td>Coal Face</td><td>Jimmy Floyd</td><td>1947</td></tr>
+        <tr><td>The Pony Putter</td><td>Jack F. Harrison</td><td>c.1950</td></tr>
+        <tr><td>Morning, Holy Island</td><td>George Jude McLean</td><td>1959</td></tr>
+        <tr><td>My Life as a Pitman (39 works)</td><td>Oliver Kilbourn</td><td>1977</td></tr>
+      </tbody>
+    </table>
+
+    <h2>The World Takes Notice</h2>
+
+    <p>The art establishment was fascinated. In 1935, the wealthy patron <strong>Helen Sutherland</strong> received seventeen miners at her home, Rock Hall in Northumberland. She made no distinction between high and low art, believing <em>"a Pitman was as worthy as Picasso."</em></p>
+
+    <p>In 1939, <strong>Julian Trevelyan</strong> — fresh from resigning from the London Surrealist Group — organised an exhibition of their work at the Peckham Health Centre in London. The group exhibited at the <strong>Whitechapel Art Gallery</strong> in London, in Germany, and in the Netherlands.</p>
+
+    <p>Most remarkably, in 1980 the Ashington Group's work was taken to <strong>China</strong> — it was the <strong>first exhibition of Western art shown in China after the Cultural Revolution</strong>.</p>
+
+    <h2>The Offer That Changed Everything</h2>
+
+    <p>The most dramatic moment in the group's story centres on Oliver Kilbourn and Helen Sutherland. The wealthy patron, recognising Kilbourn's extraordinary talent, made him an offer: she would <strong>buy his freedom from the pit</strong>. She would set him up in her studio, pay his expenses, and let him paint full-time. No more coal dust. No more danger. Just art.</p>
+
+    <p>Kilbourn refused.</p>
+
+    <blockquote>
+      "I was a damn good miner, though I say it myself. I was strong and I liked the life. That was the life I painted."
+      <cite>— Oliver Kilbourn</cite>
+    </blockquote>
+
+    <p>The fear was real: that leaving the community would mean losing the very thing that made his art authentic. That becoming a "professional" artist would kill the honesty in his brushstrokes. He stayed down the pit for fifty years.</p>
+
+    <h2>From Stage to Broadway</h2>
+
+    <p><strong>Lee Hall</strong> — the Newcastle-born writer of <em>Billy Elliot</em> — learned about the group from a Guardian article and bought William Feaver's book <em>"Pitmen Painters: The Ashington Group 1934–1984"</em>. He turned it into a play.</p>
+
+    <p><strong>"The Pitmen Painters"</strong> premiered at <strong>Live Theatre, Newcastle</strong> in 2007, directed by Max Roberts. It was a sellout. It transferred to the <strong>National Theatre</strong> in London, then to the <strong>West End</strong> (Duchess Theatre), and in 2010 opened on <strong>Broadway</strong> at the Samuel J. Friedman Theatre — with the original Geordie cast.</p>
+
+    <p>It won the <strong>Evening Standard Theatre Award for Best Play</strong> and an <strong>Olivier Award for Best New Play</strong>. Audiences from London to New York were devastated by the moment Oliver declines Helen's offer on stage.</p>
+
+    <h3>Pitmen vs Lowry — The Key Difference</h3>
+
+    <p>People often compare the Ashington Group to <strong>L.S. Lowry</strong>. But the difference is fundamental: Lowry was an outsider looking in. The Pitmen Painters were <strong>insiders</strong>. They lived the life they painted. They went down the pit at six in the morning and picked up brushes in the evening. That authenticity — that coal dust under the paint — is what makes their work extraordinary.</p>
+
+    <div class="info-box">
+      <h3>See the Collection Today</h3>
+      <p><strong>Woodhorn Museum</strong> — the permanent Ashington Group Gallery houses more than 100 works, believed to be the first collection of amateur art to go on permanent display anywhere in the world.</p>
+      <p>Queen Elizabeth II Country Park, Ashington, Northumberland, NE63 9YF</p>
+      <p class="detail">Open Wed–Sun 10am–4pm (7 days in school holidays) · Adults £11 (acts as Annual Pass) · Under 18s Free<br/>
+      25 minutes from Newcastle or Alnwick · Free parking</p>
+      <p><a href="https://www.northeastmuseums.org.uk/woodhorn" target="_blank" rel="noopener noreferrer">Plan your visit →</a></p>
+    </div>
+
+    <h2>Explore Further</h2>
+
+    <div class="links-grid">
+      <a href="https://artuk.org/discover/curations/artists-and-places-ashington-group-pitmen-painters-northumberland" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">Art UK — Ashington Group Collection</div>
+        <p class="link-card-desc">Browse the paintings online with full details of each artist and work.</p>
+        <span class="link-card-url">artuk.org</span>
+      </a>
+      <a href="https://artuk.org/discover/stories/a-damn-good-miner-oliver-kilbourns-my-life-as-a-pitman-series" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">"A Damn Good Miner" — Kilbourn's Story</div>
+        <p class="link-card-desc">Art UK's deep dive into Oliver Kilbourn's "My Life as a Pitman" series of 39 paintings.</p>
+        <span class="link-card-url">artuk.org</span>
+      </a>
+      <a href="https://www.northeastmuseums.org.uk/woodhorn/about/the-ashington-group-gallery" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">Museums Northumberland — About the Group</div>
+        <p class="link-card-desc">Official museum page with history, collection details, and visiting information.</p>
+        <span class="link-card-url">northeastmuseums.org.uk</span>
+      </a>
+      <a href="https://www.wikiart.org/en/oliver-kilbourn/" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">Oliver Kilbourn on WikiArt</div>
+        <p class="link-card-desc">10 artworks by the group's most famous member, viewable online.</p>
+        <span class="link-card-url">wikiart.org</span>
+      </a>
+      <a href="https://en.wikipedia.org/wiki/The_Pitmen_Painters_(play)" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">The Pitmen Painters — The Play</div>
+        <p class="link-card-desc">Lee Hall's Olivier Award-winning play — from Live Theatre Newcastle to Broadway.</p>
+        <span class="link-card-url">wikipedia.org</span>
+      </a>
+      <a href="https://www.ashingtongroup.co.uk/home.html" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">The Ashington Group — Official Site</div>
+        <p class="link-card-desc">The group's own website with history and background.</p>
+        <span class="link-card-url">ashingtongroup.co.uk</span>
+      </a>
+    </div>
+
+    <blockquote>
+      From under tables and piles of clutter came "pictures of pit and pit village, pictures of hewing and shifting, joinery and smithying, pictures of washing, baking and rug-making, pictures of football and whippet racing, pictures detailing an entire way of life."
+      <cite>— William Feaver, <em>Pitmen Painters: The Ashington Group 1934–1984</em></cite>
+    </blockquote>
+
+    <p style="text-align:center; margin-top:2rem; color:var(--text-light); font-size:0.9rem;">
+      <a href="index.html#history" style="color:var(--green); text-decoration:none; font-weight:600;">← Back to On This Day in Northumberland</a>
+    </p>
+
+  </div>
+
+  <footer>
+    <div class="footer-brand">Northumberland<span>Arts</span></div>
+    <a href="index.html" class="footer-back">← Back to NorthumberlandArts.com</a>
+    <div class="footer-copy">&copy; 2026 NorthumberlandArts.com. All rights reserved.</div>
+  </footer>
+
+<script>document.addEventListener("contextmenu",function(e){if(e.target.tagName==="IMG"){e.preventDefault()}});document.addEventListener("dragstart",function(e){if(e.target.tagName==="IMG"){e.preventDefault()}});</script>
+</body>
+</html>
