@@ -30,11 +30,10 @@
     /* GALLERY */
     .gallery-section{max-width:1200px;margin:0 auto;padding:3rem 2rem;}
     .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;}
-    .gallery-tile{position:relative;overflow:hidden;border-radius:8px;background:var(--navy);cursor:default;}
+    .gallery-tile{position:relative;overflow:hidden;border-radius:8px;background:var(--navy);cursor:default;display:flex;flex-direction:column;}
     .gallery-tile img{width:100%;height:auto;display:block;transition:transform 0.4s ease;}
     .gallery-tile:hover img{transform:scale(1.03);}
-    .gallery-tile-caption{position:absolute;bottom:0;left:0;right:0;padding:0.6rem 0.8rem;background:linear-gradient(to top,rgba(26,26,46,0.85) 0%,transparent 100%);color:var(--parchment);font-size:0.75rem;letter-spacing:0.5px;opacity:0;transition:opacity 0.3s;}
-    .gallery-tile:hover .gallery-tile-caption{opacity:1;}
+    .gallery-tile-caption{padding:0.5rem 0.8rem;background:var(--navy);color:var(--parchment);font-size:0.75rem;letter-spacing:0.5px;font-weight:400;}
 
     /* FOOTER */
     footer{background:var(--navy);color:rgba(248,246,240,0.4);text-align:center;padding:2.5rem 2rem;border-top:1px solid rgba(201,168,76,0.15);}
@@ -95,8 +94,6 @@
       {src:C+"v1774542749/castle-dunes-2.png",title:"Castle Amongst the Dunes II"},
       {src:C+"v1774542736/castle-dunes-3.png",title:"Castle Amongst the Dunes III"},
       // na-images — coursing & pitmen
-      {src:C+"v1774542889/greyhounds-coursing-1.png",title:"Greyhounds Released from Slips I"},
-      {src:C+"v1774542883/greyhounds-coursing-2.png",title:"Greyhounds Released from Slips II"},
       {src:C+"v1774542875/pitmen-flat-caps-1.png",title:"Men in Heavy Coats and Flat Caps I"},
       {src:C+"v1774542860/pitmen-flat-caps-2.png",title:"Men in Heavy Coats and Flat Caps II"},
       // na-images — abstract art
@@ -105,9 +102,7 @@
       // na-images — landscapes & scenes
       {src:C+"v1774543160/craster-art.png",title:"Craster — Abstract & Traditional"},
       {src:C+"v1774542907/northumberland-moorland.png",title:"Sweeping Northumberland Moorland"},
-      {src:C+"v1774547866/northumberland-pano.png",title:"Northumberland Panorama"},
       {src:C+"v1774543330/hadrians-wall-whin-sill.png",title:"Hadrian's Wall on the Whin Sill"},
-      {src:C+"v1774542960/hadrians-wall-snow.png",title:"Hadrian's Wall in Snow"},
       {src:C+"v1774543317/dunstanburgh-castle.png",title:"Dunstanburgh Castle Ruins"},
       {src:C+"v1774543353/holy-island-causeway-1.png",title:"Holy Island Causeway I"},
       {src:C+"v1774543349/holy-island-causeway-2.png",title:"Holy Island Causeway II"},
@@ -117,24 +112,15 @@
       {src:C+"v1774543215/northumberland-scene-2.png",title:"Alnwick Lion Scene II"},
       {src:C+"v1774543210/northumberland-scene-3.png",title:"Alnwick Lion Scene III"},
       {src:C+"v1774543202/northumberland-scene-4.png",title:"Alnwick Lion Scene IV"},
-      {src:C+"v1774544634/hexham-abbey-crypt-1.png",title:"Hexham Abbey — Saxon Crypt I"},
-      {src:C+"v1774544620/hexham-abbey-crypt-2.jpg",title:"Hexham Abbey — Saxon Crypt II"},
       // Ashington-minors folder
-      {src:C+"v1774050456/hero_A_group_of_1930s_coal_miners_in_a_dimly_lit_villa_15e39ef8-8f42-4081-b9bb-d1c1c40058a1_dgjro1.jpg",title:"Coal Miners in a Village Hall"},
       {src:C+"v1774028538/richie-pppeee_1930s_minor_young_man_crawling_away_up_the_shaft__2d88bd3f-1ef6-4496-bd9a-38357a09bfe4_no9rn2.png",title:"Young Miner in the Shaft I"},
       {src:C+"v1774028520/richie-pppeee_1930s_minor_young_man_crawling_away_up_the_shaf_29f49a30-24de-4364-91d2-257a079d045c_1_yqcrp7.png",title:"Young Miner in the Shaft II"},
       {src:C+"v1774028520/richie-pppeee_1930s_minor_young_man_crawling_away_up_the_shaf_f786cec3-7709-4f18-9fc1-8fc40820d0aa_3_bzredg.png",title:"Young Miner in the Shaft III"},
       {src:C+"v1774028517/richie-pppeee_1930s_minor_young_man_crawling_away_up_the_shaf_283c4471-9a44-4bb9-9c77-9308eb085789_2_lgwczq.png",title:"Young Miner in the Shaft IV"},
-      {src:C+"v1774019049/richie-pppeee_A_group_of_1930s_coal_miners_in_a_dimly_lit_villa_db2d9ef0-f9b0-40c1-bba8-d2a078d519c9_sk0mz7.jpg",title:"Coal Miners Group Study"},
-      {src:C+"v1774018819/richie-pppeee_A_group_of_1930s_coal_miners_in_flat_caps_and_wor_af54f415-9f0c-4271-9809-589403966c69_pbk9p1.png",title:"Miners in Flat Caps"},
       // capability-brown folder
-      {src:C+"v1774028686/richie-pppeee_An_18th_century_gentleman_in_a_long_brown_riding__4c0ec8f8-61bb-4eff-934f-f8360c7bced5_ssvufr.png",title:"Capability Brown — Riding Coat"},
-      {src:C+"v1774025238/richie-pppeee_An_elegant_18th_century_gentleman_in_a_tricorn_ha_b31c4b64-6457-4313-b8a4-1618abf529a5_ufaxl4.png",title:"Capability Brown — Tricorn Hat"},
       // grace-darling folder (non-hero)
-      {src:C+"v1774313532/600x375__Grace_reading_letters_by_lamplight_A_young_Victor_7fb3b242-0a41-4480-9690-26d0c76edee8_crzlg2.png",title:"Grace Reading Letters by Lamplight"},
       {src:C+"v1774312627/richie-pppeee_A_young_woman_in_a_white_bonnet_rowing_a_small_wo_9ebfcd0f-6373-4263-8857-2362a4a9c97e_wubyjs.png",title:"Grace Darling — The Rescue"},
       {src:C+"v1774046744/richie-pppeee_Grace_Darlings_Rescue_1838_Grace_and_father_rowin_30a6d2c7-23bb-4840-9793-507f3e7afe94_bl4bvs.png",title:"Grace and Father Rowing to the Wreck"},
-      {src:C+"v1774347086/Grace_at_Rest_001_The_memorial_tomb_at_Bamburgh_A_weathered_Victori_322577f8-c676-4b9a-9d82-dad9cc2f95ed_tqts5m.png",title:"Grace at Rest — Bamburgh Memorial"},
       // Norham-castle folder (non-hero)
       {src:C+"v1774306145/Norham_castle_CARD_Image__eq174j.png",title:"Norham Castle on the Tweed"},
       // youngboy-onwall folder

@@ -1036,6 +1036,18 @@
       height: 100%;
       object-fit: cover;
     }
+    .history-card-image .img-rotate {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+    }
+    .history-card-image .img-rotate.active {
+      opacity: 1;
+    }
     .history-card-image .placeholder-text {
       font-family: 'Playfair Display', serif;
       font-size: 0.85rem;
@@ -1702,6 +1714,47 @@
           </div>
         </a>
 
+        <div class="history-card">
+          <div class="history-card-image" data-rotate>
+            <span class="history-card-month">February</span>
+            <img class="img-rotate active" src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_700,q_auto,f_auto/v1774542889/greyhounds-coursing-1.png" alt="Greyhounds released from slips racing across open ground" />
+            <img class="img-rotate" src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_700,q_auto,f_auto/v1774542883/greyhounds-coursing-2.png" alt="Greyhounds in full pursuit across the Northumberland border country" />
+            <img class="img-rotate" src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_700,q_auto,f_auto/v1774542875/pitmen-flat-caps-1.png" alt="Men in heavy coats and flat caps at a coursing meet" />
+            <img class="img-rotate" src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_700,q_auto,f_auto/v1774542860/pitmen-flat-caps-2.png" alt="Coursing handlers on the Northumberland borders" />
+          </div>
+          <div class="history-card-body">
+            <div class="history-card-year">Centuries of Border Tradition</div>
+            <div class="history-card-title">Coursing on the Northumberland Borders</div>
+            <p class="history-card-text">For centuries, hare coursing was woven into the fabric of border life. Working men gathered on frozen fields with their greyhounds and lurchers. A tradition of skill, breeding, and fierce local pride &mdash; now outlawed, but not forgotten.</p>
+          </div>
+        </div>
+
+        <div class="history-card">
+          <div class="history-card-image">
+            <span class="history-card-month">July</span>
+            <img src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_700,q_auto,f_auto/v1774543353/holy-island-causeway-1.png" alt="The tidal causeway to Holy Island at low tide" />
+          </div>
+          <div class="history-card-body">
+            <div class="history-card-year">8 June AD 793 &mdash; Lindisfarne</div>
+            <div class="history-card-title">The Viking Raid on Lindisfarne</div>
+            <p class="history-card-text">On a summer morning in 793, Norse raiders landed on Holy Island and attacked the monastery. The shock reverberated across Christendom. Alcuin of York wrote: &ldquo;never before has such terror appeared.&rdquo; The Viking Age had begun.</p>
+          </div>
+        </div>
+
+        <div class="history-card">
+          <div class="history-card-image" data-rotate>
+            <span class="history-card-month">September</span>
+            <img class="img-rotate active" src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_700,q_auto,f_auto/v1774542789/castle-dunes-oil-1.png" alt="Oil painting of a castle amongst the dunes" />
+            <img class="img-rotate" src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_700,q_auto,f_auto/v1774542741/castle-dunes-oil-2.png" alt="Castle on the Northumberland coast" />
+            <img class="img-rotate" src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_700,q_auto,f_auto/v1774542754/castle-dunes-1.png" alt="Bamburgh Castle rising from the dunes" />
+          </div>
+          <div class="history-card-body">
+            <div class="history-card-year">1,500 Years of Fortification</div>
+            <div class="history-card-title">Northumberland's Castles &mdash; More Than Any Other County</div>
+            <p class="history-card-text">Northumberland has more castles than any other county in England. From Bamburgh's volcanic outcrop to Dunstanburgh's sea cliffs, these fortresses tell the story of a border county shaped by centuries of conflict, power, and survival.</p>
+          </div>
+        </div>
+
       </div>
 
       <p class="events-note fade-in" style="margin-top:2rem;">New stories added throughout the year.<br />Have a Northumberland history story to share? <a href="mailto:richard@northumberlandarts.com" style="color:var(--green);">Get in touch</a></p>
@@ -2344,5 +2397,19 @@
   </script>
 
 <script>document.addEventListener("contextmenu",function(e){if(e.target.tagName==="IMG"){e.preventDefault()}});document.addEventListener("dragstart",function(e){if(e.target.tagName==="IMG"){e.preventDefault()}});</script>
+<script>
+// History card image rotation
+setInterval(function(){
+  document.querySelectorAll('.history-card-image[data-rotate]').forEach(function(el){
+    var imgs=el.querySelectorAll('.img-rotate');
+    if(imgs.length<2)return;
+    var current=-1;
+    imgs.forEach(function(img,i){if(img.classList.contains('active'))current=i;});
+    if(current>=0)imgs[current].classList.remove('active');
+    var next=(current+1)%imgs.length;
+    imgs[next].classList.add('active');
+  });
+},5000);
+</script>
 </body>
 </html>
