@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Viking Raid on Lindisfarne — The Day the World Changed | NorthumberlandArts</title>
+  <meta name="description" content="On 8 June 793, Norse raiders attacked the monastery on Holy Island. The shock reverberated across Christendom. The Viking Age had begun — and it started in Northumberland." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root { --navy:#1a1a2e; --green:#2d6a4f; --gold:#c9a84c; --gold-dark:#a8893d; --parchment:#f8f6f0; --white:#ffffff; --text:#333333; --text-light:#666666; --border:rgba(0,0,0,0.06); }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Source Sans 3',sans-serif;background:var(--parchment);color:var(--text);line-height:1.7;}
+    nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(26,26,46,0.95);padding:0.8rem 2rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(201,168,76,0.15);}
+    .nav-brand{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--parchment);text-decoration:none;letter-spacing:1px;}
+    .nav-brand span{color:var(--gold);}
+    .back-link{color:rgba(248,246,240,0.6);text-decoration:none;font-size:0.85rem;transition:color 0.3s;}
+    .back-link:hover{color:var(--gold);}
+    .hero{position:relative;height:70vh;min-height:450px;display:flex;align-items:flex-end;overflow:hidden;}
+    .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.5s ease-in-out;}
+    .hero-img.active{opacity:1;}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,26,46,0.95) 0%,rgba(26,26,46,0.4) 50%,rgba(26,26,46,0.2) 100%);}
+    .hero-content{position:relative;z-index:2;padding:3rem 2rem;max-width:800px;}
+    .hero-badge{display:inline-block;background:var(--gold);color:var(--navy);font-size:0.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:0.3rem 0.8rem;border-radius:2px;margin-bottom:1rem;}
+    .hero h1{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:600;color:var(--parchment);line-height:1.15;margin-bottom:0.8rem;}
+    .hero h1 span{color:var(--gold);}
+    .hero-sub{font-size:1.1rem;color:rgba(248,246,240,0.7);font-weight:300;max-width:600px;}
+    .hero-credit{position:absolute;bottom:0.5rem;right:1rem;font-size:0.65rem;color:rgba(248,246,240,0.35);font-style:italic;z-index:3;}
+    .article{max-width:780px;margin:0 auto;padding:4rem 2rem;}
+    .article p{font-size:1.05rem;line-height:1.85;margin-bottom:1.5rem;color:var(--text);}
+    .article h2{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:500;color:var(--navy);margin:3rem 0 1rem;padding-bottom:0.5rem;border-bottom:2px solid var(--gold);}
+    .article h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:500;color:var(--green);margin:2rem 0 0.8rem;}
+    .lead{font-size:1.2rem !important;font-weight:300;color:var(--text-light) !important;border-left:3px solid var(--gold);padding-left:1.2rem;}
+    blockquote{margin:2rem 0;padding:1.5rem 1.5rem 1.5rem 2rem;background:var(--white);border-left:4px solid var(--gold);font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic;color:var(--green);line-height:1.6;}
+    blockquote cite{display:block;margin-top:0.8rem;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;font-style:normal;color:var(--text-light);}
+    .timeline{margin:1.5rem 0 2rem;position:relative;padding-left:2rem;}
+    .timeline::before{content:'';position:absolute;left:5px;top:0;bottom:0;width:2px;background:var(--gold);}
+    .timeline-item{position:relative;margin-bottom:1.2rem;}
+    .timeline-item::before{content:'';position:absolute;left:-2rem;top:6px;width:10px;height:10px;background:var(--gold);border-radius:50%;border:2px solid var(--parchment);}
+    .timeline-year{font-size:0.8rem;font-weight:700;color:var(--gold-dark);}
+    .timeline-text{font-size:0.9rem;color:var(--text);line-height:1.5;}
+    .info-box{background:var(--navy);color:var(--parchment);padding:2rem;margin:2.5rem 0;border-radius:2px;}
+    .info-box h3{font-family:'Playfair Display',serif;color:var(--gold);font-size:1.2rem;margin:0 0 1rem;}
+    .info-box p{color:rgba(248,246,240,0.8) !important;font-size:0.95rem !important;margin-bottom:0.8rem !important;}
+    .info-box a{color:var(--gold);text-decoration:none;}
+    .info-box a:hover{text-decoration:underline;}
+    .links-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin:1.5rem 0;}
+    .link-card{background:var(--white);border:1px solid var(--border);padding:1rem 1.2rem;text-decoration:none;transition:all 0.3s ease;display:block;}
+    .link-card:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(0,0,0,0.06);border-color:var(--gold);}
+    .link-card-title{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;color:var(--navy);margin-bottom:0.3rem;}
+    .link-card-desc{font-size:0.82rem;color:var(--text-light);line-height:1.5;margin-bottom:0.4rem;}
+    .link-card-url{font-size:0.72rem;color:var(--gold-dark);}
+    footer{background:var(--navy);color:rgba(248,246,240,0.4);text-align:center;padding:2rem;}
+    .footer-back{display:inline-block;color:var(--gold);text-decoration:none;font-size:0.9rem;margin-bottom:1rem;transition:opacity 0.3s;}
+    .footer-back:hover{opacity:0.7;}
+    .footer-copy{font-size:0.75rem;}
+    @media(max-width:768px){
+      .hero{height:50vh;min-height:350px;}
+      .hero h1{font-size:2rem;}
+      .article{padding:2.5rem 1.2rem;}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-brand">Northumberland<span>Arts</span></a>
+    <a href="artwork.html" class="back-link" style="margin-right:auto;margin-left:2rem;">Artwork</a>
+    <a href="index.html#history" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;vertical-align:middle;margin-right:4px;"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to History</a>
+  </nav>
+
+  <section class="hero">
+    <img class="hero-img active" src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1920,q_auto,f_auto/v1774543353/holy-island-causeway-1.png" alt="The tidal causeway to Holy Island at low tide" />
+    <img class="hero-img" src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1920,q_auto,f_auto/v1774543349/holy-island-causeway-2.png" alt="Holy Island causeway stretching across the sands" />
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Northumberland History</div>
+      <h1>The Viking Raid on <span>Lindisfarne</span></h1>
+      <p class="hero-sub">On a summer morning in 793, longships appeared off Holy Island. Within hours, Christendom's most sacred monastery lay in ruins. The Viking Age had begun.</p>
+    </div>
+    <div class="hero-credit">Digital artwork &mdash; The tidal causeway to Holy Island, Northumberland</div>
+  </section>
+
+  <article class="article">
+    <p class="lead">On 8 June AD 793, Norse raiders made landfall on the tidal island of Lindisfarne, off the Northumberland coast. They attacked the monastery that St Aidan had founded 158 years earlier &mdash; the spiritual heart of Anglo-Saxon Christianity. They killed monks, took captives, smashed sacred objects, and carried away everything of value they could fit in their ships. The news travelled across Europe like a shockwave. Nothing would be the same again.</p>
+
+    <h2>The Golden Age Before the Storm</h2>
+    <p>To understand what was lost on that June morning, you have to understand what Lindisfarne was. In AD 635, the Irish monk Aidan had arrived at the invitation of King Oswald of Northumbria and founded a monastery on Holy Island. It became the centre from which Christianity spread across northern England &mdash; a place of scholarship, prayer, and extraordinary artistic achievement.</p>
+    <p>Northumbria in the seventh and eighth centuries was the most culturally advanced kingdom in Britain. From Lindisfarne and its sister monasteries came works of art that still astonish. The Lindisfarne Gospels &mdash; produced around AD 700, probably by the monk Eadfrith &mdash; remain one of the finest examples of illuminated manuscript art in existence. Each page is a masterwork of interlace, zoomorphic ornament, and precise calligraphy, created with pigments sourced from as far away as the Himalayas and Afghanistan.</p>
+    <p>On the Farne Islands, a few miles to the south, St Cuthbert had lived as a hermit around AD 676. He created what may be among the earliest bird protection laws in the world, specifically protecting the eider ducks that nested on the islands. The eider duck is still known locally as the Cuddy duck &mdash; Cuddy being the Northumbrian pet name for Cuthbert.</p>
+
+    <blockquote>
+      Never before has such terror appeared in Britain as we have now suffered from a pagan race. The heathens poured out the blood of saints around the altar, and trampled on the bodies of saints in the temple of God, like dung in the streets.
+      <cite>&mdash; Alcuin of York, letter to King Ethelred of Northumbria, AD 793</cite>
+    </blockquote>
+
+    <h2>The Attack</h2>
+    <p>The Anglo-Saxon Chronicle records it with brutal brevity. In the year 793, terrible portents appeared over Northumbria &mdash; whirlwinds, lightning, fiery dragons seen flying in the sky. Then the heathens came.</p>
+    <p>The raiders almost certainly came from Norway. Their longships would have been visible from the mainland as they approached across the open water. Lindisfarne had no walls, no garrison, no defences of any kind. It was a community of monks, scholars, and craftsmen living on a tidal island connected to the mainland by a causeway that flooded twice a day. It was wealthy, it was undefended, and it was isolated. It was, from a raider's perspective, perfect.</p>
+    <p>The monastery held treasures accumulated over more than a century and a half &mdash; gold and silver plate, jewelled book covers, altar furnishings, the wealth of a major religious house. The monks themselves were valuable as slaves. The raiders took what they could carry and destroyed much of what they could not.</p>
+
+    <h2>The Shockwave</h2>
+    <p>Alcuin of York &mdash; the most learned man in Europe, adviser to the Emperor Charlemagne &mdash; was a Northumbrian. When news of the attack reached him at the Frankish court, he wrote a series of anguished letters that survive to this day. His letter to Ethelred, King of Northumbria, is one of the most famous documents of the early medieval period.</p>
+    <p>Alcuin had studied at the cathedral school in York before being recruited by Charlemagne to lead the revival of learning across the Frankish Empire. He knew Lindisfarne. He knew what it represented. And he understood, perhaps before anyone else, that this was not an isolated raid but the beginning of something new and terrible.</p>
+    <p>He was right. The following year, raiders struck the monastery at Jarrow &mdash; where Bede had written his <em>Ecclesiastical History of the English People</em> less than seventy years earlier. In 795, they hit Iona, the mother house of Celtic Christianity off the west coast of Scotland. The pattern was established: wealthy, undefended monasteries on exposed coasts were targets. The Viking Age had begun.</p>
+
+    <h2>The Long Exodus</h2>
+    <p>The monks did not abandon Lindisfarne immediately. The community endured for another eighty-two years, rebuilding, praying, and guarding their most precious relics. But in AD 875, faced with the Great Heathen Army's conquest of Northumbria, they finally fled &mdash; carrying with them the body of St Cuthbert, the Lindisfarne Gospels, and other irreplaceable treasures.</p>
+    <p>What followed was one of the most extraordinary journeys in English history. For over a century, the community wandered across northern England, carrying Cuthbert's coffin from place to place. They sheltered at St Cuthbert's Cave &mdash; a natural sandstone overhang in the Kyloe Hills, still standing today. They rested at Chester-le-Street for 113 years. Finally, in AD 995, they reached Durham, where Cuthbert was laid to rest and where the great cathedral was built to house his shrine.</p>
+
+    <div class="timeline">
+      <div class="timeline-item"><span class="timeline-year">AD 547</span><div class="timeline-text">King Ida captures Bamburgh and establishes the Anglo-Saxon kingdom of Northumbria.</div></div>
+      <div class="timeline-item"><span class="timeline-year">AD 635</span><div class="timeline-text">St Aidan founds the monastery on Lindisfarne at the invitation of King Oswald.</div></div>
+      <div class="timeline-item"><span class="timeline-year">c.AD 676</span><div class="timeline-text">St Cuthbert lives as a hermit on the Farne Islands. Creates early bird protection laws.</div></div>
+      <div class="timeline-item"><span class="timeline-year">c.AD 700</span><div class="timeline-text">The Lindisfarne Gospels are produced &mdash; one of the greatest works of art in the medieval world.</div></div>
+      <div class="timeline-item"><span class="timeline-year">AD 731</span><div class="timeline-text">Bede completes his <em>Ecclesiastical History</em> at Jarrow &mdash; the first history of the English people.</div></div>
+      <div class="timeline-item"><span class="timeline-year">8 June AD 793</span><div class="timeline-text">Norse raiders attack Lindisfarne. The Viking Age begins.</div></div>
+      <div class="timeline-item"><span class="timeline-year">AD 794</span><div class="timeline-text">Vikings attack Jarrow.</div></div>
+      <div class="timeline-item"><span class="timeline-year">AD 795</span><div class="timeline-text">Vikings attack Iona.</div></div>
+      <div class="timeline-item"><span class="timeline-year">AD 875</span><div class="timeline-text">Monks flee Lindisfarne carrying Cuthbert's body and the Gospels. The long exodus begins.</div></div>
+      <div class="timeline-item"><span class="timeline-year">AD 995</span><div class="timeline-text">Cuthbert's body reaches Durham. The cathedral will be built to house his shrine.</div></div>
+    </div>
+
+    <h2>What Survives</h2>
+    <p>The Lindisfarne Gospels survive. They are held in the British Library in London &mdash; a source of ongoing frustration in the North East, where campaigns to bring them home have run for decades. The Lindisfarne Priory ruins on Holy Island are later &mdash; built by Benedictine monks in the twelfth century on the site of Aidan's original monastery. They are managed by English Heritage and remain one of the most visited sites in Northumberland.</p>
+    <p>Lindisfarne Castle, perched on the island's volcanic crag, was built in the sixteenth century from stones salvaged from the dissolved priory. It was converted into a private home by Edwin Lutyens in 1903 and is now a National Trust property.</p>
+    <p>The causeway itself &mdash; the tidal road that connects Holy Island to the mainland &mdash; still floods twice a day. Visitors who misjudge the tide still have to be rescued. The island's isolation, the quality that made it attractive to monks and vulnerable to raiders, remains its defining feature.</p>
+    <p>And St Cuthbert's eider ducks still nest on the Farne Islands, protected now by law rather than the word of a saint. They still let you get close. They still don't seem to mind.</p>
+
+    <div class="info-box">
+      <h3>Visit Holy Island</h3>
+      <p><strong>Lindisfarne Priory</strong> &mdash; English Heritage. Open daily (seasonal hours). Admission charge. Museum on site with Anglo-Saxon carved stones.</p>
+      <p><strong>Lindisfarne Castle</strong> &mdash; National Trust. Open seasonally. Lutyens conversion with Gertrude Jekyll walled garden.</p>
+      <p><strong>St Cuthbert's Cave</strong> &mdash; Free, open access. Signposted from the B6353 near Holburn. A short walk through woodland.</p>
+      <p><strong>Important:</strong> Check tide times before crossing the causeway. The road floods completely for several hours either side of high tide. <a href="https://www.holyislandcrossingtimes.northumberland.gov.uk/" target="_blank" rel="noopener noreferrer">Safe crossing times &rarr;</a></p>
+    </div>
+
+    <h2>Explore Further</h2>
+    <div class="links-grid">
+      <a href="https://www.english-heritage.org.uk/visit/places/lindisfarne-priory/" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">Lindisfarne Priory</div>
+        <div class="link-card-desc">English Heritage &mdash; the ruins, museum, and Anglo-Saxon carved stones.</div>
+        <div class="link-card-url">english-heritage.org.uk</div>
+      </a>
+      <a href="https://www.lindisfarne.org.uk/" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">Holy Island of Lindisfarne</div>
+        <div class="link-card-desc">Community site with history, tide times, accommodation, and visitor information.</div>
+        <div class="link-card-url">lindisfarne.org.uk</div>
+      </a>
+      <a href="https://www.bl.uk/collection-items/lindisfarne-gospels" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">The Lindisfarne Gospels</div>
+        <div class="link-card-desc">British Library &mdash; view digitised pages of the Gospels online.</div>
+        <div class="link-card-url">bl.uk</div>
+      </a>
+      <a href="https://www.nationaltrust.org.uk/visit/north-east/lindisfarne-castle" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">Lindisfarne Castle</div>
+        <div class="link-card-desc">National Trust &mdash; Lutyens' conversion on the volcanic crag.</div>
+        <div class="link-card-url">nationaltrust.org.uk</div>
+      </a>
+    </div>
+
+    <p style="text-align:center; margin-top:2rem; color:var(--text-light); font-size:0.9rem;">
+      <a href="index.html#history" style="color:var(--green); text-decoration:none; font-weight:600;">&larr; Back to On This Day in Northumberland</a>
+    </p>
+  </article>
+
+  <footer>
+    <a href="index.html" class="footer-back">&larr; Back to NorthumberlandArts.com</a>
+    <div class="footer-copy">&copy; 2026 NorthumberlandArts.com. All rights reserved.</div>
+  </footer>
+
+  <!-- Hero rotation -->
+  <script>
+    var heroImgs = document.querySelectorAll('.hero-img');
+    var heroIdx = 0;
+    setInterval(function(){
+      heroImgs[heroIdx].classList.remove('active');
+      heroIdx = (heroIdx + 1) % heroImgs.length;
+      heroImgs[heroIdx].classList.add('active');
+    }, 8000);
+  </script>
+
+  <!-- Image protection -->
+  <script>
+    document.addEventListener('contextmenu',function(e){if(e.target.tagName==='IMG')e.preventDefault();});
+    document.addEventListener('dragstart',function(e){if(e.target.tagName==='IMG')e.preventDefault();});
+  </script>
+</body>
+</html>

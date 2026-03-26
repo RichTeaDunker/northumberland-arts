@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coursing on the Northumberland Borders — A Lost Tradition | NorthumberlandArts</title>
+  <meta name="description" content="The story of hare coursing in Northumberland — from Arrian's ancient philosophy to the pit villages of Ashington, the whippets that slept by the fire, and the 2004 ban that ended centuries of tradition." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root { --navy:#1a1a2e; --green:#2d6a4f; --gold:#c9a84c; --gold-dark:#a8893d; --parchment:#f8f6f0; --white:#ffffff; --text:#333333; --text-light:#666666; --border:rgba(0,0,0,0.06); }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Source Sans 3',sans-serif;background:var(--parchment);color:var(--text);line-height:1.7;}
+    nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(26,26,46,0.95);padding:0.8rem 2rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(201,168,76,0.15);}
+    .nav-brand{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--parchment);text-decoration:none;letter-spacing:1px;}
+    .nav-brand span{color:var(--gold);}
+    .back-link{color:rgba(248,246,240,0.6);text-decoration:none;font-size:0.85rem;transition:color 0.3s;}
+    .back-link:hover{color:var(--gold);}
+    .hero{position:relative;height:70vh;min-height:450px;display:flex;align-items:flex-end;overflow:hidden;}
+    .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.5s ease-in-out;}
+    .hero-img.active{opacity:1;}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,26,46,0.95) 0%,rgba(26,26,46,0.4) 50%,rgba(26,26,46,0.2) 100%);}
+    .hero-content{position:relative;z-index:2;padding:3rem 2rem;max-width:800px;}
+    .hero-badge{display:inline-block;background:var(--gold);color:var(--navy);font-size:0.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:0.3rem 0.8rem;border-radius:2px;margin-bottom:1rem;}
+    .hero h1{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:600;color:var(--parchment);line-height:1.15;margin-bottom:0.8rem;}
+    .hero h1 span{color:var(--gold);}
+    .hero-sub{font-size:1.1rem;color:rgba(248,246,240,0.7);font-weight:300;max-width:600px;}
+    .hero-credit{position:absolute;bottom:0.5rem;right:1rem;font-size:0.65rem;color:rgba(248,246,240,0.35);font-style:italic;z-index:3;}
+    .article{max-width:780px;margin:0 auto;padding:4rem 2rem;}
+    .article p{font-size:1.05rem;line-height:1.85;margin-bottom:1.5rem;color:var(--text);}
+    .article h2{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:500;color:var(--navy);margin:3rem 0 1rem;padding-bottom:0.5rem;border-bottom:2px solid var(--gold);}
+    .article h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:500;color:var(--green);margin:2rem 0 0.8rem;}
+    .lead{font-size:1.2rem !important;font-weight:300;color:var(--text-light) !important;border-left:3px solid var(--gold);padding-left:1.2rem;}
+    blockquote{margin:2rem 0;padding:1.5rem 1.5rem 1.5rem 2rem;background:var(--white);border-left:4px solid var(--gold);font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic;color:var(--green);line-height:1.6;}
+    blockquote cite{display:block;margin-top:0.8rem;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;font-style:normal;color:var(--text-light);}
+    .timeline{margin:1.5rem 0 2rem;position:relative;padding-left:2rem;}
+    .timeline::before{content:'';position:absolute;left:5px;top:0;bottom:0;width:2px;background:var(--gold);}
+    .timeline-item{position:relative;margin-bottom:1.2rem;}
+    .timeline-item::before{content:'';position:absolute;left:-2rem;top:6px;width:10px;height:10px;background:var(--gold);border-radius:50%;border:2px solid var(--parchment);}
+    .timeline-year{font-size:0.8rem;font-weight:700;color:var(--gold-dark);}
+    .timeline-text{font-size:0.9rem;color:var(--text);line-height:1.5;}
+    .info-box{background:var(--navy);color:var(--parchment);padding:2rem;margin:2.5rem 0;border-radius:2px;}
+    .info-box h3{font-family:'Playfair Display',serif;color:var(--gold);font-size:1.2rem;margin:0 0 1rem;}
+    .info-box p{color:rgba(248,246,240,0.8) !important;font-size:0.95rem !important;margin-bottom:0.8rem !important;}
+    .info-box a{color:var(--gold);text-decoration:none;}
+    .info-box a:hover{text-decoration:underline;}
+    .links-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin:1.5rem 0;}
+    .link-card{background:var(--white);border:1px solid var(--border);padding:1rem 1.2rem;text-decoration:none;transition:all 0.3s ease;display:block;}
+    .link-card:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(0,0,0,0.06);border-color:var(--gold);}
+    .link-card-title{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;color:var(--navy);margin-bottom:0.3rem;}
+    .link-card-desc{font-size:0.82rem;color:var(--text-light);line-height:1.5;margin-bottom:0.4rem;}
+    .link-card-url{font-size:0.72rem;color:var(--gold-dark);}
+    .image-rotate{position:relative;min-height:400px;border-radius:2px;overflow:hidden;margin:2.5rem 0;}
+    .image-rotate img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.5s ease-in-out;}
+    .image-rotate img.fade-out{opacity:0;}
+    footer{background:var(--navy);color:rgba(248,246,240,0.4);text-align:center;padding:2rem;}
+    .footer-back{display:inline-block;color:var(--gold);text-decoration:none;font-size:0.9rem;margin-bottom:1rem;transition:opacity 0.3s;}
+    .footer-back:hover{opacity:0.7;}
+    .footer-copy{font-size:0.75rem;}
+    @media(max-width:768px){
+      .hero{height:50vh;min-height:350px;}
+      .hero h1{font-size:2rem;}
+      .article{padding:2.5rem 1.2rem;}
+      .image-rotate{min-height:250px;}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-brand">Northumberland<span>Arts</span></a>
+    <a href="artwork.html" class="back-link" style="margin-right:auto;margin-left:2rem;">Artwork</a>
+    <a href="index.html#history" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;vertical-align:middle;margin-right:4px;"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to History</a>
+  </nav>
+
+  <section class="hero">
+    <img class="hero-img active" src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1920,q_auto,f_auto/v1774542889/greyhounds-coursing-1.png" alt="Two greyhounds released from slips, racing across open Northumberland ground" />
+    <img class="hero-img" src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1920,q_auto,f_auto/v1774542883/greyhounds-coursing-2.png" alt="Greyhounds in full pursuit across the border country" />
+    <img class="hero-img" src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1920,q_auto,f_auto/v1774542875/pitmen-flat-caps-1.png" alt="Men in heavy coats and flat caps at a coursing meet" />
+    <img class="hero-img" src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1920,q_auto,f_auto/v1774542860/pitmen-flat-caps-2.png" alt="Coursing handlers on the Northumberland borders" />
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Northumberland History</div>
+      <h1>Coursing on the <span>Northumberland Borders</span></h1>
+      <p class="hero-sub">Flat caps pulled low, mufflers at the throat, greyhounds trembling at the leash. For centuries, this was how working men spent their Saturdays.</p>
+    </div>
+    <div class="hero-credit">Digital artwork &mdash; Coursing on the Northumberland borders</div>
+  </section>
+
+  <article class="article">
+    <p class="lead">The Greek historian Arrian wrote the first formal account of hare coursing in the second century AD. He made one thing clear from the start: the purpose of coursing was not to catch the hare, but to watch the contest between dog and quarry. That philosophy &mdash; the beauty of the chase, not the kill &mdash; held for nearly two thousand years. And nowhere did it run deeper than in the pit villages of Northumberland.</p>
+
+    <h2>The Oldest Field Sport</h2>
+    <p>Coursing has roots older than Christianity. Ancient Egyptian tomb paintings from around 2200 BC depict sighthound-like dogs pursuing game across open ground. The earliest sighthounds &mdash; ancestors of the greyhound, the saluki, the Afghan &mdash; originated in the Middle East between five and eight thousand years ago. They were bred for one thing: the ability to hunt by sight at extraordinary speed.</p>
+    <p>Arrian, writing his <em>Cynegeticus</em> around 124&ndash;150 AD during the age of Hadrian, documented four different Celtic coursing methods, each one corresponding to the social class of the hunter. He described the Celtic <em>vertragus</em> &mdash; a long-legged, rough-coated sighthound that was almost certainly the ancestor of the modern greyhound. And he was emphatic: a true sportsman did not course to fill his larder. He coursed to watch two dogs match their speed, their cunning, and their courage against the fastest prey in the field.</p>
+
+    <h2>The Laws of the Leash</h2>
+    <p>For centuries, coursing in England was the preserve of the nobility. The Game Laws restricted who could hunt, and hare coursing was no exception. In 1591, Thomas Howard, 4th Duke of Norfolk, drew up the first complete English rules under Elizabeth I &mdash; the Laws of the Leash. They codified what Arrian had described fifteen centuries earlier: two hounds maximum, a fair headstart to the hare, and a points system based on speed, turning, and the go-bye &mdash; the moment one dog overtakes the other to reach the hare first.</p>
+    <p>In 1776, Lord Orford founded the Swaffham Society in Norfolk &mdash; the world's first coursing club. Membership was limited to twenty-six gentlemen, one for each letter of the alphabet. It was a gentleman's sport, and it would remain so until the Great Reform Act of 1832 broke the monopoly wide open.</p>
+
+    <h2>The Great Leveller</h2>
+    <p>After 1832, coursing crossed the class divide. Within a generation, over 150 clubs operated across Britain, and events drew crowds of up to 80,000 spectators. The Waterloo Cup &mdash; inaugurated in 1836 by William Lynn, proprietor of the Waterloo Hotel in Liverpool, and held annually at Great Altcar in Lancashire &mdash; became the blue riband of the coursing year. Its first winner was a bitch named Milanie. Its last, in February 2005, was a dog named Shashi.</p>
+    <p>But the real revolution happened not in Lancashire. It happened in the coalfields of Northumberland and Durham.</p>
+
+    <h2>The Pit Villages</h2>
+    <p>Ashington &mdash; dubbed the biggest pit village in the world &mdash; grew from a small hamlet in the 1840s to a sprawling colliery town with five pits employing around 5,500 men by the 1920s. The Great North Coalfield, stretching across South East Northumberland and County Durham, employed almost a quarter of a million men at its peak in 1913. These men worked in darkness underground. When they came up, they wanted to be outdoors. And they wanted their dogs.</p>
+    <p>At Bothal, a hamlet in the civil parish of Ashington, pitmen's greyhounds ran alongside those of the local gentry &mdash; the Duke of Leeds among them. A miner's dog could beat a duke's, and often did. It was one of the rarest examples of true social equality in sport anywhere in England.</p>
+
+    <blockquote>
+      The purpose of coursing is not to catch the hare, but to enjoy the contest between the dogs and their quarry.
+      <cite>&mdash; Arrian, <em>Cynegeticus</em>, c.124&ndash;150 AD</cite>
+    </blockquote>
+
+    <h2>The Dogs</h2>
+
+    <h3>The Whippet &mdash; The Poor Man's Racehorse</h3>
+    <p>The whippet appeared in the mining and mill towns of northern England from the 1850s onwards, bred by men who could not afford a greyhound. They were known as snap dogs for their speed catching rabbits, and quickly earned the nickname the poor man's racehorse. In Durham and Northumberland, a rough-coated variety became popular &mdash; often crossbred with the Bedlington Terrier for added stamina and cunning.</p>
+    <p>These dogs lived in the home. They slept by the fire, and often in the bed. They were fed before the family &mdash; sometimes better than the family. They served as hot water bottles for the children on winter nights. No racehorse in any stable in England received more devoted care in training than a mining family's whippet.</p>
+
+    <h3>The Lurcher</h3>
+    <p>The lurcher emerged in the eighteenth century, bred by the Romani travelling community and working-class poachers across the North. A sighthound crossed with a collie or terrier, the lurcher was designed to disguise its greyhound bloodline under a rough coat while adding intelligence and stamina. It was, as one historian put it, the perfect dog for the poacher &mdash; and the provender provider for the artisan hunter bringing up a family on the breadline.</p>
+
+    <h3>The Bedlington Terrier</h3>
+    <p>Named after the mining town of Bedlington in Northumberland &mdash; and previously known as the Rothbury Terrier &mdash; the Bedlington was developed in the eighteenth century from local terriers crossed with whippets and Dandie Dinmonts. Two distinct types existed: one with longer legs, crossed with the whippet, bred for rabbiting and hare coursing; and a shorter-legged variety, mixed with the Dandie Dinmont, bred for going to ground. They were used to clear mines of rats, raced against other Bedlingtons and whippets on weekends, and were known as Gypsy Dogs because the Romani people favoured them for poaching. They were, above all, the favourite companion of the northern miner.</p>
+
+    <h2>Saturday Morning at Backworth</h2>
+    <p>In 1976, a BFI film crew captured thirty-five whippet races in a single autumn morning at Backworth village in Northumberland. The footage &mdash; still available on BFI Player &mdash; shows the family atmosphere that defined the sport: children running alongside the track, women standing in groups, men in flat caps bent over their dogs at the starting line. Harry Seymour, President of the North of England Association of Whippet Clubs, presided over the day. It was one of the last echoes of the pit village tradition committed to film.</p>
+    <p>The format was simple. Dogs were hand-slipped down a 200-yard track toward a handler waving a white rag in a cartwheel motion. Heavier dogs started in front as a handicap. Bets were private, handshakes sealed them, and the whole thing was over in seconds. Then the next pair stepped up.</p>
+
+    <div class="image-rotate">
+      <img src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1200,q_auto,f_auto/v1774542889/greyhounds-coursing-1.png" alt="Greyhounds released from slips" />
+      <img class="fade-out" src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1200,q_auto,f_auto/v1774542875/pitmen-flat-caps-1.png" alt="Men in flat caps at a coursing meet" />
+    </div>
+
+    <h2>The Waterloo Cup &mdash; And the End</h2>
+    <div class="timeline">
+      <div class="timeline-item"><span class="timeline-year">c.2200 BC</span><div class="timeline-text">Egyptian tomb paintings depict sighthounds pursuing game.</div></div>
+      <div class="timeline-item"><span class="timeline-year">c.124&ndash;150 AD</span><div class="timeline-text">Arrian writes the <em>Cynegeticus</em> &mdash; the first formal account of coursing.</div></div>
+      <div class="timeline-item"><span class="timeline-year">1591</span><div class="timeline-text">Duke of Norfolk draws up the Laws of the Leash under Elizabeth I.</div></div>
+      <div class="timeline-item"><span class="timeline-year">1776</span><div class="timeline-text">Lord Orford founds the Swaffham Society &mdash; world's first coursing club.</div></div>
+      <div class="timeline-item"><span class="timeline-year">1832</span><div class="timeline-text">Great Reform Act. Coursing crosses the class divide.</div></div>
+      <div class="timeline-item"><span class="timeline-year">1836</span><div class="timeline-text">First Waterloo Cup at Great Altcar. Winner: Milanie.</div></div>
+      <div class="timeline-item"><span class="timeline-year">1858</span><div class="timeline-text">National Coursing Club founded.</div></div>
+      <div class="timeline-item"><span class="timeline-year">1868&ndash;1871</span><div class="timeline-text">Master McGrath wins the Waterloo Cup three times. Invited to meet Queen Victoria.</div></div>
+      <div class="timeline-item"><span class="timeline-year">1889&ndash;1892</span><div class="timeline-text">Fullerton wins four consecutive Waterloo Cups.</div></div>
+      <div class="timeline-item"><span class="timeline-year">1976</span><div class="timeline-text">BFI films whippet racing at Backworth &mdash; last echo of the tradition on film.</div></div>
+      <div class="timeline-item"><span class="timeline-year">18 Nov 2004</span><div class="timeline-text">Hunting Act passed. Hare coursing banned in England and Wales.</div></div>
+      <div class="timeline-item"><span class="timeline-year">Feb 2005</span><div class="timeline-text">Last Waterloo Cup. Winner: Shashi. The end of an era.</div></div>
+    </div>
+    <p>The Hunting Act came into force on 18 February 2005. Three days earlier, at Great Altcar, the last Waterloo Cup had been run. A dog named Shashi took the title. The National Coursing Club ceased to function as a coursing organiser and became solely a greyhound registration body. Organised coursing &mdash; the open-field, two-dog, judged contests that Arrian would have recognised &mdash; ended overnight.</p>
+    <p>In the former pit villages of Northumberland, the ban was felt differently. For most, the great coursing meets had already gone. What remained was whippet racing &mdash; dogs chasing a rag or mechanical lure, not a live hare &mdash; and it continues, legally, to this day. The British Whippet Racing Association still operates. Clubs still race in the North East. The thread of continuity with the mining village tradition is thin, but it holds.</p>
+
+    <h2>The Art of the Chase</h2>
+    <p>George Blessed, a working miner and member of the Ashington Group &mdash; the Pitmen Painters &mdash; painted <em>Whippets</em> around 1939. It hangs today at Woodhorn Museum: a direct artistic record of whippet culture in a mining community, painted by a man who lived it. Norman Cornish, the miner-artist from Spennymoor, repeatedly painted bar scenes with men and whippets at heel. Maud Earl &mdash; regarded as the most important dog painter in history &mdash; noted the near-impossibility of painting coursing scenes from life. The dogs moved too fast. She relied on anatomical knowledge and posed subjects on a wheeled table held by a servant with a leash.</p>
+    <p>The Victorian sporting artists &mdash; George Earl, Arthur Wardle, Thomas Blinks, Francis Barlow &mdash; documented the coursing world with the same devotion that racing painters gave to Newmarket. Blinks painted the Waterloo Cup winner Dendrapsis. Charles Whymper painted the legendary Fullerton. Philip Reinagle's greyhound engraving appeared in <em>The Sportsman's Cabinet</em> in 1803. These were not hobby painters. This was serious art about a serious sport.</p>
+
+    <div class="info-box">
+      <h3>Where to See the Legacy</h3>
+      <p><strong>Woodhorn Museum, Ashington</strong> &mdash; Home of the Ashington Group (Pitmen Painters) collection, including George Blessed's <em>Whippets</em>. Best-preserved NE colliery. Free entry.</p>
+      <p><strong>BFI Player</strong> &mdash; The 1976 Backworth whippet racing film is available for free viewing online.</p>
+      <p><strong>The Coursing Museum</strong> &mdash; Online digital archive preserving trophies, paintings, manuscripts, and artefacts from British coursing heritage.</p>
+      <p class="detail" style="font-size:0.85rem !important;color:rgba(248,246,240,0.6) !important;">Whippet racing continues legally across the North East. The British Whippet Racing Association maintains a calendar of events.</p>
+    </div>
+
+    <h2>Explore Further</h2>
+    <div class="links-grid">
+      <a href="https://www.northeastmuseums.org.uk/woodhorn" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">Woodhorn Museum</div>
+        <div class="link-card-desc">Home of the Pitmen Painters collection and Northumberland Archives.</div>
+        <div class="link-card-url">northeastmuseums.org.uk</div>
+      </a>
+      <a href="https://player.bfi.org.uk" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">BFI Player</div>
+        <div class="link-card-desc">Free viewing of the 1976 Backworth whippet racing film.</div>
+        <div class="link-card-url">player.bfi.org.uk</div>
+      </a>
+      <a href="https://thecoursingmuseum.com" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">The Coursing Museum</div>
+        <div class="link-card-desc">Digital archive of British coursing heritage &mdash; paintings, trophies, artefacts.</div>
+        <div class="link-card-url">thecoursingmuseum.com</div>
+      </a>
+      <a href="pitmen-painters.html" class="link-card">
+        <div class="link-card-title">The Pitmen Painters</div>
+        <div class="link-card-desc">The coal miners of Ashington who became celebrated artists. Their story on this site.</div>
+        <div class="link-card-url">northumberlandarts.com</div>
+      </a>
+    </div>
+
+    <p style="text-align:center; margin-top:2rem; color:var(--text-light); font-size:0.9rem;">
+      <a href="index.html#history" style="color:var(--green); text-decoration:none; font-weight:600;">&larr; Back to On This Day in Northumberland</a>
+    </p>
+  </article>
+
+  <footer>
+    <a href="index.html" class="footer-back">&larr; Back to NorthumberlandArts.com</a>
+    <div class="footer-copy">&copy; 2026 NorthumberlandArts.com. All rights reserved.</div>
+  </footer>
+
+  <!-- Hero rotation -->
+  <script>
+    var heroImgs = document.querySelectorAll('.hero-img');
+    var heroIdx = 0;
+    setInterval(function(){
+      heroImgs[heroIdx].classList.remove('active');
+      heroIdx = (heroIdx + 1) % heroImgs.length;
+      heroImgs[heroIdx].classList.add('active');
+    }, 6000);
+  </script>
+
+  <!-- Article image rotation -->
+  <script>
+    var rotateContainers = document.querySelectorAll('.image-rotate');
+    rotateContainers.forEach(function(container){
+      var imgs = container.querySelectorAll('img');
+      var idx = 0;
+      setInterval(function(){
+        imgs[idx].classList.add('fade-out');
+        idx = (idx + 1) % imgs.length;
+        imgs[idx].classList.remove('fade-out');
+      }, 6000);
+    });
+  </script>
+
+  <!-- Image protection -->
+  <script>
+    document.addEventListener('contextmenu',function(e){if(e.target.tagName==='IMG')e.preventDefault();});
+    document.addEventListener('dragstart',function(e){if(e.target.tagName==='IMG')e.preventDefault();});
+  </script>
+</body>
+</html>
