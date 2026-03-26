@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Northumberland National Park — 70 Years of Wild | NorthumberlandArts</title>
+  <meta name="description" content="Designated in 1956, Northumberland National Park is England's most northerly, least populated, and darkest national park. From Hadrian's Wall to the Cheviots — 1,049 square kilometres of wilderness." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root { --navy:#1a1a2e; --green:#2d6a4f; --gold:#c9a84c; --gold-dark:#a8893d; --parchment:#f8f6f0; --white:#ffffff; --text:#333333; --text-light:#666666; --border:rgba(0,0,0,0.06); }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Source Sans 3',sans-serif;background:var(--parchment);color:var(--text);line-height:1.7;}
+    nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(26,26,46,0.95);padding:0.8rem 2rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(201,168,76,0.15);}
+    .nav-brand{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--parchment);text-decoration:none;letter-spacing:1px;}
+    .nav-brand span{color:var(--gold);}
+    .back-link{color:rgba(248,246,240,0.6);text-decoration:none;font-size:0.85rem;transition:color 0.3s;}
+    .back-link:hover{color:var(--gold);}
+    .hero{position:relative;height:70vh;min-height:450px;display:flex;align-items:flex-end;overflow:hidden;}
+    .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.5s ease-in-out;}
+    .hero-img.active{opacity:1;}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,26,46,0.95) 0%,rgba(26,26,46,0.4) 50%,rgba(26,26,46,0.2) 100%);}
+    .hero-content{position:relative;z-index:2;padding:3rem 2rem;max-width:800px;}
+    .hero-badge{display:inline-block;background:var(--gold);color:var(--navy);font-size:0.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:0.3rem 0.8rem;border-radius:2px;margin-bottom:1rem;}
+    .hero h1{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:600;color:var(--parchment);line-height:1.15;margin-bottom:0.8rem;}
+    .hero h1 span{color:var(--gold);}
+    .hero-sub{font-size:1.1rem;color:rgba(248,246,240,0.7);font-weight:300;max-width:600px;}
+    .hero-credit{position:absolute;bottom:0.5rem;right:1rem;font-size:0.65rem;color:rgba(248,246,240,0.35);font-style:italic;z-index:3;}
+    .article{max-width:780px;margin:0 auto;padding:4rem 2rem;}
+    .article p{font-size:1.05rem;line-height:1.85;margin-bottom:1.5rem;color:var(--text);}
+    .article h2{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:500;color:var(--navy);margin:3rem 0 1rem;padding-bottom:0.5rem;border-bottom:2px solid var(--gold);}
+    .article h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:500;color:var(--green);margin:2rem 0 0.8rem;}
+    .lead{font-size:1.2rem !important;font-weight:300;color:var(--text-light) !important;border-left:3px solid var(--gold);padding-left:1.2rem;}
+    blockquote{margin:2rem 0;padding:1.5rem 1.5rem 1.5rem 2rem;background:var(--white);border-left:4px solid var(--gold);font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic;color:var(--green);line-height:1.6;}
+    blockquote cite{display:block;margin-top:0.8rem;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;font-style:normal;color:var(--text-light);}
+    .timeline{margin:1.5rem 0 2rem;position:relative;padding-left:2rem;}
+    .timeline::before{content:'';position:absolute;left:5px;top:0;bottom:0;width:2px;background:var(--gold);}
+    .timeline-item{position:relative;margin-bottom:1.2rem;}
+    .timeline-item::before{content:'';position:absolute;left:-2rem;top:6px;width:10px;height:10px;background:var(--gold);border-radius:50%;border:2px solid var(--parchment);}
+    .timeline-year{font-size:0.8rem;font-weight:700;color:var(--gold-dark);}
+    .timeline-text{font-size:0.9rem;color:var(--text);line-height:1.5;}
+    .info-box{background:var(--navy);color:var(--parchment);padding:2rem;margin:2.5rem 0;border-radius:2px;}
+    .info-box h3{font-family:'Playfair Display',serif;color:var(--gold);font-size:1.2rem;margin:0 0 1rem;}
+    .info-box p{color:rgba(248,246,240,0.8) !important;font-size:0.95rem !important;margin-bottom:0.8rem !important;}
+    .info-box a{color:var(--gold);text-decoration:none;}
+    .info-box a:hover{text-decoration:underline;}
+    .links-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin:1.5rem 0;}
+    .link-card{background:var(--white);border:1px solid var(--border);padding:1rem 1.2rem;text-decoration:none;transition:all 0.3s ease;display:block;}
+    .link-card:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(0,0,0,0.06);border-color:var(--gold);}
+    .link-card-title{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;color:var(--navy);margin-bottom:0.3rem;}
+    .link-card-desc{font-size:0.82rem;color:var(--text-light);line-height:1.5;margin-bottom:0.4rem;}
+    .link-card-url{font-size:0.72rem;color:var(--gold-dark);}
+    footer{background:var(--navy);color:rgba(248,246,240,0.4);text-align:center;padding:2rem;}
+    .footer-back{display:inline-block;color:var(--gold);text-decoration:none;font-size:0.9rem;margin-bottom:1rem;transition:opacity 0.3s;}
+    .footer-back:hover{opacity:0.7;}
+    .footer-copy{font-size:0.75rem;}
+    @media(max-width:768px){
+      .hero{height:50vh;min-height:350px;}
+      .hero h1{font-size:2rem;}
+      .article{padding:2.5rem 1.2rem;}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-brand">Northumberland<span>Arts</span></a>
+    <a href="artwork.html" class="back-link" style="margin-right:auto;margin-left:2rem;">Artwork</a>
+    <a href="index.html#history" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;vertical-align:middle;margin-right:4px;"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to History</a>
+  </nav>
+
+  <section class="hero">
+    <img class="hero-img active" src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1920,q_auto,f_auto/v1774542907/northumberland-moorland.png" alt="Open moorland stretching across Northumberland National Park" />
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Northumberland History</div>
+      <h1>Northumberland <span>National Park</span></h1>
+      <p class="hero-sub">England's most northerly, least populated, and darkest national park. 1,049 square kilometres of moorland, Roman walls, and some of the emptiest skies in Europe.</p>
+    </div>
+    <div class="hero-credit">Digital artwork &mdash; Northumberland moorland</div>
+  </section>
+
+  <article class="article">
+    <p class="lead">On 6 April 1956, a stretch of Northumberland that most English people had never heard of became the ninth national park in England and Wales. It covered 1,049 square kilometres &mdash; 405 square miles &mdash; of moorland, forest, Roman frontier, and Cheviot hills. It was England's most northerly national park, and it remains the least populated. Approximately two thousand people live within its boundaries. On a winter Tuesday, you can walk for hours and see nobody but sheep.</p>
+
+    <h2>The Empty Quarter</h2>
+    <p>Northumberland National Park is not like the Lake District. It does not have honey-coloured villages, gift shops on every corner, or queues for car parks on a bank holiday. It has open sky. It has silence. It has the kind of landscape that makes you understand why people once believed in gods who lived in the hills.</p>
+    <p>The park stretches from Hadrian's Wall in the south to the Scottish border in the north, taking in the Cheviot Hills, the Simonside Hills, and the vast forests around Kielder. The Cheviot &mdash; at 815 metres, the highest point &mdash; is a flat-topped, peat-capped summit that offers views into Scotland on a clear day. Coquetdale, running east from the Cheviots, is considered one of England's most beautiful and least visited valleys. The river Coquet rises near the Scottish border and runs through country so quiet that the Ministry of Defence uses part of it as a training area.</p>
+    <p>Between 1.5 and 1.7 million visitor days are recorded each year, contributing an estimated &pound;190&ndash;210 million to the local economy. Those numbers sound large until you compare them with the Lake District's 19 million. This is a national park that still belongs, most of the time, to the people who farm it &mdash; roughly 800 holdings, almost all upland sheep.</p>
+
+    <h2>The Roman Frontier</h2>
+    <p>Hadrian's Wall runs for 35 miles through the southern section of the park, and it is here &mdash; not at the tourist-heavy sites further east &mdash; that the Wall feels most like what it was: a military frontier at the edge of the known world. The Wall is a UNESCO World Heritage Site, and the section within the park includes some of its most dramatic and best-preserved stretches.</p>
+    <p>Housesteads is the most complete Roman fort in Britain. Built around AD 124 as part of Hadrian's original frontier, it sits on a ridge with commanding views north across the Whin Sill crags. The latrines alone &mdash; a communal stone bench over a flowing sewer &mdash; tell you more about Roman military life than any museum panel. Further west, Vindolanda predates the Wall itself. The writing tablets discovered there &mdash; thin sheets of wood with ink script, preserved in oxygen-free soil &mdash; are the oldest surviving handwritten documents in Britain. They include a birthday party invitation, a request for more beer, and a complaint about the quality of local roads. Some things never change.</p>
+
+    <blockquote>
+      The Britons are unprotected by armour. There are very many cavalry. The cavalry do not use swords, nor do the Britons mount to throw javelins.
+      <cite>&mdash; Vindolanda writing tablet, c.AD 100 &mdash; a Roman intelligence report on the local population</cite>
+    </blockquote>
+
+    <h2>The Darkest Skies in England</h2>
+    <p>In December 2013, Northumberland National Park and Kielder Water &amp; Forest Park were jointly awarded Gold Tier International Dark Sky Park status &mdash; the highest level of recognition for dark skies anywhere in the world. The designation covers 572 square miles, making it the largest area of protected dark sky in Europe.</p>
+    <p>The reason is simple: there is almost nobody here. No cities. No motorways. No light pollution. On a clear night in the Cheviots, you can see the Milky Way with the naked eye, pick out the Andromeda galaxy, and count more stars than you thought existed. Kielder Observatory, built in 2008 on the edge of the forest, runs public stargazing events throughout the year and has become one of the most popular astronomical facilities in the country.</p>
+
+    <h2>Kielder &mdash; Water, Forest, Art</h2>
+    <p>Kielder Water is the largest artificial lake in Northern Europe by capacity. Created in 1981 by damming the North Tyne, it holds 200 billion litres of water and sits within Kielder Forest &mdash; the largest planted woodland in England at over 250 square miles. The reservoir was built to supply the industrial North East, but the industries it was designed to serve were already declining by the time it filled. It is, in one sense, a monument to an economy that no longer exists.</p>
+    <p>But Kielder has become something its planners never intended. The Art &amp; Architecture Trail, begun in 1995, now includes more than twenty permanent outdoor sculptures and architectural installations scattered through the forest and around the lakeshore. Works by artists including James Turrell, whose Skyspace &mdash; a chamber with an aperture open to the sky &mdash; sits on a promontory above the water. It is one of the most ambitious public art programmes in rural Britain, and it is free.</p>
+
+    <h2>The Sill</h2>
+    <p>On 12 July 2017, the National Park Authority opened The Sill &mdash; a &pound;14.8 million visitor centre on the edge of Hadrian's Wall, near the village of Once Brewed. Designed by JDDK Architects and clad in local stone, the building was awarded a RIBA North East award and draws between 150,000 and 200,000 visitors a year. It houses exhibitions, a youth hostel, a caf&eacute;, and a landscaped roof walk that offers views along the line of the Wall.</p>
+    <p>The Sill was the first purpose-built landscape discovery centre of its kind in England. Its name comes from the Whin Sill &mdash; the volcanic dolerite ridge that Hadrian's engineers chose as the foundation for their wall, because nature had already done half the work.</p>
+
+    <h2>Loss and Legacy</h2>
+    <p>In September 2023, the Sycamore Gap tree &mdash; a lone sycamore growing in a dramatic dip in Hadrian's Wall near Crag Lough &mdash; was felled overnight by a sixteen-year-old with a chainsaw. The tree had stood for over two hundred years and had been photographed more than almost any other tree in England. It had won the Woodland Trust's Tree of the Year in 2016. Its destruction provoked a national outcry that surprised even the people who lived beside it.</p>
+    <p>The National Park Authority and the Woodland Trust collected seeds and cuttings. Seedlings have been successfully propagated, and several are now growing. The stump remains at the site, and a section of the felled trunk has been preserved. The gap in the Wall looks different now &mdash; emptier, more exposed. But the seedlings are alive, and one day, something will grow there again.</p>
+
+    <h2>Artists and the Park</h2>
+    <p>Thomas Bewick &mdash; born at Cherryburn near the south-eastern edge of the park in 1753 &mdash; is widely regarded as the father of wood engraving. His illustrations of birds and animals, cut into the end grain of boxwood with a precision that had never been achieved before, transformed the art of book illustration. His <em>History of British Birds</em> (1797&ndash;1804) remains one of the masterpieces of English natural history, and his birthplace is now a National Trust property open to visitors.</p>
+    <p>John Martin &mdash; born at Haydon Bridge in 1789 &mdash; became one of the most famous painters in the world. His vast canvases of biblical apocalypse earned him the nickname "Mad Martin," and his influence extended to cinema, science fiction, and the Romantic imagination. He grew up within sight of the Wall and the wild skies that would define his art. The park shaped both men &mdash; one through meticulous observation of the small, the other through an obsession with the overwhelming.</p>
+
+    <div class="timeline">
+      <div class="timeline-item"><span class="timeline-year">c.AD 122</span><div class="timeline-text">Construction of Hadrian's Wall begins. Housesteads fort built on the Whin Sill ridge.</div></div>
+      <div class="timeline-item"><span class="timeline-year">c.AD 100&ndash;120</span><div class="timeline-text">Vindolanda writing tablets composed &mdash; oldest handwritten documents in Britain.</div></div>
+      <div class="timeline-item"><span class="timeline-year">1753</span><div class="timeline-text">Thomas Bewick born at Cherryburn. Father of wood engraving.</div></div>
+      <div class="timeline-item"><span class="timeline-year">1789</span><div class="timeline-text">John Martin born at Haydon Bridge. "Mad Martin" &mdash; painter of apocalypse.</div></div>
+      <div class="timeline-item"><span class="timeline-year">6 April 1956</span><div class="timeline-text">Northumberland National Park designated &mdash; 9th in England and Wales.</div></div>
+      <div class="timeline-item"><span class="timeline-year">1981</span><div class="timeline-text">Kielder Water completed &mdash; largest artificial lake in Northern Europe.</div></div>
+      <div class="timeline-item"><span class="timeline-year">1995</span><div class="timeline-text">Kielder Art &amp; Architecture Trail begins. Now 20+ permanent outdoor works.</div></div>
+      <div class="timeline-item"><span class="timeline-year">2008</span><div class="timeline-text">Kielder Observatory opens for public stargazing.</div></div>
+      <div class="timeline-item"><span class="timeline-year">December 2013</span><div class="timeline-text">Gold Tier International Dark Sky Park status awarded &mdash; 572 square miles.</div></div>
+      <div class="timeline-item"><span class="timeline-year">12 July 2017</span><div class="timeline-text">The Sill opens. &pound;14.8 million landscape discovery centre. RIBA award.</div></div>
+      <div class="timeline-item"><span class="timeline-year">September 2023</span><div class="timeline-text">Sycamore Gap tree felled. Seedlings propagated from collected seeds.</div></div>
+    </div>
+
+    <p>The park contains over 250 listed buildings and monuments. It encompasses part of a UNESCO World Heritage Site. It shelters one of the largest areas of protected dark sky in the world. And it remains, seventy years after its designation, a place where you can stand on a hilltop and hear nothing but the wind and the curlew. That is its greatest asset &mdash; and its most fragile.</p>
+
+    <div class="info-box">
+      <h3>Visiting the National Park</h3>
+      <p><strong>The Sill National Landscape Discovery Centre</strong> &mdash; Near Once Brewed, Bardon Mill NE47 7AN. Free entry to exhibitions and roof walk. Caf&eacute; and shop. YHA hostel on site. Open daily. <a href="https://www.thesill.org.uk" target="_blank" rel="noopener noreferrer">thesill.org.uk &rarr;</a></p>
+      <p><strong>Kielder Observatory</strong> &mdash; Public stargazing events year-round. Booking essential &mdash; events sell out quickly. <a href="https://www.kielderobservatory.org" target="_blank" rel="noopener noreferrer">kielderobservatory.org &rarr;</a></p>
+      <p><strong>National Park HQ</strong> &mdash; Eastburn, South Park, Hexham NE46 1BS. Information, maps, and planning advice for walking, cycling, and visiting archaeological sites.</p>
+      <p class="detail" style="font-size:0.85rem !important;color:rgba(248,246,240,0.6) !important;">Most sites within the park are free and open access. Limited public transport &mdash; a car is strongly recommended. Check MoD firing range schedules before visiting the Otterburn Ranges area.</p>
+    </div>
+
+    <h2>Explore Further</h2>
+    <div class="links-grid">
+      <a href="https://www.northumberlandnationalpark.org.uk" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">Northumberland National Park</div>
+        <div class="link-card-desc">Official site &mdash; walking routes, visitor information, wildlife, and dark sky events.</div>
+        <div class="link-card-url">northumberlandnationalpark.org.uk</div>
+      </a>
+      <a href="https://www.thesill.org.uk" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">The Sill</div>
+        <div class="link-card-desc">National Landscape Discovery Centre on Hadrian's Wall. Exhibitions, events, and the landscaped roof walk.</div>
+        <div class="link-card-url">thesill.org.uk</div>
+      </a>
+      <a href="https://www.kielderobservatory.org" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">Kielder Observatory</div>
+        <div class="link-card-desc">Public stargazing events beneath the darkest skies in England. Booking essential.</div>
+        <div class="link-card-url">kielderobservatory.org</div>
+      </a>
+      <a href="https://www.vindolanda.com" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">Vindolanda</div>
+        <div class="link-card-desc">Roman fort and museum. Active archaeological dig &mdash; one of the most important Roman sites in Europe.</div>
+        <div class="link-card-url">vindolanda.com</div>
+      </a>
+      <a href="hadrians-wall.html" class="link-card">
+        <div class="link-card-title">Hadrian's Wall</div>
+        <div class="link-card-desc">73 miles of Roman frontier &mdash; our full editorial on the greatest monument in northern England.</div>
+        <div class="link-card-url">northumberlandarts.com</div>
+      </a>
+    </div>
+
+    <p style="text-align:center; margin-top:2rem; color:var(--text-light); font-size:0.9rem;">
+      <a href="index.html#history" style="color:var(--green); text-decoration:none; font-weight:600;">&larr; Back to On This Day in Northumberland</a>
+    </p>
+  </article>
+
+  <footer>
+    <a href="index.html" class="footer-back">&larr; Back to NorthumberlandArts.com</a>
+    <div class="footer-copy">&copy; 2026 NorthumberlandArts.com. All rights reserved.</div>
+  </footer>
+
+  <!-- Image protection -->
+  <script>
+    document.addEventListener('contextmenu',function(e){if(e.target.tagName==='IMG')e.preventDefault();});
+    document.addEventListener('dragstart',function(e){if(e.target.tagName==='IMG')e.preventDefault();});
+  </script>
+</body>
+</html>

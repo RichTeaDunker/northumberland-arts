@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Border Reivers — Northumberland's Lawless Centuries | NorthumberlandArts</title>
+  <meta name="description" content="For three hundred years, the Anglo-Scottish border was the most lawless place in Britain. The reiving families — Armstrong, Elliot, Graham, Charlton — raided, burned, and kidnapped across a frontier that neither king could control." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root { --navy:#1a1a2e; --green:#2d6a4f; --gold:#c9a84c; --gold-dark:#a8893d; --parchment:#f8f6f0; --white:#ffffff; --text:#333333; --text-light:#666666; --border:rgba(0,0,0,0.06); }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Source Sans 3',sans-serif;background:var(--parchment);color:var(--text);line-height:1.7;}
+    nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(26,26,46,0.95);padding:0.8rem 2rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(201,168,76,0.15);}
+    .nav-brand{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--parchment);text-decoration:none;letter-spacing:1px;}
+    .nav-brand span{color:var(--gold);}
+    .back-link{color:rgba(248,246,240,0.6);text-decoration:none;font-size:0.85rem;transition:color 0.3s;}
+    .back-link:hover{color:var(--gold);}
+    .hero{position:relative;height:70vh;min-height:450px;display:flex;align-items:flex-end;overflow:hidden;}
+    .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.5s ease-in-out;}
+    .hero-img.active{opacity:1;}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,26,46,0.95) 0%,rgba(26,26,46,0.4) 50%,rgba(26,26,46,0.2) 100%);}
+    .hero-content{position:relative;z-index:2;padding:3rem 2rem;max-width:800px;}
+    .hero-badge{display:inline-block;background:var(--gold);color:var(--navy);font-size:0.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:0.3rem 0.8rem;border-radius:2px;margin-bottom:1rem;}
+    .hero h1{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:600;color:var(--parchment);line-height:1.15;margin-bottom:0.8rem;}
+    .hero h1 span{color:var(--gold);}
+    .hero-sub{font-size:1.1rem;color:rgba(248,246,240,0.7);font-weight:300;max-width:600px;}
+    .hero-credit{position:absolute;bottom:0.5rem;right:1rem;font-size:0.65rem;color:rgba(248,246,240,0.35);font-style:italic;z-index:3;}
+    .article{max-width:780px;margin:0 auto;padding:4rem 2rem;}
+    .article p{font-size:1.05rem;line-height:1.85;margin-bottom:1.5rem;color:var(--text);}
+    .article h2{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:500;color:var(--navy);margin:3rem 0 1rem;padding-bottom:0.5rem;border-bottom:2px solid var(--gold);}
+    .article h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:500;color:var(--green);margin:2rem 0 0.8rem;}
+    .lead{font-size:1.2rem !important;font-weight:300;color:var(--text-light) !important;border-left:3px solid var(--gold);padding-left:1.2rem;}
+    blockquote{margin:2rem 0;padding:1.5rem 1.5rem 1.5rem 2rem;background:var(--white);border-left:4px solid var(--gold);font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic;color:var(--green);line-height:1.6;}
+    blockquote cite{display:block;margin-top:0.8rem;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;font-style:normal;color:var(--text-light);}
+    .timeline{margin:1.5rem 0 2rem;position:relative;padding-left:2rem;}
+    .timeline::before{content:'';position:absolute;left:5px;top:0;bottom:0;width:2px;background:var(--gold);}
+    .timeline-item{position:relative;margin-bottom:1.2rem;}
+    .timeline-item::before{content:'';position:absolute;left:-2rem;top:6px;width:10px;height:10px;background:var(--gold);border-radius:50%;border:2px solid var(--parchment);}
+    .timeline-year{font-size:0.8rem;font-weight:700;color:var(--gold-dark);}
+    .timeline-text{font-size:0.9rem;color:var(--text);line-height:1.5;}
+    .castle-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.2rem;margin:1.5rem 0;}
+    .castle-card{background:var(--white);border:1px solid var(--border);padding:1.5rem;transition:all 0.3s ease;}
+    .castle-card:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(0,0,0,0.06);border-color:var(--gold);}
+    .castle-card h4{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;color:var(--navy);margin-bottom:0.4rem;}
+    .castle-card .castle-date{font-size:0.75rem;color:var(--gold-dark);font-weight:700;margin-bottom:0.5rem;}
+    .castle-card p{font-size:0.88rem;color:var(--text-light);line-height:1.6;margin-bottom:0;}
+    .info-box{background:var(--navy);color:var(--parchment);padding:2rem;margin:2.5rem 0;border-radius:2px;}
+    .info-box h3{font-family:'Playfair Display',serif;color:var(--gold);font-size:1.2rem;margin:0 0 1rem;}
+    .info-box p{color:rgba(248,246,240,0.8) !important;font-size:0.95rem !important;margin-bottom:0.8rem !important;}
+    .info-box a{color:var(--gold);text-decoration:none;}
+    .info-box a:hover{text-decoration:underline;}
+    .links-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin:1.5rem 0;}
+    .link-card{background:var(--white);border:1px solid var(--border);padding:1rem 1.2rem;text-decoration:none;transition:all 0.3s ease;display:block;}
+    .link-card:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(0,0,0,0.06);border-color:var(--gold);}
+    .link-card-title{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;color:var(--navy);margin-bottom:0.3rem;}
+    .link-card-desc{font-size:0.82rem;color:var(--text-light);line-height:1.5;margin-bottom:0.4rem;}
+    .link-card-url{font-size:0.72rem;color:var(--gold-dark);}
+    .image-rotate{position:relative;min-height:400px;border-radius:2px;overflow:hidden;margin:2.5rem 0;}
+    .image-rotate img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.5s ease-in-out;}
+    .image-rotate img.fade-out{opacity:0;}
+    footer{background:var(--navy);color:rgba(248,246,240,0.4);text-align:center;padding:2rem;}
+    .footer-back{display:inline-block;color:var(--gold);text-decoration:none;font-size:0.9rem;margin-bottom:1rem;transition:opacity 0.3s;}
+    .footer-back:hover{opacity:0.7;}
+    .footer-copy{font-size:0.75rem;}
+    @media(max-width:768px){
+      .hero{height:50vh;min-height:350px;}
+      .hero h1{font-size:2rem;}
+      .article{padding:2.5rem 1.2rem;}
+      .castle-grid{grid-template-columns:1fr;}
+      .image-rotate{min-height:250px;}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-brand">Northumberland<span>Arts</span></a>
+    <a href="artwork.html" class="back-link" style="margin-right:auto;margin-left:2rem;">Artwork</a>
+    <a href="index.html#history" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;vertical-align:middle;margin-right:4px;"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to History</a>
+  </nav>
+
+  <section class="hero">
+    <img class="hero-img active" src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1920,q_auto,f_auto/v1774543088/roman-centurion-3.png" alt="Border warrior in steel bonnet and jack, lance in hand" />
+    <img class="hero-img" src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1920,q_auto,f_auto/v1774543075/roman-centurion-4.png" alt="Armed rider on the Northumberland borders" />
+    <img class="hero-img" src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1920,q_auto,f_auto/v1774543041/roman-centurion-5.png" alt="Horseman crossing the Anglo-Scottish border at dusk" />
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Northumberland History</div>
+      <h1>The Border <span>Reivers</span></h1>
+      <p class="hero-sub">For three hundred years, the Anglo-Scottish border was the most lawless place in Britain. The families who lived there answered to no king &mdash; only to blood, cattle, and the steel bonnet.</p>
+    </div>
+    <div class="hero-credit">Digital artwork &mdash; Border warriors on the Northumberland frontier</div>
+  </section>
+
+  <article class="article">
+    <p class="lead">Between the fourteenth and seventeenth centuries, the Anglo-Scottish border was not a line on a map. It was a war zone &mdash; a strip of disputed, ungoverned, and chronically violent country where the normal rules of law did not apply. The people who lived in this debatable land developed their own rules. They raided across the border and within their own country, stealing cattle, burning farmsteads, kidnapping for ransom, and running protection rackets with a professionalism that would not be matched until the organised crime families of twentieth-century America. They were called the reivers.</p>
+
+    <h2>Why It Happened</h2>
+    <p>The reiving era did not emerge from nowhere. It was the direct consequence of geography and politics. The Anglo-Scottish border ran through some of the most remote and inhospitable country in Britain &mdash; high moorland, deep valleys, and forested hills where central authority had never been strong. When the Wars of Scottish Independence began in 1296, what little law existed on the border collapsed entirely.</p>
+    <p>For the next three centuries, the border country was caught between two kingdoms that were almost permanently at war. Armies marched through, burning and pillaging. Truces were made and broken. The people who lived in the border dales had two choices: leave, or adapt. They adapted. They learned to raid, to fight, to drive cattle through the night across terrain they knew and their pursuers did not. They built their homes to be defended &mdash; thick-walled pele towers and bastles with vaulted ground floors that would not burn. And they organised themselves into family groups &mdash; riding surnames &mdash; that were loyal to kinship above all else.</p>
+
+    <h2>The Riding Surnames</h2>
+    <p>The reivers were not outlaws in the romantic sense. They were families &mdash; entire communities, English and Scottish, whose way of life was built around the raid. The great reiving surnames operated on both sides of the border, and some of the fiercest feuds were not between English and Scots but between neighbouring families on the same side.</p>
+
+    <div class="castle-grid">
+      <div class="castle-card">
+        <h4>Armstrong</h4>
+        <div class="castle-date">Scottish West March</div>
+        <p>The most feared surname on the border. At their peak, the Armstrongs could muster 3,000 mounted men. Their stronghold was Liddesdale &mdash; the "cockpit of the borders." Johnnie Armstrong was hanged by James V in 1530 without trial.</p>
+      </div>
+      <div class="castle-card">
+        <h4>Elliot</h4>
+        <div class="castle-date">Scottish Middle March</div>
+        <p>Rivals and sometimes allies of the Armstrongs in Liddesdale and Teviotdale. Produced some of the most celebrated ballad heroes. The name persists across the border country today.</p>
+      </div>
+      <div class="castle-card">
+        <h4>Graham</h4>
+        <div class="castle-date">The Debatable Land</div>
+        <p>Occupied the lawless strip between England and Scotland that belonged to neither crown. Raided in all directions. After 1603, many were forcibly deported to Ireland and the Low Countries.</p>
+      </div>
+      <div class="castle-card">
+        <h4>Charlton</h4>
+        <div class="castle-date">English Middle March</div>
+        <p>Based in North Tynedale. A powerful English reiving family who held the valley for generations. Their bastles and pele towers still dot the landscape around Bellingham and Tarset.</p>
+      </div>
+      <div class="castle-card">
+        <h4>Robson</h4>
+        <div class="castle-date">English Middle March</div>
+        <p>Neighbours and often allies of the Charltons in North Tynedale. One of the most numerous border surnames. The saying went: every Robson was related to every other Robson.</p>
+      </div>
+      <div class="castle-card">
+        <h4>Kerr</h4>
+        <div class="castle-date">Scottish Middle March</div>
+        <p>A powerful family based around Jedburgh and Ferniehirst. Noted for producing a high proportion of left-handed warriors &mdash; "Kerr-handed" became a dialect word for left-handed. March Wardens on the Scottish side.</p>
+      </div>
+      <div class="castle-card">
+        <h4>Scott</h4>
+        <div class="castle-date">Scottish Middle March</div>
+        <p>The "Bold Buccleuch" Scotts of Branxholme were among the most powerful border families. Walter Scott of Buccleuch rescued Kinmont Willie Armstrong from Carlisle Castle in 1596 &mdash; one of the most famous exploits in border history.</p>
+      </div>
+      <div class="castle-card">
+        <h4>Forster / Nixon / Johnstone</h4>
+        <div class="castle-date">Both Marches</div>
+        <p>The Forsters held land across the English East and Middle March. The Nixons were feared in Liddesdale. The Johnstones feuded bloodily with the Maxwells on the Scottish West March for generations.</p>
+      </div>
+    </div>
+
+    <h2>The Business of Raiding</h2>
+    <p>Cattle were the currency of the border. A successful raid &mdash; riding through the night, driving stolen beasts back across the border before dawn &mdash; could transform a family's fortunes. But the reivers did not stop at cattle. They burned crops and farmsteads. They kidnapped men, women, and children for ransom. They ran protection rackets &mdash; pay us, or we burn you out &mdash; which gave the English language the word "blackmail," from the black rent extorted by border families in exchange for leaving you alone.</p>
+    <p>The clothing of the reiver was functional and distinctive. A jack &mdash; a quilted leather coat, sometimes reinforced with metal plates &mdash; offered protection without the weight of full armour. A steel bonnet protected the head. The weapons were lance, sword, and dagger. Most reivers fought on horseback &mdash; small, hardy ponies bred for the rough terrain of the borders. They rode at night, in all weathers, across country that would break a stranger's neck.</p>
+
+    <blockquote>
+      They sally out of their own borders, in the night, in troops, through unfrequented by-ways and many intricate windings. All the day time they refresh themselves and their horses in lurking places, and in the night they renew their exploits.
+      <cite>&mdash; William Camden, <em>Britannia</em>, 1586</cite>
+    </blockquote>
+
+    <h2>Law on the Border</h2>
+
+    <h3>The March Wardens</h3>
+    <p>The border was divided into six Marches &mdash; three English (East, Middle, and West) and three Scottish. Each March had a Warden, appointed by the crown, whose job was to keep the peace, settle disputes, and punish raiders. In theory, the system should have worked. In practice, the Wardens were often drawn from the same reiving families they were supposed to police. Some were raiders themselves. Others were simply unable to enforce the law against kinsmen who outnumbered and outfought any force the Warden could muster.</p>
+
+    <h3>The Hot Trod</h3>
+    <p>Border law recognised one remedy for the victim of a raid: the Hot Trod. If you had been robbed, you had the legal right to pursue the raiders across the border within six days, with hound and horn, and with a burning piece of turf carried on the tip of your lance to signal your lawful purpose. If the turf was still smouldering, it was a Hot Trod &mdash; immediate pursuit. If the trail had gone cold and you followed later, it was a Cold Trod. Either way, you rode armed, and you rode to recover what was yours.</p>
+
+    <h3>The Day of Truce</h3>
+    <p>At appointed times, the Wardens of opposing Marches would meet at agreed spots on the border &mdash; traditional meeting places such as Kershope Foot, Cocklaw, or the Redeswire &mdash; to settle disputes, hear complaints, and hand over accused raiders. These were the Days of Truce. They were supposed to be days of peace. They frequently ended in violence. The Redeswire Fray of 1575 &mdash; which began as a routine truce day and ended in a pitched battle &mdash; was one of the last major border skirmishes before the Union of the Crowns.</p>
+
+    <h2>The Debatable Lands</h2>
+    <p>Between the rivers Esk and Sark, on the western end of the border, lay a strip of land roughly twelve miles long and four miles wide that belonged to neither England nor Scotland. This was the Debatable Land &mdash; and it was, by common consent, the most lawless territory in Britain. No one could build a permanent structure there. No one could remain on it between sunset and sunrise. In practice, the Grahams and Armstrongs occupied it and raided from it in all directions. A joint commission finally divided it between the two kingdoms in 1552, but the violence continued for another fifty years.</p>
+
+    <h2>Pele Towers and Bastles</h2>
+    <p>The architecture of the border tells the story more plainly than any chronicle. Pele towers &mdash; squat stone keeps with walls up to ten feet thick, vaulted ground floors, and first-floor entrances reached by external stairs that could be destroyed in an emergency &mdash; were built by the minor gentry across the border country. More than seventy survive in Northumberland alone. Bastles were simpler: fortified farmhouses with livestock on the ground floor and the family above, reached by a removable ladder. They cluster along the North Tyne and Redesdale valleys, and many are still lived in today, their walls as thick as the day they were built.</p>
+    <p>Every thick wall, every vaulted ceiling, every narrow window slit tells the same story: these were people who expected to be attacked, and who built accordingly.</p>
+
+    <div class="image-rotate">
+      <img src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1200,q_auto,f_auto/v1774543088/roman-centurion-3.png" alt="Border warrior on horseback" />
+      <img class="fade-out" src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1200,q_auto,f_auto/v1774543075/roman-centurion-4.png" alt="Armed rider crossing the border" />
+    </div>
+
+    <h2>Words We Inherited</h2>
+    <p>The reivers left their mark on the English language in ways that most people never suspect. "Bereaved" &mdash; robbed of something precious &mdash; comes directly from "reived." "Blackmail" &mdash; from the black rent paid to reivers for protection. "Gang" &mdash; a group of men riding together on a raid. Possibly "kidnap" &mdash; the snatching of people for ransom. These words passed into standard English, stripped of their violent origins, and are used every day by people who have never heard of the border reivers.</p>
+
+    <h2>The End of the Reivers</h2>
+    <div class="timeline">
+      <div class="timeline-item"><span class="timeline-year">1296</span><div class="timeline-text">Wars of Scottish Independence begin. Border law collapses. The reiving era starts.</div></div>
+      <div class="timeline-item"><span class="timeline-year">1388</span><div class="timeline-text">Battle of Otterburn. Border warfare intensifies. The great reiving families consolidate.</div></div>
+      <div class="timeline-item"><span class="timeline-year">1530</span><div class="timeline-text">James V hangs Johnnie Armstrong without trial. The Armstrongs at the peak of their power.</div></div>
+      <div class="timeline-item"><span class="timeline-year">1530s&ndash;1600</span><div class="timeline-text">The peak of reiving. Raids, feuds, and border warfare reach their greatest intensity.</div></div>
+      <div class="timeline-item"><span class="timeline-year">1552</span><div class="timeline-text">The Debatable Land formally divided between England and Scotland.</div></div>
+      <div class="timeline-item"><span class="timeline-year">1575</span><div class="timeline-text">The Redeswire Fray &mdash; a truce day that ends in a pitched battle.</div></div>
+      <div class="timeline-item"><span class="timeline-year">1596</span><div class="timeline-text">Bold Buccleuch rescues Kinmont Willie Armstrong from Carlisle Castle.</div></div>
+      <div class="timeline-item"><span class="timeline-year">24 March 1603</span><div class="timeline-text">James VI of Scotland becomes James I of England. The border ceases to exist as a political frontier.</div></div>
+      <div class="timeline-item"><span class="timeline-year">1603&ndash;1611</span><div class="timeline-text">The "Pacification." Mass executions, deportations to Ireland and the Low Countries. Border laws abolished. The reiving families broken.</div></div>
+    </div>
+    <p>On 24 March 1603, Elizabeth I died and James VI of Scotland became James I of England. Overnight, the Anglo-Scottish border ceased to exist as a political frontier. James had no tolerance for the reivers. He renamed the border region the "Middle Shires" and set about destroying the reiving families with a thoroughness that shocked even contemporaries who had lived through centuries of border violence.</p>
+    <p>The Grahams of the Debatable Land were forcibly deported &mdash; transported to Ireland and the Low Countries. The Armstrongs were hanged in batches. Border laws were abolished. The March Wardens were dissolved. Within a decade, the riding surnames that had terrorised the border for three hundred years were broken. Some were executed. Some were exiled. Most simply became farmers and tradesmen, their raiding days behind them.</p>
+    <p>But the surnames survive. Armstrong, Elliot, Graham, Charlton, Robson, Kerr, Scott, Forster, Nixon, Johnstone &mdash; they are still the common names of the border country, on both sides. The pele towers have been converted into homes. The bastles are farmhouses and holiday lets. And George MacDonald Fraser's <em>The Steel Bonnets</em> &mdash; published in 1971 and never out of print &mdash; remains the definitive modern account of the reiving centuries. It is one of the finest works of popular history ever written about any region of Britain.</p>
+
+    <div class="info-box">
+      <h3>Reiver Sites to Visit</h3>
+      <p><strong>Hermitage Castle</strong> &mdash; Liddesdale, Scottish Borders. The most atmospheric reiver stronghold in existence. Roofless, massive, and deeply unsettling. Historic Scotland. Seasonal opening.</p>
+      <p><strong>Black Middens Bastle</strong> &mdash; Tarset, North Tynedale. English Heritage. Free entry, open access. One of the best-preserved bastles in Northumberland &mdash; a fortified farmhouse built to withstand reiver raids.</p>
+      <p><strong>Tarset Bastle</strong> &mdash; Near Lanehead, North Tynedale. Another fine example of border defensive architecture in the heart of Charlton and Robson territory.</p>
+      <p><strong>Elsdon Pele Tower</strong> &mdash; Elsdon village, Redesdale. A well-preserved pele tower in one of Northumberland's most atmospheric border villages. The village church contains a mass grave from the Battle of Otterburn.</p>
+      <p class="detail" style="font-size:0.85rem !important;color:rgba(248,246,240,0.6) !important;">Most bastle and pele tower sites are free, open access, and unmarked. An Ordnance Survey map and good boots are essential.</p>
+    </div>
+
+    <h2>Explore Further</h2>
+    <div class="links-grid">
+      <a href="https://www.english-heritage.org.uk/visit/places/black-middens-bastle-house/" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">Black Middens Bastle</div>
+        <div class="link-card-desc">English Heritage &mdash; one of the best-preserved border bastles. Free entry, open access in North Tynedale.</div>
+        <div class="link-card-url">english-heritage.org.uk</div>
+      </a>
+      <a href="https://www.historicenvironment.scot/visit-a-place/places/hermitage-castle/" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">Hermitage Castle</div>
+        <div class="link-card-desc">Historic Scotland &mdash; the most powerful and atmospheric reiver fortress on the Scottish side of the border.</div>
+        <div class="link-card-url">historicenvironment.scot</div>
+      </a>
+      <a href="castles.html" class="link-card">
+        <div class="link-card-title">Northumberland's Castles</div>
+        <div class="link-card-desc">More castles than any other English county &mdash; the full story of fifteen centuries of fortification.</div>
+        <div class="link-card-url">northumberlandarts.com</div>
+      </a>
+      <a href="otterburn.html" class="link-card">
+        <div class="link-card-title">The Battle of Otterburn</div>
+        <div class="link-card-desc">The moonlit fight of 1388 that inspired one of the most famous ballads in the English language.</div>
+        <div class="link-card-url">northumberlandarts.com</div>
+      </a>
+    </div>
+
+    <p style="text-align:center; margin-top:2rem; color:var(--text-light); font-size:0.9rem;">
+      <a href="index.html#history" style="color:var(--green); text-decoration:none; font-weight:600;">&larr; Back to On This Day in Northumberland</a>
+    </p>
+  </article>
+
+  <footer>
+    <a href="index.html" class="footer-back">&larr; Back to NorthumberlandArts.com</a>
+    <div class="footer-copy">&copy; 2026 NorthumberlandArts.com. All rights reserved.</div>
+  </footer>
+
+  <!-- Hero rotation -->
+  <script>
+    var heroImgs = document.querySelectorAll('.hero-img');
+    var heroIdx = 0;
+    setInterval(function(){
+      heroImgs[heroIdx].classList.remove('active');
+      heroIdx = (heroIdx + 1) % heroImgs.length;
+      heroImgs[heroIdx].classList.add('active');
+    }, 6000);
+  </script>
+
+  <!-- Article image rotation -->
+  <script>
+    var rotateContainers = document.querySelectorAll('.image-rotate');
+    rotateContainers.forEach(function(container){
+      var imgs = container.querySelectorAll('img');
+      var idx = 0;
+      setInterval(function(){
+        imgs[idx].classList.add('fade-out');
+        idx = (idx + 1) % imgs.length;
+        imgs[idx].classList.remove('fade-out');
+      }, 6000);
+    });
+  </script>
+
+  <!-- Image protection -->
+  <script>
+    document.addEventListener('contextmenu',function(e){if(e.target.tagName==='IMG')e.preventDefault();});
+    document.addEventListener('dragstart',function(e){if(e.target.tagName==='IMG')e.preventDefault();});
+  </script>
+</body>
+</html>
