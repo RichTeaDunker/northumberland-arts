@@ -1119,10 +1119,13 @@
       padding-bottom: 1rem;
       z-index: 10;
       transition: opacity 0.4s;
+      pointer-events: none;
+    }
+    .section-fade-overlay .expand-btn {
+      pointer-events: auto;
     }
     .section-collapsible.expanded .section-fade-overlay {
       opacity: 0;
-      pointer-events: none;
     }
     .expand-btn {
       background: var(--navy);
