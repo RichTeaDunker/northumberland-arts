@@ -2113,7 +2113,7 @@
       tmp.innerHTML = zoneName;
       var btn = document.querySelector('#zoneFilters [data-zone="' + tmp.textContent + '"]');
       if (btn) btn.click();
-      location.href = '#directory';
+      document.getElementById('directory').scrollIntoView();
     };
 
     // Initial render
