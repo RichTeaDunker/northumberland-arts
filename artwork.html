@@ -129,7 +129,6 @@
       {src:C+"v1774565475/new_therell_be_moonlight_again_Border_Reiver_on_horse_008_ecz1vg.png",title:"Border Reiver — There'll Be Moonlight Again III"},
       {src:C+"v1774565474/BR_therell_be_moonlight_again_Border_Reiver_on_horse_001_tjm6cv.png",title:"Border Reiver — Moonlight Rider I"},
       {src:C+"v1774565469/new_therell_be_moonlight_again_Border_Reiver_on_horse_009_ku2vv0.png",title:"Border Reiver — There'll Be Moonlight Again IV"},
-      {src:C+"v1774565468/BR_therell_be_moonlight_again_Border_Reiver_on_horse_003_yo98ct.png",title:"Border Reiver — Moonlight Rider II"},
       {src:C+"v1774565467/new_therell_be_moonlight_again_Border_Reiver_on_horse_006_js7mgp.png",title:"Border Reiver — There'll Be Moonlight Again V"},
       {src:C+"v1774565467/new_therell_be_moonlight_again_Border_Reiver_on_horse_002_i2pifl.png",title:"Border Reiver — There'll Be Moonlight Again VI"},
       {src:C+"v1774565462/new_therell_be_moonlight_again_Border_Reiver_on_horse_007_mbvh7h.png",title:"Border Reiver — There'll Be Moonlight Again VII"},
@@ -142,6 +141,12 @@
       {src:C+"v1774028664/richie-pppeee_A_young_boy_of_14_sitting_on_a_dry_stone_wall_in__cccb4af1-a6a5-44eb-8fad-cbb544530e6a_z7uibe.png",title:"Boy on a Dry Stone Wall II"},
       {src:C+"v1774028657/richie-pppeee_A_young_boy_of_14_sitting_on_a_dry_stone_wall_in__120958fc-be12-4f5c-bdae-96b12bd4fdfc_qwsjky.png",title:"Boy on a Dry Stone Wall III"},
     ];
+
+    // Shuffle on every load (Fisher-Yates)
+    for (var i = artworks.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = artworks[i]; artworks[i] = artworks[j]; artworks[j] = t;
+    }
 
     // Render tiles
     var grid = document.getElementById('galleryGrid');
