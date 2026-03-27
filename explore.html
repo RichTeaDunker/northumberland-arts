@@ -544,6 +544,11 @@
     // Initial render
     renderPlaces();
 
+    // Auto-filter if ?zone= parameter present (linked from index.html zones)
+    var params = new URLSearchParams(window.location.search);
+    var zoneParam = params.get('zone');
+    if (zoneParam) { filterZone(zoneParam); }
+
     // Image rotation for cards with multiple images (imgs array)
     setInterval(function() {
       document.querySelectorAll('.place-card-img[data-imgs]').forEach(function(el) {

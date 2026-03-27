@@ -701,12 +701,17 @@
     .zone-list {
       list-style: none;
     }
-    .zone-list li {
-      padding: 1.2rem 0;
-      border-bottom: 1px solid rgba(248, 246, 240, 0.08);
+    .zone-list li a {
       display: flex;
       align-items: center;
       gap: 1rem;
+      text-decoration: none;
+      color: inherit;
+      width: 100%;
+    }
+    .zone-list li {
+      padding: 1.2rem 0;
+      border-bottom: 1px solid rgba(248, 246, 240, 0.08);
       cursor: pointer;
       transition: all 0.2s ease;
     }
@@ -1750,52 +1755,52 @@
 
       <div class="zone-map-grid fade-in">
         <div class="map-visual">
-          <img src="/zone-map.png" alt="Northumberland Artistic Zones Map" />
+          <a href="explore.html"><img src="/zone-map.png" alt="Northumberland Artistic Zones Map" /></a>
         </div>
 
         <ul class="zone-list">
-          <li onclick="goToZone('Berwick & Borders')">
+          <li><a href="explore.html?zone=berwick">
             <div class="zone-number">1</div>
             <div class="zone-info">
               <h4>Berwick &amp; Borders</h4>
               <p>The Chatton Gallery, Fieldhouse Gallery, Tin Shed artists, Holy Island studios</p>
             </div>
-          </li>
-          <li onclick="goToZone('Alnwick & Coast')">
+          </a></li>
+          <li><a href="explore.html?zone=alnwick">
             <div class="zone-number">2</div>
             <div class="zone-info">
               <h4>Alnwick &amp; Coast</h4>
               <p>Fenwick Gallery, Penn Gallery, Gallery 45, the Craster and Embleton coastline</p>
             </div>
-          </li>
-          <li onclick="goToZone('Rothbury & Coquetdale')">
+          </a></li>
+          <li><a href="explore.html?zone=rothbury">
             <div class="zone-number">3</div>
             <div class="zone-info">
               <h4>Rothbury &amp; Coquetdale</h4>
               <p>Crown Studio Gallery, Coquetdale Art Gallery, Gallery 45 Felton</p>
             </div>
-          </li>
-          <li onclick="goToZone('Bellingham & North Tyne')">
+          </a></li>
+          <li><a href="explore.html?zone=kielder">
             <div class="zone-number">4</div>
             <div class="zone-info">
               <h4>Bellingham &amp; North Tyne</h4>
               <p>The Hearth at Horsley, VARC Tarset, Kielder, Warksburn Old Church</p>
             </div>
-          </li>
-          <li onclick="goToZone('Hexham & Tynedale')">
+          </a></li>
+          <li><a href="explore.html?zone=hexham">
             <div class="zone-number">5</div>
             <div class="zone-info">
               <h4>Hexham &amp; Tynedale</h4>
               <p>Haslam's of Hallgate, The Wynd Gallery, Bureau of Dreams, Allendale Forge Studios</p>
             </div>
-          </li>
-          <li onclick="goToZone('Morpeth & South East')">
+          </a></li>
+          <li><a href="explore.html?zone=morpeth">
             <div class="zone-number">6</div>
             <div class="zone-info">
               <h4>Morpeth &amp; South East</h4>
               <p>Fika Gallery, Biscuit Factory artists, Newbiggin Art Trail, Ponteland galleries</p>
             </div>
-          </li>
+          </a></li>
         </ul>
       </div>
     </div>
