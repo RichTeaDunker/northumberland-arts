@@ -701,17 +701,15 @@
     }
     .map-hotspot {
       position: absolute;
-      width: 18%;
-      height: 12%;
-      border-radius: 50%;
+      border-radius: 30%;
       cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: opacity 0.2s ease;
       text-decoration: none;
+      opacity: 0;
     }
     .map-hotspot:hover {
-      transform: scale(1.15);
-      box-shadow: 0 0 20px rgba(201,168,76,0.5);
-      background: rgba(201,168,76,0.15);
+      opacity: 1;
+      background: rgba(201,168,76,0.25);
     }
 
     .zone-list {
@@ -1772,12 +1770,12 @@
       <div class="zone-map-grid fade-in">
         <div class="map-visual">
           <img src="/zone-map.png" alt="Northumberland Artistic Zones Map" />
-          <a class="map-hotspot" href="explore.html?zone=berwick" title="Berwick &amp; Borders" style="top:8%;left:34%;"></a>
-          <a class="map-hotspot" href="explore.html?zone=alnwick" title="Alnwick &amp; Coast" style="top:19%;left:60%;"></a>
-          <a class="map-hotspot" href="explore.html?zone=rothbury" title="Rothbury &amp; Coquetdale" style="top:34%;left:38%;"></a>
-          <a class="map-hotspot" href="explore.html?zone=kielder" title="Bellingham &amp; North Tyne" style="top:48%;left:18%;"></a>
-          <a class="map-hotspot" href="explore.html?zone=hexham" title="Hexham &amp; Tynedale" style="top:66%;left:32%;"></a>
-          <a class="map-hotspot" href="explore.html?zone=morpeth" title="Morpeth &amp; South East" style="top:50%;left:58%;"></a>
+          <a class="map-hotspot" href="explore.html?zone=berwick" title="Berwick &amp; Borders" style="top:2%;left:18%;width:50%;height:26%;"></a>
+          <a class="map-hotspot" href="explore.html?zone=alnwick" title="Alnwick &amp; Coast" style="top:14%;left:52%;width:42%;height:28%;"></a>
+          <a class="map-hotspot" href="explore.html?zone=rothbury" title="Rothbury &amp; Coquetdale" style="top:28%;left:22%;width:42%;height:22%;"></a>
+          <a class="map-hotspot" href="explore.html?zone=kielder" title="Bellingham &amp; North Tyne" style="top:38%;left:2%;width:40%;height:30%;"></a>
+          <a class="map-hotspot" href="explore.html?zone=hexham" title="Hexham &amp; Tynedale" style="top:62%;left:12%;width:48%;height:28%;"></a>
+          <a class="map-hotspot" href="explore.html?zone=morpeth" title="Morpeth &amp; South East" style="top:42%;left:50%;width:40%;height:28%;"></a>
         </div>
 
         <ul class="zone-list">
