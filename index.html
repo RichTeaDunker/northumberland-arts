@@ -689,75 +689,13 @@
 
     /* CSS Map */
     .map-visual {
-      position: relative;
       width: 100%;
       max-width: 360px;
       margin: 0 auto;
-      aspect-ratio: 3/4;
     }
-
-    .map-shape {
-      position: absolute;
-      border-radius: 30% 40% 35% 45% / 35% 30% 45% 40%;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      cursor: pointer;
-      padding: 0.8rem;
-    }
-    .map-shape:hover {
-      transform: scale(1.08);
-      z-index: 2;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-    }
-    .map-shape span {
-      font-family: 'Source Sans 3', sans-serif;
-      font-size: 0.62rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--parchment);
-      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-      line-height: 1.3;
-    }
-
-    .zone-1 {
-      top: 0; left: 15%; width: 60%; height: 22%;
-      background: rgba(45, 106, 79, 0.6);
-      border: 1px solid rgba(45, 106, 79, 0.8);
-      border-radius: 40% 50% 35% 30% / 40% 35% 45% 35%;
-    }
-    .zone-2 {
-      top: 17%; left: 40%; width: 55%; height: 18%;
-      background: rgba(201, 168, 76, 0.5);
-      border: 1px solid rgba(201, 168, 76, 0.7);
-      border-radius: 30% 45% 40% 35% / 35% 40% 30% 45%;
-    }
-    .zone-3 {
-      top: 32%; left: 20%; width: 50%; height: 20%;
-      background: rgba(100, 140, 120, 0.5);
-      border: 1px solid rgba(100, 140, 120, 0.7);
-      border-radius: 35% 30% 45% 40% / 40% 45% 30% 35%;
-    }
-    .zone-4 {
-      top: 46%; left: 5%; width: 45%; height: 18%;
-      background: rgba(90, 70, 130, 0.45);
-      border: 1px solid rgba(90, 70, 130, 0.65);
-      border-radius: 45% 35% 30% 40% / 30% 40% 45% 35%;
-    }
-    .zone-5 {
-      top: 62%; left: 8%; width: 55%; height: 22%;
-      background: rgba(160, 120, 80, 0.45);
-      border: 1px solid rgba(160, 120, 80, 0.65);
-      border-radius: 30% 40% 45% 35% / 45% 30% 35% 40%;
-    }
-    .zone-6 {
-      top: 78%; left: 30%; width: 55%; height: 20%;
-      background: rgba(80, 120, 160, 0.45);
-      border: 1px solid rgba(80, 120, 160, 0.65);
-      border-radius: 40% 35% 30% 45% / 35% 45% 40% 30%;
+    .map-visual img {
+      width: 100%;
+      border-radius: 8px;
     }
 
     .zone-list {
@@ -1812,12 +1750,7 @@
 
       <div class="zone-map-grid fade-in">
         <div class="map-visual">
-          <div class="map-shape zone-1" data-zonename="Berwick &amp; Borders" onclick="goToZone('Berwick & Borders')"><span>Berwick &amp; Borders</span></div>
-          <div class="map-shape zone-2" data-zonename="Alnwick &amp; Coast" onclick="goToZone('Alnwick & Coast')"><span>Alnwick &amp; Coast</span></div>
-          <div class="map-shape zone-3" data-zonename="Rothbury &amp; Coquetdale" onclick="goToZone('Rothbury & Coquetdale')"><span>Rothbury &amp; Coquetdale</span></div>
-          <div class="map-shape zone-4" data-zonename="Bellingham &amp; North Tyne" onclick="goToZone('Bellingham & North Tyne')"><span>Bellingham &amp; North Tyne</span></div>
-          <div class="map-shape zone-5" data-zonename="Hexham &amp; Tynedale" onclick="goToZone('Hexham & Tynedale')"><span>Hexham &amp; Tynedale</span></div>
-          <div class="map-shape zone-6" data-zonename="Morpeth &amp; South East" onclick="goToZone('Morpeth & South East')"><span>Morpeth &amp; South East</span></div>
+          <img src="/zone-map.png" alt="Northumberland Artistic Zones Map" />
         </div>
 
         <ul class="zone-list">
