@@ -699,17 +699,11 @@
       border-radius: 8px;
       display: block;
     }
-    .map-hotspot {
+    .map-visual button {
       position: absolute;
-      border-radius: 30%;
+      background: transparent;
+      border: none;
       cursor: pointer;
-      transition: opacity 0.2s ease;
-      text-decoration: none;
-      opacity: 0;
-    }
-    .map-hotspot:hover {
-      opacity: 1;
-      background: rgba(201,168,76,0.25);
     }
 
     .zone-list {
@@ -1770,12 +1764,12 @@
       <div class="zone-map-grid fade-in">
         <div class="map-visual">
           <img src="/zone-map.png" alt="Northumberland Artistic Zones Map" />
-          <a class="map-hotspot" href="explore.html?zone=berwick" title="Berwick &amp; Borders" style="top:2%;left:18%;width:50%;height:26%;"></a>
-          <a class="map-hotspot" href="explore.html?zone=alnwick" title="Alnwick &amp; Coast" style="top:14%;left:52%;width:42%;height:28%;"></a>
-          <a class="map-hotspot" href="explore.html?zone=rothbury" title="Rothbury &amp; Coquetdale" style="top:28%;left:22%;width:42%;height:22%;"></a>
-          <a class="map-hotspot" href="explore.html?zone=kielder" title="Bellingham &amp; North Tyne" style="top:38%;left:2%;width:40%;height:30%;"></a>
-          <a class="map-hotspot" href="explore.html?zone=hexham" title="Hexham &amp; Tynedale" style="top:62%;left:12%;width:48%;height:28%;"></a>
-          <a class="map-hotspot" href="explore.html?zone=morpeth" title="Morpeth &amp; South East" style="top:42%;left:50%;width:40%;height:28%;"></a>
+          <button onclick="location.href='explore.html?zone=berwick'" style="left:36%;top:4%;width:30%;height:20%;" title="Berwick &amp; Borders"></button>
+          <button onclick="location.href='explore.html?zone=alnwick'" style="left:62%;top:16%;width:28%;height:20%;" title="Alnwick &amp; Coast"></button>
+          <button onclick="location.href='explore.html?zone=rothbury'" style="left:34%;top:28%;width:30%;height:18%;" title="Rothbury &amp; Coquetdale"></button>
+          <button onclick="location.href='explore.html?zone=kielder'" style="left:5%;top:38%;width:33%;height:26%;" title="Bellingham &amp; North Tyne"></button>
+          <button onclick="location.href='explore.html?zone=morpeth'" style="left:58%;top:46%;width:32%;height:22%;" title="Morpeth &amp; South East"></button>
+          <button onclick="location.href='explore.html?zone=hexham'" style="left:20%;top:68%;width:45%;height:25%;" title="Hexham &amp; Tynedale"></button>
         </div>
 
         <ul class="zone-list">
