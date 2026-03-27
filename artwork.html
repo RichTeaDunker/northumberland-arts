@@ -75,74 +75,96 @@
     // All MJ artwork across the site — NO 1920x800 heroes at 72dpi
     // Cloudinary auto-formats and optimises delivery
     var C = 'https://res.cloudinary.com/dkk0iwk3t/image/upload/w_600,q_auto,f_auto/';
-    var artworks = [
-      // na-images — centurions
-      {src:C+"v1774543088/roman-centurion-3.png",title:"Roman Centurion I"},
-      {src:C+"v1774543075/roman-centurion-4.png",title:"Roman Centurion II"},
-      {src:C+"v1774543041/roman-centurion-5.png",title:"Roman Centurion III"},
-      {src:C+"v1774543021/roman-centurion-6.png",title:"Roman Centurion IV"},
-      {src:C+"v1774543015/roman-centurion-7.png",title:"Roman Centurion V"},
-      {src:C+"v1774543008/roman-centurion-8.png",title:"Roman Centurion VI"},
-      {src:C+"v1774542997/roman-centurion-9.png",title:"Roman Centurion VII"},
-      {src:C+"v1774542988/roman-centurion-10.png",title:"Roman Centurion VIII"},
-      {src:C+"v1774542968/roman-centurion-11.png",title:"Roman Centurion IX"},
-      {src:C+"v1774542923/roman-soldier-door.png",title:"Roman Soldier at the Fort Gate"},
-      // na-images — castle dunes / Bamburgh
-      {src:C+"v1774542789/castle-dunes-oil-1.png",title:"Bamburgh Castle — Oil Study I"},
-      {src:C+"v1774542741/castle-dunes-oil-2.png",title:"Bamburgh Castle — Oil Study II"},
-      {src:C+"v1774542754/castle-dunes-1.png",title:"Castle Amongst the Dunes I"},
-      {src:C+"v1774542749/castle-dunes-2.png",title:"Castle Amongst the Dunes II"},
-      {src:C+"v1774542736/castle-dunes-3.png",title:"Castle Amongst the Dunes III"},
-      // na-images — coursing & pitmen
-      {src:C+"v1774542875/pitmen-flat-caps-1.png",title:"Men in Heavy Coats and Flat Caps I"},
-      {src:C+"v1774542860/pitmen-flat-caps-2.png",title:"Men in Heavy Coats and Flat Caps II"},
-      // na-images — abstract art
-      {src:C+"v1774542765/abstract-art-1.png",title:"Abstract Northumberland I"},
-      {src:C+"v1774542761/abstract-art-2.png",title:"Abstract Northumberland II"},
-      // na-images — landscapes & scenes
-      {src:C+"v1774543160/craster-art.png",title:"Craster — Abstract & Traditional"},
-      {src:C+"v1774542907/northumberland-moorland.png",title:"Sweeping Northumberland Moorland"},
-      {src:C+"v1774543330/hadrians-wall-whin-sill.png",title:"Hadrian's Wall on the Whin Sill"},
-      {src:C+"v1774543317/dunstanburgh-castle.png",title:"Dunstanburgh Castle Ruins"},
-      {src:C+"v1774543353/holy-island-causeway-1.png",title:"Holy Island Causeway I"},
-      {src:C+"v1774543349/holy-island-causeway-2.png",title:"Holy Island Causeway II"},
-      {src:C+"v1774544703/alnwick-castle-1.png",title:"Alnwick Castle I"},
-      {src:C+"v1774544673/alnwick-castle-2.png",title:"Alnwick Castle II"},
-      {src:C+"v1774543221/northumberland-scene-1.png",title:"Alnwick Lion Scene I"},
-      {src:C+"v1774543215/northumberland-scene-2.png",title:"Alnwick Lion Scene II"},
-      {src:C+"v1774543210/northumberland-scene-3.png",title:"Alnwick Lion Scene III"},
-      {src:C+"v1774543202/northumberland-scene-4.png",title:"Alnwick Lion Scene IV"},
-      // Ashington-minors folder
-      {src:C+"v1774028538/richie-pppeee_1930s_minor_young_man_crawling_away_up_the_shaft__2d88bd3f-1ef6-4496-bd9a-38357a09bfe4_no9rn2.png",title:"Young Miner in the Shaft I"},
-      {src:C+"v1774028520/richie-pppeee_1930s_minor_young_man_crawling_away_up_the_shaf_29f49a30-24de-4364-91d2-257a079d045c_1_yqcrp7.png",title:"Young Miner in the Shaft II"},
-      {src:C+"v1774028520/richie-pppeee_1930s_minor_young_man_crawling_away_up_the_shaf_f786cec3-7709-4f18-9fc1-8fc40820d0aa_3_bzredg.png",title:"Young Miner in the Shaft III"},
-      {src:C+"v1774028517/richie-pppeee_1930s_minor_young_man_crawling_away_up_the_shaf_283c4471-9a44-4bb9-9c77-9308eb085789_2_lgwczq.png",title:"Young Miner in the Shaft IV"},
-      // capability-brown folder
-      // grace-darling folder (non-hero)
-      {src:C+"v1774312627/richie-pppeee_A_young_woman_in_a_white_bonnet_rowing_a_small_wo_9ebfcd0f-6373-4263-8857-2362a4a9c97e_wubyjs.png",title:"Grace Darling — The Rescue"},
-      {src:C+"v1774046744/richie-pppeee_Grace_Darlings_Rescue_1838_Grace_and_father_rowin_30a6d2c7-23bb-4840-9793-507f3e7afe94_bl4bvs.png",title:"Grace and Father Rowing to the Wreck"},
-      // Norham-castle folder (non-hero)
-      {src:C+"v1774306145/Norham_castle_CARD_Image__eq174j.png",title:"Norham Castle on the Tweed"},
-      // bord-reiver folder — full-size only (no 1920x800 crops)
-      {src:C+"v1774565479/new_therell_be_moonlight_again_Border_Reiver_on_horse_004_ozntow.png",title:"Border Reiver — There'll Be Moonlight Again I"},
-      {src:C+"v1774565477/new_therell_be_moonlight_again_Border_Reiver_on_horse_005_io5vqf.png",title:"Border Reiver — There'll Be Moonlight Again II"},
-      {src:C+"v1774565475/new_therell_be_moonlight_again_Border_Reiver_on_horse_008_ecz1vg.png",title:"Border Reiver — There'll Be Moonlight Again III"},
-      {src:C+"v1774565474/BR_therell_be_moonlight_again_Border_Reiver_on_horse_001_tjm6cv.png",title:"Border Reiver — Moonlight Rider I"},
-      {src:C+"v1774565469/new_therell_be_moonlight_again_Border_Reiver_on_horse_009_ku2vv0.png",title:"Border Reiver — There'll Be Moonlight Again IV"},
-      {src:C+"v1774565467/new_therell_be_moonlight_again_Border_Reiver_on_horse_006_js7mgp.png",title:"Border Reiver — There'll Be Moonlight Again V"},
-      {src:C+"v1774565467/new_therell_be_moonlight_again_Border_Reiver_on_horse_002_i2pifl.png",title:"Border Reiver — There'll Be Moonlight Again VI"},
-      {src:C+"v1774565462/new_therell_be_moonlight_again_Border_Reiver_on_horse_007_mbvh7h.png",title:"Border Reiver — There'll Be Moonlight Again VII"},
-      {src:C+"v1774565461/BR_therell_be_moonlight_again_Border_Reiver_on_horse_002_lid5x3.png",title:"Border Reiver — Moonlight Rider III"},
-      {src:C+"v1774565461/new_therell_be_moonlight_again_Border_Reiver_on_horse_001_u1yz0l.png",title:"Border Reiver — There'll Be Moonlight Again VIII"},
-      {src:C+"v1774565456/new_therell_be_moonlight_again_Border_Reiver_on_horse_003_dhalqn.png",title:"Border Reiver — There'll Be Moonlight Again IX"},
-      {src:C+"v1774565454/new_therell_be_moonlight_again_Border_Reiver_on_horse_010_cxy8wx.png",title:"Border Reiver — There'll Be Moonlight Again X"},
-      // youngboy-onwall folder
-      {src:C+"v1774028751/richie-pppeee_A_young_boy_of_14_sitting_on_a_dry_stone_wall_in__44a67628-39b0-4a8e-b43e-b034f345cef4_rw5v83.jpg",title:"Boy on a Dry Stone Wall I"},
-      {src:C+"v1774028664/richie-pppeee_A_young_boy_of_14_sitting_on_a_dry_stone_wall_in__cccb4af1-a6a5-44eb-8fad-cbb544530e6a_z7uibe.png",title:"Boy on a Dry Stone Wall II"},
-      {src:C+"v1774028657/richie-pppeee_A_young_boy_of_14_sitting_on_a_dry_stone_wall_in__120958fc-be12-4f5c-bdae-96b12bd4fdfc_qwsjky.png",title:"Boy on a Dry Stone Wall III"},
+
+    // Artwork split into subject groups so round-robin interleave
+    // spreads subjects apart before the random shuffle runs on top
+    var groups = [
+      [ // Roman soldiers
+        {src:C+"v1774543088/roman-centurion-3.png",title:"Roman Centurion I"},
+        {src:C+"v1774543075/roman-centurion-4.png",title:"Roman Centurion II"},
+        {src:C+"v1774543041/roman-centurion-5.png",title:"Roman Centurion III"},
+        {src:C+"v1774543021/roman-centurion-6.png",title:"Roman Centurion IV"},
+        {src:C+"v1774543015/roman-centurion-7.png",title:"Roman Centurion V"},
+        {src:C+"v1774543008/roman-centurion-8.png",title:"Roman Centurion VI"},
+        {src:C+"v1774542997/roman-centurion-9.png",title:"Roman Centurion VII"},
+        {src:C+"v1774542988/roman-centurion-10.png",title:"Roman Centurion VIII"},
+        {src:C+"v1774542968/roman-centurion-11.png",title:"Roman Centurion IX"},
+        {src:C+"v1774542923/roman-soldier-door.png",title:"Roman Soldier at the Fort Gate"},
+      ],
+      [ // Bamburgh / castle dunes
+        {src:C+"v1774542789/castle-dunes-oil-1.png",title:"Bamburgh Castle — Oil Study I"},
+        {src:C+"v1774542741/castle-dunes-oil-2.png",title:"Bamburgh Castle — Oil Study II"},
+        {src:C+"v1774542754/castle-dunes-1.png",title:"Castle Amongst the Dunes I"},
+        {src:C+"v1774542749/castle-dunes-2.png",title:"Castle Amongst the Dunes II"},
+        {src:C+"v1774542736/castle-dunes-3.png",title:"Castle Amongst the Dunes III"},
+      ],
+      [ // Pitmen
+        {src:C+"v1774542875/pitmen-flat-caps-1.png",title:"Men in Heavy Coats and Flat Caps I"},
+        {src:C+"v1774542860/pitmen-flat-caps-2.png",title:"Men in Heavy Coats and Flat Caps II"},
+      ],
+      [ // Abstract
+        {src:C+"v1774542765/abstract-art-1.png",title:"Abstract Northumberland I"},
+        {src:C+"v1774542761/abstract-art-2.png",title:"Abstract Northumberland II"},
+      ],
+      [ // Landscapes & places
+        {src:C+"v1774543160/craster-art.png",title:"Craster — Abstract & Traditional"},
+        {src:C+"v1774542907/northumberland-moorland.png",title:"Sweeping Northumberland Moorland"},
+        {src:C+"v1774543330/hadrians-wall-whin-sill.png",title:"Hadrian's Wall on the Whin Sill"},
+        {src:C+"v1774543317/dunstanburgh-castle.png",title:"Dunstanburgh Castle Ruins"},
+        {src:C+"v1774543353/holy-island-causeway-1.png",title:"Holy Island Causeway I"},
+        {src:C+"v1774543349/holy-island-causeway-2.png",title:"Holy Island Causeway II"},
+        {src:C+"v1774544703/alnwick-castle-1.png",title:"Alnwick Castle I"},
+        {src:C+"v1774544673/alnwick-castle-2.png",title:"Alnwick Castle II"},
+        {src:C+"v1774543221/northumberland-scene-1.png",title:"Alnwick Lion Scene I"},
+        {src:C+"v1774543215/northumberland-scene-2.png",title:"Alnwick Lion Scene II"},
+        {src:C+"v1774543210/northumberland-scene-3.png",title:"Alnwick Lion Scene III"},
+        {src:C+"v1774543202/northumberland-scene-4.png",title:"Alnwick Lion Scene IV"},
+      ],
+      [ // Ashington miners
+        {src:C+"v1774028538/richie-pppeee_1930s_minor_young_man_crawling_away_up_the_shaft__2d88bd3f-1ef6-4496-bd9a-38357a09bfe4_no9rn2.png",title:"Young Miner in the Shaft I"},
+        {src:C+"v1774028520/richie-pppeee_1930s_minor_young_man_crawling_away_up_the_shaf_29f49a30-24de-4364-91d2-257a079d045c_1_yqcrp7.png",title:"Young Miner in the Shaft II"},
+        {src:C+"v1774028520/richie-pppeee_1930s_minor_young_man_crawling_away_up_the_shaf_f786cec3-7709-4f18-9fc1-8fc40820d0aa_3_bzredg.png",title:"Young Miner in the Shaft III"},
+        {src:C+"v1774028517/richie-pppeee_1930s_minor_young_man_crawling_away_up_the_shaf_283c4471-9a44-4bb9-9c77-9308eb085789_2_lgwczq.png",title:"Young Miner in the Shaft IV"},
+      ],
+      [ // Grace Darling
+        {src:C+"v1774312627/richie-pppeee_A_young_woman_in_a_white_bonnet_rowing_a_small_wo_9ebfcd0f-6373-4263-8857-2362a4a9c97e_wubyjs.png",title:"Grace Darling — The Rescue"},
+        {src:C+"v1774046744/richie-pppeee_Grace_Darlings_Rescue_1838_Grace_and_father_rowin_30a6d2c7-23bb-4840-9793-507f3e7afe94_bl4bvs.png",title:"Grace and Father Rowing to the Wreck"},
+      ],
+      [ // Norham Castle
+        {src:C+"v1774306145/Norham_castle_CARD_Image__eq174j.png",title:"Norham Castle on the Tweed"},
+      ],
+      [ // Border Reivers
+        {src:C+"v1774565479/new_therell_be_moonlight_again_Border_Reiver_on_horse_004_ozntow.png",title:"Border Reiver — There'll Be Moonlight Again I"},
+        {src:C+"v1774565477/new_therell_be_moonlight_again_Border_Reiver_on_horse_005_io5vqf.png",title:"Border Reiver — There'll Be Moonlight Again II"},
+        {src:C+"v1774565475/new_therell_be_moonlight_again_Border_Reiver_on_horse_008_ecz1vg.png",title:"Border Reiver — There'll Be Moonlight Again III"},
+        {src:C+"v1774565474/BR_therell_be_moonlight_again_Border_Reiver_on_horse_001_tjm6cv.png",title:"Border Reiver — Moonlight Rider I"},
+        {src:C+"v1774565469/new_therell_be_moonlight_again_Border_Reiver_on_horse_009_ku2vv0.png",title:"Border Reiver — There'll Be Moonlight Again IV"},
+        {src:C+"v1774565467/new_therell_be_moonlight_again_Border_Reiver_on_horse_006_js7mgp.png",title:"Border Reiver — There'll Be Moonlight Again V"},
+        {src:C+"v1774565467/new_therell_be_moonlight_again_Border_Reiver_on_horse_002_i2pifl.png",title:"Border Reiver — There'll Be Moonlight Again VI"},
+        {src:C+"v1774565462/new_therell_be_moonlight_again_Border_Reiver_on_horse_007_mbvh7h.png",title:"Border Reiver — There'll Be Moonlight Again VII"},
+        {src:C+"v1774565461/BR_therell_be_moonlight_again_Border_Reiver_on_horse_002_lid5x3.png",title:"Border Reiver — Moonlight Rider III"},
+        {src:C+"v1774565461/new_therell_be_moonlight_again_Border_Reiver_on_horse_001_u1yz0l.png",title:"Border Reiver — There'll Be Moonlight Again VIII"},
+        {src:C+"v1774565456/new_therell_be_moonlight_again_Border_Reiver_on_horse_003_dhalqn.png",title:"Border Reiver — There'll Be Moonlight Again IX"},
+        {src:C+"v1774565454/new_therell_be_moonlight_again_Border_Reiver_on_horse_010_cxy8wx.png",title:"Border Reiver — There'll Be Moonlight Again X"},
+      ],
+      [ // Boy on a dry stone wall
+        {src:C+"v1774028751/richie-pppeee_A_young_boy_of_14_sitting_on_a_dry_stone_wall_in__44a67628-39b0-4a8e-b43e-b034f345cef4_rw5v83.jpg",title:"Boy on a Dry Stone Wall I"},
+        {src:C+"v1774028664/richie-pppeee_A_young_boy_of_14_sitting_on_a_dry_stone_wall_in__cccb4af1-a6a5-44eb-8fad-cbb544530e6a_z7uibe.png",title:"Boy on a Dry Stone Wall II"},
+        {src:C+"v1774028657/richie-pppeee_A_young_boy_of_14_sitting_on_a_dry_stone_wall_in__120958fc-be12-4f5c-bdae-96b12bd4fdfc_qwsjky.png",title:"Boy on a Dry Stone Wall III"},
+      ],
     ];
 
-    // Shuffle on every load (Fisher-Yates)
+    // Round-robin interleave: take one from each group in turn
+    // so no subject cluster can form before the shuffle runs
+    var artworks = [];
+    var maxLen = Math.max.apply(null, groups.map(function(g){return g.length;}));
+    for (var r = 0; r < maxLen; r++) {
+      for (var g = 0; g < groups.length; g++) {
+        if (r < groups[g].length) artworks.push(groups[g][r]);
+      }
+    }
+
+    // Fisher-Yates shuffle — different order every single page load
     for (var i = artworks.length - 1; i > 0; i--) {
       var j = Math.floor(Math.random() * (i + 1));
       var t = artworks[i]; artworks[i] = artworks[j]; artworks[j] = t;
