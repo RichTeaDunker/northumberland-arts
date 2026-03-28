@@ -25,7 +25,8 @@
     .back-link{color:rgba(248,246,240,0.6);text-decoration:none;font-size:0.85rem;transition:color 0.3s;}
     .back-link:hover{color:var(--gold);}
     .hero{position:relative;height:70vh;min-height:450px;display:flex;align-items:flex-end;overflow:hidden;}
-    .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%;}
+    .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%;opacity:0;transition:opacity 1.5s ease-in-out;}
+    .hero-img.active{opacity:1;}
     .hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,26,46,0.95) 0%,rgba(26,26,46,0.4) 50%,rgba(26,26,46,0.2) 100%);}
     .hero-content{position:relative;z-index:2;padding:3rem 2rem;max-width:800px;}
     .hero-badge{display:inline-block;background:var(--gold);color:var(--navy);font-size:0.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:0.3rem 0.8rem;border-radius:2px;margin-bottom:1rem;}
@@ -77,7 +78,10 @@
   </nav>
 
   <section class="hero">
-    <img class="hero-img" src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1920,q_auto,f_auto/v1774542960/hadrians-wall-snow.png" alt="Hadrian's Wall stretching across snow-dusted Whin Sill crags" />
+    <img class="hero-img active" src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1920,q_auto,f_auto/v1774542960/hadrians-wall-snow.png" alt="Hadrian's Wall stretching across snow-dusted Whin Sill crags" />
+    <img class="hero-img" src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1920,q_auto,f_auto/Emperor_Hadrian_in_white_toga_cvbcjc.png" alt="Emperor Hadrian in white toga — the man who built the Wall" />
+    <img class="hero-img" src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1920,q_auto,f_auto/dramatic_split_image_left_half_shows_Hadrianswall_001_s996g2.png" alt="Hadrian's Wall and Athens — two worlds, one emperor" />
+    <img class="hero-img" src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1920,q_auto,f_auto/dramatic_split_image_left_half_shows_Hadrianswall_002_xbv3mt.png" alt="The Wall meets the ancient world — Northumberland and Greece" />
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <div class="hero-badge">Northumberland History</div>
@@ -96,6 +100,10 @@
 
     <h3>Hadrian and Athens</h3>
     <p>Hadrian's love affair with Greece ran deep. He completed the Temple of Olympian Zeus in Athens &mdash; a project that had been abandoned for 638 years. The fifteen surviving columns, visible today from the Acropolis, are his work. He built Hadrian's Arch nearby, inscribed on one side "This is Athens, the ancient city of Theseus" and on the other "This is the city of Hadrian and not of Theseus." He also built a library, an aqueduct, and revised the Athenian constitution. The grateful Athenians gave him the title "Olympios."</p>
+
+    <figure class="article-image" style="margin:2.5rem -2rem;max-width:none;">
+      <img src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1920,q_auto,f_auto/_Hadrians_Arch_in_Athens_at_golden_hour_vqtiss.png" alt="Hadrian's Arch in Athens at golden hour" style="width:100%;height:auto;display:block;" loading="lazy" />
+    </figure>
 
     <h3>Antinous</h3>
     <p>In October AD 130, Hadrian's beloved companion Antinous drowned in the River Nile. The circumstances remain mysterious. Hadrian's grief was overwhelming &mdash; contemporaries recorded that he "wept like a woman." In an extraordinary act, he declared Antinous a god, founded a city in his name, and established a formal cult. More statues survive of Antinous than of almost any other figure from the ancient world. A constellation was named for him &mdash; one of the few named for a real person.</p>
@@ -178,5 +186,18 @@
     <a href="index.html" class="footer-back">&larr; Back to NorthumberlandArts.com</a>
     <div class="footer-copy">&copy; 2026 NorthumberlandArts.com. All rights reserved.</div>
   </footer>
+
+  <!-- Hero rotation -->
+  <script>
+    var heroImgs=document.querySelectorAll('.hero-img');
+    var heroIdx=0;
+    setInterval(function(){heroImgs[heroIdx].classList.remove('active');heroIdx=(heroIdx+1)%heroImgs.length;heroImgs[heroIdx].classList.add('active');},6000);
+  </script>
+
+  <!-- Image protection -->
+  <script>
+    document.addEventListener('contextmenu',function(e){if(e.target.tagName==='IMG')e.preventDefault();});
+    document.addEventListener('dragstart',function(e){if(e.target.tagName==='IMG')e.preventDefault();});
+  </script>
 </body>
 </html>
