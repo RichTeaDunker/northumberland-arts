@@ -75,8 +75,8 @@
     .live-data-panel h3{font-family:'Playfair Display',serif;color:var(--gold);font-size:1.15rem;margin:0 0 0.3rem;}
     .live-data-panel .live-date{font-size:0.8rem;color:rgba(248,246,240,0.5);margin-bottom:1.2rem;}
     .live-data-panel .live-loading{font-size:0.9rem;color:rgba(248,246,240,0.4);font-style:italic;}
-    .tide-day{margin-bottom:1rem;}
-    .tide-day:last-child{margin-bottom:0;}
+    .tide-day{margin-bottom:1.4rem;padding-bottom:1.2rem;border-bottom:1px solid rgba(255,255,255,0.06);}
+    .tide-day:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none;}
     .tide-day-label{font-size:0.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(248,246,240,0.4);margin-bottom:0.4rem;}
     .tide-day-label.is-today{color:var(--gold);}
     .tide-times-row{display:flex;gap:0.5rem;flex-wrap:wrap;}
@@ -450,11 +450,17 @@
     for(var i=0;i<tideEvents.length;i++){
       if(tideEvents[i].d>=todayKey&&tideEvents[i].t==='spring'){nextSpring=tideEvents[i];break;}
     }
+    // Format a date as UK: "Saturday 29 March 2026"
+    function ukDate(ds){var p=ds.split('-');var dt=new Date(parseInt(p[0]),parseInt(p[1])-1,parseInt(p[2]));return dayNames[dt.getDay()]+' '+dt.getDate()+' '+monthNames[dt.getMonth()]+' '+dt.getFullYear();}
+    // Full month names for the footer text
+    var dayNames=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    var monthNames=['January','February','March','April','May','June','July','August','September','October','November','December'];
+
     if(nextSpring){
-      var eq=nextSpring.eq?' \u26A1 Equinox spring':'';
-      html+='<div style="font-size:0.7rem;color:rgba(248,246,240,0.45);margin-top:0.5rem;">Next spring tide: <span style="color:var(--gold)">'+nextSpring.d.slice(5)+'</span> ('+nextSpring.p+')'+eq+'</div>';
+      var eq=nextSpring.eq?' \u26A1 Equinox spring \u2014 most extreme tides of the year':'';
+      html+='<div style="font-size:0.85rem;color:rgba(248,246,240,0.6);margin-top:0.8rem;">Next spring tide: <strong style="color:var(--gold)">'+ukDate(nextSpring.d)+'</strong> ('+nextSpring.p+')'+eq+'</div>';
     }
-    html+='<div style="font-size:0.55rem;color:rgba(248,246,240,0.2);margin-top:0.2rem;">Source: <a href="https://holyislandcrossingtimes.northumberland.gov.uk/" target="_blank" style="color:rgba(201,168,76,0.35)">NCC</a> — always allow 30 min extra</div>';
+    html+='<div style="font-size:0.75rem;color:rgba(248,246,240,0.35);margin-top:0.4rem;">Source: <a href="https://holyislandcrossingtimes.northumberland.gov.uk/" target="_blank" style="color:rgba(201,168,76,0.5)">Northumberland County Council</a> \u2014 always allow 30 minutes extra</div>';
 
     if(html){
       document.getElementById('tide-data').innerHTML=html;
