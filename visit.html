@@ -61,6 +61,35 @@
     .tip-card h4{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;color:var(--navy);margin-bottom:0.4rem;}
     .tip-card p{font-size:0.85rem;color:var(--text-light);line-height:1.6;margin-bottom:0;}
 
+    .live-data-panel{background:var(--navy);color:var(--parchment);padding:2rem;margin:2rem 0;border-radius:2px;border-top:3px solid var(--gold);}
+    .live-data-panel h3{font-family:'Playfair Display',serif;color:var(--gold);font-size:1.15rem;margin:0 0 0.3rem;}
+    .live-data-panel .live-date{font-size:0.8rem;color:rgba(248,246,240,0.5);margin-bottom:1.2rem;}
+    .live-data-panel .live-loading{font-size:0.9rem;color:rgba(248,246,240,0.4);font-style:italic;}
+    .tide-times-row{display:flex;gap:1rem;flex-wrap:wrap;}
+    .tide-item{flex:1;min-width:120px;background:rgba(255,255,255,0.06);padding:1rem;border-radius:2px;text-align:center;}
+    .tide-item .tide-type{font-size:0.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:0.3rem;}
+    .tide-item .tide-type.high{color:#e74c3c;}
+    .tide-item .tide-type.low{color:var(--gold);}
+    .tide-item .tide-time{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--parchment);line-height:1.2;}
+    .tide-item .tide-height{font-size:0.8rem;color:rgba(248,246,240,0.5);margin-top:0.2rem;}
+    .tide-source{font-size:0.7rem;color:rgba(248,246,240,0.35);margin-top:1rem;}
+    .tide-source a{color:rgba(201,168,76,0.6);text-decoration:none;}
+    .weather-locations{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.2rem;margin-top:1.2rem;}
+    .weather-location{background:rgba(255,255,255,0.06);padding:1.2rem;border-radius:2px;}
+    .weather-location h4{font-family:'Playfair Display',serif;color:var(--parchment);font-size:1rem;margin-bottom:0.8rem;}
+    .weather-blocks{display:flex;gap:0.8rem;}
+    .weather-block{flex:1;text-align:center;padding:0.6rem 0.4rem;background:rgba(255,255,255,0.04);border-radius:2px;}
+    .weather-block .wb-label{font-size:0.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem;}
+    .weather-block .wb-icon{font-size:1.4rem;margin-bottom:0.2rem;}
+    .weather-block .wb-temp{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--parchment);}
+    .weather-block .wb-detail{font-size:0.75rem;color:rgba(248,246,240,0.55);line-height:1.4;margin-top:0.3rem;}
+    .weather-source{font-size:0.7rem;color:rgba(248,246,240,0.35);margin-top:1rem;}
+    .weather-source a{color:rgba(201,168,76,0.6);text-decoration:none;}
+    @media(max-width:480px){
+      .tide-times-row{flex-direction:column;}
+      .weather-blocks{flex-direction:column;}
+    }
+
     .links-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin:1.5rem 0;}
     .link-card{background:var(--white);border:1px solid var(--border);padding:1rem 1.2rem;text-decoration:none;transition:all 0.3s ease;display:block;}
     .link-card:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(0,0,0,0.06);border-color:var(--gold);}
@@ -106,6 +135,13 @@
 
     <h2>Holy Island &mdash; Tide Crossing Times</h2>
 
+    <div class="live-data-panel" id="tide-panel">
+      <h3>Today&rsquo;s Tides &mdash; Holy Island</h3>
+      <div class="live-date" id="tide-date"></div>
+      <div id="tide-data"><span class="live-loading">Loading tide times&hellip;</span></div>
+      <div class="tide-source">Data from <a href="https://www.tidetimes.co.uk/holy-island-tide-times" target="_blank" rel="noopener noreferrer">tidetimes.co.uk</a></div>
+    </div>
+
     <p>The causeway to Holy Island is submerged twice a day by the North Sea. This is not a gentle process. The tide comes in fast, the water is deep, and every year people are rescued from their cars &mdash; or worse, from the roof-mounted refuge box &mdash; because they misjudged the crossing. Do not be one of them.</p>
 
     <div class="warning-box">
@@ -142,6 +178,13 @@
     </div>
 
     <h2>Northumberland Weather</h2>
+
+    <div class="live-data-panel" id="weather-panel">
+      <h3>Today&rsquo;s Forecast</h3>
+      <div class="live-date" id="weather-date"></div>
+      <div id="weather-data"><span class="live-loading">Loading weather&hellip;</span></div>
+      <div class="weather-source">Data from <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a> using UK Met Office models &bull; <a href="https://www.metoffice.gov.uk/weather/forecast/gcy6p74bj" target="_blank" rel="noopener noreferrer">Full forecast &rarr;</a></div>
+    </div>
 
     <p>The short version: bring layers. The longer version follows.</p>
 
@@ -282,6 +325,117 @@
   <script>
     document.addEventListener('contextmenu',function(e){if(e.target.tagName==='IMG')e.preventDefault();});
     document.addEventListener('dragstart',function(e){if(e.target.tagName==='IMG')e.preventDefault();});
+  </script>
+
+  <!-- Live tide times -->
+  <script>
+  (function(){
+    var days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    var months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+    var now=new Date();
+    var dateStr=days[now.getDay()]+' '+now.getDate()+' '+months[now.getMonth()]+' '+now.getFullYear();
+
+    document.getElementById('tide-date').textContent=dateStr;
+    document.getElementById('weather-date').textContent=dateStr;
+
+    // Fetch tide data from tidetimes.co.uk via a hidden div
+    var tideScript=document.createElement('script');
+    tideScript.src='https://www.tidetimes.co.uk/widget?name=Holy+Island&days=1';
+    tideScript.onload=function(){
+      // Parse the widget output
+      setTimeout(function(){
+        var widget=document.querySelector('.tidetimes-widget');
+        if(!widget){document.getElementById('tide-data').innerHTML='<span class="live-loading">Tide data unavailable &mdash; <a href="https://holyislandcrossingtimes.northumberland.gov.uk/" target="_blank" style="color:var(--gold)">check official times</a></span>';return;}
+        var dts=widget.querySelectorAll('dt.low, dt.hi');
+        var dds=widget.querySelectorAll('dd.low, dd.hi');
+        var html='<div class="tide-times-row">';
+        for(var i=0;i<dts.length;i++){
+          var isHigh=dts[i].classList.contains('hi');
+          var text=dds[i]?dds[i].textContent.trim():'';
+          var parts=text.match(/([\d:]+)\s*\(([\d.]+m)\)/);
+          if(parts){
+            html+='<div class="tide-item">';
+            html+='<div class="tide-type '+(isHigh?'high':'low')+'">'+(isHigh?'High Tide':'Low Tide')+'</div>';
+            html+='<div class="tide-time">'+parts[1]+'</div>';
+            html+='<div class="tide-height">'+parts[2]+'</div>';
+            html+='</div>';
+          }
+        }
+        html+='</div>';
+        document.getElementById('tide-data').innerHTML=html;
+        widget.style.display='none';
+      },500);
+    };
+    tideScript.onerror=function(){
+      document.getElementById('tide-data').innerHTML='<span class="live-loading">Tide data unavailable &mdash; <a href="https://holyislandcrossingtimes.northumberland.gov.uk/" target="_blank" style="color:var(--gold)">check official times</a></span>';
+    };
+    document.body.appendChild(tideScript);
+  })();
+  </script>
+
+  <!-- Live weather -->
+  <script>
+  (function(){
+    var locations=[
+      {name:'Holy Island',lat:55.669,lon:-1.800},
+      {name:'Bamburgh',lat:55.609,lon:-1.710}
+    ];
+    var weatherCodes={0:'\u2600\ufe0f',1:'\ud83c\udf24\ufe0f',2:'\u26c5',3:'\u2601\ufe0f',45:'\ud83c\udf2b\ufe0f',48:'\ud83c\udf2b\ufe0f',51:'\ud83c\udf26\ufe0f',53:'\ud83c\udf26\ufe0f',55:'\ud83c\udf27\ufe0f',61:'\ud83c\udf27\ufe0f',63:'\ud83c\udf27\ufe0f',65:'\ud83c\udf27\ufe0f',71:'\ud83c\udf28\ufe0f',73:'\ud83c\udf28\ufe0f',75:'\ud83c\udf28\ufe0f',80:'\ud83c\udf26\ufe0f',81:'\ud83c\udf27\ufe0f',82:'\ud83c\udf27\ufe0f',95:'\u26c8\ufe0f'};
+
+    function getIcon(code){return weatherCodes[code]||'\ud83c\udf24\ufe0f';}
+    function avg(arr){var s=0;for(var i=0;i<arr.length;i++)s+=arr[i];return Math.round(s/arr.length);}
+    function maxVal(arr){var m=0;for(var i=0;i<arr.length;i++)if(arr[i]>m)m=arr[i];return m;}
+    function modeCode(arr){var c={};for(var i=0;i<arr.length;i++){var v=arr[i];c[v]=(c[v]||0)+1;}var mk=0,mv=0;for(var k in c){if(c[k]>mv){mv=c[k];mk=k;}}return parseInt(mk);}
+    function windDesc(kmh){if(kmh<20)return'Light';if(kmh<40)return'Moderate';if(kmh<60)return'Strong';return'Very strong';}
+    function kmhToMph(kmh){return Math.round(kmh*0.621371);}
+
+    var done=0;
+    var results=[];
+
+    locations.forEach(function(loc,idx){
+      var url='https://api.open-meteo.com/v1/forecast?latitude='+loc.lat+'&longitude='+loc.lon+'&hourly=temperature_2m,precipitation_probability,wind_speed_10m,weather_code&timezone=Europe/London&forecast_days=1';
+      fetch(url).then(function(r){return r.json();}).then(function(d){
+        var h=d.hourly;
+        var blocks=[
+          {label:'Morning',start:6,end:12},
+          {label:'Afternoon',start:12,end:18},
+          {label:'Evening',start:18,end:24}
+        ];
+        var locHtml='<div class="weather-location"><h4>'+loc.name+'</h4><div class="weather-blocks">';
+        blocks.forEach(function(b){
+          var temps=[],rains=[],winds=[],codes=[];
+          for(var i=b.start;i<b.end&&i<h.time.length;i++){
+            temps.push(h.temperature_2m[i]);
+            rains.push(h.precipitation_probability[i]||0);
+            winds.push(h.wind_speed_10m[i]);
+            codes.push(h.weather_code[i]);
+          }
+          var t=avg(temps);
+          var rain=maxVal(rains);
+          var wind=avg(winds);
+          var code=modeCode(codes);
+          locHtml+='<div class="weather-block">';
+          locHtml+='<div class="wb-label">'+b.label+'</div>';
+          locHtml+='<div class="wb-icon">'+getIcon(code)+'</div>';
+          locHtml+='<div class="wb-temp">'+t+'&deg;C</div>';
+          locHtml+='<div class="wb-detail">Rain: '+rain+'%<br>Wind: '+kmhToMph(wind)+' mph<br>'+windDesc(wind)+'</div>';
+          locHtml+='</div>';
+        });
+        locHtml+='</div></div>';
+        results[idx]=locHtml;
+        done++;
+        if(done===locations.length){
+          document.getElementById('weather-data').innerHTML='<div class="weather-locations">'+results.join('')+'</div>';
+        }
+      }).catch(function(){
+        results[idx]='<div class="weather-location"><h4>'+loc.name+'</h4><p style="color:rgba(248,246,240,0.5);font-size:0.9rem;">Weather data unavailable</p></div>';
+        done++;
+        if(done===locations.length){
+          document.getElementById('weather-data').innerHTML='<div class="weather-locations">'+results.join('')+'</div>';
+        }
+      });
+    });
+  })();
   </script>
 </body>
 </html>
