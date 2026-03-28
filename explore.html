@@ -6,8 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Explore Northumberland | NorthumberlandArts</title>
   <meta name="description" content="Explore Northumberland's castles, abbeys, wild coastline, ancient sites, and hidden gems. Browse by zone — from Berwick's borders to Kielder's dark skies." />
+  <meta property="og:title" content="Explore Northumberland — 50+ Places to Discover" />
+  <meta property="og:description" content="Castles, abbeys, coastline, ancient sites and hidden gems across Northumberland's six zones." />
+  <meta property="og:image" content="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1200,q_auto,f_auto/v1774107414/HeroMain_Crop_DSC1146_009_aokhwz.jpg" />
+  <meta property="og:url" content="https://northumberland-arts.pages.dev/explore.html" />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://northumberland-arts.pages.dev/explore.html" />
   <!-- No external map libraries needed -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://res.cloudinary.com" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -327,7 +334,7 @@
   <!-- ZONE MAP -->
   <section class="zone-map-section" style="background:var(--navy);padding:1rem 2rem 1rem;text-align:center;">
     <div class="zone-map-wrap" style="position:relative;display:inline-block;max-width:500px;width:100%;">
-      <img src="https://res.cloudinary.com/dkk0iwk3t/image/upload/q_auto,f_auto/site-assets/zone-map-v2.png" alt="Northumberland zone map" style="width:100%;height:auto;display:block;" id="zoneMapImg">
+      <img src="https://res.cloudinary.com/dkk0iwk3t/image/upload/q_auto,f_auto/site-assets/zone-map-v2.png" alt="Northumberland zone map" style="width:100%;height:auto;display:block;" id="zoneMapImg" loading="lazy">
       <div id="zoneOverlays" style="position:absolute;top:0;left:0;width:100%;height:100%;">
         <button onclick="filterZone('berwick')" style="position:absolute;left:36%;top:4%;width:30%;height:20%;background:transparent;border:none;cursor:pointer;" title="Berwick &amp; Borders"></button>
         <button onclick="filterZone('alnwick')" style="position:absolute;left:62%;top:16%;width:28%;height:20%;background:transparent;border:none;cursor:pointer;" title="Alnwick &amp; Coast"></button>
