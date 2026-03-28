@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plan Your Visit — Tides, Weather & Getting Around | NorthumberlandArts</title>
+  <meta name="description" content="Everything you need before visiting Northumberland — Holy Island tide crossing times, weather forecasts, driving tips, parking, and mobile signal warnings." />
+  <meta property="og:title" content="Plan Your Visit to Northumberland" />
+  <meta property="og:description" content="Holy Island tide times, weather forecasts, driving tips, and practical advice for exploring England's most dramatic county." />
+  <meta property="og:image" content="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1200,q_auto,f_auto/v1774107414/HeroMain_Crop_DSC1146_009_aokhwz.jpg" />
+  <meta property="og:url" content="https://northumberland-arts.pages.dev/visit.html" />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://northumberland-arts.pages.dev/visit.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://res.cloudinary.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root { --navy:#1a1a2e; --green:#2d6a4f; --gold:#c9a84c; --gold-dark:#a8893d; --parchment:#f8f6f0; --white:#ffffff; --text:#333333; --text-light:#666666; --border:rgba(0,0,0,0.06); }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Source Sans 3',sans-serif;background:var(--parchment);color:var(--text);line-height:1.7;}
+    nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(26,26,46,0.95);padding:0.8rem 2rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(201,168,76,0.15);}
+    .nav-brand{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--parchment);text-decoration:none;letter-spacing:1px;}
+    .nav-brand span{color:var(--gold);}
+    .back-link{color:rgba(248,246,240,0.6);text-decoration:none;font-size:0.85rem;transition:color 0.3s;}
+    .back-link:hover{color:var(--gold);}
+    .hero{position:relative;height:50vh;min-height:350px;display:flex;align-items:flex-end;overflow:hidden;background:var(--navy);}
+    .hero-gradient{position:absolute;inset:0;background:linear-gradient(135deg, rgba(26,26,46,0.95) 0%, rgba(45,106,79,0.8) 50%, rgba(26,26,46,0.95) 100%);}
+    .hero-content{position:relative;z-index:2;padding:3rem 2rem;max-width:800px;}
+    .hero-badge{display:inline-block;background:var(--gold);color:var(--navy);font-size:0.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:0.3rem 0.8rem;border-radius:2px;margin-bottom:1rem;}
+    .hero h1{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:600;color:var(--parchment);line-height:1.15;margin-bottom:0.8rem;}
+    .hero h1 span{color:var(--gold);}
+    .hero-sub{font-size:1.1rem;color:rgba(248,246,240,0.7);font-weight:300;max-width:600px;}
+
+    .article{max-width:780px;margin:0 auto;padding:4rem 2rem;}
+    .article p{font-size:1.05rem;line-height:1.85;margin-bottom:1.5rem;color:var(--text);}
+    .article h2{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:500;color:var(--navy);margin:3rem 0 1rem;padding-bottom:0.5rem;border-bottom:2px solid var(--gold);}
+    .article h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:500;color:var(--green);margin:2rem 0 0.8rem;}
+    .lead{font-size:1.2rem !important;font-weight:300;color:var(--text-light) !important;border-left:3px solid var(--gold);padding-left:1.2rem;}
+
+    .warning-box{background:#8b0000;color:#fff;padding:1.5rem 2rem;margin:2rem 0;border-radius:2px;border-left:5px solid var(--gold);}
+    .warning-box h3{font-family:'Playfair Display',serif;color:var(--gold);font-size:1.1rem;margin:0 0 0.8rem;}
+    .warning-box p{color:rgba(255,255,255,0.9) !important;font-size:0.95rem !important;margin-bottom:0.6rem !important;}
+    .warning-box p:last-child{margin-bottom:0 !important;}
+
+    .info-box{background:var(--navy);color:var(--parchment);padding:2rem;margin:2.5rem 0;border-radius:2px;}
+    .info-box h3{font-family:'Playfair Display',serif;color:var(--gold);font-size:1.2rem;margin:0 0 1rem;}
+    .info-box p{color:rgba(248,246,240,0.8) !important;font-size:0.95rem !important;margin-bottom:0.8rem !important;}
+    .info-box a{color:var(--gold);text-decoration:none;}
+    .info-box a:hover{text-decoration:underline;}
+
+    .season-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.2rem;margin:1.5rem 0;}
+    .season-card{background:var(--white);border:1px solid var(--border);padding:1.5rem;transition:all 0.3s ease;}
+    .season-card:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(0,0,0,0.06);border-color:var(--gold);}
+    .season-card h4{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;color:var(--navy);margin-bottom:0.4rem;}
+    .season-card .season-months{font-size:0.75rem;color:var(--gold-dark);font-weight:700;margin-bottom:0.5rem;}
+    .season-card p{font-size:0.88rem;color:var(--text-light);line-height:1.6;margin-bottom:0;}
+
+    .tip-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin:1.5rem 0;}
+    .tip-card{background:var(--white);border:1px solid var(--border);padding:1.2rem 1.5rem;border-left:4px solid var(--green);}
+    .tip-card h4{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;color:var(--navy);margin-bottom:0.4rem;}
+    .tip-card p{font-size:0.85rem;color:var(--text-light);line-height:1.6;margin-bottom:0;}
+
+    .links-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin:1.5rem 0;}
+    .link-card{background:var(--white);border:1px solid var(--border);padding:1rem 1.2rem;text-decoration:none;transition:all 0.3s ease;display:block;}
+    .link-card:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(0,0,0,0.06);border-color:var(--gold);}
+    .link-card-title{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;color:var(--navy);margin-bottom:0.3rem;}
+    .link-card-desc{font-size:0.82rem;color:var(--text-light);line-height:1.5;margin-bottom:0.4rem;}
+    .link-card-url{font-size:0.72rem;color:var(--gold-dark);}
+
+    blockquote{margin:2rem 0;padding:1.5rem 1.5rem 1.5rem 2rem;background:var(--white);border-left:4px solid var(--gold);font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic;color:var(--green);line-height:1.6;}
+
+    footer{background:var(--navy);color:rgba(248,246,240,0.4);text-align:center;padding:2rem;}
+    .footer-back{display:inline-block;color:var(--gold);text-decoration:none;font-size:0.9rem;margin-bottom:1rem;transition:opacity 0.3s;}
+    .footer-back:hover{opacity:0.7;}
+    .footer-copy{font-size:0.75rem;}
+    @media(max-width:768px){
+      .hero{height:40vh;min-height:300px;}
+      .hero h1{font-size:2rem;}
+      .article{padding:2.5rem 1.2rem;}
+      .season-grid{grid-template-columns:1fr;}
+      .tip-grid{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-brand">Northumberland<span>Arts</span></a>
+    <a href="explore.html" class="back-link" style="margin-right:auto;margin-left:2rem;">Explore</a>
+    <a href="index.html" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;vertical-align:middle;margin-right:4px;"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Home</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-gradient"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Practical Guide</div>
+      <h1>Plan Your <span>Visit</span></h1>
+      <p class="hero-sub">Tides, weather, roads, and the things nobody tells you until you're standing in the rain wondering where the mobile signal went.</p>
+    </div>
+  </section>
+
+  <article class="article">
+    <p class="lead">Northumberland is not a county that rewards the unprepared. The coast is tidal, the hills are exposed, the weather changes in minutes, and mobile phone coverage in the western valleys ranges from unreliable to nonexistent. None of this should put you off. It should make you pack properly.</p>
+
+    <h2>Holy Island &mdash; Tide Crossing Times</h2>
+
+    <p>The causeway to Holy Island is submerged twice a day by the North Sea. This is not a gentle process. The tide comes in fast, the water is deep, and every year people are rescued from their cars &mdash; or worse, from the roof-mounted refuge box &mdash; because they misjudged the crossing. Do not be one of them.</p>
+
+    <div class="warning-box">
+      <h3>This is serious</h3>
+      <p>The causeway floods completely at high tide. Cars have been swept away. People have died. <strong>Never</strong> attempt to cross outside the published safe crossing times, and always allow at least 30 minutes of extra margin.</p>
+      <p>If in doubt, wait. The island has been there for millions of years. It will still be there when the tide goes out.</p>
+    </div>
+
+    <h3>How it works</h3>
+    <p>Northumberland County Council publishes safe crossing times for each month. These give you a window &mdash; typically a few hours either side of low tide &mdash; when the causeway is above water. Outside that window, the road is under the sea. The crossing itself takes about 10 minutes by car, but you should arrive at the causeway entrance with time to spare. Local weather conditions &mdash; strong winds, heavy rain, spring tides &mdash; can reduce the safe window.</p>
+
+    <h3>Check before you go</h3>
+    <div class="links-grid">
+      <a href="https://holyislandcrossingtimes.northumberland.gov.uk/" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">Official Safe Crossing Times</div>
+        <div class="link-card-desc">Northumberland County Council &mdash; month-by-month safe crossing windows. The only source that matters.</div>
+        <div class="link-card-url">holyislandcrossingtimes.northumberland.gov.uk</div>
+      </a>
+      <a href="https://www.visitnorthumberland.com/travel-tips/while-youre-here/holy-island-crossing-times" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">Visit Northumberland &mdash; Crossing Guide</div>
+        <div class="link-card-desc">Practical advice on planning your Holy Island visit, including tide information and what to do on the island.</div>
+        <div class="link-card-url">visitnorthumberland.com</div>
+      </a>
+      <a href="https://easytide.admiralty.co.uk/?PortID=0208" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">ADMIRALTY EasyTide</div>
+        <div class="link-card-desc">Detailed tide predictions for Holy Island from the UK Hydrographic Office. For those who want the raw data.</div>
+        <div class="link-card-url">easytide.admiralty.co.uk</div>
+      </a>
+    </div>
+
+    <div class="info-box">
+      <h3>The Pilgrim&rsquo;s Crossing</h3>
+      <p>There is also a walking route across the tidal sands &mdash; the ancient Pilgrim&rsquo;s Way, marked by a line of posts. Do not attempt this without local knowledge, and <strong>never</strong> during a rising tide. Even experienced walkers have been caught out. The sands look firm until they are not.</p>
+    </div>
+
+    <h2>Northumberland Weather</h2>
+
+    <p>The short version: bring layers. The longer version follows.</p>
+
+    <p>Northumberland sits further north than most people realise &mdash; the same latitude as Copenhagen and southern Alaska. The coast gets haar (sea fog) that can roll in on a sunny afternoon and drop the temperature by ten degrees in minutes. The hills are exposed and the Cheviots make their own weather. The western valleys around Kielder and Redesdale are sheltered but damp. And the wind on the coast is, without exception, stronger than you expect.</p>
+
+    <div class="season-grid">
+      <div class="season-card">
+        <h4>Spring</h4>
+        <div class="season-months">March &ndash; May</div>
+        <p>Changeable. Cold mornings, bright afternoons, the occasional snow flurry in March. Lambing season in the hills &mdash; close gates behind you. Wildflowers from April. The coast warms slowly. Daylight stretches noticeably by late April. Pack waterproofs and a warm layer.</p>
+      </div>
+      <div class="season-card">
+        <h4>Summer</h4>
+        <div class="season-months">June &ndash; August</div>
+        <p>Long days &mdash; it stays light past 10pm in June. Warm but rarely hot. The coast gets haar that can linger all day or burn off by noon. Inland is warmer and drier. Puffins on the Farne Islands (boat trips from Seahouses). Tourist season &mdash; book accommodation early. Midges near water at dusk.</p>
+      </div>
+      <div class="season-card">
+        <h4>Autumn</h4>
+        <div class="season-months">September &ndash; November</div>
+        <p>The quiet season. Golden light on the castles. The heather turns the hills purple in September. Visitor numbers drop. Shorter days but often the driest, calmest weather of the year. Spectacular sunsets on the coast. Dark sky season begins &mdash; aurora possible from October. Bring a torch.</p>
+      </div>
+      <div class="season-card">
+        <h4>Winter</h4>
+        <div class="season-months">December &ndash; February</div>
+        <p>Dramatic. Short days &mdash; dark by 4pm. Snow on the Cheviots and sometimes the coast. The castles look extraordinary in frost. Kielder is magical under snow. Many attractions have reduced hours or close. Roads in the hills can be icy. The darkest skies of the year &mdash; perfect for stargazing. Wrap up.</p>
+      </div>
+    </div>
+
+    <h3>Check the forecast</h3>
+    <div class="links-grid">
+      <a href="https://www.metoffice.gov.uk/weather/forecast/gcy6p74bj" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">Met Office &mdash; Northumberland</div>
+        <div class="link-card-desc">Official UK weather forecast for the county. 5-day forecast, hourly breakdowns, and weather warnings.</div>
+        <div class="link-card-url">metoffice.gov.uk</div>
+      </a>
+      <a href="https://www.mountain-forecast.com/peaks/The-Cheviot/forecasts/815" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">Mountain Forecast &mdash; The Cheviot</div>
+        <div class="link-card-desc">Summit-level forecast for the Cheviot Hills. Essential if you&rsquo;re heading into the high ground.</div>
+        <div class="link-card-url">mountain-forecast.com</div>
+      </a>
+    </div>
+
+    <h2>Getting Around</h2>
+
+    <h3>Driving</h3>
+    <p>Northumberland is a big county with a small road network. The A1 runs up the east side and will get you to Alnwick, Bamburgh, and Berwick reasonably quickly. Beyond that, you are on single-track roads, B-roads with passing places, and farm tracks. The western valleys &mdash; Redesdale, North Tynedale, Upper Coquetdale &mdash; are remote. Allow more time than the satnav suggests. Fuel stations are sparse once you leave the A1 corridor &mdash; fill up before heading west.</p>
+
+    <div class="tip-grid">
+      <div class="tip-card">
+        <h4>Single-track roads</h4>
+        <p>Common west of the A1. Use passing places. Pull left. Wave. It&rsquo;s not a race &mdash; the locals will thank you for patience.</p>
+      </div>
+      <div class="tip-card">
+        <h4>Livestock on roads</h4>
+        <p>Sheep, cattle, and the occasional horse. Slow down. They were here first. The lambing season (March&ndash;May) is especially busy.</p>
+      </div>
+      <div class="tip-card">
+        <h4>Winter roads</h4>
+        <p>The hill roads (Carter Bar, Rothbury to Alnwick via the moors, Alwinton to anywhere) can be icy or snow-covered November&ndash;March. Check conditions before setting out.</p>
+      </div>
+      <div class="tip-card">
+        <h4>Fuel</h4>
+        <p>Fill up in Alnwick, Hexham, Morpeth, or Berwick. There is very little between them once you leave the main roads. Kielder has no fuel station.</p>
+      </div>
+    </div>
+
+    <h3>Parking</h3>
+    <p>Most castles, abbeys, and National Trust properties have their own car parks (some free, some paid). Coastal villages &mdash; Craster, Seahouses, Bamburgh &mdash; have pay-and-display car parks that fill up in summer. Holy Island has a large free car park but it fills early on sunny days. Hadrian&rsquo;s Wall car parks (Housesteads, Steel Rigg, The Sill) charge &pound;4&ndash;6. An OS map and a willingness to walk from a layby will serve you well in the quieter areas.</p>
+
+    <h3>Mobile signal</h3>
+
+    <div class="warning-box">
+      <h3>Don&rsquo;t rely on your phone</h3>
+      <p>Mobile coverage in western Northumberland is patchy to nonexistent. The North Tyne valley, Redesdale, Upper Coquetdale, Kielder, and large sections of Hadrian&rsquo;s Wall have no reliable signal on any network.</p>
+      <p>Download offline maps (Google Maps, OS Maps, or Organic Maps) before you leave. Carry a paper OS map if you&rsquo;re walking. Tell someone where you&rsquo;re going.</p>
+    </div>
+
+    <h3>Public transport</h3>
+    <p>It exists, but it requires planning. The East Coast Main Line stops at Alnmouth, Berwick, and Morpeth. Arriva buses run along the coast (the X18 Alnwick&ndash;Berwick route is useful). The AD122 bus runs along Hadrian&rsquo;s Wall in summer (named after the year the Wall was built, naturally). Beyond that, you need a car. Kielder, the Cheviots, and most of the western county are not served by public transport at all.</p>
+
+    <h3>What to pack</h3>
+    <div class="tip-grid">
+      <div class="tip-card">
+        <h4>Waterproofs</h4>
+        <p>Non-negotiable. Even in summer. A lightweight waterproof jacket takes up no space and will save you repeatedly.</p>
+      </div>
+      <div class="tip-card">
+        <h4>Layers</h4>
+        <p>The temperature can swing 10&deg;C between coast and inland, between morning and afternoon, or between sheltered valley and exposed hilltop.</p>
+      </div>
+      <div class="tip-card">
+        <h4>Good boots</h4>
+        <p>If you&rsquo;re walking &mdash; and you should be &mdash; proper walking boots with ankle support. The terrain is uneven, often boggy, and always more demanding than it looks.</p>
+      </div>
+      <div class="tip-card">
+        <h4>Binoculars</h4>
+        <p>For the Farne Islands (puffins, seals), for the dark skies (aurora, Milky Way), and for the castles on the horizon. Northumberland rewards the curious eye.</p>
+      </div>
+    </div>
+
+    <h2>Useful Links</h2>
+    <div class="links-grid">
+      <a href="explore.html" class="link-card">
+        <div class="link-card-title">Explore Northumberland</div>
+        <div class="link-card-desc">50+ places to discover across the county &mdash; castles, coastline, ancient sites, and hidden gems.</div>
+        <div class="link-card-url">northumberlandarts.com</div>
+      </a>
+      <a href="https://www.visitnorthumberland.com/" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">Visit Northumberland</div>
+        <div class="link-card-desc">The official tourism website. Accommodation, events, and up-to-date visitor information.</div>
+        <div class="link-card-url">visitnorthumberland.com</div>
+      </a>
+      <a href="https://www.northumberlandnationalpark.org.uk/" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">Northumberland National Park</div>
+        <div class="link-card-desc">Walking routes, The Sill visitor centre, dark sky events, and park information.</div>
+        <div class="link-card-url">northumberlandnationalpark.org.uk</div>
+      </a>
+      <a href="https://www.english-heritage.org.uk/visit/places/#?county=northumberland" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">English Heritage &mdash; Northumberland</div>
+        <div class="link-card-desc">Castles, abbeys, and Roman sites. Opening times, prices, and membership information.</div>
+        <div class="link-card-url">english-heritage.org.uk</div>
+      </a>
+    </div>
+
+    <p style="text-align:center; margin-top:2rem; color:var(--text-light); font-size:0.9rem;">
+      <a href="explore.html" style="color:var(--green); text-decoration:none; font-weight:600;">&larr; Explore Northumberland</a>
+      &nbsp;&nbsp;&bull;&nbsp;&nbsp;
+      <a href="index.html" style="color:var(--green); text-decoration:none; font-weight:600;">Home</a>
+    </p>
+  </article>
+
+  <footer>
+    <a href="index.html" class="footer-back">&larr; Back to NorthumberlandArts.com</a>
+    <div class="footer-copy">&copy; 2026 NorthumberlandArts.com. All rights reserved.</div>
+  </footer>
+
+  <!-- Image protection -->
+  <script>
+    document.addEventListener('contextmenu',function(e){if(e.target.tagName==='IMG')e.preventDefault();});
+    document.addEventListener('dragstart',function(e){if(e.target.tagName==='IMG')e.preventDefault();});
+  </script>
+</body>
+</html>
