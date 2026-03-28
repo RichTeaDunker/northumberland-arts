@@ -75,15 +75,18 @@
     .live-data-panel h3{font-family:'Playfair Display',serif;color:var(--gold);font-size:1.15rem;margin:0 0 0.3rem;}
     .live-data-panel .live-date{font-size:0.8rem;color:rgba(248,246,240,0.5);margin-bottom:1.2rem;}
     .live-data-panel .live-loading{font-size:0.9rem;color:rgba(248,246,240,0.4);font-style:italic;}
-    .tide-times-row{display:flex;gap:1rem;flex-wrap:wrap;}
-    .tide-item{flex:1;min-width:120px;background:rgba(255,255,255,0.06);padding:1rem;border-radius:2px;text-align:center;}
-    .tide-item .tide-type{font-size:0.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:0.3rem;}
-    .tide-item .tide-type.high{color:#e74c3c;}
-    .tide-item .tide-type.low{color:var(--gold);}
-    .tide-item .tide-time{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--parchment);line-height:1.2;}
-    .tide-item .tide-height{font-size:0.8rem;color:rgba(248,246,240,0.5);margin-top:0.2rem;}
-    .tide-source{font-size:0.7rem;color:rgba(248,246,240,0.35);margin-top:1rem;}
-    .tide-source a{color:rgba(201,168,76,0.6);text-decoration:none;}
+    .tide-day{margin-bottom:0.6rem;}
+    .tide-day:last-child{margin-bottom:0;}
+    .tide-day-label{font-size:0.6rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(248,246,240,0.4);margin-bottom:0.3rem;}
+    .tide-day-label.is-today{color:var(--gold);}
+    .tide-times-row{display:flex;gap:0.4rem;flex-wrap:wrap;}
+    .tide-item{padding:0.35rem 0.6rem;border-radius:2px;text-align:center;flex:1;min-width:80px;}
+    .tide-item.safe{background:rgba(45,106,79,0.25);border:1px solid rgba(45,106,79,0.4);}
+    .tide-item.unsafe{background:rgba(180,40,40,0.15);border:1px solid rgba(180,40,40,0.3);}
+    .tide-item .tide-label{font-size:0.55rem;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:0.1rem;}
+    .tide-item.safe .tide-label{color:#40916c;}
+    .tide-item.unsafe .tide-label{color:#c0392b;}
+    .tide-item .tide-time{font-family:'Playfair Display',serif;font-size:0.9rem;color:var(--parchment);line-height:1.2;}
     .weather-locations{display:flex;flex-direction:column;gap:0.8rem;margin-top:0.5rem;}
     .weather-location{background:rgba(255,255,255,0.05);padding:0.8rem;border-radius:2px;}
     .weather-location h4{font-family:'Playfair Display',serif;color:var(--parchment);font-size:0.85rem;margin-bottom:0.5rem;}
@@ -412,29 +415,53 @@
     // Spring/neap tide events (moon phases)
     var tideEvents=[{"d":"2026-01-07","p":"First Quarter","t":"neap","eq":false},{"d":"2026-01-14","p":"Full Moon","t":"spring","eq":false},{"d":"2026-01-22","p":"Last Quarter","t":"neap","eq":false},{"d":"2026-01-29","p":"New Moon","t":"spring","eq":false},{"d":"2026-02-05","p":"First Quarter","t":"neap","eq":false},{"d":"2026-02-13","p":"Full Moon","t":"spring","eq":false},{"d":"2026-02-20","p":"Last Quarter","t":"neap","eq":false},{"d":"2026-02-28","p":"New Moon","t":"spring","eq":false},{"d":"2026-03-07","p":"First Quarter","t":"neap","eq":false},{"d":"2026-03-14","p":"Full Moon","t":"spring","eq":true},{"d":"2026-03-22","p":"Last Quarter","t":"neap","eq":false},{"d":"2026-03-29","p":"New Moon","t":"spring","eq":true},{"d":"2026-04-05","p":"First Quarter","t":"neap","eq":false},{"d":"2026-04-13","p":"Full Moon","t":"spring","eq":false},{"d":"2026-04-20","p":"Last Quarter","t":"neap","eq":false},{"d":"2026-04-28","p":"New Moon","t":"spring","eq":false},{"d":"2026-05-05","p":"First Quarter","t":"neap","eq":false},{"d":"2026-05-12","p":"Full Moon","t":"spring","eq":false},{"d":"2026-05-20","p":"Last Quarter","t":"neap","eq":false},{"d":"2026-05-27","p":"New Moon","t":"spring","eq":false},{"d":"2026-06-04","p":"First Quarter","t":"neap","eq":false},{"d":"2026-06-11","p":"Full Moon","t":"spring","eq":false},{"d":"2026-06-18","p":"Last Quarter","t":"neap","eq":false},{"d":"2026-06-26","p":"New Moon","t":"spring","eq":false},{"d":"2026-07-03","p":"First Quarter","t":"neap","eq":false},{"d":"2026-07-10","p":"Full Moon","t":"spring","eq":false},{"d":"2026-07-18","p":"Last Quarter","t":"neap","eq":false},{"d":"2026-07-25","p":"New Moon","t":"spring","eq":false},{"d":"2026-08-02","p":"First Quarter","t":"neap","eq":false},{"d":"2026-08-09","p":"Full Moon","t":"spring","eq":false},{"d":"2026-08-16","p":"Last Quarter","t":"neap","eq":false},{"d":"2026-08-24","p":"New Moon","t":"spring","eq":false},{"d":"2026-08-31","p":"First Quarter","t":"neap","eq":false},{"d":"2026-09-08","p":"Full Moon","t":"spring","eq":true},{"d":"2026-09-15","p":"Last Quarter","t":"neap","eq":false},{"d":"2026-09-22","p":"New Moon","t":"spring","eq":true},{"d":"2026-09-30","p":"First Quarter","t":"neap","eq":false},{"d":"2026-10-07","p":"Full Moon","t":"spring","eq":false},{"d":"2026-10-14","p":"Last Quarter","t":"neap","eq":false},{"d":"2026-10-22","p":"New Moon","t":"spring","eq":false},{"d":"2026-10-29","p":"First Quarter","t":"neap","eq":false},{"d":"2026-11-06","p":"Full Moon","t":"spring","eq":false},{"d":"2026-11-13","p":"Last Quarter","t":"neap","eq":false},{"d":"2026-11-20","p":"New Moon","t":"spring","eq":false},{"d":"2026-11-28","p":"First Quarter","t":"neap","eq":false},{"d":"2026-12-05","p":"Full Moon","t":"spring","eq":false},{"d":"2026-12-12","p":"Last Quarter","t":"neap","eq":false},{"d":"2026-12-20","p":"New Moon","t":"spring","eq":false},{"d":"2026-12-27","p":"First Quarter","t":"neap","eq":false}];
 
-    var today=crossings[todayKey];
-    if(today){
-      var html='<div class="tide-times-row">';
-      html+='<div class="tide-item"><div class="tide-type low">Safe to cross</div><div class="tide-time">'+today[0].replace('-',' – ')+'</div></div>';
-      html+='<div class="tide-item"><div class="tide-type high">Safe to cross</div><div class="tide-time">'+today[1].replace('-',' – ')+'</div></div>';
-      html+='</div>';
-      // Find next spring tide
-      var nextSpring='',nextNeap='';
-      for(var i=0;i<tideEvents.length;i++){
-        if(tideEvents[i].d>=todayKey){
-          if(!nextSpring&&tideEvents[i].t==='spring'){nextSpring=tideEvents[i];}
-          if(!nextNeap&&tideEvents[i].t==='neap'){nextNeap=tideEvents[i];}
-          if(nextSpring&&nextNeap)break;
-        }
-      }
-      if(nextSpring){
-        var eq=nextSpring.eq?' ⚡ Equinox spring — most extreme tides of the year':'';
-        html+='<div style="font-size:0.75rem;color:rgba(248,246,240,0.5);margin-top:0.6rem;">Next spring tide: <span style="color:var(--gold)">'+nextSpring.d.slice(5)+'</span> ('+nextSpring.p+')'+eq+'</div>';
-      }
-      html+='<div style="font-size:0.6rem;color:rgba(248,246,240,0.25);margin-top:0.3rem;">Source: <a href="https://holyislandcrossingtimes.northumberland.gov.uk/" target="_blank" style="color:rgba(201,168,76,0.4)">Northumberland County Council</a> — always allow 30 min extra</div>';
+    // Build 3-day crossing display
+    var dayNames=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+    var monthNames=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+    function dateKey(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+    function dayLabel(d,isToday){return(isToday?'Today':dayNames[d.getDay()])+' '+d.getDate()+' '+monthNames[d.getMonth()];}
+
+    function renderDay(d,isToday){
+      var key=dateKey(d);
+      var c=crossings[key];
+      if(!c)return'';
+      var labelClass=isToday?'tide-day-label is-today':'tide-day-label';
+      var h='<div class="tide-day"><div class="'+labelClass+'">'+dayLabel(d,isToday)+'</div><div class="tide-times-row">';
+      // unsafe before first safe window
+      h+='<div class="tide-item unsafe"><div class="tide-label">Unsafe</div><div class="tide-time">'+c[0].split('-')[0]+'</div></div>';
+      // safe window 1
+      h+='<div class="tide-item safe"><div class="tide-label">Safe</div><div class="tide-time">'+c[0].replace('-',' – ')+'</div></div>';
+      // unsafe between windows
+      h+='<div class="tide-item unsafe"><div class="tide-label">Unsafe</div><div class="tide-time">'+c[0].split('-')[1]+' – '+c[1].split('-')[0]+'</div></div>';
+      // safe window 2
+      h+='<div class="tide-item safe"><div class="tide-label">Safe</div><div class="tide-time">'+c[1].replace('-',' – ')+'</div></div>';
+      h+='</div></div>';
+      return h;
+    }
+
+    var html='';
+    for(var offset=0;offset<3;offset++){
+      var d=new Date(now);
+      d.setDate(d.getDate()+offset);
+      html+=renderDay(d,offset===0);
+    }
+
+    // Next spring tide
+    var nextSpring='';
+    for(var i=0;i<tideEvents.length;i++){
+      if(tideEvents[i].d>=todayKey&&tideEvents[i].t==='spring'){nextSpring=tideEvents[i];break;}
+    }
+    if(nextSpring){
+      var eq=nextSpring.eq?' \u26A1 Equinox spring':'';
+      html+='<div style="font-size:0.7rem;color:rgba(248,246,240,0.45);margin-top:0.5rem;">Next spring tide: <span style="color:var(--gold)">'+nextSpring.d.slice(5)+'</span> ('+nextSpring.p+')'+eq+'</div>';
+    }
+    html+='<div style="font-size:0.55rem;color:rgba(248,246,240,0.2);margin-top:0.2rem;">Source: <a href="https://holyislandcrossingtimes.northumberland.gov.uk/" target="_blank" style="color:rgba(201,168,76,0.35)">NCC</a> — always allow 30 min extra</div>';
+
+    if(html){
       document.getElementById('tide-data').innerHTML=html;
     } else {
-      document.getElementById('tide-data').innerHTML='<div style="font-size:0.85rem;"><a href="https://holyislandcrossingtimes.northumberland.gov.uk/" target="_blank" style="color:var(--gold);text-decoration:none;">View official safe crossing times →</a></div>';
+      document.getElementById('tide-data').innerHTML='<div style="font-size:0.85rem;"><a href="https://holyislandcrossingtimes.northumberland.gov.uk/" target="_blank" style="color:var(--gold);text-decoration:none;">View official safe crossing times \u2192</a></div>';
     }
   })();
   </script>
