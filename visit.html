@@ -24,13 +24,23 @@
     .nav-brand span{color:var(--gold);}
     .back-link{color:rgba(248,246,240,0.6);text-decoration:none;font-size:0.85rem;transition:color 0.3s;}
     .back-link:hover{color:var(--gold);}
-    .hero{position:relative;height:50vh;min-height:350px;display:flex;align-items:flex-end;overflow:hidden;background:var(--navy);}
-    .hero-gradient{position:absolute;inset:0;background:linear-gradient(135deg, rgba(26,26,46,0.95) 0%, rgba(45,106,79,0.8) 50%, rgba(26,26,46,0.95) 100%);}
-    .hero-content{position:relative;z-index:2;padding:3rem 2rem;max-width:800px;}
-    .hero-badge{display:inline-block;background:var(--gold);color:var(--navy);font-size:0.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:0.3rem 0.8rem;border-radius:2px;margin-bottom:1rem;}
-    .hero h1{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:600;color:var(--parchment);line-height:1.15;margin-bottom:0.8rem;}
+    .hero{position:relative;overflow:hidden;background:var(--navy);padding:5rem 0 0;}
+    .hero-gradient{position:absolute;inset:0;background:linear-gradient(135deg, rgba(26,26,46,0.95) 0%, rgba(45,106,79,0.6) 50%, rgba(26,26,46,0.95) 100%);}
+    .hero-top{position:relative;z-index:2;padding:1.5rem 2rem 1rem;max-width:1100px;margin:0 auto;}
+    .hero-badge{display:inline-block;background:var(--gold);color:var(--navy);font-size:0.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:0.25rem 0.7rem;border-radius:2px;margin-bottom:0.6rem;}
+    .hero h1{font-family:'Playfair Display',serif;font-size:2rem;font-weight:600;color:var(--parchment);line-height:1.15;margin-bottom:0.4rem;}
     .hero h1 span{color:var(--gold);}
-    .hero-sub{font-size:1.1rem;color:rgba(248,246,240,0.7);font-weight:300;max-width:600px;}
+    .hero-sub{font-size:0.95rem;color:rgba(248,246,240,0.6);font-weight:300;margin-bottom:1.2rem;}
+    .intel-panels{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:1rem;padding:0 2rem 2rem;max-width:1100px;margin:0 auto;}
+    .intel-panel{background:rgba(255,255,255,0.07);border:1px solid rgba(201,168,76,0.2);border-top:3px solid var(--gold);padding:1.2rem 1.5rem;border-radius:2px;}
+    .intel-panel h3{font-family:'Playfair Display',serif;color:var(--gold);font-size:0.95rem;margin:0 0 0.2rem;}
+    .intel-panel .intel-date{font-size:0.7rem;color:rgba(248,246,240,0.4);margin-bottom:0.8rem;}
+    .intel-panel .live-loading{font-size:0.85rem;color:rgba(248,246,240,0.35);font-style:italic;}
+    @media(max-width:768px){
+      .intel-panels{grid-template-columns:1fr;padding:0 1.2rem 1.5rem;}
+      .hero-top{padding:1rem 1.2rem 0.5rem;}
+      .hero h1{font-size:1.6rem;}
+    }
 
     .article{max-width:780px;margin:0 auto;padding:4rem 2rem;}
     .article p{font-size:1.05rem;line-height:1.85;margin-bottom:1.5rem;color:var(--text);}
@@ -74,15 +84,15 @@
     .tide-item .tide-height{font-size:0.8rem;color:rgba(248,246,240,0.5);margin-top:0.2rem;}
     .tide-source{font-size:0.7rem;color:rgba(248,246,240,0.35);margin-top:1rem;}
     .tide-source a{color:rgba(201,168,76,0.6);text-decoration:none;}
-    .weather-locations{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.2rem;margin-top:1.2rem;}
-    .weather-location{background:rgba(255,255,255,0.06);padding:1.2rem;border-radius:2px;}
-    .weather-location h4{font-family:'Playfair Display',serif;color:var(--parchment);font-size:1rem;margin-bottom:0.8rem;}
+    .weather-locations{display:flex;flex-direction:column;gap:0.8rem;margin-top:0.5rem;}
+    .weather-location{background:rgba(255,255,255,0.05);padding:0.8rem;border-radius:2px;}
+    .weather-location h4{font-family:'Playfair Display',serif;color:var(--parchment);font-size:0.85rem;margin-bottom:0.5rem;}
     .weather-blocks{display:flex;gap:0.8rem;}
     .weather-block{flex:1;text-align:center;padding:0.6rem 0.4rem;background:rgba(255,255,255,0.04);border-radius:2px;}
-    .weather-block .wb-label{font-size:0.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem;}
-    .weather-block .wb-icon{font-size:1.4rem;margin-bottom:0.2rem;}
-    .weather-block .wb-temp{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--parchment);}
-    .weather-block .wb-detail{font-size:0.75rem;color:rgba(248,246,240,0.55);line-height:1.4;margin-top:0.3rem;}
+    .weather-block .wb-label{font-size:0.6rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:0.2rem;}
+    .weather-block .wb-icon{font-size:1.2rem;margin-bottom:0.1rem;}
+    .weather-block .wb-temp{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--parchment);}
+    .weather-block .wb-detail{font-size:0.7rem;color:rgba(248,246,240,0.55);line-height:1.3;margin-top:0.2rem;}
     .weather-source{font-size:0.7rem;color:rgba(248,246,240,0.35);margin-top:1rem;}
     .weather-source a{color:rgba(201,168,76,0.6);text-decoration:none;}
     @media(max-width:480px){
@@ -104,8 +114,6 @@
     .footer-back:hover{opacity:0.7;}
     .footer-copy{font-size:0.75rem;}
     @media(max-width:768px){
-      .hero{height:40vh;min-height:300px;}
-      .hero h1{font-size:2rem;}
       .article{padding:2.5rem 1.2rem;}
       .season-grid{grid-template-columns:1fr;}
       .tip-grid{grid-template-columns:1fr;}
@@ -123,10 +131,23 @@
 
   <section class="hero">
     <div class="hero-gradient"></div>
-    <div class="hero-content">
+    <div class="hero-top">
       <div class="hero-badge">Practical Guide</div>
       <h1>Plan Your <span>Visit</span></h1>
-      <p class="hero-sub">Tides, weather, roads, and the things nobody tells you until you're standing in the rain wondering where the mobile signal went.</p>
+      <p class="hero-sub">Tides, weather, roads, and the things nobody tells you until you&rsquo;re standing in the rain wondering where the mobile signal went.</p>
+    </div>
+    <div class="intel-panels">
+      <div class="intel-panel" id="tide-panel">
+        <h3>Today&rsquo;s Tides &mdash; Holy Island</h3>
+        <div class="intel-date" id="tide-date"></div>
+        <div id="tide-data"><span class="live-loading">Loading tide times&hellip;</span></div>
+      </div>
+      <div class="intel-panel" id="weather-panel">
+        <h3>Today&rsquo;s Weather</h3>
+        <div class="intel-date" id="weather-date"></div>
+        <div id="weather-data"><span class="live-loading">Loading weather&hellip;</span></div>
+        <div style="font-size:0.65rem;color:rgba(248,246,240,0.3);margin-top:0.6rem;">UK Met Office data via <a href="https://open-meteo.com/" target="_blank" style="color:rgba(201,168,76,0.5)">Open-Meteo</a></div>
+      </div>
     </div>
   </section>
 
@@ -134,13 +155,6 @@
     <p class="lead">Northumberland is not a county that rewards the unprepared. The coast is tidal, the hills are exposed, the weather changes in minutes, and mobile phone coverage in the western valleys ranges from unreliable to nonexistent. None of this should put you off. It should make you pack properly.</p>
 
     <h2>Holy Island &mdash; Tide Crossing Times</h2>
-
-    <div class="live-data-panel" id="tide-panel">
-      <h3>Today&rsquo;s Tides &mdash; Holy Island</h3>
-      <div class="live-date" id="tide-date"></div>
-      <div id="tide-data"><span class="live-loading">Loading tide times&hellip;</span></div>
-      <div class="tide-source">Data from <a href="https://www.tidetimes.co.uk/holy-island-tide-times" target="_blank" rel="noopener noreferrer">tidetimes.co.uk</a></div>
-    </div>
 
     <p>The causeway to Holy Island is submerged twice a day by the North Sea. This is not a gentle process. The tide comes in fast, the water is deep, and every year people are rescued from their cars &mdash; or worse, from the roof-mounted refuge box &mdash; because they misjudged the crossing. Do not be one of them.</p>
 
@@ -178,13 +192,6 @@
     </div>
 
     <h2>Northumberland Weather</h2>
-
-    <div class="live-data-panel" id="weather-panel">
-      <h3>Today&rsquo;s Forecast</h3>
-      <div class="live-date" id="weather-date"></div>
-      <div id="weather-data"><span class="live-loading">Loading weather&hellip;</span></div>
-      <div class="weather-source">Data from <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a> using UK Met Office models &bull; <a href="https://www.metoffice.gov.uk/weather/forecast/gcy6p74bj" target="_blank" rel="noopener noreferrer">Full forecast &rarr;</a></div>
-    </div>
 
     <p>The short version: bring layers. The longer version follows.</p>
 
@@ -327,7 +334,7 @@
     document.addEventListener('dragstart',function(e){if(e.target.tagName==='IMG')e.preventDefault();});
   </script>
 
-  <!-- Live tide times -->
+  <!-- Live tide times via Open-Meteo marine API -->
   <script>
   (function(){
     var days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
@@ -338,38 +345,37 @@
     document.getElementById('tide-date').textContent=dateStr;
     document.getElementById('weather-date').textContent=dateStr;
 
-    // Fetch tide data from tidetimes.co.uk via a hidden div
-    var tideScript=document.createElement('script');
-    tideScript.src='https://www.tidetimes.co.uk/widget?name=Holy+Island&days=1';
-    tideScript.onload=function(){
-      // Parse the widget output
-      setTimeout(function(){
-        var widget=document.querySelector('.tidetimes-widget');
-        if(!widget){document.getElementById('tide-data').innerHTML='<span class="live-loading">Tide data unavailable &mdash; <a href="https://holyislandcrossingtimes.northumberland.gov.uk/" target="_blank" style="color:var(--gold)">check official times</a></span>';return;}
-        var dts=widget.querySelectorAll('dt.low, dt.hi');
-        var dds=widget.querySelectorAll('dd.low, dd.hi');
-        var html='<div class="tide-times-row">';
-        for(var i=0;i<dts.length;i++){
-          var isHigh=dts[i].classList.contains('hi');
-          var text=dds[i]?dds[i].textContent.trim():'';
-          var parts=text.match(/([\d:]+)\s*\(([\d.]+m)\)/);
-          if(parts){
-            html+='<div class="tide-item">';
-            html+='<div class="tide-type '+(isHigh?'high':'low')+'">'+(isHigh?'High Tide':'Low Tide')+'</div>';
-            html+='<div class="tide-time">'+parts[1]+'</div>';
-            html+='<div class="tide-height">'+parts[2]+'</div>';
-            html+='</div>';
-          }
-        }
+    // Fetch tide data from Open-Meteo marine API (Holy Island coords)
+    var tideUrl='https://marine-api.open-meteo.com/v1/marine?latitude=55.669&longitude=-1.800&hourly=sea_surface_height&timezone=Europe/London&forecast_days=1';
+    fetch(tideUrl).then(function(r){return r.json();}).then(function(d){
+      if(!d.hourly||!d.hourly.sea_surface_height){throw new Error('no data');}
+      var h=d.hourly;
+      var times=h.time;
+      var heights=h.sea_surface_height;
+      // Find highs and lows by detecting direction changes
+      var tides=[];
+      for(var i=1;i<times.length-1;i++){
+        if(heights[i]===null)continue;
+        var prev=heights[i-1],cur=heights[i],next=heights[i+1];
+        if(prev===null||next===null)continue;
+        if(cur>=prev&&cur>=next&&cur!==prev){tides.push({type:'high',time:times[i].split('T')[1],height:cur.toFixed(1)+'m'});}
+        if(cur<=prev&&cur<=next&&cur!==prev){tides.push({type:'low',time:times[i].split('T')[1],height:cur.toFixed(1)+'m'});}
+      }
+      if(tides.length===0){throw new Error('no tides found');}
+      var html='<div class="tide-times-row">';
+      tides.forEach(function(t){
+        html+='<div class="tide-item">';
+        html+='<div class="tide-type '+t.type+'">'+(t.type==='high'?'High Tide':'Low Tide')+'</div>';
+        html+='<div class="tide-time">'+t.time+'</div>';
+        html+='<div class="tide-height">'+t.height+'</div>';
         html+='</div>';
-        document.getElementById('tide-data').innerHTML=html;
-        widget.style.display='none';
-      },500);
-    };
-    tideScript.onerror=function(){
-      document.getElementById('tide-data').innerHTML='<span class="live-loading">Tide data unavailable &mdash; <a href="https://holyislandcrossingtimes.northumberland.gov.uk/" target="_blank" style="color:var(--gold)">check official times</a></span>';
-    };
-    document.body.appendChild(tideScript);
+      });
+      html+='</div>';
+      html+='<div style="font-size:0.65rem;color:rgba(248,246,240,0.3);margin-top:0.6rem;">Approximate times &mdash; always check <a href="https://holyislandcrossingtimes.northumberland.gov.uk/" target="_blank" style="color:rgba(201,168,76,0.5)">official crossing times</a> before travelling</div>';
+      document.getElementById('tide-data').innerHTML=html;
+    }).catch(function(){
+      document.getElementById('tide-data').innerHTML='<div class="tide-times-row"><div class="tide-item" style="flex:none;width:100%;text-align:left;"><a href="https://holyislandcrossingtimes.northumberland.gov.uk/" target="_blank" style="color:var(--gold);text-decoration:none;font-size:0.9rem;">View official safe crossing times &rarr;</a><div style="font-size:0.8rem;color:rgba(248,246,240,0.5);margin-top:0.3rem;">holyislandcrossingtimes.northumberland.gov.uk</div></div></div>';
+    });
   })();
   </script>
 
