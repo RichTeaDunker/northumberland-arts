@@ -77,8 +77,9 @@
     .live-data-panel .live-loading{font-size:0.9rem;color:rgba(248,246,240,0.4);font-style:italic;}
     .tide-day{margin-bottom:1.4rem;padding-bottom:1.2rem;border-bottom:1px solid rgba(255,255,255,0.06);}
     .tide-day:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none;}
+    .tide-day.today-highlight{border:2px solid var(--gold);border-radius:3px;padding:0.8rem;margin-bottom:1.4rem;background:rgba(201,168,76,0.06);}
     .tide-day-label{font-size:0.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(248,246,240,0.4);margin-bottom:0.4rem;}
-    .tide-day-label.is-today{color:var(--gold);}
+    .tide-day-label.is-today{color:var(--gold);font-size:0.8rem;letter-spacing:1.5px;}
     .tide-times-row{display:flex;gap:0.5rem;flex-wrap:wrap;}
     .tide-item{padding:0.5rem 0.8rem;border-radius:2px;text-align:center;flex:1;min-width:100px;}
     .tide-item.safe{background:rgba(45,106,79,0.25);border:1px solid rgba(45,106,79,0.4);}
@@ -427,7 +428,8 @@
       var c=crossings[key];
       if(!c)return'';
       var labelClass=isToday?'tide-day-label is-today':'tide-day-label';
-      var h='<div class="tide-day"><div class="'+labelClass+'">'+dayLabel(d,isToday)+'</div><div class="tide-times-row">';
+      var dayClass=isToday?'tide-day today-highlight':'tide-day';
+      var h='<div class="'+dayClass+'"><div class="'+labelClass+'">'+dayLabel(d,isToday)+'</div><div class="tide-times-row">';
       // safe window 1
       h+='<div class="tide-item safe"><div class="tide-label">\u2705 Safe to cross</div><div class="tide-time">'+c[0].replace('-',' \u2013 ')+'</div></div>';
       // unsafe between windows
