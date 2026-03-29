@@ -59,18 +59,11 @@
 
     /* HERO */
     .explore-hero {
-      padding: 5rem 2rem 0;
+      padding: 8rem 2rem 2rem;
       text-align: center;
       background: var(--navy);
       color: var(--parchment);
-      height: calc(100vh - 52px);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      overflow: hidden;
     }
-    .explore-hero h1, .explore-hero p { position: relative; z-index: 2; }
     .explore-hero h1 {
       font-family: 'Playfair Display', serif;
       font-size: clamp(2rem, 5vw, 3.5rem);
@@ -333,14 +326,16 @@
     </a>
   </nav>
 
-  <!-- HERO — title + zone map + stats in one screen -->
+  <!-- HERO -->
   <section class="explore-hero">
-    <div>
-      <h1>Explore <em>Northumberland</em></h1>
-      <p>Castles, abbeys, wild coastline, ancient stones, and hidden valleys. Choose a zone to discover what&rsquo;s waiting.</p>
-    </div>
-    <div style="position:relative;display:inline-block;max-width:420px;width:100%;">
-      <img src="https://res.cloudinary.com/dkk0iwk3t/image/upload/q_auto,f_auto/site-assets/zone-map-v2.png" alt="Northumberland zone map" style="width:100%;height:auto;display:block;" id="zoneMapImg">
+    <h1>Explore <em>Northumberland</em></h1>
+    <p>Castles, abbeys, wild coastline, ancient stones, and hidden valleys. Choose a zone on the map below to discover what's waiting for you.</p>
+  </section>
+
+  <!-- ZONE MAP -->
+  <section class="zone-map-section" style="background:var(--navy);padding:1rem 2rem 1rem;text-align:center;">
+    <div class="zone-map-wrap" style="position:relative;display:inline-block;max-width:500px;width:100%;">
+      <img src="https://res.cloudinary.com/dkk0iwk3t/image/upload/q_auto,f_auto/site-assets/zone-map-v2.png" alt="Northumberland zone map" style="width:100%;height:auto;display:block;" id="zoneMapImg" loading="lazy">
       <div id="zoneOverlays" style="position:absolute;top:0;left:0;width:100%;height:100%;">
         <button onclick="filterZone('berwick')" style="position:absolute;left:36%;top:4%;width:30%;height:20%;background:transparent;border:none;cursor:pointer;" title="Berwick &amp; Borders"></button>
         <button onclick="filterZone('alnwick')" style="position:absolute;left:62%;top:16%;width:28%;height:20%;background:transparent;border:none;cursor:pointer;" title="Alnwick &amp; Coast"></button>
@@ -349,15 +344,17 @@
         <button onclick="filterZone('morpeth')" style="position:absolute;left:58%;top:46%;width:32%;height:22%;background:transparent;border:none;cursor:pointer;" title="Morpeth &amp; South East"></button>
         <button onclick="filterZone('hexham')" style="position:absolute;left:20%;top:68%;width:45%;height:25%;background:transparent;border:none;cursor:pointer;" title="Hexham &amp; Hadrian's Wall"></button>
       </div>
-      <p style="color:rgba(248,246,240,0.4);font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;margin-top:0.8rem;">Click a zone to explore</p>
     </div>
-    <div class="explore-stats" style="width:100%;">
-      <div class="stat-item"><span class="stat-num">53</span><span class="stat-label">Places to discover</span></div>
-      <div class="stat-item"><span class="stat-num">6</span><span class="stat-label">Distinct zones</span></div>
-      <div class="stat-item"><span class="stat-num">2000+</span><span class="stat-label">Years of history</span></div>
-      <div class="stat-item"><span class="stat-num">70+</span><span class="stat-label">Miles of coast</span></div>
-    </div>
+    <p style="color:rgba(248,246,240,0.4);font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;margin-top:1rem;">Click a zone to explore</p>
   </section>
+
+  <!-- STATS -->
+  <div class="explore-stats">
+    <div class="stat-item"><span class="stat-num">50+</span><span class="stat-label">Places to discover</span></div>
+    <div class="stat-item"><span class="stat-num">6</span><span class="stat-label">Distinct zones</span></div>
+    <div class="stat-item"><span class="stat-num">2000+</span><span class="stat-label">Years of history</span></div>
+    <div class="stat-item"><span class="stat-num">70+</span><span class="stat-label">Miles of coast</span></div>
+  </div>
 
   <!-- ZONE FILTER BAR -->
   <div class="zone-filter-bar" id="zoneFilterBar">
