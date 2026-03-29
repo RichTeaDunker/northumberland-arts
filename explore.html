@@ -59,23 +59,23 @@
 
     /* HERO */
     .explore-hero {
-      padding: 8rem 2rem 4rem;
+      padding: 6rem 2rem 2rem;
       text-align: center;
-      background: url('https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1920,q_auto,f_auto/TiltShift_DJI_0039-1_ttf0wx.jpg') center top/cover no-repeat, var(--navy);
+      background: url('https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1920,q_auto,f_auto/TiltShift_DJI_0039-1_ttf0wx.jpg') center center/cover no-repeat, var(--navy);
       color: var(--parchment);
       position: relative;
-      min-height: 50vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
     }
     .explore-hero::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(26,26,46,0.7) 0%, rgba(26,26,46,0.4) 50%, rgba(26,26,46,0.85) 100%);
+      background: linear-gradient(to bottom, rgba(26,26,46,0.65) 0%, rgba(26,26,46,0.0) 15%, rgba(26,26,46,0.0) 60%, rgba(26,26,46,0.5) 100%);
     }
+    .explore-hero .hero-zone-map{position:relative;z-index:2;display:inline-block;max-width:360px;width:100%;margin-top:1.5rem;}
+    .explore-hero .hero-zone-map img{width:100%;height:auto;display:block;filter:drop-shadow(0 4px 20px rgba(0,0,0,0.4));}
+    .explore-hero .hero-zone-map .zone-overlays{position:absolute;top:0;left:0;width:100%;height:100%;}
+    .explore-hero .hero-zone-map .zone-overlays button{position:absolute;background:transparent;border:none;cursor:pointer;}
+    .explore-hero .zone-hint{color:rgba(248,246,240,0.5);font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;margin-top:0.8rem;position:relative;z-index:2;}
     .explore-hero h1, .explore-hero p { position: relative; z-index: 2; }
     .explore-hero h1 {
       font-family: 'Playfair Display', serif;
@@ -339,26 +339,22 @@
     </a>
   </nav>
 
-  <!-- HERO -->
+  <!-- HERO — full image with text + zone map overlay -->
   <section class="explore-hero">
-    <h1>Explore <em>Northumberland</em></h1>
-    <p>Castles, abbeys, wild coastline, ancient stones, and hidden valleys. Choose a zone on the map below to discover what's waiting for you.</p>
-  </section>
-
-  <!-- ZONE MAP -->
-  <section class="zone-map-section" style="background:var(--navy);padding:1rem 2rem 1rem;text-align:center;">
-    <div class="zone-map-wrap" style="position:relative;display:inline-block;max-width:500px;width:100%;">
-      <img src="https://res.cloudinary.com/dkk0iwk3t/image/upload/q_auto,f_auto/site-assets/zone-map-v2.png" alt="Northumberland zone map" style="width:100%;height:auto;display:block;" id="zoneMapImg" loading="lazy">
-      <div id="zoneOverlays" style="position:absolute;top:0;left:0;width:100%;height:100%;">
-        <button onclick="filterZone('berwick')" style="position:absolute;left:36%;top:4%;width:30%;height:20%;background:transparent;border:none;cursor:pointer;" title="Berwick &amp; Borders"></button>
-        <button onclick="filterZone('alnwick')" style="position:absolute;left:62%;top:16%;width:28%;height:20%;background:transparent;border:none;cursor:pointer;" title="Alnwick &amp; Coast"></button>
-        <button onclick="filterZone('rothbury')" style="position:absolute;left:34%;top:28%;width:30%;height:18%;background:transparent;border:none;cursor:pointer;" title="Rothbury &amp; Coquetdale"></button>
-        <button onclick="filterZone('kielder')" style="position:absolute;left:5%;top:38%;width:33%;height:26%;background:transparent;border:none;cursor:pointer;" title="Kielder &amp; North Tyne"></button>
-        <button onclick="filterZone('morpeth')" style="position:absolute;left:58%;top:46%;width:32%;height:22%;background:transparent;border:none;cursor:pointer;" title="Morpeth &amp; South East"></button>
-        <button onclick="filterZone('hexham')" style="position:absolute;left:20%;top:68%;width:45%;height:25%;background:transparent;border:none;cursor:pointer;" title="Hexham &amp; Hadrian's Wall"></button>
+    <h1 style="position:relative;z-index:2;">Explore <em>Northumberland</em></h1>
+    <p style="position:relative;z-index:2;">Castles, abbeys, wild coastline, ancient stones, and hidden valleys. Choose a zone on the map to discover what&rsquo;s waiting.</p>
+    <div class="hero-zone-map">
+      <img src="https://res.cloudinary.com/dkk0iwk3t/image/upload/q_auto,f_auto/site-assets/zone-map-v2.png" alt="Northumberland zone map" id="zoneMapImg">
+      <div class="zone-overlays" id="zoneOverlays">
+        <button onclick="filterZone('berwick')" style="left:36%;top:4%;width:30%;height:20%;" title="Berwick &amp; Borders"></button>
+        <button onclick="filterZone('alnwick')" style="left:62%;top:16%;width:28%;height:20%;" title="Alnwick &amp; Coast"></button>
+        <button onclick="filterZone('rothbury')" style="left:34%;top:28%;width:30%;height:18%;" title="Rothbury &amp; Coquetdale"></button>
+        <button onclick="filterZone('kielder')" style="left:5%;top:38%;width:33%;height:26%;" title="Kielder &amp; North Tyne"></button>
+        <button onclick="filterZone('morpeth')" style="left:58%;top:46%;width:32%;height:22%;" title="Morpeth &amp; South East"></button>
+        <button onclick="filterZone('hexham')" style="left:20%;top:68%;width:45%;height:25%;" title="Hexham &amp; Hadrian's Wall"></button>
       </div>
     </div>
-    <p style="color:rgba(248,246,240,0.4);font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;margin-top:1rem;">Click a zone to explore</p>
+    <p class="zone-hint">Click a zone to explore</p>
   </section>
 
   <!-- STATS -->
