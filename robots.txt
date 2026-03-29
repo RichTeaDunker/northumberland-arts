@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://northumberland-arts.pages.dev/sitemap.xml
