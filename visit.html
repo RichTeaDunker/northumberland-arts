@@ -34,6 +34,7 @@
     .intel-panels{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:1rem;padding:0 2rem 2rem;max-width:1100px;margin:0 auto;}
     .intel-panel-wide{grid-column:1 / -1;}
     .intel-panel{background:rgba(255,255,255,0.07);border:1px solid rgba(201,168,76,0.2);border-top:3px solid var(--gold);padding:1.2rem 1.5rem;border-radius:2px;}
+    .intel-panel.gold-bottom{border-top:1px solid rgba(201,168,76,0.2);border-bottom:3px solid var(--gold);}
     .intel-panel h3{font-family:'Playfair Display',serif;color:var(--gold);font-size:0.95rem;margin:0 0 0.2rem;}
     .intel-panel .intel-date{font-size:0.7rem;color:rgba(248,246,240,0.4);margin-bottom:0.8rem;}
     .intel-panel .live-loading{font-size:0.85rem;color:rgba(248,246,240,0.35);font-style:italic;}
@@ -164,11 +165,11 @@
         <div id="weather-data"><span class="live-loading">Loading weather&hellip;</span></div>
         <div style="font-size:0.65rem;color:rgba(248,246,240,0.3);margin-top:0.6rem;">UK Met Office data via <a href="https://open-meteo.com/" target="_blank" style="color:rgba(201,168,76,0.5)">Open-Meteo</a></div>
       </div>
-      <div class="intel-panel" id="weather-panel-hills">
+      <div class="intel-panel gold-bottom" id="weather-panel-hills">
         <h3>Hills &amp; Inland</h3>
         <div id="weather-data-hills"><span class="live-loading">Loading weather&hellip;</span></div>
       </div>
-      <div class="intel-panel" id="weather-panel-west">
+      <div class="intel-panel gold-bottom" id="weather-panel-west">
         <h3>West County</h3>
         <div id="weather-data-west"><span class="live-loading">Loading weather&hellip;</span></div>
       </div>
