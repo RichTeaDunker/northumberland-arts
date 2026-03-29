@@ -61,16 +61,17 @@
     .explore-hero {
       padding: 6rem 2rem 2rem;
       text-align: center;
-      background: url('https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1920,q_auto,f_auto/CLDnry_TiltShift_DJI_0039-1_hnqiz6.jpg') center center/cover no-repeat, var(--navy);
+      background: var(--navy);
       color: var(--parchment);
       position: relative;
       height: calc(100vh - 52px);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .explore-hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(26,26,46,0.6) 0%, rgba(26,26,46,0.0) 20%, rgba(26,26,46,0.0) 100%);
+      display: none;
     }
     .explore-hero .hero-zone-map{position:relative;z-index:2;display:inline-block;max-width:480px;width:100%;margin-top:1.5rem;}
     .explore-hero .hero-zone-map img{width:100%;height:auto;display:block;filter:drop-shadow(0 4px 20px rgba(0,0,0,0.4));}
@@ -340,10 +341,11 @@
     </a>
   </nav>
 
-  <!-- HERO — full image with text + zone map overlay -->
+  <!-- HERO — navy background, image scaled down 33%, zone map below -->
   <section class="explore-hero">
-    <h1 style="position:relative;z-index:2;">Explore <em>Northumberland</em></h1>
-    <p style="position:relative;z-index:2;">Castles, abbeys, wild coastline, ancient stones, and hidden valleys. Choose a zone on the map to discover what&rsquo;s waiting.</p>
+    <h1 style="position:relative;z-index:2;margin-top:1rem;">Explore <em>Northumberland</em></h1>
+    <p style="position:relative;z-index:2;margin-bottom:1rem;">Castles, abbeys, wild coastline, ancient stones, and hidden valleys. Choose a zone on the map to discover what&rsquo;s waiting.</p>
+    <img src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1200,q_auto,f_auto/CLDnry_TiltShift_DJI_0039-1_hnqiz6.jpg" alt="Morpeth from above — aerial tilt-shift photograph" style="width:67%;max-width:900px;height:auto;border-radius:4px;position:relative;z-index:2;margin-bottom:1rem;" />
     <div class="hero-zone-map">
       <img src="https://res.cloudinary.com/dkk0iwk3t/image/upload/q_auto,f_auto/site-assets/zone-map-v2.png" alt="Northumberland zone map" id="zoneMapImg">
       <div class="zone-overlays" id="zoneOverlays">
