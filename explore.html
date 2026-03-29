@@ -59,17 +59,22 @@
 
     /* HERO */
     .explore-hero {
-      padding: 8rem 2rem 2rem;
+      padding: 8rem 2rem 4rem;
       text-align: center;
-      background: url('https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1920,q_auto,f_auto/1920x800px_Morpeth_DJI_0039-1_eiqme3.jpg') center/cover no-repeat, var(--navy);
+      background: url('https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1920,q_auto,f_auto/TiltShift_DJI_0039-1_ttf0wx.jpg') center top/cover no-repeat, var(--navy);
       color: var(--parchment);
       position: relative;
+      min-height: 50vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
     .explore-hero::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: rgba(26,26,46,0.75);
+      background: linear-gradient(to bottom, rgba(26,26,46,0.7) 0%, rgba(26,26,46,0.4) 50%, rgba(26,26,46,0.85) 100%);
     }
     .explore-hero h1, .explore-hero p { position: relative; z-index: 2; }
     .explore-hero h1 {
@@ -340,11 +345,6 @@
     <p>Castles, abbeys, wild coastline, ancient stones, and hidden valleys. Choose a zone on the map below to discover what's waiting for you.</p>
   </section>
 
-  <!-- MORPETH TILT-SHIFT FEATURE -->
-  <figure style="margin:0;max-width:none;line-height:0;">
-    <img src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1920,q_auto,f_auto/TiltShift_DJI_0039-1_ttf0wx.jpg" alt="Morpeth from above — tilt-shift drone photograph" style="width:100%;height:auto;display:block;" loading="lazy" />
-  </figure>
-
   <!-- ZONE MAP -->
   <section class="zone-map-section" style="background:var(--navy);padding:1rem 2rem 1rem;text-align:center;">
     <div class="zone-map-wrap" style="position:relative;display:inline-block;max-width:500px;width:100%;">
@@ -434,6 +434,9 @@
       {name:"Wallsend (Segedunum)",zone:"morpeth",type:"Ancient",oneLiner:"Where Hadrian's Wall begins — Roman fort, viewing tower, Sting's birthplace.",desc:"The easternmost fort on Hadrian's Wall. 35-metre viewing tower, reconstructed bathhouse, museum. Also birthplace of Sting, Alan Shearer, and the RMS Mauretania. Open daily, under-22s free.",links:["https://www.northeastmuseums.org.uk/segedunum"],page:"hadrians-wall.html"},
       {name:"Tynemouth Priory & Castle",zone:"morpeth",type:"Abbey",oneLiner:"2,000 years on a dramatic headland — Priory, castle, and WWII tunnels.",desc:"Anglo-Saxon monastery, medieval priory, Henry VIII's coastal fortress. Turner painted it. WWII tunnels beneath. Dramatic headland above the mouth of the Tyne.",links:["https://www.english-heritage.org.uk/visit/places/tynemouth-priory-and-castle/"]},
       {name:"Druridge Bay",zone:"morpeth",type:"Coast",oneLiner:"Seven miles of unspoilt golden sand — nature reserves and WWII defences.",desc:"Seven miles of virtually empty beach. Multiple nature reserves. WWII anti-tank blocks still visible. Superb birdwatching. One of the least-known great beaches in England.",links:[]},
+      {name:"Morpeth",img:C+"1920x800px_Morpeth_DJI_0039-1_eiqme3.jpg",zone:"morpeth",type:"Town",oneLiner:"Northumberland's county town — castle, clocktower, Carlisle Park, and a suffragette.",desc:"County town since 1080. Norman castle (now restored). 17th-century clocktower. Carlisle Park along the River Wansbeck. Home to Emily Wilding Davison, the suffragette who died at the 1913 Derby. Bagpipe Museum. Independent shops. Thursday market since 1199.",links:[]},
+      {name:"Morpeth Castle",zone:"morpeth",type:"Castle",oneLiner:"Norman gatehouse overlooking the Wansbeck — restored and reopened as a landmark.",desc:"Built c.1080 by William de Merlay. The 14th-century gatehouse is the main surviving structure — one of the finest examples in the county. Restored by the Landmark Trust and available as holiday accommodation. Overlooks the river and Carlisle Park.",links:["https://www.landmarktrust.org.uk/search-and-book/properties/morpeth-castle-13451/"]},
+      {name:"Emily Wilding Davison",zone:"morpeth",type:"Heritage",oneLiner:"The suffragette who died for the vote — born, buried, and remembered in Morpeth.",desc:"Born in Blackheath 1872 but lived in Longhorsley near Morpeth. On 4 June 1913, she stepped in front of the King's horse at the Epsom Derby and was fatally injured. Buried in St Mary's churchyard, Morpeth. Memorial in Carlisle Park. Her gravestone reads: 'Deeds not words.'",links:[]},
       {name:"Seahouses",zone:"alnwick",type:"Coast",oneLiner:"Working fishing harbour — departure point for the Farne Islands.",desc:"Departure point for Farne Islands boat trips. Working harbour with fresh fish shops. Grace Darling legacy. Views to Bamburgh Castle and the Farnes.",links:[]},
       {name:"Chesters Roman Fort",zone:"hexham",type:"Ancient",oneLiner:"Best-preserved Roman cavalry fort in Britain — finest military bathhouse.",desc:"Roman cavalry fort on Hadrian's Wall. Best-preserved military bathhouse in Britain. Clayton Museum with 20,000+ artefacts. Beautifully set beside the North Tyne.",links:["https://www.english-heritage.org.uk/visit/places/chesters-roman-fort-and-museum-hadrians-wall/"]},
       {name:"Wallington Hall",zone:"morpeth",type:"Historic House",oneLiner:"Pre-Raphaelite murals — William Bell Scott's Northumberland history cycle.",desc:"National Trust house. 8 murals by William Bell Scott depicting Northumberland history from Roman times to the Industrial Revolution. Rossetti connections. 100-acre parkland.",links:["https://www.nationaltrust.org.uk/visit/north-east/wallington"]},
