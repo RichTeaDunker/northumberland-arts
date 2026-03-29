@@ -32,6 +32,7 @@
     .hero h1 span{color:var(--gold);}
     .hero-sub{font-size:0.95rem;color:rgba(248,246,240,0.6);font-weight:300;margin-bottom:1.2rem;}
     .intel-panels{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:1rem;padding:0 2rem 2rem;max-width:1100px;margin:0 auto;}
+    .intel-panel-wide{grid-column:1 / -1;}
     .intel-panel{background:rgba(255,255,255,0.07);border:1px solid rgba(201,168,76,0.2);border-top:3px solid var(--gold);padding:1.2rem 1.5rem;border-radius:2px;}
     .intel-panel h3{font-family:'Playfair Display',serif;color:var(--gold);font-size:0.95rem;margin:0 0 0.2rem;}
     .intel-panel .intel-date{font-size:0.7rem;color:rgba(248,246,240,0.4);margin-bottom:0.8rem;}
@@ -40,6 +41,7 @@
       .intel-panels{grid-template-columns:1fr;padding:0 1.2rem 1.5rem;}
       .hero-top{padding:1rem 1.2rem 0.5rem;}
       .hero h1{font-size:1.6rem;}
+      .intel-panel-wide{grid-column:1;}
     }
 
     .article{max-width:780px;margin:0 auto;padding:4rem 2rem;}
@@ -161,6 +163,14 @@
         <div class="intel-date" id="weather-date"></div>
         <div id="weather-data"><span class="live-loading">Loading weather&hellip;</span></div>
         <div style="font-size:0.65rem;color:rgba(248,246,240,0.3);margin-top:0.6rem;">UK Met Office data via <a href="https://open-meteo.com/" target="_blank" style="color:rgba(201,168,76,0.5)">Open-Meteo</a></div>
+      </div>
+      <div class="intel-panel" id="weather-panel-hills">
+        <h3>Hills &amp; Inland</h3>
+        <div id="weather-data-hills"><span class="live-loading">Loading weather&hellip;</span></div>
+      </div>
+      <div class="intel-panel" id="weather-panel-west">
+        <h3>West County</h3>
+        <div id="weather-data-west"><span class="live-loading">Loading weather&hellip;</span></div>
       </div>
     </div>
   </section>
@@ -510,15 +520,10 @@
   })();
   </script>
 
-  <!-- Live weather -->
+  <!-- Live weather — 3 panels, 6 locations -->
   <script>
   (function(){
-    var locations=[
-      {name:'Holy Island',lat:55.669,lon:-1.800},
-      {name:'Bamburgh',lat:55.609,lon:-1.710}
-    ];
     var weatherCodes={0:'\u2600\ufe0f',1:'\ud83c\udf24\ufe0f',2:'\u26c5',3:'\u2601\ufe0f',45:'\ud83c\udf2b\ufe0f',48:'\ud83c\udf2b\ufe0f',51:'\ud83c\udf26\ufe0f',53:'\ud83c\udf26\ufe0f',55:'\ud83c\udf27\ufe0f',61:'\ud83c\udf27\ufe0f',63:'\ud83c\udf27\ufe0f',65:'\ud83c\udf27\ufe0f',71:'\ud83c\udf28\ufe0f',73:'\ud83c\udf28\ufe0f',75:'\ud83c\udf28\ufe0f',80:'\ud83c\udf26\ufe0f',81:'\ud83c\udf27\ufe0f',82:'\ud83c\udf27\ufe0f',95:'\u26c8\ufe0f'};
-
     function getIcon(code){return weatherCodes[code]||'\ud83c\udf24\ufe0f';}
     function avg(arr){var s=0;for(var i=0;i<arr.length;i++)s+=arr[i];return Math.round(s/arr.length);}
     function maxVal(arr){var m=0;for(var i=0;i<arr.length;i++)if(arr[i]>m)m=arr[i];return m;}
@@ -526,50 +531,63 @@
     function windDesc(kmh){if(kmh<20)return'Light';if(kmh<40)return'Moderate';if(kmh<60)return'Strong';return'Very strong';}
     function kmhToMph(kmh){return Math.round(kmh*0.621371);}
 
-    var done=0;
-    var results=[];
+    var panels=[
+      {target:'weather-data', locations:[
+        {name:'Holy Island',lat:55.669,lon:-1.800,note:'Coast \u2014 tidal'},
+        {name:'Bamburgh',lat:55.609,lon:-1.710,note:'Coast'}
+      ]},
+      {target:'weather-data-hills', locations:[
+        {name:'The Cheviot (374m)',lat:55.479,lon:-2.192,note:'Summit \u2014 expect 3\u20134\u00b0C colder'},
+        {name:'Alnwick',lat:55.413,lon:-1.706,note:'Central coast'}
+      ]},
+      {target:'weather-data-west', locations:[
+        {name:'Hexham',lat:54.971,lon:-2.101,note:'Hadrian\u2019s Wall country'},
+        {name:'Kielder',lat:55.232,lon:-2.583,note:'Remote \u2014 no mobile signal'}
+      ]}
+    ];
 
-    locations.forEach(function(loc,idx){
-      var url='https://api.open-meteo.com/v1/forecast?latitude='+loc.lat+'&longitude='+loc.lon+'&hourly=temperature_2m,precipitation_probability,wind_speed_10m,weather_code&timezone=Europe/London&forecast_days=1';
-      fetch(url).then(function(r){return r.json();}).then(function(d){
-        var h=d.hourly;
-        var blocks=[
-          {label:'Morning',start:6,end:12},
-          {label:'Afternoon',start:12,end:18},
-          {label:'Evening',start:18,end:24}
-        ];
-        var locHtml='<div class="weather-location"><h4>'+loc.name+'</h4><div class="weather-blocks">';
-        blocks.forEach(function(b){
-          var temps=[],rains=[],winds=[],codes=[];
-          for(var i=b.start;i<b.end&&i<h.time.length;i++){
-            temps.push(h.temperature_2m[i]);
-            rains.push(h.precipitation_probability[i]||0);
-            winds.push(h.wind_speed_10m[i]);
-            codes.push(h.weather_code[i]);
+    function buildLocationHtml(loc,d){
+      var h=d.hourly;
+      var blocks=[{label:'Morn',start:6,end:12},{label:'Aftn',start:12,end:18},{label:'Eve',start:18,end:24}];
+      var html='<div class="weather-location"><h4>'+loc.name+'</h4><div class="weather-blocks">';
+      blocks.forEach(function(b){
+        var temps=[],rains=[],winds=[],codes=[];
+        for(var i=b.start;i<b.end&&i<h.time.length;i++){
+          temps.push(h.temperature_2m[i]);
+          rains.push(h.precipitation_probability[i]||0);
+          winds.push(h.wind_speed_10m[i]);
+          codes.push(h.weather_code[i]);
+        }
+        html+='<div class="weather-block">';
+        html+='<div class="wb-label">'+b.label+'</div>';
+        html+='<div class="wb-icon">'+getIcon(modeCode(codes))+'</div>';
+        html+='<div class="wb-temp">'+avg(temps)+'&deg;C</div>';
+        html+='<div class="wb-detail">Rain: '+maxVal(rains)+'%<br>Wind: '+kmhToMph(avg(winds))+' mph</div>';
+        html+='</div>';
+      });
+      html+='</div>';
+      if(loc.note)html+='<div style="font-size:0.6rem;color:rgba(248,246,240,0.35);margin-top:0.3rem;">'+loc.note+'</div>';
+      html+='</div>';
+      return html;
+    }
+
+    panels.forEach(function(panel){
+      var done=0,results=[];
+      panel.locations.forEach(function(loc,idx){
+        var url='https://api.open-meteo.com/v1/forecast?latitude='+loc.lat+'&longitude='+loc.lon+'&hourly=temperature_2m,precipitation_probability,wind_speed_10m,weather_code&timezone=Europe/London&forecast_days=1';
+        fetch(url).then(function(r){return r.json();}).then(function(d){
+          results[idx]=buildLocationHtml(loc,d);
+          done++;
+          if(done===panel.locations.length){
+            document.getElementById(panel.target).innerHTML='<div class="weather-locations">'+results.join('')+'</div>';
           }
-          var t=avg(temps);
-          var rain=maxVal(rains);
-          var wind=avg(winds);
-          var code=modeCode(codes);
-          locHtml+='<div class="weather-block">';
-          locHtml+='<div class="wb-label">'+b.label+'</div>';
-          locHtml+='<div class="wb-icon">'+getIcon(code)+'</div>';
-          locHtml+='<div class="wb-temp">'+t+'&deg;C</div>';
-          locHtml+='<div class="wb-detail">Rain: '+rain+'%<br>Wind: '+kmhToMph(wind)+' mph<br>'+windDesc(wind)+'</div>';
-          locHtml+='</div>';
+        }).catch(function(){
+          results[idx]='<div class="weather-location"><h4>'+loc.name+'</h4><p style="color:rgba(248,246,240,0.4);font-size:0.8rem;">Unavailable</p></div>';
+          done++;
+          if(done===panel.locations.length){
+            document.getElementById(panel.target).innerHTML='<div class="weather-locations">'+results.join('')+'</div>';
+          }
         });
-        locHtml+='</div></div>';
-        results[idx]=locHtml;
-        done++;
-        if(done===locations.length){
-          document.getElementById('weather-data').innerHTML='<div class="weather-locations">'+results.join('')+'</div>';
-        }
-      }).catch(function(){
-        results[idx]='<div class="weather-location"><h4>'+loc.name+'</h4><p style="color:rgba(248,246,240,0.5);font-size:0.9rem;">Weather data unavailable</p></div>';
-        done++;
-        if(done===locations.length){
-          document.getElementById('weather-data').innerHTML='<div class="weather-locations">'+results.join('')+'</div>';
-        }
       });
     });
   })();
