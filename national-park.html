@@ -58,6 +58,9 @@
     .link-card-title{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;color:var(--navy);margin-bottom:0.3rem;}
     .link-card-desc{font-size:0.82rem;color:var(--text-light);line-height:1.5;margin-bottom:0.4rem;}
     .link-card-url{font-size:0.72rem;color:var(--gold-dark);}
+    .image-rotate{position:relative;min-height:400px;border-radius:2px;overflow:hidden;margin:2.5rem 0;}
+    .image-rotate img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.5s ease-in-out;}
+    .image-rotate img.fade-out{opacity:0;}
     footer{background:var(--navy);color:rgba(248,246,240,0.4);text-align:center;padding:2rem;}
     .footer-back{display:inline-block;color:var(--gold);text-decoration:none;font-size:0.9rem;margin-bottom:1rem;transition:opacity 0.3s;}
     .footer-back:hover{opacity:0.7;}
@@ -66,6 +69,7 @@
       .hero{height:50vh;min-height:350px;}
       .hero h1{font-size:2rem;}
       .article{padding:2.5rem 1.2rem;}
+      .image-rotate{min-height:250px;}
     }
   </style>
 </head>
@@ -110,6 +114,12 @@
     <p>In December 2013, Northumberland National Park and Kielder Water &amp; Forest Park were jointly awarded Gold Tier International Dark Sky Park status &mdash; the highest level of recognition for dark skies anywhere in the world. The designation covers 572 square miles, making it the largest area of protected dark sky in Europe.</p>
     <p>The reason is simple: there is almost nobody here. No cities. No motorways. No light pollution. On a clear night in the Cheviots, you can see the Milky Way with the naked eye, pick out the Andromeda galaxy, and count more stars than you thought existed. Kielder Observatory, built in 2008 on the edge of the forest, runs public stargazing events throughout the year and has become one of the most popular astronomical facilities in the country.</p>
 
+    <div class="image-rotate">
+      <img src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1200,q_auto,f_auto/keilder_dark_sky_003_rjz7t1.png" alt="Kielder Dark Sky Park — the Milky Way over Northumberland" loading="lazy" />
+      <img class="fade-out" src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1200,q_auto,f_auto/keilder_dark_sky_004_ld6fow.png" alt="Stargazing beneath the darkest skies in England at Kielder" loading="lazy" />
+      <img class="fade-out" src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1200,q_auto,f_auto/keilder_dark_sky_005_lgq9sw.png" alt="Night sky over Kielder Forest — Gold Tier Dark Sky Park" loading="lazy" />
+    </div>
+
     <h2>Kielder &mdash; Water, Forest, Art</h2>
     <p>Kielder Water is the largest artificial lake in Northern Europe by capacity. Created in 1981 by damming the North Tyne, it holds 200 billion litres of water and sits within Kielder Forest &mdash; the largest planted woodland in England at over 250 square miles. The reservoir was built to supply the industrial North East, but the industries it was designed to serve were already declining by the time it filled. It is, in one sense, a monument to an economy that no longer exists.</p>
     <p>But Kielder has become something its planners never intended. The Art &amp; Architecture Trail, begun in 1995, now includes more than twenty permanent outdoor sculptures and architectural installations scattered through the forest and around the lakeshore. Works by artists including James Turrell, whose Skyspace &mdash; a chamber with an aperture open to the sky &mdash; sits on a promontory above the water. It is one of the most ambitious public art programmes in rural Britain, and it is free.</p>
@@ -118,9 +128,21 @@
     <p>On 12 July 2017, the National Park Authority opened The Sill &mdash; a &pound;14.8 million visitor centre on the edge of Hadrian's Wall, near the village of Once Brewed. Designed by JDDK Architects and clad in local stone, the building was awarded a RIBA North East award and draws between 150,000 and 200,000 visitors a year. It houses exhibitions, a youth hostel, a caf&eacute;, and a landscaped roof walk that offers views along the line of the Wall.</p>
     <p>The Sill was the first purpose-built landscape discovery centre of its kind in England. Its name comes from the Whin Sill &mdash; the volcanic dolerite ridge that Hadrian's engineers chose as the foundation for their wall, because nature had already done half the work.</p>
 
+    <div class="image-rotate">
+      <img src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1200,q_auto,f_auto/visitor_centre_001_gseawd.png" alt="The Sill National Landscape Discovery Centre on Hadrian's Wall" loading="lazy" />
+      <img class="fade-out" src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1200,q_auto,f_auto/visitor_centre_004_twti1g.png" alt="The Sill visitor centre — stone-clad architecture near Once Brewed" loading="lazy" />
+      <img class="fade-out" src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1200,q_auto,f_auto/visitor_centre_005_utqkm2.png" alt="The Sill — landscaped roof walk with views along Hadrian's Wall" loading="lazy" />
+    </div>
+
     <h2>Loss and Legacy</h2>
     <p>In September 2023, the Sycamore Gap tree &mdash; a lone sycamore growing in a dramatic dip in Hadrian's Wall near Crag Lough &mdash; was felled overnight by a sixteen-year-old with a chainsaw. The tree had stood for over two hundred years and had been photographed more than almost any other tree in England. It had won the Woodland Trust's Tree of the Year in 2016. Its destruction provoked a national outcry that surprised even the people who lived beside it.</p>
     <p>The National Park Authority and the Woodland Trust collected seeds and cuttings. Seedlings have been successfully propagated, and several are now growing. The stump remains at the site, and a section of the felled trunk has been preserved. The gap in the Wall looks different now &mdash; emptier, more exposed. But the seedlings are alive, and one day, something will grow there again.</p>
+
+    <div class="image-rotate">
+      <img src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1200,q_auto,f_auto/robin_hood_tree_mystical_001_jugyns.png" alt="Sycamore Gap — the Robin Hood Tree on Hadrian's Wall" loading="lazy" />
+      <img class="fade-out" src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1200,q_auto,f_auto/robin_hood_tree_simple_image_cu9h9l.png" alt="The lone sycamore in the gap on Hadrian's Wall" loading="lazy" />
+      <img class="fade-out" src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1200,q_auto,f_auto/robin_hood_tree_green_gold_cjzuoj.png" alt="Sycamore Gap tree in gold and green light" loading="lazy" />
+    </div>
 
     <h2>Artists and the Park</h2>
     <p>Thomas Bewick &mdash; born at Cherryburn near the south-eastern edge of the park in 1753 &mdash; is widely regarded as the father of wood engraving. His illustrations of birds and animals, cut into the end grain of boxwood with a precision that had never been achieved before, transformed the art of book illustration. His <em>History of British Birds</em> (1797&ndash;1804) remains one of the masterpieces of English natural history, and his birthplace is now a National Trust property open to visitors.</p>
@@ -203,6 +225,20 @@
     <a href="index.html" class="footer-back">&larr; Back to NorthumberlandArts.com</a>
     <div class="footer-copy">&copy; 2026 NorthumberlandArts.com. All rights reserved.</div>
   </footer>
+
+  <!-- Article image rotation -->
+  <script>
+    var rotateContainers = document.querySelectorAll('.image-rotate');
+    rotateContainers.forEach(function(container){
+      var imgs = container.querySelectorAll('img');
+      var idx = 0;
+      setInterval(function(){
+        imgs[idx].classList.add('fade-out');
+        idx = (idx + 1) % imgs.length;
+        imgs[idx].classList.remove('fade-out');
+      }, 6000);
+    });
+  </script>
 
   <!-- Image protection -->
   <script>

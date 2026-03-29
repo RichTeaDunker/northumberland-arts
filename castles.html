@@ -64,6 +64,9 @@
     .link-card-title{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;color:var(--navy);margin-bottom:0.3rem;}
     .link-card-desc{font-size:0.82rem;color:var(--text-light);line-height:1.5;margin-bottom:0.4rem;}
     .link-card-url{font-size:0.72rem;color:var(--gold-dark);}
+    .image-rotate{position:relative;min-height:400px;border-radius:2px;overflow:hidden;margin:2.5rem 0;}
+    .image-rotate img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.5s ease-in-out;}
+    .image-rotate img.fade-out{opacity:0;}
     footer{background:var(--navy);color:rgba(248,246,240,0.4);text-align:center;padding:2rem;}
     .footer-back{display:inline-block;color:var(--gold);text-decoration:none;font-size:0.9rem;margin-bottom:1rem;transition:opacity 0.3s;}
     .footer-back:hover{opacity:0.7;}
@@ -73,6 +76,7 @@
       .hero h1{font-size:2rem;}
       .article{padding:2.5rem 1.2rem;}
       .castle-grid{grid-template-columns:1fr;}
+      .image-rotate{min-height:250px;}
     }
   </style>
 </head>
@@ -183,6 +187,12 @@
     <p>A pele tower was a small, sturdy keep &mdash; typically three storeys, with walls up to ten feet thick. The ground floor was vaulted in stone to resist fire. The entrance was on the first floor, reached by an external staircase that could be pulled up or destroyed in an emergency. They were built by the minor gentry &mdash; parsons, farmers, small landowners &mdash; and more than seventy survive in Northumberland alone.</p>
     <p>A bastle was simpler still. A fortified farmhouse with the livestock on the ground floor and the family living above, reached by a removable ladder. When raiders came &mdash; whether Scots, English, or the lawless border reivers who terrorised both sides &mdash; the family pulled up the ladder, barred the door, and waited. Bastles cluster along the border country, particularly in the North Tyne and Redesdale valleys. Many are still lived in today, converted into farmhouses and holiday cottages, their walls as thick as the day they were built.</p>
 
+    <div class="image-rotate">
+      <img src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1200,q_auto,f_auto/_pele_tower_in_the_Northumberlan_004_d0xrbd.png" alt="Pele tower standing watch over the Northumberland border" loading="lazy" />
+      <img class="fade-out" src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1200,q_auto,f_auto/_pele_tower_in_the_Northumberla_006_bder2t.png" alt="Fortified pele tower in the Northumberland countryside" loading="lazy" />
+      <img class="fade-out" src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1200,q_auto,f_auto/_pele_tower_in_the_Northumberlan_005_c6rmwf.png" alt="Stone pele tower — border defence of the Northumberland gentry" loading="lazy" />
+    </div>
+
     <h2>The Reivers</h2>
     <p>From the fourteenth to the seventeenth century, the Anglo-Scottish border was terrorised by the reivers &mdash; families who raided across the border and sometimes within their own country, stealing cattle, burning farmsteads, and taking hostages for ransom. The great reiving surnames &mdash; Armstrong, Elliot, Graham, Charlton, Robson &mdash; are still common in Northumberland today.</p>
     <p>The reivers gave the English language the words bereaved, blackmail, and gang. They operated in a legal grey zone where neither English nor Scottish law could easily reach them. The March Wardens, appointed to keep order on each side of the border, were often reivers themselves. It was, as one historian described it, the Wild West three hundred years before America had one.</p>
@@ -251,6 +261,20 @@
       heroIdx = (heroIdx + 1) % heroImgs.length;
       heroImgs[heroIdx].classList.add('active');
     }, 7000);
+  </script>
+
+  <!-- Article image rotation -->
+  <script>
+    var rotateContainers = document.querySelectorAll('.image-rotate');
+    rotateContainers.forEach(function(container){
+      var imgs = container.querySelectorAll('img');
+      var idx = 0;
+      setInterval(function(){
+        imgs[idx].classList.add('fade-out');
+        idx = (idx + 1) % imgs.length;
+        imgs[idx].classList.remove('fade-out');
+      }, 6000);
+    });
   </script>
 
   <!-- Image protection -->

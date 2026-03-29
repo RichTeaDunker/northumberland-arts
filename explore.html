@@ -61,9 +61,17 @@
     .explore-hero {
       padding: 8rem 2rem 2rem;
       text-align: center;
-      background: var(--navy);
+      background: url('https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1920,q_auto,f_auto/1920x800px_Morpeth_DJI_0039-1_eiqme3.jpg') center/cover no-repeat, var(--navy);
       color: var(--parchment);
+      position: relative;
     }
+    .explore-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(26,26,46,0.75);
+    }
+    .explore-hero h1, .explore-hero p { position: relative; z-index: 2; }
     .explore-hero h1 {
       font-family: 'Playfair Display', serif;
       font-size: clamp(2rem, 5vw, 3.5rem);
@@ -331,6 +339,11 @@
     <h1>Explore <em>Northumberland</em></h1>
     <p>Castles, abbeys, wild coastline, ancient stones, and hidden valleys. Choose a zone on the map below to discover what's waiting for you.</p>
   </section>
+
+  <!-- MORPETH TILT-SHIFT FEATURE -->
+  <figure style="margin:0;max-width:none;line-height:0;">
+    <img src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1920,q_auto,f_auto/TiltShift_DJI_0039-1_ttf0wx.jpg" alt="Morpeth from above — tilt-shift drone photograph" style="width:100%;height:auto;display:block;" loading="lazy" />
+  </figure>
 
   <!-- ZONE MAP -->
   <section class="zone-map-section" style="background:var(--navy);padding:1rem 2rem 1rem;text-align:center;">

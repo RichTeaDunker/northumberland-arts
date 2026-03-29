@@ -58,6 +58,9 @@
     .link-card-title{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;color:var(--navy);margin-bottom:0.3rem;}
     .link-card-desc{font-size:0.82rem;color:var(--text-light);line-height:1.5;margin-bottom:0.4rem;}
     .link-card-url{font-size:0.72rem;color:var(--gold-dark);}
+    .image-rotate{position:relative;min-height:400px;border-radius:2px;overflow:hidden;margin:2.5rem 0;}
+    .image-rotate img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.5s ease-in-out;}
+    .image-rotate img.fade-out{opacity:0;}
     footer{background:var(--navy);color:rgba(248,246,240,0.4);text-align:center;padding:2rem;}
     .footer-back{display:inline-block;color:var(--gold);text-decoration:none;font-size:0.9rem;margin-bottom:1rem;transition:opacity 0.3s;}
     .footer-back:hover{opacity:0.7;}
@@ -66,6 +69,7 @@
       .hero{height:50vh;min-height:350px;}
       .hero h1{font-size:2rem;}
       .article{padding:2.5rem 1.2rem;}
+      .image-rotate{min-height:250px;}
     }
   </style>
 </head>
@@ -96,12 +100,22 @@
     <h2>The Golden Age Before the Storm</h2>
     <p>To understand what was lost on that June morning, you have to understand what Lindisfarne was. In AD 635, the Irish monk Aidan had arrived at the invitation of King Oswald of Northumbria and founded a monastery on Holy Island. It became the centre from which Christianity spread across northern England &mdash; a place of scholarship, prayer, and extraordinary artistic achievement.</p>
     <p>Northumbria in the seventh and eighth centuries was the most culturally advanced kingdom in Britain. From Lindisfarne and its sister monasteries came works of art that still astonish. The Lindisfarne Gospels &mdash; produced around AD 700, probably by the monk Eadfrith &mdash; remain one of the finest examples of illuminated manuscript art in existence. Each page is a masterwork of interlace, zoomorphic ornament, and precise calligraphy, created with pigments sourced from as far away as the Himalayas and Afghanistan.</p>
+    <figure class="article-image" style="margin:2.5rem -2rem;max-width:none;">
+      <img src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1920,q_auto,f_auto/A_Northumbrian_Anglo-Saxon_warrior_chieftain_001_vpby9z.png" alt="Northumbrian Anglo-Saxon warrior chieftain in the golden age of Lindisfarne" style="width:100%;height:auto;display:block;" loading="lazy" />
+    </figure>
+
     <p>On the Farne Islands, a few miles to the south, St Cuthbert had lived as a hermit around AD 676. He created what may be among the earliest bird protection laws in the world, specifically protecting the eider ducks that nested on the islands. The eider duck is still known locally as the Cuddy duck &mdash; Cuddy being the Northumbrian pet name for Cuthbert.</p>
 
     <blockquote>
       Never before has such terror appeared in Britain as we have now suffered from a pagan race. The heathens poured out the blood of saints around the altar, and trampled on the bodies of saints in the temple of God, like dung in the streets.
       <cite>&mdash; Alcuin of York, letter to King Ethelred of Northumbria, AD 793</cite>
     </blockquote>
+
+    <div class="image-rotate">
+      <img src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1200,q_auto,f_auto/A_stone-walled_Lindisfarne_scriptorium_a_monk_in_001_do2whq.png" alt="Monk painting illuminated manuscripts in a Lindisfarne scriptorium" loading="lazy" />
+      <img class="fade-out" src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1200,q_auto,f_auto/A_stone-walled_Lindisfarne_scriptorium_a_monk_in_002_yybbpz.png" alt="Lindisfarne monk at work on the Gospels by candlelight" loading="lazy" />
+      <img class="fade-out" src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1200,q_auto,f_auto/A_stone-walled_Lindisfarne_scriptorium_a_monk_in_003_qbptod.png" alt="Celtic manuscript illumination in a stone-walled monastery" loading="lazy" />
+    </div>
 
     <h2>The Attack</h2>
     <p>The Anglo-Saxon Chronicle records it with brutal brevity. In the year 793, terrible portents appeared over Northumbria &mdash; whirlwinds, lightning, fiery dragons seen flying in the sky. Then the heathens came.</p>
@@ -207,6 +221,20 @@
       heroIdx = (heroIdx + 1) % heroImgs.length;
       heroImgs[heroIdx].classList.add('active');
     }, 8000);
+  </script>
+
+  <!-- Article image rotation -->
+  <script>
+    var rotateContainers = document.querySelectorAll('.image-rotate');
+    rotateContainers.forEach(function(container){
+      var imgs = container.querySelectorAll('img');
+      var idx = 0;
+      setInterval(function(){
+        imgs[idx].classList.add('fade-out');
+        idx = (idx + 1) % imgs.length;
+        imgs[idx].classList.remove('fade-out');
+      }, 6000);
+    });
   </script>
 
   <!-- Image protection -->

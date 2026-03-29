@@ -25,7 +25,9 @@
     .back-link{color:rgba(248,246,240,0.6);text-decoration:none;font-size:0.85rem;transition:color 0.3s;}
     .back-link:hover{color:var(--gold);}
     .hero{position:relative;overflow:hidden;background:var(--navy);padding:5rem 0 0;}
-    .hero-gradient{position:absolute;inset:0;background:linear-gradient(135deg, rgba(26,26,46,0.95) 0%, rgba(45,106,79,0.6) 50%, rgba(26,26,46,0.95) 100%);}
+    .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.5s ease-in-out;}
+    .hero-bg.active{opacity:1;}
+    .hero-gradient{position:absolute;inset:0;background:linear-gradient(135deg, rgba(26,26,46,0.92) 0%, rgba(45,106,79,0.55) 50%, rgba(26,26,46,0.92) 100%);}
     .hero-top{position:relative;z-index:2;padding:1.5rem 2rem 1rem;max-width:1100px;margin:0 auto;}
     .hero-badge{display:inline-block;background:var(--gold);color:var(--navy);font-size:0.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:0.25rem 0.7rem;border-radius:2px;margin-bottom:0.6rem;}
     .hero h1{font-family:'Playfair Display',serif;font-size:2rem;font-weight:600;color:var(--parchment);line-height:1.15;margin-bottom:0.4rem;}
@@ -147,6 +149,8 @@
   </nav>
 
   <section class="hero">
+    <img class="hero-bg active" src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1920,q_auto,f_auto/stepstyle_on_moor_northumberland_001_xm0noi.png" alt="Step stile on the Northumberland moors" />
+    <img class="hero-bg" src="https://res.cloudinary.com/dkk0iwk3t/image/upload/w_1920,q_auto,f_auto/northumberland_step_style_002_a5mvsa.png" alt="Moorland step stile in the Northumberland countryside" />
     <div class="hero-gradient"></div>
     <div class="hero-top">
       <div class="hero-badge">Practical Guide</div>
@@ -402,6 +406,19 @@
     <a href="index.html" class="footer-back">&larr; Back to NorthumberlandArts.com</a>
     <div class="footer-copy">&copy; 2026 NorthumberlandArts.com. All rights reserved.</div>
   </footer>
+
+  <!-- Hero rotation -->
+  <script>
+    var heroBgs = document.querySelectorAll('.hero-bg');
+    if (heroBgs.length > 1) {
+      var heroIdx = 0;
+      setInterval(function(){
+        heroBgs[heroIdx].classList.remove('active');
+        heroIdx = (heroIdx + 1) % heroBgs.length;
+        heroBgs[heroIdx].classList.add('active');
+      }, 8000);
+    }
+  </script>
 
   <!-- Image protection -->
   <script>
