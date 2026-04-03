@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NZ0541W4JS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NZ0541W4JS');
+  </script>
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The High Ground — Northumberland's Hills | NorthumberlandArts</title>
+  <meta name="description" content="Every significant peak in Northumberland visualised — from The Cheviot at 815 metres to the ancient hillforts of the foothills. Data meets art." />
+  <meta property="og:title" content="The High Ground — Northumberland's Hills" />
+  <meta property="og:description" content="Every significant peak in Northumberland, from The Cheviot at 815m to the Iron Age hillforts. A visual data story." />
+  <meta property="og:url" content="https://northumberland-arts.pages.dev/hills.html" />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://northumberland-arts.pages.dev/hills.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root { --navy:#1a1a2e; --green:#2d6a4f; --gold:#c9a84c; --gold-dark:#a8893d; --parchment:#f8f6f0; --white:#ffffff; --text:#333333; --text-light:#666666; --border:rgba(0,0,0,0.06); }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Source Sans 3',sans-serif;background:var(--parchment);color:var(--text);line-height:1.7;}
+    nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(26,26,46,0.95);padding:0.8rem 2rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(201,168,76,0.15);}
+    .nav-brand{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--parchment);text-decoration:none;letter-spacing:1px;}
+    .nav-brand span{color:var(--gold);}
+    .back-link{color:rgba(248,246,240,0.6);text-decoration:none;font-size:0.85rem;transition:color 0.3s;}
+    .back-link:hover{color:var(--gold);}
+
+    /* Hero — no image, navy background */
+    .hero{position:relative;min-height:400px;display:flex;align-items:flex-end;background:var(--navy);overflow:hidden;}
+    .hero-content{position:relative;z-index:2;padding:3rem 2rem 3rem;max-width:800px;}
+    .hero-badge{display:inline-block;background:var(--gold);color:var(--navy);font-size:0.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:0.3rem 0.8rem;border-radius:2px;margin-bottom:1rem;}
+    .hero h1{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:600;color:var(--parchment);line-height:1.15;margin-bottom:0.8rem;}
+    .hero h1 span{color:var(--gold);}
+    .hero-sub{font-size:1.1rem;color:rgba(248,246,240,0.7);font-weight:300;max-width:620px;}
+    /* Decorative mountain hint in hero */
+    .hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(135deg,transparent 33.3%,rgba(45,106,79,0.15) 33.3%,rgba(45,106,79,0.15) 40%,transparent 40%),linear-gradient(225deg,transparent 33.3%,rgba(45,106,79,0.1) 33.3%,rgba(45,106,79,0.1) 45%,transparent 45%);pointer-events:none;}
+
+    /* Content area */
+    .content{max-width:960px;margin:0 auto;padding:3rem 2rem 4rem;}
+    .content h2{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:500;color:var(--navy);margin:3rem 0 1rem;padding-bottom:0.5rem;border-bottom:2px solid var(--gold);}
+    .content h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:500;color:var(--green);margin:2rem 0 0.8rem;}
+    .content p{font-size:1.05rem;line-height:1.85;margin-bottom:1.5rem;color:var(--text);}
+    .lead{font-size:1.15rem !important;font-weight:300;color:var(--text-light) !important;border-left:3px solid var(--gold);padding-left:1.2rem;margin-bottom:2.5rem !important;}
+
+    /* ── BAR CHART ── */
+    .chart-intro{font-size:0.9rem;color:var(--text-light);margin-bottom:2rem;}
+    .area-group{margin-bottom:2rem;}
+    .area-header{font-family:'Playfair Display',serif;font-size:0.85rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold-dark);margin-bottom:0.6rem;padding-left:0.3rem;}
+    .bar-row{display:flex;align-items:center;gap:0.6rem;margin-bottom:0.35rem;position:relative;cursor:default;}
+    .bar-name{width:160px;flex-shrink:0;font-size:0.82rem;font-weight:500;color:var(--navy);text-align:right;padding-right:0.3rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .bar-track{flex:1;height:26px;background:rgba(0,0,0,0.03);border-radius:2px;position:relative;overflow:hidden;}
+    .bar-fill{height:100%;border-radius:2px;transition:all 0.6s ease;position:relative;}
+    .bar-fill:hover{filter:brightness(1.15);}
+    .bar-height{width:50px;flex-shrink:0;font-size:0.8rem;font-weight:600;color:var(--text);text-align:left;}
+    .bar-unit{font-weight:400;color:var(--text-light);font-size:0.72rem;}
+    /* Tooltip */
+    .bar-tooltip{position:absolute;left:170px;top:-28px;background:var(--navy);color:var(--parchment);font-size:0.75rem;padding:0.3rem 0.7rem;border-radius:3px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity 0.3s;z-index:10;max-width:400px;}
+    .bar-tooltip::after{content:'';position:absolute;top:100%;left:20px;border:5px solid transparent;border-top-color:var(--navy);}
+    .bar-row:hover .bar-tooltip{opacity:1;}
+
+    /* ── MOUNTAIN SILHOUETTE ── */
+    .silhouette-section{margin:3rem 0;padding:2.5rem 0 1rem;position:relative;}
+    .silhouette-wrap{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+    .silhouette-svg{display:block;width:100%;height:auto;min-width:700px;}
+
+    /* ── STATS GRID ── */
+    .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.2rem;margin:2rem 0;}
+    .stat-card{background:var(--white);border:1px solid var(--border);padding:1.2rem 1rem;text-align:center;border-radius:2px;}
+    .stat-number{font-family:'Playfair Display',serif;font-size:2rem;font-weight:600;color:var(--green);}
+    .stat-label{font-size:0.8rem;color:var(--text-light);margin-top:0.2rem;}
+
+    /* ── INFO BOX ── */
+    .info-box{background:var(--navy);color:var(--parchment);padding:2rem;margin:2.5rem 0;border-radius:2px;}
+    .info-box h3{font-family:'Playfair Display',serif;color:var(--gold);font-size:1.2rem;margin:0 0 1rem;}
+    .info-box p{color:rgba(248,246,240,0.8) !important;font-size:0.95rem !important;margin-bottom:0.8rem !important;}
+    .info-box a{color:var(--gold);text-decoration:none;}
+    .info-box a:hover{text-decoration:underline;}
+
+    /* ── LINKS GRID ── */
+    .links-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin:1.5rem 0;}
+    .link-card{background:var(--white);border:1px solid var(--border);padding:1rem 1.2rem;text-decoration:none;transition:all 0.3s ease;display:block;}
+    .link-card:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(0,0,0,0.06);border-color:var(--gold);}
+    .link-card-title{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;color:var(--navy);margin-bottom:0.3rem;}
+    .link-card-desc{font-size:0.82rem;color:var(--text-light);line-height:1.5;margin-bottom:0.4rem;}
+    .link-card-url{font-size:0.72rem;color:var(--gold-dark);}
+
+    /* ── NOTES ── */
+    .note-block{background:var(--white);border-left:3px solid var(--green);padding:1.2rem 1.5rem;margin:1.5rem 0;font-size:0.92rem;line-height:1.7;color:var(--text);}
+    .note-block strong{color:var(--navy);}
+
+    /* ── FOOTER ── */
+    footer{background:var(--navy);color:rgba(248,246,240,0.4);text-align:center;padding:2rem;}
+    footer a{color:var(--gold);text-decoration:none;}
+    .footer-back{display:inline-block;margin-bottom:0.5rem;font-size:0.9rem;}
+    .footer-copy{font-size:0.75rem;}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:768px){
+      .hero{min-height:320px;}
+      .hero h1{font-size:2rem;}
+      .content{padding:2rem 1.2rem;}
+      .bar-name{width:100px;font-size:0.75rem;}
+      .bar-height{width:42px;font-size:0.75rem;}
+      .bar-tooltip{left:110px;font-size:0.7rem;max-width:220px;white-space:normal;}
+      .stats-grid{grid-template-columns:repeat(2,1fr);}
+    }
+    @media(max-width:480px){
+      .hero h1{font-size:1.7rem;}
+      .hero-sub{font-size:0.95rem;}
+      .bar-name{width:75px;font-size:0.7rem;}
+      .bar-track{height:22px;}
+      .bar-tooltip{display:none;}
+      .stats-grid{grid-template-columns:1fr 1fr;}
+    }
+
+    /* Animate bars on scroll */
+    .bar-fill{width:0;transition:width 1s ease-out;}
+    .bar-fill.animate{/* width set by JS */}
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-brand">Northumberland<span>Arts</span></a>
+    <a href="artwork.html" class="back-link" style="margin-right:auto;margin-left:2rem;">Artwork</a>
+    <a href="index.html#history" class="back-link">&larr; Back to History</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">Data Visualisation</div>
+      <h1>The High <span>Ground</span></h1>
+      <p class="hero-sub">Every significant peak in Northumberland, from The Cheviot at 815 metres to the ancient hillforts of the foothills.</p>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <div class="content">
+    <p class="lead">Northumberland is defined by its hills. The Cheviots form a granite backbone along the Scottish border, the Simonside range guards the south, and scattered hillforts mark where our ancestors chose to stand and watch. Here is every significant summit, measured and mapped.</p>
+
+    <h2>Height Chart</h2>
+    <p class="chart-intro">Each bar is proportional to height. The Cheviot at 815m sets the scale. Hover for notes on each summit.</p>
+
+    <!-- Cheviot Hills -->
+    <div class="area-group" id="chartArea">
+      <div class="area-header">Cheviot Hills</div>
+
+      <div class="bar-row">
+        <div class="bar-name">The Cheviot</div>
+        <div class="bar-track"><div class="bar-fill" data-width="100" style="background:linear-gradient(90deg,#1b4332,#2d6a4f);"></div></div>
+        <div class="bar-height">815<span class="bar-unit">m</span></div>
+        <div class="bar-tooltip">Highest point in Northumberland; county top; boggy summit plateau</div>
+      </div>
+
+      <div class="bar-row">
+        <div class="bar-name">Cairn Hill</div>
+        <div class="bar-track"><div class="bar-fill" data-width="95.3" style="background:linear-gradient(90deg,#1e4d3a,#35785a);"></div></div>
+        <div class="bar-height">777<span class="bar-unit">m</span></div>
+        <div class="bar-tooltip">Subsidiary summit of The Cheviot on its western ridge</div>
+      </div>
+
+      <div class="bar-row">
+        <div class="bar-name">Auchope Cairn</div>
+        <div class="bar-track"><div class="bar-fill" data-width="89.1" style="background:linear-gradient(90deg,#215240,#3b8264);"></div></div>
+        <div class="bar-height">726<span class="bar-unit">m</span></div>
+        <div class="bar-tooltip">Western spur of The Cheviot massif near Hen Hole</div>
+      </div>
+
+      <div class="bar-row">
+        <div class="bar-name">Hedgehope Hill</div>
+        <div class="bar-track"><div class="bar-fill" data-width="87.6" style="background:linear-gradient(90deg,#235644,#3d8668);"></div></div>
+        <div class="bar-height">714<span class="bar-unit">m</span></div>
+        <div class="bar-tooltip">Second highest distinct summit in Northumberland</div>
+      </div>
+
+      <div class="bar-row">
+        <div class="bar-name">Comb Fell</div>
+        <div class="bar-track"><div class="bar-fill" data-width="80.0" style="background:linear-gradient(90deg,#28604e,#429070);"></div></div>
+        <div class="bar-height">652<span class="bar-unit">m</span></div>
+        <div class="bar-tooltip">Between The Cheviot and Hedgehope Hill</div>
+      </div>
+
+      <div class="bar-row">
+        <div class="bar-name">Windy Gyle</div>
+        <div class="bar-track"><div class="bar-fill" data-width="76.0" style="background:linear-gradient(90deg,#2b6452,#459474);"></div></div>
+        <div class="bar-height">619<span class="bar-unit">m</span></div>
+        <div class="bar-tooltip">Summit cairn (Russell's Cairn) on the border; Pennine Way crosses here</div>
+      </div>
+
+      <div class="bar-row">
+        <div class="bar-name">Cushat Law</div>
+        <div class="bar-track"><div class="bar-fill" data-width="75.6" style="background:linear-gradient(90deg,#2c6554,#469576);"></div></div>
+        <div class="bar-height">616<span class="bar-unit">m</span></div>
+        <div class="bar-tooltip">Highest point entirely south of the main Cheviot ridge</div>
+      </div>
+
+      <div class="bar-row">
+        <div class="bar-name">Bloodybush Edge</div>
+        <div class="bar-track"><div class="bar-fill" data-width="74.8" style="background:linear-gradient(90deg,#2d6656,#479678);"></div></div>
+        <div class="bar-height">610<span class="bar-unit">m</span></div>
+        <div class="bar-tooltip">Southernmost Cheviot Nuttall; just reaches 2000ft</div>
+      </div>
+
+      <div class="bar-row">
+        <div class="bar-name">The Schil</div>
+        <div class="bar-track"><div class="bar-fill" data-width="73.7" style="background:linear-gradient(90deg,#2e685a,#48987c);"></div></div>
+        <div class="bar-height">601<span class="bar-unit">m</span></div>
+        <div class="bar-tooltip">Just 9m short of mountain status at 2000ft</div>
+      </div>
+
+      <div class="bar-row">
+        <div class="bar-name">Dunmoor Hill</div>
+        <div class="bar-track"><div class="bar-fill" data-width="69.8" style="background:linear-gradient(90deg,#336e60,#4e9e82);"></div></div>
+        <div class="bar-height">569<span class="bar-unit">m</span></div>
+        <div class="bar-tooltip">Rocky summit outcrop; Cunyan Crags nearby</div>
+      </div>
+
+      <div class="bar-row">
+        <div class="bar-name">Wholhope Hill</div>
+        <div class="bar-track"><div class="bar-fill" data-width="69.1" style="background:linear-gradient(90deg,#346f62,#4fa084);"></div></div>
+        <div class="bar-height">563<span class="bar-unit">m</span></div>
+        <div class="bar-tooltip">Trig point summit in the southern Cheviots (Wether Cairn)</div>
+      </div>
+
+      <div class="bar-row">
+        <div class="bar-name">Sighty Crag</div>
+        <div class="bar-track"><div class="bar-fill" data-width="63.8" style="background:linear-gradient(90deg,#39746a,#55a68c);"></div></div>
+        <div class="bar-height">520<span class="bar-unit">m</span></div>
+        <div class="bar-tooltip">Classified as a Marilyn (prominence 297m)</div>
+      </div>
+
+      <div class="bar-row">
+        <div class="bar-name">Lamb Hill</div>
+        <div class="bar-track"><div class="bar-fill" data-width="62.7" style="background:linear-gradient(90deg,#3a766c,#56a88e);"></div></div>
+        <div class="bar-height">511<span class="bar-unit">m</span></div>
+        <div class="bar-tooltip">On the Pennine Way near the border</div>
+      </div>
+
+      <div class="bar-row">
+        <div class="bar-name">Shillhope Law</div>
+        <div class="bar-track"><div class="bar-fill" data-width="61.5" style="background:linear-gradient(90deg,#3b776e,#57aa90);"></div></div>
+        <div class="bar-height">501<span class="bar-unit">m</span></div>
+        <div class="bar-tooltip">Southern Cheviots; prominence of 158m</div>
+      </div>
+    </div>
+
+    <!-- Border / Kielder -->
+    <div class="area-group">
+      <div class="area-header">Border / Kielder</div>
+
+      <div class="bar-row">
+        <div class="bar-name">Peel Fell</div>
+        <div class="bar-track"><div class="bar-fill" data-width="73.9" style="background:linear-gradient(90deg,#2e685a,#48987c);"></div></div>
+        <div class="bar-height">602<span class="bar-unit">m</span></div>
+        <div class="bar-tooltip">Highest hill in the Kielder Forest area; on the border</div>
+      </div>
+    </div>
+
+    <!-- Simonside Hills -->
+    <div class="area-group">
+      <div class="area-header">Simonside Hills</div>
+
+      <div class="bar-row">
+        <div class="bar-name">Tosson Hill</div>
+        <div class="bar-track"><div class="bar-fill" data-width="54.0" style="background:linear-gradient(90deg,#407c74,#5db096);"></div></div>
+        <div class="bar-height">440<span class="bar-unit">m</span></div>
+        <div class="bar-tooltip">Highest point of the Simonside range; classified as a Marilyn</div>
+      </div>
+
+      <div class="bar-row">
+        <div class="bar-name">Simonside</div>
+        <div class="bar-track"><div class="bar-fill" data-width="52.6" style="background:linear-gradient(90deg,#417e76,#5eb298);"></div></div>
+        <div class="bar-height">429<span class="bar-unit">m</span></div>
+        <div class="bar-tooltip">The best-known summit of the range; legendary home of the Simonside Dwarves</div>
+      </div>
+
+      <div class="bar-row">
+        <div class="bar-name">Dove Crag</div>
+        <div class="bar-track"><div class="bar-fill" data-width="48.2" style="background:linear-gradient(90deg,#45827c,#62b69e);"></div></div>
+        <div class="bar-height">393<span class="bar-unit">m</span></div>
+        <div class="bar-tooltip">Prehistoric burial cairn on summit</div>
+      </div>
+    </div>
+
+    <!-- Harbottle / Coquet Valley -->
+    <div class="area-group">
+      <div class="area-header">Harbottle / Coquet Valley</div>
+
+      <div class="bar-row">
+        <div class="bar-name">Cold Law</div>
+        <div class="bar-track"><div class="bar-fill" data-width="44.3" style="background:linear-gradient(90deg,#488682,#66baa2);"></div></div>
+        <div class="bar-height">361<span class="bar-unit">m</span></div>
+        <div class="bar-tooltip">Also known as Harbottle Crag; prominent local landmark</div>
+      </div>
+    </div>
+
+    <!-- Foothills & Hillforts -->
+    <div class="area-group">
+      <div class="area-header">Foothills &amp; Hillforts</div>
+
+      <div class="bar-row">
+        <div class="bar-name">Yeavering Bell</div>
+        <div class="bar-track"><div class="bar-fill" data-width="44.3" style="background:linear-gradient(90deg,#488682,#66baa2);"></div></div>
+        <div class="bar-height">361<span class="bar-unit">m</span></div>
+        <div class="bar-tooltip">Largest Iron Age hillfort in Northumberland on its twin summits</div>
+      </div>
+
+      <div class="bar-row">
+        <div class="bar-name">Ros Castle</div>
+        <div class="bar-track"><div class="bar-fill" data-width="38.7" style="background:linear-gradient(90deg,#4d8a88,#6abea6);"></div></div>
+        <div class="bar-height">315<span class="bar-unit">m</span></div>
+        <div class="bar-tooltip">Iron Age hillfort; highest point between Alnwick and Berwick</div>
+      </div>
+
+      <div class="bar-row">
+        <div class="bar-name">Wether Hill</div>
+        <div class="bar-track"><div class="bar-fill" data-width="37.2" style="background:linear-gradient(90deg,#4f8c8a,#6cc0a8);"></div></div>
+        <div class="bar-height">303<span class="bar-unit">m</span></div>
+        <div class="bar-tooltip">Iron Age hillfort on summit near Ingram</div>
+      </div>
+
+      <div class="bar-row">
+        <div class="bar-name">Humbleton Hill</div>
+        <div class="bar-track"><div class="bar-fill" data-width="36.6" style="background:linear-gradient(90deg,#508e8c,#6dc2aa);"></div></div>
+        <div class="bar-height">298<span class="bar-unit">m</span></div>
+        <div class="bar-tooltip">Site of the 1402 Battle of Homildon Hill</div>
+      </div>
+    </div>
+
+    <!-- MOUNTAIN SILHOUETTE -->
+    <h2>The Skyline</h2>
+    <p class="chart-intro">A simplified silhouette of Northumberland's peaks as they might appear on the horizon. Heights are proportional. Scroll horizontally on smaller screens.</p>
+
+    <div class="silhouette-section">
+      <div class="silhouette-wrap">
+        <svg class="silhouette-svg" viewBox="0 0 1200 340" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#1a1a2e" stop-opacity="0.05"/>
+              <stop offset="100%" stop-color="#1a1a2e" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="mtGrad1" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#1a1a2e"/>
+              <stop offset="100%" stop-color="#2d6a4f"/>
+            </linearGradient>
+            <linearGradient id="mtGrad2" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#253248"/>
+              <stop offset="100%" stop-color="#35785a"/>
+            </linearGradient>
+            <linearGradient id="mtGrad3" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#2a3a52"/>
+              <stop offset="100%" stop-color="#3d8668"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Background sky hint -->
+          <rect x="0" y="0" width="1200" height="340" fill="url(#skyGrad)"/>
+
+          <!-- Far range (lighter, background) -->
+          <path d="M0,340 L0,280 Q30,260 60,270 Q90,250 130,240 Q160,220 200,210 Q230,195 260,200 Q300,185 340,195 Q380,180 420,185 Q460,175 500,180 Q530,190 560,200 Q600,210 640,205 Q680,215 720,220 Q760,230 800,225 Q840,235 880,240 Q920,250 960,248 Q1000,255 1040,260 Q1080,270 1120,268 Q1160,275 1200,280 L1200,340 Z" fill="url(#mtGrad3)" opacity="0.3"/>
+
+          <!-- Mid range -->
+          <path d="M0,340 L0,300 Q20,290 50,285 Q80,270 120,260 Q145,248 170,252 Q200,235 240,222 Q260,210 285,215 Q310,198 340,205 Q365,192 395,188 Q420,178 450,182 Q475,172 505,170 Q530,180 555,186 Q580,195 610,200 Q640,210 670,215 Q700,222 730,218 Q760,228 790,235 Q820,242 850,238 Q880,248 910,252 Q940,258 970,255 Q1000,262 1030,268 Q1060,275 1090,272 Q1120,278 1150,282 Q1180,288 1200,290 L1200,340 Z" fill="url(#mtGrad2)" opacity="0.5"/>
+
+          <!-- Main range (foreground, darkest) — peaks at specific positions -->
+          <!-- Positions roughly: Humbleton(50) Yeavering(105) WetherHill(155) Shillhope(200) LambHill(240) SightyCrag(280) Dunmoor(320) TheSchil(370) Bloodybush(415) CushatLaw(460) WindyGyle(505) CombFell(555) Hedgehope(610) Auchope(670) CairnHill(730) THE CHEVIOT(790) PeelFell(850) TossonHill(900) Simonside(945) DoveCrag(990) ColdLaw(1035) RosCastle(1080) WholhopeHill(1130) -->
+          <path d="M0,340 L0,310
+            Q25,305 50,298
+            Q78,280 105,275
+            Q130,280 155,295
+            Q178,270 200,260
+            Q220,254 240,258
+            Q260,242 280,248
+            Q300,232 320,238
+            Q345,228 370,232
+            Q393,222 415,225
+            Q438,218 460,220
+            Q483,208 505,212
+            Q530,192 555,198
+            Q582,178 610,175
+            Q640,168 670,172
+            Q700,160 730,155
+            Q760,125 790,90
+            Q808,130 830,155
+            Q843,190 855,195
+            Q870,210 900,218
+            Q920,222 945,225
+            Q968,235 990,240
+            Q1012,250 1035,252
+            Q1058,258 1080,262
+            Q1105,270 1130,268
+            Q1165,280 1200,290
+            L1200,340 Z"
+            fill="url(#mtGrad1)"/>
+
+          <!-- Peak markers (gold dots) and labels for top summits -->
+          <!-- The Cheviot 815m -->
+          <circle cx="790" cy="88" r="4" fill="#c9a84c"/>
+          <text x="790" y="78" text-anchor="middle" font-family="Playfair Display,serif" font-size="11" font-weight="600" fill="#c9a84c">The Cheviot</text>
+          <text x="790" y="66" text-anchor="middle" font-family="Source Sans 3,sans-serif" font-size="9" fill="#a8893d">815m</text>
+
+          <!-- Cairn Hill 777m -->
+          <circle cx="730" cy="153" r="3" fill="#c9a84c"/>
+          <text x="730" y="145" text-anchor="middle" font-family="Playfair Display,serif" font-size="9.5" font-weight="500" fill="#c9a84c">Cairn Hill</text>
+          <text x="730" y="136" text-anchor="middle" font-family="Source Sans 3,sans-serif" font-size="8" fill="#a8893d">777m</text>
+
+          <!-- Hedgehope Hill 714m -->
+          <circle cx="610" cy="173" r="3" fill="#c9a84c"/>
+          <text x="610" y="165" text-anchor="middle" font-family="Playfair Display,serif" font-size="9.5" font-weight="500" fill="#c9a84c">Hedgehope</text>
+          <text x="610" y="156" text-anchor="middle" font-family="Source Sans 3,sans-serif" font-size="8" fill="#a8893d">714m</text>
+
+          <!-- Auchope Cairn 726m -->
+          <circle cx="670" cy="170" r="3" fill="#c9a84c"/>
+          <text x="670" y="162" text-anchor="end" font-family="Source Sans 3,sans-serif" font-size="8" fill="#a8893d">726m</text>
+
+          <!-- Windy Gyle 619m -->
+          <circle cx="505" cy="210" r="3" fill="#c9a84c"/>
+          <text x="505" y="202" text-anchor="middle" font-family="Playfair Display,serif" font-size="9" font-weight="500" fill="#c9a84c">Windy Gyle</text>
+
+          <!-- Peel Fell 602m -->
+          <circle cx="855" cy="193" r="3" fill="#c9a84c"/>
+          <text x="855" y="185" text-anchor="middle" font-family="Playfair Display,serif" font-size="9" font-weight="500" fill="#c9a84c">Peel Fell</text>
+
+          <!-- Horizon line decoration -->
+          <line x1="0" y1="339" x2="1200" y2="339" stroke="#2d6a4f" stroke-width="1" opacity="0.3"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- SUMMARY / STATS -->
+    <h2>By the Numbers</h2>
+    <p>The Cheviot Hills contain all of Northumberland's highest ground. Every summit above 500 metres lies within or on the edge of the Cheviot massif, a dome of granite formed 380 million years ago and capped with peat bog that makes the highest tops some of the soggiest places in England.</p>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">23</div>
+        <div class="stat-label">Significant peaks listed</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">815m</div>
+        <div class="stat-label">Highest point (The Cheviot)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">8</div>
+        <div class="stat-label">Nuttalls (over 2000ft / 610m)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">517m</div>
+        <div class="stat-label">Height range (815m to 298m)</div>
+      </div>
+    </div>
+
+    <div class="note-block">
+      <strong>Yeavering Bell (361m)</strong> may be modest in height, but it carries the largest Iron Age hillfort in Northumberland on its twin summits. Over 130 hut circles have been identified within its stone ramparts. The nearby Anglo-Saxon royal palace of Ad Gefrin, discovered in 1949, was where King Edwin held court.
+    </div>
+
+    <div class="note-block">
+      <strong>Simonside (429m)</strong> is the legendary home of the Simonside Dwarves &mdash; malicious creatures from Border folklore who would lure travellers off the paths with flickering lights and into the bogs. Locals knew them as the duergar. The crags along the ridge are spectacular, and the walking is among the best in Northumberland.
+    </div>
+
+    <!-- INFO BOX -->
+    <div class="info-box">
+      <h3>Explore Northumberland's Landscape</h3>
+      <p>These hills sit within and around <a href="national-park.html">Northumberland National Park</a> &mdash; England's most sparsely populated national park, home to Hadrian's Wall, the darkest skies in England, and vast tracts of land where you can walk all day without seeing another person.</p>
+      <p>For a broader view of the county, see our <a href="explore.html">Explore Northumberland</a> page &mdash; castles, coast, and countryside.</p>
+    </div>
+
+    <h2>Related Pages</h2>
+    <div class="links-grid">
+      <a href="explore.html" class="link-card">
+        <div class="link-card-title">Explore Northumberland</div>
+        <div class="link-card-desc">Castles, coast, countryside and dark skies &mdash; the full picture of England's most northerly county.</div>
+        <div class="link-card-url">northumberlandarts.com</div>
+      </a>
+      <a href="national-park.html" class="link-card">
+        <div class="link-card-title">Northumberland National Park</div>
+        <div class="link-card-desc">Wild hinterland, Roman walls, and England's emptiest landscape.</div>
+        <div class="link-card-url">northumberlandarts.com</div>
+      </a>
+      <a href="visit.html" class="link-card">
+        <div class="link-card-title">Visit Northumberland</div>
+        <div class="link-card-desc">Plan your trip to the hills, valleys and coast.</div>
+        <div class="link-card-url">northumberlandarts.com</div>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <a href="index.html" class="footer-back">&larr; Back to NorthumberlandArts.com</a>
+    <div class="footer-copy">&copy; 2026 NorthumberlandArts.com. All rights reserved.</div>
+  </footer>
+
+  <script>
+    // Animate bars on scroll
+    (function(){
+      var observer = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            var fills = entry.target.querySelectorAll('.bar-fill');
+            fills.forEach(function(fill, i){
+              setTimeout(function(){
+                fill.style.width = fill.getAttribute('data-width') + '%';
+              }, i * 60);
+            });
+            observer.unobserve(entry.target);
+          }
+        });
+      },{threshold:0.15});
+      document.querySelectorAll('.area-group').forEach(function(g){observer.observe(g);});
+    })();
+  </script>
+  <script>document.addEventListener("contextmenu",function(e){if(e.target.tagName==="IMG"){e.preventDefault()}});document.addEventListener("dragstart",function(e){if(e.target.tagName==="IMG"){e.preventDefault()}});</script>
+</body>
+</html>

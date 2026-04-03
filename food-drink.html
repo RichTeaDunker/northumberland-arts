@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NZ0541W4JS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NZ0541W4JS');
+  </script>
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Food &amp; Drink | NorthumberlandArts</title>
+  <meta name="description" content="From Michelin-starred kitchens to smokehouses that have cured herrings for 130 years — a guide to Northumberland's finest food and drink." />
+  <meta property="og:title" content="A Taste of Northumberland — Food &amp; Drink" />
+  <meta property="og:description" content="From Michelin-starred kitchens to smokehouses that have cured herrings for 130 years, this county feeds the soul as well as the stomach." />
+  <meta property="og:url" content="https://northumberland-arts.pages.dev/food-drink.html" />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://northumberland-arts.pages.dev/food-drink.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://res.cloudinary.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root { --navy:#1a1a2e; --green:#2d6a4f; --gold:#c9a84c; --gold-dark:#a8893d; --parchment:#f8f6f0; --white:#ffffff; --text:#333333; --text-light:#666666; --border:rgba(0,0,0,0.06); }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Source Sans 3',sans-serif;background:var(--parchment);color:var(--text);line-height:1.7;}
+    nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(26,26,46,0.95);padding:0.8rem 2rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(201,168,76,0.15);}
+    .nav-brand{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--parchment);text-decoration:none;letter-spacing:1px;}
+    .nav-brand span{color:var(--gold);}
+    .back-link{color:rgba(248,246,240,0.6);text-decoration:none;font-size:0.85rem;transition:color 0.3s;}
+    .back-link:hover{color:var(--gold);}
+    .hero{position:relative;height:70vh;min-height:450px;display:flex;align-items:flex-end;overflow:hidden;background:var(--navy);}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,26,46,0.95) 0%,rgba(26,26,46,0.4) 50%,rgba(26,26,46,0.2) 100%);}
+    .hero-content{position:relative;z-index:2;padding:3rem 2rem;max-width:800px;}
+    .hero-badge{display:inline-block;background:var(--gold);color:var(--navy);font-size:0.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:0.3rem 0.8rem;border-radius:2px;margin-bottom:1rem;}
+    .hero h1{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:600;color:var(--parchment);line-height:1.15;margin-bottom:0.8rem;}
+    .hero h1 span{color:var(--gold);}
+    .hero-sub{font-size:1.1rem;color:rgba(248,246,240,0.7);font-weight:300;max-width:600px;}
+    .article{max-width:780px;margin:0 auto;padding:4rem 2rem;}
+    .article p{font-size:1.05rem;line-height:1.85;margin-bottom:1.5rem;color:var(--text);}
+    .article h2{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:500;color:var(--navy);margin:3rem 0 1rem;padding-bottom:0.5rem;border-bottom:2px solid var(--gold);}
+    .article h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:500;color:var(--green);margin:2rem 0 0.8rem;}
+    .lead{font-size:1.2rem !important;font-weight:300;color:var(--text-light) !important;border-left:3px solid var(--gold);padding-left:1.2rem;}
+    blockquote{margin:2rem 0;padding:1.5rem 1.5rem 1.5rem 2rem;background:var(--white);border-left:4px solid var(--gold);font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic;color:var(--green);line-height:1.6;}
+    blockquote cite{display:block;margin-top:0.8rem;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;font-style:normal;color:var(--text-light);}
+    .article-image{margin:2.5rem 0;border-radius:2px;overflow:hidden;}
+    .article-image img{width:100%;height:auto;display:block;}
+    .article-image figcaption{font-size:0.8rem;color:var(--text-light);padding:0.8rem 0;font-style:italic;}
+    .info-box{background:var(--navy);color:var(--parchment);padding:2rem;margin:2.5rem 0;border-radius:2px;}
+    .info-box h3{font-family:'Playfair Display',serif;color:var(--gold);font-size:1.2rem;margin:0 0 1rem;}
+    .info-box p{color:rgba(248,246,240,0.8) !important;font-size:0.95rem !important;margin-bottom:0.8rem !important;}
+    .info-box a{color:var(--gold);text-decoration:none;}
+    .info-box a:hover{text-decoration:underline;}
+    .links-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin:1.5rem 0;}
+    .link-card{background:var(--white);border:1px solid var(--border);padding:1rem 1.2rem;text-decoration:none;transition:all 0.3s ease;display:block;}
+    .link-card:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(0,0,0,0.06);border-color:var(--gold);}
+    .link-card-title{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;color:var(--navy);margin-bottom:0.3rem;}
+    .link-card-desc{font-size:0.82rem;color:var(--text-light);line-height:1.5;margin-bottom:0.4rem;}
+    .link-card-url{font-size:0.72rem;color:var(--gold-dark);}
+    footer{background:var(--navy);color:rgba(248,246,240,0.4);text-align:center;padding:2rem;}
+    footer a{color:var(--gold);text-decoration:none;}
+    .footer-back{display:inline-block;margin-bottom:0.5rem;font-size:0.9rem;}
+    .footer-copy{font-size:0.75rem;}
+    @media(max-width:768px){
+      .hero{height:50vh;min-height:350px;}
+      .hero h1{font-size:2rem;}
+      .article{padding:2.5rem 1.2rem;}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-brand">Northumberland<span>Arts</span></a>
+    <a href="index.html" class="back-link">&larr; Back to Home</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Food &amp; Drink</div>
+      <h1>A Taste of <span>Northumberland</span></h1>
+      <p class="hero-sub">From Michelin-starred kitchens to smokehouses that have cured herrings for 130 years, this county feeds the soul as well as the stomach.</p>
+    </div>
+  </section>
+
+  <article class="article">
+    <p class="lead">Northumberland's food scene is one of Britain's best-kept secrets. Not because the county lacks quality &mdash; quite the opposite &mdash; but because it has never needed to shout about it.</p>
+
+    <p>The ingredients speak for themselves. Hill lamb from the Cheviots, oak-smoked kippers from Craster, farmhouse cheese from Blagdon, mead brewed on Holy Island in a tradition stretching back to the medieval monks. This is a county where the land, the sea, and the people who work them are still intimately connected &mdash; and you can taste it in every mouthful.</p>
+
+    <h2>The Finest Table</h2>
+    <p>Pine, at Vallum Farm near the line of Hadrian's Wall, holds a Michelin Star and a Michelin Green Star &mdash; a rare double recognition that places it among the very best restaurants in the north of England. Chef Cal Byerley cooks in a converted cow barn overlooking the Wall, using foraged and hyper-local ingredients that change with the seasons. The tasting menu is an education in what Northumberland's landscape can produce when someone pays proper attention.</p>
+    <p>Byerley's approach is quiet and unshowy. There are no theatrics, no Instagram moments for the sake of it &mdash; just exceptional cooking rooted in the fields and hedgerows around the kitchen door. It is the kind of restaurant that changes how you think about a place.</p>
+    <p>And the county's fine dining story is far from finished. Freyja, from the former Hjem team, opens at Close House in autumn 2026, bringing another layer of ambition to Northumberland's top table. The momentum is real.</p>
+
+    <h2>The Country Pub</h2>
+    <p>Northumberland does pubs properly. Not the gastropub-by-numbers that plagues the Home Counties, but real places with real fires, real ale, and cooking that respects the ingredients without trying too hard.</p>
+    <p><strong>The Rat Inn</strong> at Anick, near Hexham, regularly appears in the Top 50 Gastropubs in Britain. It sits on a hillside above the Tyne Valley with views that would justify the visit even if the food were ordinary &mdash; which it emphatically is not. The menu changes daily, the wine list is thoughtful, and the welcome is genuine.</p>
+    <p><strong>The Feathers Inn</strong> at Hedley on the Hill has collected over forty-eight awards and counting. This tiny stone pub in a hamlet south of the Tyne serves food sourced almost entirely from within Northumberland. It has no pretensions and no reservations system &mdash; you turn up, you find a seat, and you eat some of the best pub food in England.</p>
+    <p><strong>The Lord Crewe Arms</strong> in Blanchland occupies a twelfth-century building in what many consider to be England's most beautiful village. The bar is in the medieval vaulted crypt. The fireplace is enormous. The whole place feels like stepping into a story that started nine hundred years ago and never quite ended.</p>
+    <p><strong>The Beresford Arms</strong>, near Morpeth, was named North East Tourism Pub of the Year in 2024 &mdash; a well-deserved recognition for a pub that gets the fundamentals right: good food, good beer, and the kind of atmosphere that makes you want to stay for another round.</p>
+
+    <h2>From the Smokehouse</h2>
+    <p>If Northumberland has a signature flavour, it is oak smoke.</p>
+    <p><strong>L. Robson &amp; Sons</strong> in Craster have been smoking herrings in the same stone smokehouse for over 130 years. The process has barely changed: whole herrings are split and brined, then hung on tenterhooks above smouldering oak shavings for sixteen hours. The result is the Craster kipper &mdash; a thing of deep amber beauty, rich and smoky and nothing like the pale, dyed imitations you find in supermarkets.</p>
+    <p>Walk through Craster village on a smoking day and the scent follows you along the harbour wall, drifting between the fishing boats and the lobster pots. It is one of those smells that lodges in your memory and never quite leaves.</p>
+    <p><strong>Swallowfish</strong> in Seahouses has been smoking fish since 1843, making it one of the oldest working smokehouses in the United Kingdom. They smoke salmon, trout, mackerel, and kippers using methods handed down through generations. The shop on the harbour front is worth a visit even if you only want to stand at the counter and breathe in.</p>
+
+    <h2>From the Farm</h2>
+    <p>The farmland between the coast and the hills is some of the most productive in the north of England, and the county's farm shops reflect that abundance.</p>
+    <p><strong>Brocksbushes</strong> near Corbridge is part farm shop, part pick-your-own, part family day out. The fruit farm has been run by the same family for decades, and their jams, chutneys, and baked goods are Northumberland staples. In summer, the strawberry fields are rammed.</p>
+    <p><strong>Northumberland Cheese Company</strong> at Blagdon produces eleven varieties of cheese, from a creamy Brie-style to a punchy smoked Northumberland. They use milk from local herds and the results are consistently excellent. The cheese shop at Blagdon is a dangerous place to visit with an empty cool bag.</p>
+    <p><strong>Morwick Dairy</strong> near Warkworth makes ice cream from their own herd of dairy cows. The parlour overlooks the fields where the cows graze, which is about as farm-to-cone as it gets. The flavours change with the seasons, but the salted caramel is a permanent fixture for good reason.</p>
+    <p><strong>Doddington Dairy</strong> near Wooler produces award-winning ice cream and cheese at the foot of the Cheviots. Their Doddington cheese is a semi-hard, full-flavoured beauty that pairs perfectly with the county's real ales. <strong>North Acomb Farm Shop</strong>, near Stocksfield, rounds out the picture &mdash; a proper working farm shop with meat from the farm, seasonal vegetables, and none of the polish of a chain supermarket.</p>
+
+    <h2>Spirit of the County</h2>
+    <p><strong>Ad Gefrin</strong> in Wooler is England's northernmost whisky distillery, and it is doing something genuinely remarkable. Named after the Anglo-Saxon royal palace discovered nearby, the distillery combines world-class spirit production with an archaeological museum that tells the story of the ancient kingdom of Northumbria. The building itself &mdash; dramatic, modern, set against the Cheviot Hills &mdash; is worth the visit before you have even tasted a drop.</p>
+    <p>The first whiskies are maturing in cask, and the gin and vodka already released have won serious awards. Ad Gefrin is a statement of intent: Northumberland is not just a place with a past, but a place building a future.</p>
+    <p><strong>Lindisfarne Mead</strong> has been brewed on Holy Island for decades, continuing a tradition that stretches back to the medieval monks of the Priory. The original mead &mdash; sweet, honey-gold, faintly herbal &mdash; sells around two million bottles a year worldwide. It remains one of the most popular souvenirs any visitor takes home from Northumberland, and for good reason: it tastes like the island feels.</p>
+
+    <h2>The County's Larder</h2>
+    <p>Beyond the restaurants and the farm shops, Northumberland's larder runs deep. Hill lamb from the Cheviot flocks has a flavour that lowland lamb simply cannot match &mdash; the rough grazing and the clean air see to that. Venison and game from the great estates appear on menus throughout the autumn and winter. Heritage potatoes from Buston, near Alnmouth, are grown in varieties you will not find anywhere else.</p>
+    <p>In spring and early summer, the county produces asparagus and strawberries that rival anything from further south. And the real ale scene is thriving &mdash; small breweries across the county are producing beers that reflect the landscape, from light, hoppy pale ales to dark, malty stouts brewed for Northumbrian winters.</p>
+    <p>This is not a county that follows food trends. It sets its own pace, grows its own ingredients, and trusts that the quality will speak for itself. It always does.</p>
+
+    <div class="info-box">
+      <h3>Food Festivals &amp; Markets</h3>
+      <p><strong>Alnwick Food Festival</strong> &mdash; Held each September in the grounds of Alnwick Castle. One of the largest food festivals in the north of England, with producers, demonstrations, and tastings from across the county.</p>
+      <p><strong>Farmers' Markets</strong> &mdash; Regular markets at Hexham, Morpeth, and Alnwick bring together the best of Northumberland's producers. Hexham's market, held in the historic Market Place, is one of the finest in the region.</p>
+      <p><strong>Triple A Food Tours</strong> &mdash; Meet the Makers guided tours that take you behind the scenes at Northumberland's best food and drink producers. A brilliant way to taste the county with someone who knows it inside out.</p>
+    </div>
+
+    <h2>Related Articles</h2>
+    <div class="links-grid">
+      <a href="visit.html" class="link-card">
+        <div class="link-card-title">Visit Northumberland</div>
+        <div class="link-card-desc">Plan your trip to the coast, the castles, and the countryside &mdash; and find the best places to eat along the way.</div>
+        <div class="link-card-url">northumberlandarts.com</div>
+      </a>
+      <a href="national-park.html" class="link-card">
+        <div class="link-card-title">Northumberland National Park</div>
+        <div class="link-card-desc">The wild landscape that produces the hill lamb, the game, and the clean water behind Northumberland's finest food.</div>
+        <div class="link-card-url">northumberlandarts.com</div>
+      </a>
+      <a href="grace-darling.html" class="link-card">
+        <div class="link-card-title">Grace Darling</div>
+        <div class="link-card-desc">The lighthouse keeper's daughter who rowed into a storm &mdash; on the same coast where Craster's kippers have been smoked for over a century.</div>
+        <div class="link-card-url">northumberlandarts.com</div>
+      </a>
+    </div>
+  </article>
+
+  <footer>
+    <a href="index.html" class="footer-back">&larr; Back to NorthumberlandArts.com</a>
+    <div class="footer-copy">&copy; 2026 NorthumberlandArts.com. All rights reserved.</div>
+  </footer>
+
+<script>document.addEventListener("contextmenu",function(e){if(e.target.tagName==="IMG"){e.preventDefault()}});document.addEventListener("dragstart",function(e){if(e.target.tagName==="IMG"){e.preventDefault()}});</script>
+</body>
+</html>
