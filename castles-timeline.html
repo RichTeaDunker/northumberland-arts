@@ -47,10 +47,10 @@
 
     /* Century markers — dot on the line, number outside staggered */
     .century-marker{position:relative;text-align:center;margin:3rem 0 2rem;clear:both;}
-    .century-marker::before{content:'';position:absolute;left:50%;top:50%;width:28px;height:26px;background:url('castle-icon.png') center/contain no-repeat;transform:translate(-50%,-50%);z-index:3;}
-    .century-marker span{position:absolute;top:50%;transform:translateY(-50%);z-index:3;display:inline-flex;align-items:center;justify-content:center;color:var(--gold);font-family:'Playfair Display',serif;font-size:0.65rem;font-weight:600;letter-spacing:0.5px;width:56px;height:52px;padding-top:12px;white-space:nowrap;background:url('castle-icon.png') center top / 48px 44px no-repeat;}
-    .century-marker.cm-left span{right:calc(50% + 24px);}
-    .century-marker.cm-right span{left:calc(50% + 24px);}
+    .century-marker::before{display:none;}
+    .century-marker span{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3;display:inline-flex;align-items:center;justify-content:center;color:var(--gold);font-family:'Playfair Display',serif;font-size:0.65rem;font-weight:600;letter-spacing:0.5px;width:56px;height:52px;padding-top:12px;white-space:nowrap;background:url('castle-icon.png') center top / 48px 44px no-repeat;}
+    .century-marker.cm-left span{left:50%;transform:translate(-50%,-50%);}
+    .century-marker.cm-right span{left:50%;transform:translate(-50%,-50%);}
 
     /* Castle cards */
     .tl-item{position:relative;width:45%;margin-bottom:2.5rem;clear:both;}
