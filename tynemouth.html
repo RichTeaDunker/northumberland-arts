@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tynemouth Priory &amp; Castle | NorthumberlandArts</title>
+  <meta name="description" content="Three Northumbrian kings lie buried beneath Tynemouth Priory. Part of Northumberland for over 1,300 years, the headland guards the mouth of the Tyne with a history that stretches from Anglo-Saxon saints to World War gun batteries." />
+  <meta property="og:title" content="Tynemouth — Gateway to the Northumbrian Coast" />
+  <meta property="og:description" content="Three kings buried. 1,300 years of Northumbrian history. One dramatic headland at the mouth of the Tyne." />
+  <meta property="og:url" content="https://northumberland-arts.pages.dev/tynemouth.html" />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://northumberland-arts.pages.dev/tynemouth.html" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pannellum/2.5.6/pannellum.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pannellum/2.5.6/pannellum.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://res.cloudinary.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root { --navy:#1a1a2e; --green:#2d6a4f; --gold:#c9a84c; --gold-dark:#a8893d; --parchment:#f8f6f0; --white:#ffffff; --text:#333333; --text-light:#666666; --border:rgba(0,0,0,0.06); }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Source Sans 3',sans-serif;background:var(--parchment);color:var(--text);line-height:1.7;}
+    nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(26,26,46,0.95);padding:0.8rem 2rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(201,168,76,0.15);}
+    .nav-brand{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--parchment);text-decoration:none;letter-spacing:1px;}
+    .nav-brand span{color:var(--gold);}
+    .back-link{color:rgba(248,246,240,0.6);text-decoration:none;font-size:0.85rem;transition:color 0.3s;}
+    .back-link:hover{color:var(--gold);}
+    .hero{position:relative;height:70vh;min-height:450px;display:flex;align-items:flex-end;overflow:hidden;background:var(--navy);}
+    .hero-gradient{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,26,46,0.95) 0%,rgba(26,26,46,0.4) 50%,rgba(26,26,46,0.2) 100%);}
+    .hero-content{position:relative;z-index:2;padding:3rem 2rem;max-width:800px;}
+    .hero-badge{display:inline-block;background:var(--gold);color:var(--navy);font-size:0.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:0.3rem 0.8rem;border-radius:2px;margin-bottom:1rem;}
+    .hero h1{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:600;color:var(--parchment);line-height:1.15;margin-bottom:0.8rem;}
+    .hero h1 span{color:var(--gold);}
+    .hero-sub{font-size:1.1rem;color:rgba(248,246,240,0.7);font-weight:300;max-width:600px;}
+    .article{max-width:780px;margin:0 auto;padding:4rem 2rem;}
+    .article p{font-size:1.05rem;line-height:1.85;margin-bottom:1.5rem;color:var(--text);}
+    .article h2{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:500;color:var(--navy);margin:3rem 0 1rem;padding-bottom:0.5rem;border-bottom:2px solid var(--gold);}
+    .article h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:500;color:var(--green);margin:2rem 0 0.8rem;}
+    .lead{font-size:1.2rem !important;font-weight:300;color:var(--text-light) !important;border-left:3px solid var(--gold);padding-left:1.2rem;}
+    blockquote{margin:2rem 0;padding:1.5rem 1.5rem 1.5rem 2rem;background:var(--white);border-left:4px solid var(--gold);font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic;color:var(--green);line-height:1.6;}
+    blockquote cite{display:block;margin-top:0.8rem;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;font-style:normal;color:var(--text-light);}
+    .info-box{background:var(--navy);color:var(--parchment);padding:2rem;margin:2.5rem 0;border-radius:2px;}
+    .info-box h3{font-family:'Playfair Display',serif;color:var(--gold);font-size:1.2rem;margin:0 0 1rem;}
+    .info-box p{color:rgba(248,246,240,0.8) !important;font-size:0.95rem !important;margin-bottom:0.8rem !important;}
+    .info-box a{color:var(--gold);text-decoration:none;}
+    .info-box a:hover{text-decoration:underline;}
+    .credit-box{background:var(--white);border:1px solid var(--border);padding:1.5rem;margin:2.5rem 0;border-radius:2px;font-size:0.9rem;color:var(--text-light);line-height:1.7;}
+    .credit-box strong{color:var(--navy);}
+    .credit-box a{color:var(--green);}
+    .links-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin:1.5rem 0;}
+    .link-card{background:var(--white);border:1px solid var(--border);padding:1rem 1.2rem;text-decoration:none;transition:all 0.3s ease;display:block;}
+    .link-card:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(0,0,0,0.06);border-color:var(--gold);}
+    .link-card-title{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;color:var(--navy);margin-bottom:0.3rem;}
+    .link-card-desc{font-size:0.82rem;color:var(--text-light);line-height:1.5;margin-bottom:0.4rem;}
+    .link-card-url{font-size:0.75rem;color:var(--gold);}
+    .kings-table{width:100%;border-collapse:collapse;margin:1.5rem 0;}
+    .kings-table th{background:var(--navy);color:var(--gold);font-family:'Playfair Display',serif;font-weight:500;padding:0.8rem 1rem;text-align:left;font-size:0.9rem;}
+    .kings-table td{padding:0.8rem 1rem;border-bottom:1px solid var(--border);font-size:0.95rem;}
+    .kings-table tr:nth-child(even){background:var(--white);}
+    footer{background:var(--navy);padding:3rem 2rem;text-align:center;}
+    footer p{color:rgba(248,246,240,0.4);font-size:0.8rem;line-height:1.8;}
+    footer a{color:var(--gold);text-decoration:none;}
+    @media(max-width:600px){
+      .hero h1{font-size:2rem;}
+      .article{padding:2.5rem 1.2rem;}
+      .hero-content{padding:2rem 1.2rem;}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-brand">Northumberland<span>Arts</span></a>
+    <a href="index.html#history" class="back-link">&larr; All History</a>
+  </nav>
+
+  <section class="hero" style="height:auto;min-height:auto;flex-direction:column;">
+    <div id="pano-hero" style="width:100%;height:65vh;min-height:400px;"></div>
+    <div style="background:var(--navy);padding:2rem 2rem 2.5rem;width:100%;">
+      <div style="max-width:800px;">
+        <div class="hero-badge">Northumberland History</div>
+        <h1>Tynemouth &mdash; <span>Gateway to the Northumbrian Coast</span></h1>
+        <p class="hero-sub">Three kings lie buried beneath its Priory. Part of Northumberland for over 1,300 years, the headland at the mouth of the Tyne holds more history per square metre than almost anywhere in the North East.</p>
+        <p style="font-size:0.75rem;color:rgba(248,246,240,0.4);margin-top:0.8rem;font-style:italic;">360&deg; panorama &mdash; King Edward&rsquo;s Bay, Tynemouth. Drag to explore.</p>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <p class="lead">Stand on the headland at Tynemouth and you stand where Anglo-Saxon monks prayed, where Norman walls rose against Scottish armies, where Turner painted the ruins against a blazing sky, and where gun batteries defended the Tyne through two World Wars. The Priory beneath your feet holds the bones of kings. The sea in front of you carried Viking longships, Roman supply galleys, and the rescue boats that gave Tynemouth the oldest volunteer life brigade in the world.</p>
+
+    <h2>A Northumbrian Place</h2>
+
+    <p>Tynemouth was part of Northumberland for over 1,300 years. From the Anglo-Saxon Kingdom of Northumbria through to the medieval county, through the Elizabethan and Georgian eras, right up until 1 April 1974 &mdash; Tynemouth was Northumberland. The Local Government Act of 1972 redrew the map, creating the metropolitan county of Tyne and Wear and placing Tynemouth in the new borough of North Tyneside. It was a bureaucratic pen stroke, not a cultural one.</p>
+
+    <p>The headland sits at the south-eastern corner of what was historically called Tynemouthshire &mdash; an ancient parish encompassing Chirton, Cullercoats, Monkseaton, Murton, North Shields, Preston, and Whitley. Seven thousand acres of Northumberland soil, with the Priory at its heart.</p>
+
+    <h2>Three Kings Beneath the Priory</h2>
+
+    <p>The heraldry of North Tyneside still carries three crowns. They represent the three kings buried at Tynemouth Priory &mdash; a claim almost no other site in England can match.</p>
+
+    <table class="kings-table">
+      <thead>
+        <tr><th>King</th><th>Died</th><th>The Story</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>St Oswine, King of Deira</strong></td>
+          <td>651 AD</td>
+          <td>Betrayed and murdered at Gilling on the orders of King Oswiu of Bernicia. His body was brought to Tynemouth. Oswiu founded the monastery in penance. Oswine was venerated as a saint, and his shrine became a major pilgrimage site for centuries.</td>
+        </tr>
+        <tr>
+          <td><strong>Osred II, King of Northumbria</strong></td>
+          <td>792 AD</td>
+          <td>Buried at Tynemouth in preference to Jarrow, Wearmouth, or Lindisfarne &mdash; a measure of the Priory&rsquo;s standing among Northumbrian monasteries.</td>
+        </tr>
+        <tr>
+          <td><strong>Malcolm III, King of Scotland</strong></td>
+          <td>1093</td>
+          <td>Killed at the Battle of Alnwick on 13 November 1093. His body was carried to Tynemouth Priory alongside his son Edward. Later exhumed and reburied at Dunfermline Abbey in 1115.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>The murder of Oswine at the hands of Oswiu is one of the foundational events of the Kingdom of Northumbria. Deira and Bernicia &mdash; the two sub-kingdoms that made up Northumbria &mdash; were locked in rivalry, and Tynemouth became the burial ground of that conflict. The monastery that grew around Oswine&rsquo;s tomb would stand for nearly a thousand years.</p>
+
+    <h2>From Monastery to Fortress</h2>
+
+    <p>The first monastery was probably founded in the mid-7th century, sponsored by Northumbrian royalty. The Venerable Bede records an Abbot Heribald at Tynemouth who died in 745. For centuries the monastery served as a centre of learning and pilgrimage, connected by faith and by sea to Lindisfarne, Jarrow, and Wearmouth &mdash; the great Northumbrian monasteries that shaped early English Christianity.</p>
+
+    <p>The Vikings came. Just as they struck Lindisfarne in 793, they raided the coast around Tynemouth. The monastery survived, but the world around it changed. After the Norman Conquest, the priory was refounded as a Benedictine house under the control of St Albans Abbey &mdash; a controversial arrangement that Northumbrian monks resisted for generations.</p>
+
+    <p>The castle grew alongside the priory. The headland was too strategically important to remain unwalled. By the 13th century, Tynemouth was both holy site and military stronghold. It was besieged during the Wars of Scottish Independence in 1296, held during the conflicts of Henry IV&rsquo;s reign, and finally dissolved by Henry VIII in 1539. The priory died; the castle lived on.</p>
+
+    <h2>The Painters&rsquo; Headland</h2>
+
+    <p>The ruins drew artists like a flame draws moths. <strong>J.M.W. Turner</strong> painted Tynemouth Priory &mdash; the dramatic silhouette of broken arches against sky and sea captured exactly the kind of sublime landscape that defined the Romantic era. The American painter <strong>Winslow Homer</strong> spent 1881&ndash;1882 at neighbouring Cullercoats, producing some of the finest watercolours of his career &mdash; powerful images of fisherfolk and the relentless North Sea that were profoundly influenced by the Tynemouth coastline.</p>
+
+    <h2>The Lifeboat Tradition</h2>
+
+    <p>The Tynemouth Volunteer Life Brigade, founded in 1864, is the oldest volunteer life brigade in the world. It stands in the same tradition of coastal rescue that produced Grace Darling on the Farne Islands in 1838 &mdash; a tradition that runs the entire length of the Northumberland coast, from Tynemouth to Berwick and beyond. The sea gives and the sea takes, and Northumbrians have always rowed out to meet it.</p>
+
+    <h2>The Roman Connection</h2>
+
+    <p>Two miles upriver at Wallsend stands Segedunum &mdash; the eastern terminus of Hadrian&rsquo;s Wall. Every Roman supply ship entering the Tyne would have passed beneath the headland where the Priory now stands. While no confirmed Roman fort has been found at Tynemouth itself, Roman altars and coins have been discovered in the area, and the strategic importance of the river mouth was not lost on a civilisation that understood harbours as well as walls.</p>
+
+    <div class="info-box">
+      <h3>Visit Tynemouth</h3>
+      <p><strong>Tynemouth Priory &amp; Castle</strong> is managed by English Heritage. Open year-round (seasonal hours). The headland walk gives views across the river mouth to South Shields and north along the coast toward St Mary&rsquo;s Lighthouse and Whitley Bay.</p>
+      <p><strong>King Edward&rsquo;s Bay</strong> &mdash; the sheltered beach beneath the Priory headland. One of the best small beaches on the North East coast.</p>
+      <p><strong>Tynemouth Station</strong> &mdash; the beautifully restored Victorian metro station hosts a popular weekend market.</p>
+      <p><a href="https://www.english-heritage.org.uk/visit/places/tynemouth-priory-and-castle/" target="_blank" rel="noopener noreferrer">English Heritage &mdash; Tynemouth Priory &amp; Castle &rarr;</a></p>
+    </div>
+
+    <h2>Further Reading</h2>
+    <div class="links-grid">
+      <a href="https://www.english-heritage.org.uk/visit/places/tynemouth-priory-and-castle/history/" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">English Heritage &mdash; Full History</div>
+        <p class="link-card-desc">Comprehensive history of the Priory and Castle from Anglo-Saxon foundation to 20th century coastal defence.</p>
+        <span class="link-card-url">english-heritage.org.uk</span>
+      </a>
+      <a href="https://en.wikipedia.org/wiki/Tynemouth_Priory_and_Castle" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">Tynemouth Priory &amp; Castle &mdash; Wikipedia</div>
+        <p class="link-card-desc">Overview of the site&rsquo;s history, architecture, and significance.</p>
+        <span class="link-card-url">wikipedia.org</span>
+      </a>
+      <a href="https://englandsnortheast.co.uk/kingdom-northumbria/" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">The Kingdom of Northumbria</div>
+        <p class="link-card-desc">The Anglo-Saxon kingdom that encompassed Tynemouth, Lindisfarne, Bamburgh, and the great Northumbrian monasteries.</p>
+        <span class="link-card-url">englandsnortheast.co.uk</span>
+      </a>
+    </div>
+
+    <h2>Related Articles</h2>
+    <div class="links-grid">
+      <a href="lindisfarne-raid.html" class="link-card">
+        <div class="link-card-title">The Viking Raid on Lindisfarne</div>
+        <div class="link-card-desc">793 AD &mdash; the raid that shook Christendom. Tynemouth&rsquo;s monastery shared the same world and the same fate.</div>
+        <div class="link-card-url">northumberlandarts.com</div>
+      </a>
+      <a href="hadrians-wall.html" class="link-card">
+        <div class="link-card-title">Hadrian&rsquo;s Wall</div>
+        <div class="link-card-desc">The Wall&rsquo;s eastern end at Wallsend is just two miles upriver from Tynemouth&rsquo;s headland.</div>
+        <div class="link-card-url">northumberlandarts.com</div>
+      </a>
+      <a href="grace-darling.html" class="link-card">
+        <div class="link-card-title">Grace Darling</div>
+        <div class="link-card-desc">Tynemouth&rsquo;s lifeboat tradition runs the same coast that Grace Darling rowed into a storm to save nine lives.</div>
+        <div class="link-card-url">northumberlandarts.com</div>
+      </a>
+      <a href="castles.html" class="link-card">
+        <div class="link-card-title">Northumberland&rsquo;s Castles</div>
+        <div class="link-card-desc">From Bamburgh to Dunstanburgh to Tynemouth &mdash; the headland fortresses of the Northumbrian coast.</div>
+        <div class="link-card-url">northumberlandarts.com</div>
+      </a>
+    </div>
+
+    <div class="credit-box">
+      <strong>Digital Imagery by R Patterson</strong> for <a href="https://northumberlandarts.com">NorthumberlandArts.com</a><br />
+      Article researched and written April 2026. Sources include English Heritage, the National Archives, and Bede&rsquo;s <em>Ecclesiastical History</em>.
+    </div>
+
+  </article>
+
+  <script>
+    pannellum.viewer('pano-hero', {
+      type: 'equirectangular',
+      panorama: 'claude-KingEddies-360-web.jpg',
+      autoLoad: true,
+      autoRotate: -2,
+      compass: false,
+      showFullscreenCtrl: true,
+      showZoomCtrl: false,
+      hfov: 100,
+      minHfov: 50,
+      maxHfov: 120,
+      orientationOnByDefault: false
+    });
+  </script>
+
+  <footer>
+    <p><a href="index.html">NorthumberlandArts</a> &mdash; Art, History &amp; Culture<br />
+    &copy; 2026 NorthumberlandArts.com &mdash; All rights reserved<br />
+    <a href="mailto:richard@northumberlandarts.com">richard@northumberlandarts.com</a></p>
+  </footer>
+</body>
+</html>
