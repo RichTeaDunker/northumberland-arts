@@ -48,7 +48,7 @@
     /* Century markers — dot on the line, number outside staggered */
     .century-marker{position:relative;text-align:center;margin:3rem 0 2rem;clear:both;}
     .century-marker::before{content:'';position:absolute;left:50%;top:50%;width:16px;height:16px;background:var(--gold);border:3px solid var(--parchment);border-radius:50%;transform:translate(-50%,-50%);z-index:3;box-shadow:0 0 0 3px var(--gold);}
-    .century-marker span{position:absolute;top:50%;transform:translateY(-50%);z-index:3;display:inline-flex;align-items:flex-end;justify-content:center;background:var(--navy);color:var(--gold);font-family:'Playfair Display',serif;font-size:0.75rem;font-weight:600;letter-spacing:1px;width:56px;height:48px;padding-bottom:6px;white-space:nowrap;clip-path:polygon(0% 40%, 0% 100%, 100% 100%, 100% 40%, 95% 40%, 95% 22%, 88% 22%, 88% 40%, 78% 40%, 78% 22%, 71% 22%, 71% 40%, 62% 40%, 62% 10%, 56% 10%, 56% 0%, 44% 0%, 44% 10%, 38% 10%, 38% 40%, 29% 40%, 29% 22%, 22% 22%, 22% 40%, 12% 40%, 12% 22%, 5% 22%, 5% 40%);}
+    .century-marker span{position:absolute;top:50%;transform:translateY(-50%);z-index:3;display:inline-flex;align-items:center;justify-content:center;color:var(--gold);font-family:'Playfair Display',serif;font-size:0.75rem;font-weight:600;letter-spacing:1px;width:56px;height:52px;padding-top:12px;white-space:nowrap;background:url('castle-icon.png') center top / 48px 44px no-repeat;}
     .century-marker.cm-left span{right:calc(50% + 24px);}
     .century-marker.cm-right span{left:calc(50% + 24px);}
 
