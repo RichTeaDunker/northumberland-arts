@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amble &mdash; The Friendliest Port | NorthumberlandArts</title>
+  <meta name="description" content="From Bronze Age burials to puffin festivals, Amble has been coal port, fishing harbour, and the friendliest port in England. The Mauretania said so." />
+  <meta property="og:title" content="Amble — The Friendliest Port in England" />
+  <meta property="og:description" content="A telegram from the Mauretania. A harbour full of artists. And 18,000 puffins just offshore. The story of Amble, Northumberland." />
+  <meta property="og:url" content="https://northumberland-arts.pages.dev/amble.html" />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://northumberland-arts.pages.dev/amble.html" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pannellum/2.5.6/pannellum.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pannellum/2.5.6/pannellum.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://res.cloudinary.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root { --navy:#1a1a2e; --green:#2d6a4f; --gold:#c9a84c; --gold-dark:#a8893d; --parchment:#f8f6f0; --white:#ffffff; --text:#333333; --text-light:#666666; --border:rgba(0,0,0,0.06); }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Source Sans 3',sans-serif;background:var(--parchment);color:var(--text);line-height:1.7;}
+    nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(26,26,46,0.95);padding:0.8rem 2rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(201,168,76,0.15);}
+    .nav-brand{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--parchment);text-decoration:none;letter-spacing:1px;}
+    .nav-brand span{color:var(--gold);}
+    .back-link{color:rgba(248,246,240,0.6);text-decoration:none;font-size:0.85rem;transition:color 0.3s;}
+    .back-link:hover{color:var(--gold);}
+    .hero{position:relative;height:70vh;min-height:450px;display:flex;align-items:flex-end;overflow:hidden;background:var(--navy);}
+    .hero-content{position:relative;z-index:2;padding:3rem 2rem;max-width:800px;}
+    .hero-badge{display:inline-block;background:var(--gold);color:var(--navy);font-size:0.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:0.3rem 0.8rem;border-radius:2px;margin-bottom:1rem;}
+    .hero h1{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:600;color:var(--parchment);line-height:1.15;margin-bottom:0.8rem;}
+    .hero h1 span{color:var(--gold);}
+    .hero-sub{font-size:1.1rem;color:rgba(248,246,240,0.7);font-weight:300;max-width:600px;}
+    .article{max-width:780px;margin:0 auto;padding:4rem 2rem;}
+    .article p{font-size:1.05rem;line-height:1.85;margin-bottom:1.5rem;color:var(--text);}
+    .article h2{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:500;color:var(--navy);margin:3rem 0 1rem;padding-bottom:0.5rem;border-bottom:2px solid var(--gold);}
+    .article h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:500;color:var(--green);margin:2rem 0 0.8rem;}
+    .lead{font-size:1.2rem !important;font-weight:300;color:var(--text-light) !important;border-left:3px solid var(--gold);padding-left:1.2rem;}
+    blockquote{margin:2rem 0;padding:1.5rem 1.5rem 1.5rem 2rem;background:var(--white);border-left:4px solid var(--gold);font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic;color:var(--green);line-height:1.6;}
+    blockquote cite{display:block;margin-top:0.8rem;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;font-style:normal;color:var(--text-light);}
+    .info-box{background:var(--navy);color:var(--parchment);padding:2rem;margin:2.5rem 0;border-radius:2px;}
+    .info-box h3{font-family:'Playfair Display',serif;color:var(--gold);font-size:1.2rem;margin:0 0 1rem;}
+    .info-box p{color:rgba(248,246,240,0.8) !important;font-size:0.95rem !important;margin-bottom:0.8rem !important;}
+    .info-box a{color:var(--gold);text-decoration:none;}
+    .info-box a:hover{text-decoration:underline;}
+    .credit-box{background:var(--white);border:1px solid var(--border);padding:1.5rem;margin:2.5rem 0;border-radius:2px;font-size:0.9rem;color:var(--text-light);line-height:1.7;}
+    .credit-box strong{color:var(--navy);}
+    .credit-box a{color:var(--green);}
+    .links-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin:1.5rem 0;}
+    .link-card{background:var(--white);border:1px solid var(--border);padding:1rem 1.2rem;text-decoration:none;transition:all 0.3s ease;display:block;}
+    .link-card:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(0,0,0,0.06);border-color:var(--gold);}
+    .link-card-title{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;color:var(--navy);margin-bottom:0.3rem;}
+    .link-card-desc{font-size:0.82rem;color:var(--text-light);line-height:1.5;margin-bottom:0.4rem;}
+    .link-card-url{font-size:0.75rem;color:var(--gold);}
+    .article-image{margin:2.5rem 0;border-radius:2px;overflow:hidden;}
+    .article-image img{width:100%;height:auto;display:block;}
+    .article-image figcaption{font-size:0.8rem;color:var(--text-light);padding:0.8rem 0;font-style:italic;}
+    .timeline-table{width:100%;border-collapse:collapse;margin:1.5rem 0;}
+    .timeline-table th{background:var(--navy);color:var(--gold);font-family:'Playfair Display',serif;font-weight:500;padding:0.8rem 1rem;text-align:left;font-size:0.9rem;}
+    .timeline-table td{padding:0.7rem 1rem;border-bottom:1px solid var(--border);font-size:0.9rem;}
+    .timeline-table tr:nth-child(even){background:var(--white);}
+    footer{background:var(--navy);padding:3rem 2rem;text-align:center;}
+    footer p{color:rgba(248,246,240,0.4);font-size:0.8rem;line-height:1.8;}
+    footer a{color:var(--gold);text-decoration:none;}
+    @media(max-width:600px){
+      .hero h1{font-size:2rem;}
+      .article{padding:2.5rem 1.2rem;}
+      .hero-content{padding:2rem 1.2rem;}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-brand">Northumberland<span>Arts</span></a>
+    <a href="index.html#history" class="back-link">&larr; All History</a>
+  </nav>
+
+  <section class="hero" style="height:auto;min-height:auto;flex-direction:column;">
+    <div id="pano-hero" style="width:100%;height:65vh;min-height:400px;"></div>
+    <div style="background:var(--navy);padding:2rem 2rem 2.5rem;width:100%;">
+      <div style="max-width:800px;">
+        <div class="hero-badge">Northumberland History</div>
+        <h1>Amble &mdash; <span>The Friendliest Port</span></h1>
+        <p class="hero-sub">A telegram from the Mauretania named it. A harbour full of artists sustains it. And 18,000 puffins nest just offshore. From Bronze Age burials to coal port to the regenerated harbour village, Amble has reinvented itself more times than almost any town on the Northumberland coast.</p>
+        <p style="font-size:0.75rem;color:rgba(248,246,240,0.4);margin-top:0.8rem;font-style:italic;">360&deg; panorama &mdash; Amble Harbour. Drag to explore.</p>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <p class="lead">Stand at the mouth of the River Coquet and you stand where Bronze Age people buried their dead, where St Cuthbert prophesied the death of a king, where 750,000 tons of coal a year once flowed out to sea, where women baited a thousand hooks a day for the fishing boats, and where the Mauretania sent her last telegram to the last and kindliest port in England. Amble has been many things. It has never been unimportant.</p>
+
+    <h2>Before the Name</h2>
+
+    <p>Long before anyone called this place Amble, people lived and died here. In the 1880s and 1890s, workmen digging near the town uncovered urns, cist burials, flint spearheads of what was described as &ldquo;elaborate finish,&rdquo; and human remains exposed by the sea during violent easterly gales. The finds are Bronze Age &mdash; roughly 2500 to 800 BC &mdash; consistent with the pattern of prehistoric coastal settlement found all along the Northumberland shore. People have been drawn to this stretch of coast for four thousand years.</p>
+
+    <p>The name itself first appears in records around 1203 AD. Two theories compete: a Goidelic (Irish) origin, &ldquo;Am Beal,&rdquo; meaning tidal inlet &mdash; attributed to Irish missionaries who moved through the region &mdash; or an Old English origin, &ldquo;Amma&rsquo;s headland.&rdquo; Both are plausible. Neither is proven. The variants Ambell and Ambhill appear in medieval documents, settling eventually into the name we know.</p>
+
+    <h2>Cuthbert on the Island</h2>
+
+    <p>The earliest documented event in the Amble area comes from Coquet Island, one mile offshore, in 684 AD. St Cuthbert, then Prior of Lindisfarne &mdash; the most revered holy man in Northumbria &mdash; met Elfleda, Abbess of Whitby and sister of King Ecgfrith, in a private conference on the island. During this meeting, Cuthbert prophesied that Ecgfrith would die within a year and that his half-brother Aldfrith would succeed him. Both predictions came true. It is one of the founding stories of the Kingdom of Northumbria, and it happened within sight of Amble harbour.</p>
+
+    <p>A monastic community was already established on Coquet Island by this date. After the Norman Conquest, the island was granted around 1090 to Tynemouth Priory. A Danish hermit named Henry of Coquet settled there around 1110, living an ascetic life &mdash; eventually eating only three times a week and observing three years of complete silence. He died in 1127 and was recognised as a prophet. The island remained a place of prayer and solitude for centuries.</p>
+
+    <h2>The Port of Warkworth</h2>
+
+    <p>For most of its history, Amble was a tiny hamlet &mdash; the port settlement serving Warkworth Castle, one mile upriver. The castle, built in its present form around 1200, became the favoured residence of the Percy family from 1345. Henry &ldquo;Hotspur&rdquo; Percy was born there. Shakespeare wrote about it. The Percys wielded near-kingly power from Warkworth, and Amble existed to serve the river mouth.</p>
+
+    <p>In 1316, a ship laden with wheat, rye, and salt from Hartlepool and destined for Berwick was recorded passing through the port of Warkworth &mdash; evidence of medieval maritime trade flowing through what is now Amble harbour. The parish of Amble was not formally separated from Warkworth until 1869. For over a thousand years, Amble was Warkworth&rsquo;s harbour. Its own identity came later.</p>
+
+    <h2>Black Gold</h2>
+
+    <p>Coal changed everything. In 1835, the first coal staithes were built and Amble became Northumberland&rsquo;s most northern coal port. The population, which had been 152 souls in 1801, began to climb. By 1841 it was 724. By 1891 it was nearly 3,000. The collieries at Radcliffe, Broomhill, Hauxley, and Shilbottle poured their output through Amble harbour.</p>
+
+    <p>In 1837, the Warkworth Harbour Commission was created by Act of Parliament. The following year, proposals by the engineer John Rennie were accepted for breakwaters to north and south. They were completed in 1849 at a cost of &pound;116,000 &mdash; a colossal sum that reflected the value of the coal trade. At its peak in the 1920s, around 750,000 tons of coal a year were shipped through Amble, with approximately 800 vessels using the port annually.</p>
+
+    <p>The railway came in 1849 &mdash; the Amble Branch Line, 5.75 miles of single track connecting to the East Coast main line at Chevington. For its first thirty years it carried only freight. Passenger services finally began in 1879 and were withdrawn in 1930. The last coal left Amble harbour in October 1969. The staithes were demolished in 1971. The community at Radcliffe, which had housed over 700 people, was demolished the same year for opencast operations. Residents were relocated to the Radcliffe estate in Amble. An entire way of life, gone in a generation.</p>
+
+    <h2>The Fishing Town</h2>
+
+    <p>Amble has been a fishing port since well before the coal era, but the harbour improvements of the 1830s and 1840s expanded it significantly. The distinctive flat-bottomed coble &mdash; the boat unique to the northeast coast from Whithernsea to Berwick &mdash; was the mainstay of the fleet. Cobles were built by hand and eye, from oak, elm, and larch, with no drawn plans.</p>
+
+    <p>The most notable builders were J. &amp; J. Harrison, who founded their boatyard in 1870 and became the first to put engines in the coble form. Before mechanisation, the women&rsquo;s job was to bait the longlines &mdash; at least a thousand hooks per line, with some boats carrying three. In the 1960s and 70s, over thirty fishing boats worked out of Amble. Today, Amble remains Northumberland&rsquo;s most important fishing centre north of the Tyne. Harrison&rsquo;s boatyard went into receivership in 1989, but the fishing tradition endures.</p>
+
+    <h3>The Braid</h3>
+
+    <p>The Braid was the shipbuilding area of the harbour. In 1918, the Amble Ferro Concrete Company was established there to produce concrete tugs for the Admiralty during the First World War. In 1920, a subsidiary of Palmer Shipbuilding bought the yard and began building steel vessels. Today the Braid is largely greenfield &mdash; the subject of ongoing debate between developers and the &ldquo;Save Our Braid&rdquo; campaign. The tension between preserving what remains and building what&rsquo;s needed is familiar to every Northumberland town.</p>
+
+    <h2>The Kindliest Port in England</h2>
+
+    <p>On 3 July 1935, the RMS Mauretania &mdash; once the fastest ship on the Atlantic &mdash; sailed past Amble on her final voyage to the breaker&rsquo;s yard at Rosyth. At 10:25 in the morning, the clerk to Amble Urban Council sent a telegram:</p>
+
+    <blockquote>&ldquo;Amble to Mauretania. Greetings from Amble, last port in England, to still the finest ship on the seas.&rdquo;<cite>Amble Urban Council, 3 July 1935</cite></blockquote>
+
+    <p>The Mauretania replied:</p>
+
+    <blockquote>&ldquo;Urban Council Amble, to the last and kindliest port in England, greetings and thanks. Mauretania.&rdquo;<cite>RMS Mauretania, 3 July 1935</cite></blockquote>
+
+    <p>The word was &ldquo;kindliest.&rdquo; Decades of retelling have softened it to &ldquo;friendliest.&rdquo; Amble has embraced the title ever since. Signs reading &ldquo;Amble &mdash; the Friendliest Port&rdquo; greet visitors at every entrance road. One of the picture stones in Amble Town Square commemorates this telegram exchange. Each July, Mauretania Day celebrates the moment with vintage cars, 1930s music, and random acts of kindliness.</p>
+
+    <h2>Coquet Island &mdash; The Puffins and the Lighthouse</h2>
+
+    <p>Coquet Island lies one mile offshore, visible from the harbour and the beaches. It is home to over 18,000 pairs of nesting puffins and is the only breeding site for roseate terns in the United Kingdom &mdash; a fact that makes this small island of disproportionate importance to British wildlife conservation. The RSPB leases the island from the Duke of Northumberland. No public access is permitted &mdash; only wardens set foot on the island.</p>
+
+    <p>The Coquet Lighthouse was built by Trinity House in 1841, at a cost of &pound;3,268, constructed on top of the remains of the Benedictine monastery. Its first keeper was William Darling &mdash; the elder brother of Grace Darling, whose rescue at the Farne Islands three years earlier had made her the most famous woman in England. The lighthouse was automated in 1999 and converted to solar power in 2008. The medieval tower still stands beside it.</p>
+
+    <h2>The Marina and the Regeneration</h2>
+
+    <p>On 16 June 1987, Amble Marina officially opened with 250 berths &mdash; built in the former coal harbour area, converting the declining industrial port into a leisure and sailing facility. The marina transformed the town&rsquo;s economy and self-image. The coal was gone. The fishing had declined. The marina offered a future.</p>
+
+    <p>In 1994, the Amble Development Trust was created following a civic regeneration study. In 2001, the Town Square was completed &mdash; featuring carved picture stones designed by schoolchildren with words by the poet Katrina Porteous, and bird head sculptures by Andrew Burton. In 2003, the Trust won the Royal Town Planning Institute&rsquo;s Planning for Town Regeneration Award.</p>
+
+    <p>The Harbour Village opened in March 2015 &mdash; a &pound;2.5 million project creating 15 retail pods housing independent businesses: artists, craftspeople, food producers, and the Northumberland Seafood Centre with its lobster hatchery. The pods are not a shopping centre. They are a harbour village &mdash; the modern expression of the same impulse that has drawn people to this river mouth for four thousand years.</p>
+
+    <h2>The Lifeboat</h2>
+
+    <p>The RNLI first placed a lifeboat at Amble in 1842. The station closed in 1852 when Hauxley took over, and was re-established in 1939 when Hauxley closed. The current purpose-built station on Radcliffe Quay opened in 1986. Crews have received 18 awards for gallantry, including 4 Bronze Medals. Amble holds the distinction of receiving the first ever medals awarded for a rescue conducted in an inshore lifeboat.</p>
+
+    <h2>People of Amble</h2>
+
+    <p><strong>Professor Fred Taylor</strong> (1944&ndash;2021) &mdash; born in Amble, became Halley Professor of Physics at Oxford and built instruments for NASA&rsquo;s Pioneer Venus Orbiter. From a coal port to the clouds of Venus in one generation.</p>
+
+    <p><strong>John Angus</strong> (1938&ndash;2021) &mdash; born in Amble, signed for Burnley FC aged 16 from the local boys&rsquo; club, helped them win the Football League First Division title in 1960, and earned a cap for England.</p>
+
+    <p><strong>Katrina Porteous</strong> &mdash; poet and historian who moved to the Northumberland coast in 1987. Her work focuses on the inshore fishing community and the cultural history of the coast. Shortlisted for the T.S. Eliot Prize in 2024. She wrote the words carved into Amble&rsquo;s Town Square picture stones.</p>
+
+    <div class="info-box">
+      <h3>Visit Amble</h3>
+      <p><strong>Amble Harbour Village</strong> &mdash; 15 independent retail pods on the harbour. Artists, crafts, food, the Seafood Centre. Open daily.</p>
+      <p><strong>Coquet Island</strong> &mdash; no landing permitted, but boat trips from Amble harbour get you close enough to see the puffins. RSPB live cameras during nesting season.</p>
+      <p><strong>Warkworth Castle</strong> &mdash; one mile upriver. English Heritage. The Percy stronghold and one of the finest castles in Northumberland.</p>
+      <p><strong>Puffin Festival</strong> &mdash; annual celebration with craft fairs, guided walks, live puffin cam feed, music, and watersports.</p>
+      <p><strong>Mauretania Day</strong> &mdash; each July. 1930s-themed celebration of the famous telegram.</p>
+      <p><a href="https://www.amble.us/" target="_blank" rel="noopener noreferrer">Amble Development Trust &rarr;</a></p>
+    </div>
+
+    <h2>Related Articles</h2>
+    <div class="links-grid">
+      <a href="grace-darling.html" class="link-card">
+        <div class="link-card-title">Grace Darling</div>
+        <div class="link-card-desc">William Darling, Grace&rsquo;s elder brother, was the first keeper of Coquet Island lighthouse.</div>
+        <div class="link-card-url">northumberlandarts.com</div>
+      </a>
+      <a href="tynemouth.html" class="link-card">
+        <div class="link-card-title">Tynemouth</div>
+        <div class="link-card-desc">Another Northumbrian port with deep history &mdash; and Coquet Island was granted to Tynemouth Priory in 1090.</div>
+        <div class="link-card-url">northumberlandarts.com</div>
+      </a>
+      <a href="castles.html" class="link-card">
+        <div class="link-card-title">Northumberland&rsquo;s Castles</div>
+        <div class="link-card-desc">Warkworth Castle, one mile upriver from Amble, was the Percy family&rsquo;s stronghold for centuries.</div>
+        <div class="link-card-url">northumberlandarts.com</div>
+      </a>
+      <a href="lindisfarne-raid.html" class="link-card">
+        <div class="link-card-title">The Viking Raid on Lindisfarne</div>
+        <div class="link-card-desc">St Cuthbert&rsquo;s visit to Coquet Island in 684 AD connects Amble to the golden age that the Vikings ended.</div>
+        <div class="link-card-url">northumberlandarts.com</div>
+      </a>
+    </div>
+
+    <div class="credit-box">
+      <strong>Fine Art Photography &mdash; R Patterson</strong> for <a href="https://northumberlandarts.com">NorthumberlandArts.com</a><br />
+      Article researched and written April 2026.
+    </div>
+
+  </article>
+
+  <script>
+    pannellum.viewer('pano-hero', {
+      type: 'equirectangular',
+      panorama: 'amble-harbour-360.jpg',
+      autoLoad: true,
+      autoRotate: -2,
+      compass: false,
+      showFullscreenCtrl: true,
+      showZoomCtrl: false,
+      hfov: 100,
+      minHfov: 50,
+      maxHfov: 120,
+      orientationOnByDefault: false
+    });
+  </script>
+
+  <footer>
+    <p><a href="index.html">NorthumberlandArts</a> &mdash; Art, History &amp; Culture<br />
+    &copy; 2026 NorthumberlandArts.com &mdash; All rights reserved<br />
+    <a href="mailto:richard@northumberlandarts.com">richard@northumberlandarts.com</a></p>
+  </footer>
+</body>
+</html>
