@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found &mdash; NorthumberlandArts</title>
+  <meta name="description" content="That page seems to have wandered off the trail. Find your way back to the Northumberland Arts journey." />
+  <meta name="robots" content="noindex,follow" />
+  <link rel="canonical" href="https://northumberland-arts.pages.dev/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root { --navy:#1a1a2e; --green:#2d6a4f; --gold:#c9a84c; --gold-dark:#a8893d; --parchment:#f8f6f0; --white:#ffffff; --text:#333333; --text-light:#666666; --border:rgba(0,0,0,0.06); }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Source Sans 3',sans-serif;background:var(--parchment);color:var(--text);line-height:1.7;min-height:100vh;display:flex;flex-direction:column;}
+    nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(26,26,46,0.95);padding:0.8rem 2rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(201,168,76,0.15);}
+    .nav-brand{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--parchment);text-decoration:none;letter-spacing:1px;}
+    .nav-brand span{color:var(--gold);}
+    .back-link{color:rgba(248,246,240,0.6);text-decoration:none;font-size:0.85rem;transition:color 0.3s;}
+    .back-link:hover{color:var(--gold);}
+    main{flex:1;display:flex;align-items:center;justify-content:center;padding:6rem 1.5rem 3rem;text-align:center;}
+    .panel{max-width:640px;}
+    .badge{display:inline-block;background:var(--gold);color:var(--navy);font-size:0.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:0.3rem 0.8rem;border-radius:2px;margin-bottom:1.2rem;}
+    h1{font-family:'Playfair Display',serif;font-size:3.4rem;font-weight:600;color:var(--navy);line-height:1.1;margin-bottom:0.4rem;}
+    h1 span{color:var(--gold);}
+    .lead{font-size:1.15rem;color:var(--text-light);font-weight:300;max-width:520px;margin:0.6rem auto 2.2rem;border-left:3px solid var(--gold);padding:0.4rem 0 0.4rem 1rem;text-align:left;}
+    .links-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0.8rem;margin-top:1.5rem;text-align:left;}
+    .link-card{background:var(--white);border:1px solid var(--border);padding:1rem 1.2rem;text-decoration:none;transition:all 0.3s ease;display:block;}
+    .link-card:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(0,0,0,0.06);border-color:var(--gold);}
+    .link-card-title{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;color:var(--navy);margin-bottom:0.2rem;}
+    .link-card-desc{font-size:0.78rem;color:var(--text-light);line-height:1.5;}
+    .home-btn{display:inline-block;margin-top:0.4rem;background:var(--navy);color:var(--gold);font-family:'Playfair Display',serif;font-size:0.95rem;letter-spacing:1px;text-decoration:none;padding:0.85rem 1.6rem;border-radius:2px;transition:background 0.3s;}
+    .home-btn:hover{background:var(--green);}
+    footer{background:var(--navy);padding:2rem 2rem;text-align:center;}
+    footer p{color:rgba(248,246,240,0.4);font-size:0.8rem;line-height:1.8;}
+    footer a{color:var(--gold);text-decoration:none;}
+    @media(max-width:600px){
+      h1{font-size:2.4rem;}
+      main{padding:5rem 1rem 2rem;}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/" class="nav-brand">Northumberland<span>Arts</span></a>
+    <a href="/" class="back-link">&larr; Home</a>
+  </nav>
+
+  <main>
+    <div class="panel">
+      <span class="badge">404 &middot; Off the trail</span>
+      <h1>Page <span>Not Found</span></h1>
+      <p class="lead">The path you took has weathered away &mdash; like a faded waymark on the moor. Try one of the routes below, or head back to the start.</p>
+
+      <a href="/" class="home-btn">Return Home</a>
+
+      <div class="links-grid">
+        <a href="/index.html#history" class="link-card">
+          <div class="link-card-title">History</div>
+          <div class="link-card-desc">Castles, raids, painters and the road north.</div>
+        </a>
+        <a href="/explore.html" class="link-card">
+          <div class="link-card-title">Explore</div>
+          <div class="link-card-desc">Zones, places and walks across the county.</div>
+        </a>
+        <a href="/visit.html" class="link-card">
+          <div class="link-card-title">Visit</div>
+          <div class="link-card-desc">Practical info, weather, and tide times.</div>
+        </a>
+        <a href="/artwork.html" class="link-card">
+          <div class="link-card-title">Artwork</div>
+          <div class="link-card-desc">Painters, photographers, makers.</div>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; NorthumberlandArts &middot; <a href="/">Home</a></p>
+  </footer>
+</body>
+</html>
