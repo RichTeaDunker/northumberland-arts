@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Warkworth &mdash; The Town in the River&rsquo;s Loop | NorthumberlandArts</title>
+  <meta name="description" content="A Norman castle, a Norman church, a fortified bridge, a chapel cut into a cliff &mdash; and a river that almost draws a circle around the lot." />
+  <meta property="og:title" content="Warkworth &mdash; The Town in the River&rsquo;s Loop" />
+  <meta property="og:description" content="Eight hundred years of one of England&rsquo;s most photographed villages &mdash; castle, church, bridge, hermitage, and the Coquet bending around them all." />
+  <meta property="og:url" content="https://northumberland-arts.pages.dev/warkworth.html" />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://northumberland-arts.pages.dev/warkworth.html" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pannellum/2.5.6/pannellum.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pannellum/2.5.6/pannellum.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://res.cloudinary.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root { --navy:#1a1a2e; --green:#2d6a4f; --gold:#c9a84c; --gold-dark:#a8893d; --parchment:#f8f6f0; --white:#ffffff; --text:#333333; --text-light:#666666; --border:rgba(0,0,0,0.06); }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Source Sans 3',sans-serif;background:var(--parchment);color:var(--text);line-height:1.7;}
+    nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(26,26,46,0.95);padding:0.8rem 2rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(201,168,76,0.15);}
+    .nav-brand{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--parchment);text-decoration:none;letter-spacing:1px;}
+    .nav-brand span{color:var(--gold);}
+    .back-link{color:rgba(248,246,240,0.6);text-decoration:none;font-size:0.85rem;transition:color 0.3s;}
+    .back-link:hover{color:var(--gold);}
+    .hero{position:relative;height:70vh;min-height:450px;display:flex;align-items:flex-end;overflow:hidden;background:var(--navy);}
+    .hero-gradient{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,26,46,0.95) 0%,rgba(26,26,46,0.4) 50%,rgba(26,26,46,0.2) 100%);}
+    .hero-content{position:relative;z-index:2;padding:3rem 2rem;max-width:800px;}
+    .hero-badge{display:inline-block;background:var(--gold);color:var(--navy);font-size:0.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:0.3rem 0.8rem;border-radius:2px;margin-bottom:1rem;}
+    .hero h1{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:600;color:var(--parchment);line-height:1.15;margin-bottom:0.8rem;}
+    .hero h1 span{color:var(--gold);}
+    .hero-sub{font-size:1.1rem;color:rgba(248,246,240,0.7);font-weight:300;max-width:600px;}
+    .article{max-width:780px;margin:0 auto;padding:4rem 2rem;}
+    .article p{font-size:1.05rem;line-height:1.85;margin-bottom:1.5rem;color:var(--text);}
+    .article h2{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:500;color:var(--navy);margin:3rem 0 1rem;padding-bottom:0.5rem;border-bottom:2px solid var(--gold);}
+    .article h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:500;color:var(--green);margin:2rem 0 0.8rem;}
+    .lead{font-size:1.2rem !important;font-weight:300;color:var(--text-light) !important;border-left:3px solid var(--gold);padding-left:1.2rem;}
+    blockquote{margin:2rem 0;padding:1.5rem 1.5rem 1.5rem 2rem;background:var(--white);border-left:4px solid var(--gold);font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic;color:var(--green);line-height:1.6;}
+    blockquote cite{display:block;margin-top:0.8rem;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;font-style:normal;color:var(--text-light);}
+    .info-box{background:var(--navy);color:var(--parchment);padding:2rem;margin:2.5rem 0;border-radius:2px;}
+    .info-box h3{font-family:'Playfair Display',serif;color:var(--gold);font-size:1.2rem;margin:0 0 1rem;}
+    .info-box p{color:rgba(248,246,240,0.8) !important;font-size:0.95rem !important;margin-bottom:0.8rem !important;}
+    .info-box a{color:var(--gold);text-decoration:none;}
+    .info-box a:hover{text-decoration:underline;}
+    .credit-box{background:var(--white);border:1px solid var(--border);padding:1.5rem;margin:2.5rem 0;border-radius:2px;font-size:0.9rem;color:var(--text-light);line-height:1.7;}
+    .credit-box strong{color:var(--navy);}
+    .credit-box a{color:var(--green);}
+    .links-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin:1.5rem 0;}
+    .link-card{background:var(--white);border:1px solid var(--border);padding:1rem 1.2rem;text-decoration:none;transition:all 0.3s ease;display:block;}
+    .link-card:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(0,0,0,0.06);border-color:var(--gold);}
+    .link-card-title{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;color:var(--navy);margin-bottom:0.3rem;}
+    .link-card-desc{font-size:0.82rem;color:var(--text-light);line-height:1.5;margin-bottom:0.4rem;}
+    .link-card-url{font-size:0.75rem;color:var(--gold);}
+    .article-image{margin:2.5rem 0;border-radius:2px;overflow:hidden;}
+    .article-image img{width:100%;height:auto;display:block;}
+    .article-image figcaption{font-size:0.8rem;color:var(--text-light);padding:0.8rem 0;font-style:italic;}
+    .kings-table{width:100%;border-collapse:collapse;margin:1.5rem 0;}
+    .kings-table th{background:var(--navy);color:var(--gold);font-family:'Playfair Display',serif;font-weight:500;padding:0.8rem 1rem;text-align:left;font-size:0.9rem;}
+    .kings-table td{padding:0.8rem 1rem;border-bottom:1px solid var(--border);font-size:0.95rem;}
+    .kings-table tr:nth-child(even){background:var(--white);}
+    /* Fade gallery for the river-looking-up variants — same pattern as the hero rotators on reivers/castles/national-park */
+    .fade-frame{position:relative;width:100%;aspect-ratio:3/2;margin:2.5rem 0 0.5rem;overflow:hidden;border-radius:2px;background:var(--navy);}
+    .fade-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.5s ease-in-out;}
+    .fade-img.active{opacity:1;}
+    .fade-cap{font-size:0.8rem;color:var(--text-light);padding:0.4rem 0 1.5rem;font-style:italic;}
+    footer{background:var(--navy);padding:3rem 2rem;text-align:center;}
+    footer p{color:rgba(248,246,240,0.4);font-size:0.8rem;line-height:1.8;}
+    footer a{color:var(--gold);text-decoration:none;}
+    @media(max-width:600px){
+      .hero h1{font-size:2rem;}
+      .article{padding:2.5rem 1.2rem;}
+      .hero-content{padding:2rem 1.2rem;}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-brand">Northumberland<span>Arts</span></a>
+    <a href="index.html#history" class="back-link">&larr; All History</a>
+  </nav>
+
+  <section class="hero" style="height:auto;min-height:auto;flex-direction:column;">
+    <div id="pano-hero" style="width:100%;height:65vh;min-height:400px;"></div>
+    <div style="background:var(--navy);padding:2rem 2rem 2.5rem;width:100%;">
+      <div style="max-width:800px;">
+        <div class="hero-badge">River Loop, Fortress Town</div>
+        <h1>Warkworth &mdash; <span>The Town in the River&rsquo;s Loop</span></h1>
+        <p class="hero-sub">A Norman castle on the neck. A Norman church on the bend. A medieval bridge with a tower. A chapel cut into a cliff. Eight centuries of one of England&rsquo;s most photographed villages, stitched together by a single river that nearly draws a circle around it.</p>
+        <p style="font-size:0.75rem;color:rgba(248,246,240,0.4);margin-top:0.8rem;font-style:italic;">360&deg; panorama &mdash; Warkworth Castle and the Coquet bend. Drag to explore.</p>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <p class="lead">Stand on Castle Street and the river is on three sides of you. To the south, on the narrow neck of land where the loop almost closes, sits the great cross-shaped keep of the Percys &mdash; Shakespeare&rsquo;s Hotspur was born inside its walls. To the north, the medieval bridge crosses the Coquet under the only fortified gate-tower of its kind left in England. Half a mile upstream, a chapel hewn directly into a sandstone cliff is reachable only by being rowed across the water. And on the bend itself stands the largest, most complete Norman church in Northumberland. Werce&rsquo;s homestead has been here since 737 AD, and the river has been bending around it for very much longer than that.</p>
+
+    <h2>The River-Loop &mdash; an incised meander, almost an island</h2>
+
+    <p>Before the castle, before the church, before the bridge, before the name &mdash; there was the loop. The River Coquet, on its long run from the Anglo-Scottish border to the North Sea, takes a near-complete horseshoe bend at Warkworth, leaving the village standing on what is effectively a peninsula joined to the mainland only by a narrow neck of land to the south. It is a textbook <em>incised meander</em> &mdash; a river that has cut down through bedrock while preserving the sinuous course it inherited from a flatter, earlier landscape. The bend is so tight that the village reads, from the air, like an island that hasn&rsquo;t quite finished separating itself from the land.</p>
+
+    <p>That single fact of geography is the reason for everything that followed. The Norman castle-builders of the 12th century chose the south-facing neck because it was the only undefended approach &mdash; plant a fortress there and the river does the rest of the work for you. The Anglo-Saxon farmers of the 8th century chose the bend itself because the loop gave them flat, fertile ground on three sides, and the water on three sides made it easier to defend than open hill-country. The medieval town that grew up between the two reads, even now, like a single street strung tight between fortress and church &mdash; because that is exactly what it is.</p>
+
+    <figure class="article-image">
+      <img src="dji-0177-ts.jpg" alt="Aerial view of Warkworth with a tilt-shift effect &mdash; the village inside the loop of the River Coquet looks like a model town, the castle on the neck and the church on the bend with the river drawing a near-complete circle" loading="lazy" />
+      <figcaption>Werce&rsquo;s homestead from the air &mdash; the tilt-shift effect makes the village look like a toy town nesting inside the river&rsquo;s loop. Fine Art Photography &mdash; R Patterson.</figcaption>
+    </figure>
+
+    <p>The Coquet itself rises at <strong>Coquet Head</strong>, on the Anglo-Scottish border in the southern Cheviot Hills, close to the 440-metre contour. It runs roughly 90 km / 56 miles east through Rothbury and across the coastal plain before reaching the sea at Amble &mdash; one mile downstream of Warkworth, and one mile from where the river actually used to meet the sea. In <strong>March 1764</strong>, a violent storm re-routed the river mouth: Amble, formerly a mile inland, woke up the next morning a third of a mile from a brand-new estuary. The Coquet has run that way ever since, and Warkworth and Amble have shared the same lower reaches ever since &mdash; one parish until 1869, two villages along a single bend in a single river that decided, two and a half centuries ago, to take a slightly different path to the sea.</p>
+
+    <p>The Coquet is famous for salmon and sea trout. By long tradition, the first salmon caught each year on the river is presented to the Duke of Northumberland.</p>
+
+    <h2>The Town &mdash; Werceworde, the burgage plots, the bridge</h2>
+
+    <p>Warkworth enters recorded history in <strong>737 AD</strong> as &ldquo;<strong>Werceworde</strong>&rdquo; &mdash; the homestead of Werce &mdash; when King Ceolwulf of Northumbria granted the village and its church to the monks of Lindisfarne. Ceolwulf is the king to whom Bede dedicated his <em>Ecclesiastical History</em>; his charter is the first time the place is named in writing. The Anglo-Saxon &ldquo;-worth&rdquo; suffix means an enclosed settlement, and the personal name Werce attaches it to a specific (otherwise unknown) early lord. Twelve and a half centuries later, the local pronunciation still tells you which syllable to lean on: <strong>WORK-worth</strong>. The first syllable rhymes with &ldquo;work&rdquo;, not &ldquo;war&rdquo;.</p>
+
+    <blockquote>
+      &ldquo;The homestead of Werce.&rdquo;
+      <cite>King Ceolwulf&rsquo;s grant of Warkworth to Lindisfarne, 737 AD.</cite>
+    </blockquote>
+
+    <p>The medieval street plan still survives almost intact. Long, narrow <strong>burgage plots</strong> stretch out from both sides of Castle Street to the back-lanes that follow the loop of the river &mdash; the <strong>Stanners</strong> to the west, <strong>The Butts</strong> to the east. Each plot was originally a single household&rsquo;s burgage tenure under the lord of the castle: a frontage on the trading street, a long strip of land behind for garden, workshop, and animals. Walk Castle Street today and the lines of the medieval town are still legible in the property boundaries.</p>
+
+    <h3>St Lawrence&rsquo;s Church &mdash; the longest Norman nave in Northumberland</h3>
+
+    <p>On the bend itself, where the original Anglo-Saxon church stood, sits <strong>St Lawrence&rsquo;s</strong>: the largest and most complete Norman church surviving anywhere in Northumberland. The present building was raised between roughly 1132 and 1140, on the foundations of the Saxon church Ceolwulf had granted to Lindisfarne four centuries earlier. The nave, at <strong>27.6 metres / 90 feet</strong>, is the longest Norman nave in the county. The chancel is the architectural gem: a stone vault in two quadripartite bays, ribs richly chevroned with zigzag mouldings; the chancel arch itself is unusually austere for Norman work, with palmette and pellet courses but none of the riotous beakhead carving seen further south. The chancel arch is said to stand on the site of the altar of the earlier Saxon church &mdash; an unbroken line of worship of nearly thirteen centuries on a single patch of ground.</p>
+
+    <h3>The fortified bridge &mdash; the only one of its kind left in England</h3>
+
+    <p>At the north end of the village, the medieval bridge over the Coquet is widely cited as <strong>the only surviving medieval fortified bridge in England</strong>. Late 14th century, 61 metres long and 3.5 metres wide, two segmental ribbed arches each spanning 18.4 metres, separated by a central pier with cutwaters and pedestrian refuges above. The fortified gate-tower at the south end is a rectangular block 8.3 m &times; 5.5 m, around 8 metres high, with a guard chamber and an upper room with windows on all four sides &mdash; in effect a small castle planted on the riverbank to control who entered the village from the north.</p>
+
+    <p>The bridge was funded in part by <strong>John Cook of Newcastle</strong>, who died in 1379 leaving 20 marks for the work on condition that it be built within two years. A new road bridge opened immediately to the east in 1965; the medieval bridge is now pedestrian-only, and you can walk it as a Newcastle merchant&rsquo;s posthumous bequest.</p>
+
+    <h2>The Castle &mdash; from Henry of Scotland to a seven-shot surrender</h2>
+
+    <p>Tradition credits <strong>Henry of Scotland</strong>, son of King David I, with raising the first motte-and-bailey at Warkworth in <strong>1139</strong>, after he was made Earl of Northumbria under the Treaty of Durham. Documentary record begins later: between <strong>1157 and 1164</strong>, when <strong>Henry II</strong> granted the castle and manor to <strong>Roger fitz Eustace</strong> (often given as Roger fitz Richard in older accounts), suggesting the stone castle may have been raised in the 1150s as part of Henry II&rsquo;s repossession of Northumberland from the Scottish crown.</p>
+
+    <p>The castle came to the <strong>Percys</strong> in <strong>1332</strong>, when Henry Percy, 2nd Baron Percy, was granted it by Edward III. It became their preferred Northumbrian residence &mdash; even more than Alnwick. <strong>Henry Percy</strong> (the fourth of his name in the family) was made <strong>1st Earl of Northumberland</strong> in 1377 by the new boy-king Richard II. Almost immediately, he commissioned the castle&rsquo;s defining feature: <strong>the cross-shaped Great Tower</strong>, probably designed by the great northern master-mason <strong>John Lewyn</strong>, laid out as a Greek cross with four wings projecting from a central lantern. There is nothing else quite like it in England &mdash; military engineering and architectural showmanship in a single block of stone, four centuries before such a thing should have been possible.</p>
+
+    <figure class="article-image">
+      <img src="warkworth-castle-bw-tinted.jpg" alt="Black-and-white photograph of Warkworth Castle&rsquo;s great tower with a subtle navy tint in the shadows &mdash; the cross-shaped keep stands silhouetted, the deep blacks pick up the brand-navy cast" loading="lazy" />
+      <figcaption>The cross-shaped Great Tower &mdash; commissioned 1377 by the 1st Earl of Northumberland, almost certainly designed by master-mason John Lewyn. The tint sits in the deepest shadows only. Fine Art Photography &mdash; R Patterson.</figcaption>
+    </figure>
+
+    <h3>Hotspur &mdash; born here, killed at Shrewsbury, immortalised by Shakespeare</h3>
+
+    <p><strong>Henry &ldquo;Hotspur&rdquo; Percy</strong>, the 1st Earl&rsquo;s eldest son, grew up inside these walls. He helped depose Richard II and put <strong>Henry IV</strong> on the throne; the Percys then turned on the new king almost immediately. Hotspur was killed at the <strong>Battle of Shrewsbury in 1403</strong>, leading the rebellion against the king he had helped crown. His father rebelled again in 1405. When Henry IV&rsquo;s forces brought cannon to Warkworth, the well-provisioned garrison initially refused to surrender &mdash; then capitulated <strong>after just seven shots</strong>. The castle was forfeited to the Crown, then restored to the Percys by <strong>Henry V in 1416</strong>, and they have held it, on and off, ever since.</p>
+
+    <blockquote>
+      &ldquo;I care not for thee, Kate.&rdquo;
+      <cite>Hotspur to his wife Lady Percy, set at Warkworth Castle. Henry IV Part 1, Act 2 Scene 3.</cite>
+    </blockquote>
+
+    <p>Warkworth Castle is named on stage in <strong>both parts</strong> of <em>Henry IV</em>. Hotspur reads the discouraging letter from a prospective ally at Warkworth in Part 1, Act 2 Scene 3 (the &ldquo;dish of skim milk&rdquo; speech, picking apart the cautious correspondent line by line). The opening of <em>Henry IV Part 2</em> is set explicitly &ldquo;Warkworth. Before the castle.&rdquo; &mdash; Northumberland the father pacing the gatehouse, waiting for word from Shrewsbury that will tell him whether his son is alive or dead.</p>
+
+    <h2>The Hermitage &mdash; a chapel inside a cliff</h2>
+
+    <p>A few hundred metres upstream of the castle, on the north bank of the Coquet, a small chapel and priest&rsquo;s house is <strong>carved directly into the sandstone cliff face</strong>. This is the <strong>Warkworth Hermitage</strong>, one of the best-preserved chantry hermitages in the British Isles. It is not a rough cave &mdash; it is a miniature church cut by skilled stonemasons, with an outer stone-built porch and an inner sanctuary hewn from the rock, comprising chapel, sacristy and chamber, each level still legible.</p>
+
+    <p>Most of the work dates to the late 14th century &mdash; current scholarship places it as a commission of the 1st Earl of Northumberland, who would have employed a live-in priest to say Masses for him and his family. From <strong>1489</strong> onwards, a series of named clergy occupied it as a formal chantry post.</p>
+
+    <p>The romantic version of the story is older and more famous. <strong>Bishop Thomas Percy&rsquo;s 1771 ballad</strong> <em>The Hermit of Warkworth</em> &mdash; subtitled &ldquo;a Northumberland ballad, in three fits or cantos&rdquo; &mdash; tells of a knight of the <strong>Bertram family of Bothal</strong>, who, having accidentally killed his bride-to-be in a tragic mistake of identity, retreated here to live out his days in penitence. Samuel Johnson liked the ballad enough to compose three off-the-cuff parodies of it in the 1780s. The Hermitage is reached by being <strong>rowed across the Coquet</strong> by an English Heritage custodian &mdash; there is no other access, and on a good day with the river running clear and the cliff catching the afternoon light, there is nothing else like it in England.</p>
+
+    <div class="fade-frame">
+      <img class="fade-img active" src="warkworth-river-up-1.jpg" alt="Looking up from the River Coquet at Warkworth Castle &mdash; the great tower silhouetted against the sky, view 1" />
+      <img class="fade-img" src="warkworth-river-up-2.jpg" alt="Looking up from the River Coquet at Warkworth Castle &mdash; the great tower silhouetted against the sky, view 2" loading="lazy" />
+      <img class="fade-img" src="warkworth-river-up-3.jpg" alt="Looking up from the River Coquet at Warkworth Castle &mdash; the great tower silhouetted against the sky, view 3" loading="lazy" />
+      <img class="fade-img" src="warkworth-river-up-4.jpg" alt="Looking up from the River Coquet at Warkworth Castle &mdash; the great tower silhouetted against the sky, view 4" loading="lazy" />
+    </div>
+    <p class="fade-cap">From the river, looking up &mdash; the same view the rowboat sees on the way to the Hermitage. Four frames in slow rotation. Fine Art Photography &mdash; R Patterson.</p>
+
+    <h2>The People &mdash; past and present</h2>
+
+    <h3>Past</h3>
+    <p><strong>Werce</strong>, c. 8th century &mdash; the otherwise-unknown Anglo-Saxon whose enclosure gave the village its name. <strong>King Ceolwulf of Northumbria</strong>, the king to whom Bede dedicated his <em>Ecclesiastical History</em>, granted the church here to Lindisfarne in 737. <strong>Henry of Scotland</strong> (d. 1152), son of David I, the traditional first builder of the castle. <strong>Roger fitz Eustace</strong>, the first documented holder, 1157&ndash;64. <strong>The Percy family</strong>, lords here from 1332 &mdash; most famously <strong>Henry &ldquo;Hotspur&rdquo; Percy</strong> (1364&ndash;1403), born in the castle, killed at Shrewsbury, immortalised by Shakespeare. <strong>The Hermit</strong> &mdash; historically a chantry priest in Percy employ, in legend a Bertram of Bothal in self-imposed penance. <strong>John Cook of Newcastle</strong>, d. 1379, whose bequest part-funded the fortified bridge. <strong>The Coquet salmon-netters and inshore fishermen</strong> &mdash; Warkworth and Amble were a single fishing community well into the 19th century; the parishes were not formally separated until 1869.</p>
+
+    <h3>Present</h3>
+    <p>Population: <strong>1,772 at the 2021 Census</strong> (up from 1,574 in 2011). <strong>Ralph Percy, 12th Duke of Northumberland</strong> (b. 16 November 1956) still owns the castle, with management contracted to English Heritage. The Duke is based at Alnwick Castle; Warkworth and Prudhoe also sit in the family portfolio. His heir, George Percy, Earl Percy, runs an energy company called &mdash; inevitably &mdash; <strong>Hotspur Geothermal</strong>.</p>
+
+    <p>On Castle Street, the <strong>Fenwick Gallery</strong> has been a working painters&rsquo; base for thirty-five years. <strong>Dorien Fenwick</strong> founded it in 1990, painting the weather, the light, and the Northumbrian coastline; her daughter <strong>Nicole Fenwick</strong> works in wildlife and animal painting from the same building. The gallery is one of the most established in north Northumberland and a permanent fixture in the village&rsquo;s contemporary creative life. Beyond the gallery, working life in Warkworth runs on tourism, hospitality, the salmon and inshore fishing tradition kept alive at Amble, and commuters to Morpeth and Newcastle.</p>
+
+    <h2>Painters and the Light</h2>
+
+    <p><strong>J.M.W. Turner</strong> sketched Warkworth on his 1797 northern tour and worked the drawings up into <strong>two finished watercolours, both 1799</strong>. The famous one &mdash; <em>Warkworth Castle, Northumberland &mdash; thunder storm approaching at sunset</em> &mdash; was exhibited at the Royal Academy in 1799 and is in the <strong>Victoria and Albert Museum</strong> in London. A second 1799 watercolour, <em>Warkworth Castle, Sunset</em>, is in the <strong>Beaverbrook Art Gallery</strong> in Fredericton, Canada. Both were among Turner&rsquo;s earliest &ldquo;great&rdquo; landscapes &mdash; he was in his early twenties when he stood on the riverbank and worked them up.</p>
+
+    <p>Turner was the most famous, but he was not the only one. <strong>Bishop Thomas Percy</strong> &mdash; antiquarian, editor of <em>Reliques of Ancient English Poetry</em> (1765), and the man who put the Hermitage into the national imagination with his 1771 ballad &mdash; did more than anyone else to shape the Romantic-era reception of the village. Shakespeare had already named the castle, twice, two centuries earlier. And the modern continuation runs straight on through the door of the Fenwick Gallery on Castle Street, where Dorien Fenwick has been painting Warkworth-light for thirty-five years.</p>
+
+    <h2>Events and traditions</h2>
+
+    <p>The <strong>Warkworth Show</strong> &mdash; the village agricultural and country show, held in the castle grounds &mdash; reaches back well into Victorian times. The 153rd annual show was held on <strong>16 August 2025</strong>. The <strong>first salmon to the Duke</strong> tradition still runs every season. The <strong>Warkworth-to-Amble riverside path</strong>, on the south bank of the Coquet, is one of the loveliest short walks in north Northumberland; the <strong>Warkworth Dunes circular</strong> picks up the seaward side of the same loop. The Hermitage rowboat trips run from the riverbank below the castle in the summer months &mdash; English Heritage custodians do the rowing; you do the looking.</p>
+
+    <div class="info-box">
+      <h3>Visit Warkworth</h3>
+      <p><strong>Warkworth Castle and Hermitage</strong> &mdash; managed by English Heritage. The castle is open year-round (seasonal hours). The Hermitage is open seasonally and is reached only by being rowed across the Coquet by a custodian; boat trips run from the riverbank below the castle in the summer months.</p>
+      <p><strong>St Lawrence&rsquo;s Church</strong> &mdash; the largest and most complete Norman church in Northumberland. The chancel vault with its zigzag-chevroned ribs is the architectural highlight. Open daily.</p>
+      <p><strong>The medieval bridge</strong> &mdash; pedestrian-only since 1965, when the new road bridge opened immediately to the east. Walk it for the only surviving medieval fortified bridge gate-tower in England.</p>
+      <p><strong>Parking</strong> &mdash; castle car park / Castle Street (free / on-street). Small car park at the Dunes / Warkworth Beach picnic site.</p>
+      <p><strong>Walks</strong> &mdash; the riverside path to Amble (~1 mile, easy); Alnmouth-to-Warkworth coast path (~5 miles, on the Northumberland Coast Path / St Oswald&rsquo;s Way).</p>
+      <p><a href="https://www.english-heritage.org.uk/visit/places/warkworth-castle-and-hermitage/" target="_blank" rel="noopener noreferrer">English Heritage &mdash; Warkworth Castle &amp; Hermitage &rarr;</a></p>
+    </div>
+
+    <h2>Further Reading</h2>
+    <div class="links-grid">
+      <a href="https://www.english-heritage.org.uk/visit/places/warkworth-castle-and-hermitage/history/" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">English Heritage &mdash; Castle History</div>
+        <p class="link-card-desc">Full history of Warkworth Castle and Hermitage from Henry of Scotland through the Percys to the present.</p>
+        <span class="link-card-url">english-heritage.org.uk</span>
+      </a>
+      <a href="https://www.english-heritage.org.uk/visit/places/warkworth-castle-and-hermitage/history/virtual-tour/" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">Virtual Tour of the Great Tower</div>
+        <p class="link-card-desc">English Heritage&rsquo;s 360&deg; walkthrough of the cross-shaped keep&rsquo;s interior &mdash; the official complement to the hero pano above.</p>
+        <span class="link-card-url">english-heritage.org.uk</span>
+      </a>
+      <a href="https://en.wikipedia.org/wiki/Warkworth_Castle" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">Warkworth Castle &mdash; Wikipedia</div>
+        <p class="link-card-desc">Overview of the castle&rsquo;s architectural history, the Percy family, and the seven-shot surrender of 1405.</p>
+        <span class="link-card-url">wikipedia.org</span>
+      </a>
+      <a href="https://en.wikipedia.org/wiki/Church_of_St_Lawrence,_Warkworth" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">St Lawrence&rsquo;s Church &mdash; Wikipedia</div>
+        <p class="link-card-desc">The longest Norman nave in Northumberland and its rare quadripartite chancel vault.</p>
+        <span class="link-card-url">wikipedia.org</span>
+      </a>
+      <a href="https://collections.vam.ac.uk/item/O17833/warkworth-castle-northumberland-watercolour-turner-joseph-mallord/" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">Turner&rsquo;s Warkworth Castle (1799) &mdash; V&amp;A</div>
+        <p class="link-card-desc"><em>Warkworth Castle, Northumberland &mdash; thunder storm approaching at sunset.</em> Royal Academy 1799, now in the Victoria &amp; Albert Museum.</p>
+        <span class="link-card-url">collections.vam.ac.uk</span>
+      </a>
+      <a href="https://en.wikipedia.org/wiki/Warkworth_Hermitage" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-card-title">Warkworth Hermitage &mdash; Wikipedia</div>
+        <p class="link-card-desc">The chantry chapel cut into the cliff, the Bertram legend, and Bishop Percy&rsquo;s 1771 ballad.</p>
+        <span class="link-card-url">wikipedia.org</span>
+      </a>
+    </div>
+
+    <h2>Related Articles</h2>
+    <div class="links-grid">
+      <a href="amble.html" class="link-card">
+        <div class="link-card-title">Amble &mdash; the river-mouth twin</div>
+        <div class="link-card-desc">A single parish until 1869. The story of the lower Coquet continues a mile downstream &mdash; Bill Mitchell&rsquo;s telephone box, the Mauretania telegram, the friendliest port in England.</div>
+        <div class="link-card-url">northumberlandarts.com</div>
+      </a>
+      <a href="castles.html" class="link-card">
+        <div class="link-card-title">Northumberland&rsquo;s Castles</div>
+        <div class="link-card-desc">From Bamburgh to Dunstanburgh to Warkworth &mdash; the headland and river fortresses that defined the medieval North.</div>
+        <div class="link-card-url">northumberlandarts.com</div>
+      </a>
+      <a href="castles-timeline.html" class="link-card">
+        <div class="link-card-title">Castles Timeline</div>
+        <div class="link-card-desc">Hotspur&rsquo;s rebellion of 1403, the seven-shot surrender of 1405, and where Warkworth fits into the wider Percy story.</div>
+        <div class="link-card-url">northumberlandarts.com</div>
+      </a>
+      <a href="food-drink.html" class="link-card">
+        <div class="link-card-title">Food &amp; Drink &mdash; Morwick Dairy</div>
+        <div class="link-card-desc">Ice cream from a herd of dairy cows just outside the village. The salted caramel is a permanent fixture for good reason.</div>
+        <div class="link-card-url">northumberlandarts.com</div>
+      </a>
+      <a href="explore.html" class="link-card">
+        <div class="link-card-title">Fenwick Gallery &mdash; 21 Castle Street</div>
+        <div class="link-card-desc">Dorien and Nicole Fenwick &mdash; mother and daughter, landscape and wildlife &mdash; have been painting Warkworth-light from this address since 1990.</div>
+        <div class="link-card-url">northumberlandarts.com</div>
+      </a>
+      <a href="place-names.html" class="link-card">
+        <div class="link-card-title">Pronunciation &mdash; WORK-worth</div>
+        <div class="link-card-desc">First syllable rhymes with &ldquo;work&rdquo;, not &ldquo;war&rdquo;. From the Anglo-Saxon Werceworde &mdash; the homestead of Werce.</div>
+        <div class="link-card-url">northumberlandarts.com</div>
+      </a>
+    </div>
+
+    <div class="credit-box">
+      <strong>Digital Imagery by R Patterson</strong> for <a href="https://northumberlandarts.com">NorthumberlandArts.com</a><br />
+      360&deg; panorama captured April 2026 &mdash; the cross-shaped Great Tower and the Coquet bend. Article researched and written April 2026. Sources include English Heritage, the Victoria &amp; Albert Museum, Bishop Thomas Percy&rsquo;s <em>The Hermit of Warkworth</em> (1771), Shakespeare&rsquo;s <em>Henry IV Parts 1 and 2</em>, and Bede&rsquo;s <em>Ecclesiastical History</em>.
+    </div>
+
+  </article>
+
+  <script>
+    pannellum.viewer('pano-hero', {
+      type: 'equirectangular',
+      panorama: 'warkworth-castle-360.jpg',
+      autoLoad: true,
+      autoRotate: -2,
+      compass: false,
+      showFullscreenCtrl: true,
+      showZoomCtrl: false,
+      hfov: 100,
+      minHfov: 50,
+      maxHfov: 120,
+      orientationOnByDefault: false
+    });
+
+    // River-up gallery — same pattern as the hero rotators on reivers/castles/national-park
+    var fadeImgs = document.querySelectorAll('.fade-img');
+    var fadeIdx = 0;
+    if (fadeImgs.length > 1) {
+      setInterval(function(){
+        fadeImgs[fadeIdx].classList.remove('active');
+        fadeIdx = (fadeIdx + 1) % fadeImgs.length;
+        fadeImgs[fadeIdx].classList.add('active');
+      }, 6000);
+    }
+  </script>
+
+  <footer>
+    <p><a href="index.html">NorthumberlandArts</a> &mdash; Art, History &amp; Culture<br />
+    &copy; 2026 NorthumberlandArts.com &mdash; All rights reserved<br />
+    <a href="mailto:richard@northumberlandarts.com">richard@northumberlandarts.com</a></p>
+  </footer>
+</body>
+</html>
