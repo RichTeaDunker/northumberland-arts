@@ -22,7 +22,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="canonical" href="https://northumberland-arts.pages.dev/tynemouth.html" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pannellum/2.5.6/pannellum.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pannellum/2.5.6/pannellum.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/pannellum/2.5.6/pannellum.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://res.cloudinary.com" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -280,18 +280,20 @@
   </article>
 
   <script>
-    pannellum.viewer('pano-hero', {
-      type: 'equirectangular',
-      panorama: 'claude-KingEddies-360-web.jpg',
-      autoLoad: true,
-      autoRotate: -2,
-      compass: false,
-      showFullscreenCtrl: true,
-      showZoomCtrl: false,
-      hfov: 100,
-      minHfov: 50,
-      maxHfov: 120,
-      orientationOnByDefault: false
+    window.addEventListener('DOMContentLoaded', function(){
+      pannellum.viewer('pano-hero', {
+        type: 'equirectangular',
+        panorama: 'claude-KingEddies-360-web.jpg',
+        autoLoad: true,
+        autoRotate: -2,
+        compass: false,
+        showFullscreenCtrl: true,
+        showZoomCtrl: false,
+        hfov: 100,
+        minHfov: 50,
+        maxHfov: 120,
+        orientationOnByDefault: false
+      });
     });
   </script>
 

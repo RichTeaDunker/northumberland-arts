@@ -22,7 +22,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="canonical" href="https://northumberland-arts.pages.dev/warkworth.html" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pannellum/2.5.6/pannellum.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pannellum/2.5.6/pannellum.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/pannellum/2.5.6/pannellum.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://res.cloudinary.com" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -286,30 +286,32 @@
   </article>
 
   <script>
-    pannellum.viewer('pano-hero', {
-      type: 'equirectangular',
-      panorama: 'warkworth-castle-360.jpg',
-      autoLoad: true,
-      autoRotate: -2,
-      compass: false,
-      showFullscreenCtrl: true,
-      showZoomCtrl: false,
-      hfov: 100,
-      minHfov: 50,
-      maxHfov: 120,
-      orientationOnByDefault: false
-    });
+    window.addEventListener('DOMContentLoaded', function(){
+      pannellum.viewer('pano-hero', {
+        type: 'equirectangular',
+        panorama: 'warkworth-castle-360.jpg',
+        autoLoad: true,
+        autoRotate: -2,
+        compass: false,
+        showFullscreenCtrl: true,
+        showZoomCtrl: false,
+        hfov: 100,
+        minHfov: 50,
+        maxHfov: 120,
+        orientationOnByDefault: false
+      });
 
-    // River-up gallery — same pattern as the hero rotators on reivers/castles/national-park
-    var fadeImgs = document.querySelectorAll('.fade-img');
-    var fadeIdx = 0;
-    if (fadeImgs.length > 1) {
-      setInterval(function(){
-        fadeImgs[fadeIdx].classList.remove('active');
-        fadeIdx = (fadeIdx + 1) % fadeImgs.length;
-        fadeImgs[fadeIdx].classList.add('active');
-      }, 6000);
-    }
+      // River-up gallery — same pattern as the hero rotators on reivers/castles/national-park
+      var fadeImgs = document.querySelectorAll('.fade-img');
+      var fadeIdx = 0;
+      if (fadeImgs.length > 1) {
+        setInterval(function(){
+          fadeImgs[fadeIdx].classList.remove('active');
+          fadeIdx = (fadeIdx + 1) % fadeImgs.length;
+          fadeImgs[fadeIdx].classList.add('active');
+        }, 6000);
+      }
+    });
   </script>
 
   <footer>
